@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekend Heating &amp; Cooling | Furnace, Boiler &amp; Heat Pump Repair, Seattle Area</title>
+<meta name="description" content="Licensed HVAC contractor serving Shoreline, Seattle and the Eastside. Furnace, boiler, heat pump, AC and water heater repair and installation. Open Saturdays and Sundays. Free estimates.">
+<meta name="robots" content="noindex"><!-- preview only: remove when it goes live -->
+<meta property="og:title" content="Weekend Heating & Cooling">
+<meta property="og:description" content="Heating and cooling help that doesn't wait for Monday. Open 7 days, free estimates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d2a24; --ink-2:#2c3d34; --muted:#5f6b64; --line:#e6e0d4;
+  --cream:#fbf7ef; --sand:#f3ecdf; --white:#fff;
+  --pine:#1f4d3a; --pine-2:#2a6650; --sun:#f2a33a; --sun-2:#ffbf5e; --flame:#e2572b;
+  --radius:18px; --shadow:0 12px 32px rgba(29,42,36,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.ph{background:#fff4c2;border-bottom:1px dashed #d4b200;padding:0 4px;border-radius:3px}
+.preview{background:#111;color:#ddd;font-size:13px;text-align:center;padding:8px 16px}
+.preview b{color:#fff}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.02em;color:var(--pine);line-height:1.1}
+.logo small{display:block;font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mark{width:40px;height:40px;border-radius:12px;background:var(--pine);display:grid;place-items:center;flex:none}
+.links{display:flex;gap:26px;font-weight:500;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--pine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;padding:12px 20px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-sun{background:var(--sun);color:#2a1a05}
+.btn-sun:hover{background:var(--sun-2)}
+.btn-pine{background:var(--pine);color:#fff}
+.btn-pine:hover{background:var(--pine-2)}
+.btn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+@media (max-width:880px){.links{display:none}}
+@media (max-width:420px){.nav .btn span{display:none}}
+
+/* hero */
+.hero{background:var(--pine);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:auto -10% -55% auto;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(242,163,58,.35),transparent 65%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:80px;padding-bottom:88px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#7be3a6;box-shadow:0 0 0 4px rgba(123,227,166,.2)}
+.pill.closed i{background:#c9c2b4;box-shadow:none}
+h1{font-size:clamp(36px,5.4vw,62px);line-height:1.04;letter-spacing:-.035em;font-weight:800;margin:20px 0 18px}
+h1 em{font-style:normal;color:var(--sun-2)}
+.lead{font-size:18px;color:#d3e2da;max-width:540px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:14px;color:#d3e2da}
+.facts span{display:flex;align-items:center;gap:7px}
+.facts svg{color:var(--sun-2)}
+
+/* week card */
+.week{background:var(--cream);color:var(--ink);border-radius:24px;padding:26px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.week h3{font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.week .big{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:4px 0 18px;color:var(--pine)}
+.days{display:grid;gap:6px}
+.day{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-radius:12px;background:var(--white);font-size:15px;border:1px solid var(--line)}
+.day b{font-weight:600}
+.day.wknd{background:#fff3df;border-color:#f6d7a6}
+.day.wknd b:after{content:"Weekend";margin-left:8px;font-size:11px;font-weight:700;color:#a25d00;background:#ffe2b3;padding:2px 7px;border-radius:999px;vertical-align:2px}
+.day.today{outline:2px solid var(--pine);outline-offset:-1px}
+.week .note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* sections */
+section{padding:84px 0}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--flame)}
+h2{font-size:clamp(28px,3.6vw,42px);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin:10px 0 14px;color:var(--ink)}
+.sub{color:var(--muted);font-size:17px;max-width:620px}
+.head{margin-bottom:40px}
+
+/* strip */
+.strip{background:var(--white);border-bottom:1px solid var(--line);padding:22px 0}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 28px;font-weight:600;font-size:15px;color:var(--ink-2)}
+.strip span{display:flex;align-items:center;gap:8px}
+.strip svg{color:var(--pine-2)}
+.stars{color:var(--sun);letter-spacing:1px}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:#e8f1ec;color:var(--pine);margin-bottom:16px}
+.card h3{font-size:19px;letter-spacing:-.01em;margin-bottom:8px}
+.card p{color:var(--muted);font-size:15px}
+.card ul{list-style:none;margin-top:14px;display:grid;gap:6px;font-size:14px;color:var(--ink-2)}
+.card li:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sun);margin-right:10px;vertical-align:2px}
+.card.dark{background:var(--pine);color:#fff;border-color:var(--pine)}
+.card.dark p{color:#d3e2da}
+.card.dark .ic{background:rgba(255,255,255,.12);color:var(--sun-2)}
+.card.dark .btn{margin-top:18px}
+
+/* why */
+.why{background:var(--sand)}
+.why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.points{display:grid;gap:14px}
+.pt{display:flex;gap:16px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.pt .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sun);color:#2a1a05;display:grid;place-items:center;font-weight:800}
+.pt h4{font-size:16px;margin-bottom:2px}
+.pt p{color:var(--muted);font-size:14.5px}
+.quote{background:var(--pine);color:#fff;border-radius:24px;padding:34px;position:relative}
+.quote .stars{font-size:20px}
+.quote blockquote{font-size:20px;line-height:1.5;font-weight:500;margin:14px 0 18px;letter-spacing:-.01em}
+.quote cite{font-style:normal;color:#d3e2da;font-size:14px}
+.quote .ph{color:var(--ink)}
+.rating{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.15)}
+.rating b{font-size:34px;font-weight:800;letter-spacing:-.03em}
+.rating span{font-size:14px;color:#d3e2da;line-height:1.35}
+
+/* area */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:var(--white);border:1px solid var(--line);padding:10px 16px;border-radius:999px;font-weight:600;font-size:15px}
+.chip.home{background:var(--pine);color:#fff;border-color:var(--pine)}
+
+/* pay */
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+.pay .card h3{display:flex;align-items:center;gap:10px}
+.cards-acc{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.cards-acc span{font-size:13px;font-weight:600;padding:6px 10px;border-radius:8px;background:var(--sand);color:var(--ink-2)}
+
+/* contact */
+.contact{background:var(--pine);color:#fff}
+.contact h2{color:#fff}
+.contact .sub{color:#d3e2da}
+.c-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.c-list{display:grid;gap:12px;margin-top:28px}
+.c-item{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 16px}
+.c-item svg{color:var(--sun-2);flex:none}
+.c-item small{display:block;color:#b9cec3;font-size:12.5px}
+.c-item b{font-weight:600;word-break:break-word}
+form{background:var(--cream);color:var(--ink);border-radius:22px;padding:28px;display:grid;gap:14px}
+form h3{font-size:20px;letter-spacing:-.01em}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{font-size:13px;font-weight:600;color:var(--ink-2);display:grid;gap:6px}
+input,select,textarea{font:inherit;font-size:15px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--white);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pine-2);border-color:transparent}
+textarea{min-height:96px;resize:vertical}
+.sent{display:none;background:#e3f4ea;color:var(--pine);font-weight:600;padding:12px 14px;border-radius:12px;font-size:14px}
+
+footer{background:#16362a;color:#a9c0b4;font-size:14px;padding:28px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* mobile call bar */
+.callbar{display:none}
+@media (max-width:880px){
+  .hero-grid,.why-grid,.c-grid{grid-template-columns:1fr;gap:36px}
+  .hero-grid{padding-top:52px;padding-bottom:60px}
+  .svc{grid-template-columns:1fr 1fr}
+  section{padding:64px 0}
+}
+@media (max-width:600px){
+  .svc,.pay,.row{grid-template-columns:1fr}
+  .lead{font-size:17px}
+  .strip .wrap{justify-content:flex-start}
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px}
+  .callbar a{flex:1;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+  footer{padding-bottom:90px}
+}
+</style>
+</head>
+<body>
+
+<div class="preview"><b>Website preview</b> — a concept built for Weekend Heating &amp; Cooling. Highlighted items are placeholders to confirm with the owner.</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">
+      <span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.6 2-4.6.3 1.6 1.1 2.6 2.2 3C10.6 8 11 4.6 12 2Z" fill="#f2a33a"/><path d="M12 22a3 3 0 0 1-3-3c0-1.8 1.6-2.7 3-4.5 1.4 1.8 3 2.7 3 4.5a3 3 0 0 1-3 3Z" fill="#ffd79a"/></svg></span>
+      <span>Weekend Heating<small>&amp; Cooling · Seattle area</small></span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#why">Why us</a>
+      <a href="#area">Service area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-pine" href="tel:+12063764301"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg><span>(206) 376-4301</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill" id="openPill"><i></i><span id="openText">Open 7 days a week</span></span>
+        <h1>Heat out on a Saturday? <em>We're open.</em></h1>
+        <p class="lead">Licensed furnace, boiler, heat pump and AC service for Shoreline, Seattle and the Eastside. We return calls within hours, not days, weekends included.</p>
+        <div class="cta">
+          <a class="btn btn-sun" href="tel:+12063764301">Call (206) 376-4301</a>
+          <a class="btn btn-line" href="#contact">Get a free estimate</a>
+        </div>
+        <div class="facts">
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5L20 7"/></svg>Licensed in WA</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5L20 7"/></svg>Free estimates</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 12 5 5L20 7"/></svg>Financing available</span>
+        </div>
+      </div>
+
+      <div class="week" aria-label="Business hours">
+        <h3>Hours</h3>
+        <div class="big">Saturdays and Sundays too</div>
+        <div class="days" id="days">
+          <div class="day" data-d="1"><b>Monday</b><span>8 am – 7 pm</span></div>
+          <div class="day" data-d="2"><b>Tuesday</b><span>8 am – 7 pm</span></div>
+          <div class="day" data-d="3"><b>Wednesday</b><span>8 am – 7 pm</span></div>
+          <div class="day" data-d="4"><b>Thursday</b><span>8 am – 7 pm</span></div>
+          <div class="day" data-d="5"><b>Friday</b><span>8 am – 7 pm</span></div>
+          <div class="day wknd" data-d="6"><b>Saturday</b><span>10 am – 7 pm</span></div>
+          <div class="day wknd" data-d="0"><b>Sunday</b><span>10 am – 7 pm</span></div>
+        </div>
+        <p class="note">Service calls scheduled around you, not around Monday morning.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <span><span class="stars">★★★★★</span> 5.0 on Google</span>
+      <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/></svg>WA Lic# WEEKEHC830QZ</span>
+      <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Calls returned within hours</span>
+      <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/></svg>Cards &amp; mobile pay accepted</span>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <div class="kicker">Services</div>
+        <h2>Repair, replacement and new installs</h2>
+        <p class="sub">From a furnace that won't light to a whole-home heat pump, we handle small fixes and bigger projects.</p>
+      </div>
+      <div class="svc">
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8"/><path d="M10 17c0-1 1-1.5 2-3 1 1.5 2 2 2 3a2 2 0 0 1-4 0Z"/></svg></div>
+          <h3>Furnaces &amp; ducted heating</h3>
+          <p>Repair and replacement for gas and electric furnaces and air handlers.</p>
+          <ul><li>Gas &amp; electric furnaces</li><li>Dual-fuel heat pump systems</li><li>Air quality &amp; purification</li></ul>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/><path d="M7 4v16M17 4v16"/></svg></div>
+          <h3>Boilers &amp; hydronic heat</h3>
+          <p>New boiler installs and replacements, plus repair on existing systems.</p>
+          <ul><li>Gas, electric &amp; combi boilers</li><li>Hydronic system design</li><li>Radiators</li></ul>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="8" rx="2"/><path d="M7 17c0 1.5-1 2-1 3M12 17v3M17 17c0 1.5 1 2 1 3"/></svg></div>
+          <h3>Heat pumps &amp; ductless</h3>
+          <p>Efficient heating and cooling in one system, with or without ducts.</p>
+          <ul><li>Air-to-air, air-to-water, geothermal</li><li>Single &amp; multi-zone mini splits</li><li>Wall, ceiling cassette &amp; floor units</li></ul>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2 19 19M5 19l2.8-2.8M16.2 7.8 19 5"/></svg></div>
+          <h3>Air conditioning</h3>
+          <p>AC repair and installation so the next heat wave isn't a problem.</p>
+          <ul><li>Central air</li><li>Ductless cooling</li><li>Seasonal maintenance</li></ul>
+        </div>
+        <div class="card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M10 9h4M12 13v4"/></svg></div>
+          <h3>Water heaters</h3>
+          <p>Hot water back fast, with tank and tankless options.</p>
+          <ul><li>Gas &amp; electric tank heaters</li><li>Tankless water heaters</li><li>Gas piping, new or retrofit</li></ul>
+        </div>
+        <div class="card dark">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
+          <h3>Not sure what you need?</h3>
+          <p>Tell us what's going on and we'll give you a free estimate. Financing is available on larger jobs.</p>
+          <a class="btn btn-sun" href="#contact">Request an estimate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap why-grid">
+      <div>
+        <div class="kicker">Why Weekend</div>
+        <h2>Local, licensed, and actually available</h2>
+        <p class="sub" style="margin-bottom:26px">Heating trouble doesn't keep business hours. That's the whole idea behind the name.</p>
+        <div class="points">
+          <div class="pt"><span class="n">1</span><div><h4>We call back fast</h4><p>Calls are returned within hours, not days, including Saturdays and Sundays.</p></div></div>
+          <div class="pt"><span class="n">2</span><div><h4>On time, on your schedule</h4><p>Service calls are booked at a time that works for you.</p></div></div>
+          <div class="pt"><span class="n">3</span><div><h4>Professional and safe</h4><p>Licensed HVAC contractor in Washington (WEEKEHC830QZ).</p></div></div>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote><span class="ph">Paste a real Google review here, with the customer's permission.</span></blockquote>
+        <cite><span class="ph">Customer first name, neighborhood</span></cite>
+        <div class="rating">
+          <b>5.0</b>
+          <span>Average Google rating<br><span class="ph">11</span> reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="area">
+    <div class="wrap">
+      <div class="head">
+        <div class="kicker">Service area</div>
+        <h2>North Seattle to the Eastside</h2>
+        <p class="sub">Every service is available in each of these cities.</p>
+      </div>
+      <div class="chips">
+        <span class="chip home">Shoreline</span><span class="chip">Seattle</span><span class="chip">Edmonds</span><span class="chip">Lynnwood</span><span class="chip">Mountlake Terrace</span><span class="chip">Kenmore</span><span class="chip">Bothell</span><span class="chip">Kirkland</span><span class="chip">Bellevue</span><span class="chip">Medina</span><span class="chip">Mercer Island</span><span class="chip">Issaquah</span>
+      </div>
+      <div class="pay">
+        <div class="card">
+          <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pine)" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Financing available</h3>
+          <p>Spread the cost of a new furnace, boiler or heat pump over time. Ask about options when you get your estimate. <span class="ph">Financing partner / terms</span></p>
+        </div>
+        <div class="card">
+          <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pine)" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Easy payment</h3>
+          <div class="cards-acc"><span>Visa</span><span>Mastercard</span><span>Amex</span><span>Discover</span><span>Apple Pay</span><span>Google Pay</span><span>Samsung Pay</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap c-grid">
+      <div>
+        <div class="kicker" style="color:var(--sun-2)">Contact</div>
+        <h2>Get a free estimate</h2>
+        <p class="sub">Call or text for the fastest answer, or send the form and we'll get back to you within hours.</p>
+        <div class="c-list">
+          <a class="c-item" href="tel:+12063764301"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg><div><small>Phone</small><b>(206) 376-4301</b></div></a>
+          <a class="c-item" href="mailto:weekendheating@gmail.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div><small>Email</small><b>weekendheating@gmail.com</b></div></a>
+          <div class="c-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>Hours</small><b>Mon–Fri 8–7 · Sat–Sun 10–7</b></div></div>
+        </div>
+      </div>
+      <form id="form">
+        <h3>Tell us what's going on</h3>
+        <div class="row">
+          <label>Name<input required name="name" autocomplete="name"></label>
+          <label>Phone<input required name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <div class="row">
+          <label>City<select name="city"><option>Shoreline</option><option>Seattle</option><option>Edmonds</option><option>Lynnwood</option><option>Mountlake Terrace</option><option>Kenmore</option><option>Bothell</option><option>Kirkland</option><option>Bellevue</option><option>Medina</option><option>Mercer Island</option><option>Issaquah</option></select></label>
+          <label>Service<select name="service"><option>Repair</option><option>Replacement</option><option>New installation</option><option>Maintenance</option></select></label>
+        </div>
+        <label>Details<textarea name="msg" placeholder="e.g. Furnace is running but blowing cold air"></textarea></label>
+        <button class="btn btn-pine" type="submit">Send request</button>
+        <div class="sent" id="sent">Thanks! In the live site this sends straight to your inbox.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Weekend Heating &amp; Cooling LLC · WA Lic# WEEKEHC830QZ</span>
+    <span>Serving Shoreline, Seattle &amp; the Eastside</span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-sun" href="tel:+12063764301">Call now</a>
+  <a class="btn btn-pine" href="#contact">Free estimate</a>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Open/closed status in Seattle time
+(function(){
+  const parts = new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+  const get = t => parts.find(p => p.type === t).value;
+  const day = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(get('weekday'));
+  const h = (+get('hour') % 24) + (+get('minute')) / 60;
+  const openAt = (day === 0 || day === 6) ? 10 : 8, closeAt = 19;
+  const open = h >= openAt && h < closeAt;
+  const el = document.querySelector('.day[data-d="'+day+'"]');
+  if (el) el.classList.add('today');
+  const pill = document.getElementById('openPill'), txt = document.getElementById('openText');
+  if (open) txt.textContent = 'Open now · until 7 pm today';
+  else { pill.classList.add('closed'); txt.textContent = 'Closed now · open 7 days a week'; }
+})();
+
+// Form (preview only)
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  document.getElementById('sent').style.display = 'block';
+});
+</script>
+</body>
+</html>
