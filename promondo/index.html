@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promondo | Seattle General Contractor: Remodels, Build-Outs &amp; Maintenance</title>
+<meta name="description" content="Promondo is a boutique Seattle general contractor founded by brothers Joe and Mateo Monda. Residential remodels, commercial tenant improvements and property maintenance across Greater Seattle. Free estimates.">
+<meta name="robots" content="noindex"><!-- preview only: remove when it goes live -->
+<meta property="og:title" content="Promondo: Seattle General Contractor">
+<meta property="og:description" content="From a lightbulb to a full remodel. We're always around.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1d1f; --ink-2:#3a3e42; --muted:#666b70; --line:#e5e2dc;
+  --bg:#f6f4f0; --white:#fff;
+  --night:#16191c; --night-2:#22272b;
+  --brick:#c4532d; --brick-2:#dd6a41; --brick-soft:#f8e7df;
+  --sky:#7b9fb3;
+  --radius:16px; --shadow:0 14px 34px rgba(27,29,31,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.ph{background:#fff4c2;border-bottom:1px dashed #d4b200;padding:0 4px;border-radius:3px;color:#3a3000}
+.preview{background:#000;color:#ccc;font-size:13px;text-align:center;padding:8px 16px}
+.preview b{color:#fff}
+
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-weight:800;font-size:20px;letter-spacing:.14em;display:flex;align-items:center;gap:10px}
+.logo .mk{width:34px;height:34px;border-radius:9px;background:var(--brick);display:grid;place-items:center;color:#fff}
+.links{display:flex;gap:26px;font-weight:500;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;padding:13px 20px;border-radius:11px;border:0;cursor:pointer;font-family:inherit;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-brick{background:var(--brick);color:#fff;box-shadow:0 8px 20px rgba(196,83,45,.28)}
+.btn-brick:hover{background:var(--brick-2)}
+.btn-dark{background:var(--night);color:#fff}
+.btn-line{color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-line:hover{background:rgba(255,255,255,.08)}
+@media (max-width:900px){.links{display:none}}
+@media (max-width:420px){.nav .btn span{display:none}}
+
+/* hero */
+.hero{background:var(--night);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(180deg,#000 30%,transparent)}
+.skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;opacity:.9}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding-top:80px;padding-bottom:150px}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.04em;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:6px 12px;border-radius:999px;color:#d8dcdf}
+.kick i{width:8px;height:8px;border-radius:50%;background:var(--brick-2)}
+h1{font-size:clamp(38px,5.6vw,66px);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin:20px 0 18px}
+h1 em{font-style:normal;color:var(--brick-2)}
+.lead{font-size:18px;color:#b9c0c5;max-width:540px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.range{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:22px;padding:26px}
+.range h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#9aa3a9;margin-bottom:16px;font-weight:700}
+.scale{display:grid;gap:8px}
+.scale div{display:flex;flex-direction:column;gap:1px;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.05);font-size:15px;font-weight:600;line-height:1.35}
+.scale div span{font-size:12.5px;font-weight:500;color:#9aa3a9}
+.scale div:nth-child(1){margin-right:24%}
+.scale div:nth-child(2){margin-right:16%}
+.scale div:nth-child(3){margin-right:8%}
+.scale div:nth-child(4){background:var(--brick);}
+.scale div:nth-child(4) span{color:#ffe3d7}
+.range p{font-size:13.5px;color:#9aa3a9;margin-top:14px}
+
+/* strip */
+.strip{border-bottom:1px solid var(--line);padding:22px 0}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px 28px;font-weight:600;font-size:14.5px;color:var(--ink-2)}
+.strip span{display:flex;align-items:center;gap:9px}
+.strip svg{color:var(--brick);flex:none}
+
+section{padding:84px 0}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brick)}
+h2{font-size:clamp(28px,3.6vw,42px);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin:10px 0 14px}
+.sub{color:var(--muted);font-size:17px;max-width:640px}
+.head{margin-bottom:40px}
+
+/* services */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pillar{border:1px solid var(--line);border-radius:var(--radius);padding:28px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.pillar .ic{width:48px;height:48px;border-radius:12px;background:var(--brick-soft);color:var(--brick);display:grid;place-items:center;margin-bottom:16px}
+.pillar h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.pillar>p{color:var(--muted);font-size:15px}
+.pillar ul{list-style:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:8px}
+.pillar li{display:flex;gap:9px;font-size:14.5px;color:var(--ink-2)}
+.pillar li::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--brick);margin-top:9px;flex:none}
+.joke{margin-top:22px;background:var(--bg);border-radius:var(--radius);padding:18px 22px;display:flex;gap:14px;align-items:center;font-size:15px;color:var(--ink-2)}
+.joke b{color:var(--ink)}
+
+/* work */
+.work{background:var(--bg)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.proj .img{aspect-ratio:4/3;display:grid;place-items:center;color:rgba(255,255,255,.75);font-size:13px;font-weight:600;letter-spacing:.04em;position:relative}
+.proj .img svg{opacity:.35;position:absolute;inset:0;width:100%;height:100%}
+.proj .img span{position:relative}
+.proj .meta{padding:16px 18px}
+.proj .tag{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brick)}
+.proj h3{font-size:17px;letter-spacing:-.01em;margin-top:2px}
+.proj p{font-size:14px;color:var(--muted)}
+.more{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.more b{font-size:14px;margin-right:6px}
+.more span{font-size:14px;font-weight:500;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.bro{border:1px solid var(--line);border-radius:22px;padding:30px}
+.bro .av{width:58px;height:58px;border-radius:50%;background:var(--night);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;margin-bottom:16px}
+.bro h3{font-size:21px;letter-spacing:-.02em}
+.bro .role{font-size:13.5px;font-weight:600;color:var(--brick);margin-bottom:12px}
+.bro p{color:var(--ink-2);font-size:15.5px}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:40px}
+.intro p{color:var(--ink-2);font-size:17px}
+
+/* team */
+.team{background:var(--night);color:#fff}
+.team h2{color:#fff}
+.team .sub{color:#aab2b8}
+.crew{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.crew>div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:24px}
+.crew h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--brick-2);margin-bottom:12px}
+.crew ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.crew li{font-size:14.5px;padding:7px 12px;border-radius:9px;background:rgba(255,255,255,.07)}
+.join{margin-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;border-radius:var(--radius);background:var(--brick)}
+.join b{font-size:18px}
+.join p{font-size:14.5px;color:#ffe3d7}
+.join .btn{background:#fff;color:var(--brick)}
+
+/* reviews */
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rcard{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:#fff}
+.stars{color:#e3a224;letter-spacing:1px}
+.rcard p{margin:10px 0 14px;font-size:15.5px;color:var(--ink-2)}
+.rcard cite{font-style:normal;font-size:14px;color:var(--muted)}
+
+/* areas */
+.areas{background:var(--bg)}
+.hoods{display:flex;flex-wrap:wrap;gap:10px}
+.hoods span{font-weight:600;font-size:15px;padding:10px 16px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.hoods span.dt{background:var(--night);color:#fff;border-color:var(--night)}
+
+/* contact */
+.c-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.c-list{display:grid;gap:12px;margin-top:26px}
+.c-item{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:14px}
+.c-item svg{color:var(--brick);flex:none;margin-top:2px}
+.c-item small{display:block;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.c-item b{font-size:16px;word-break:break-word}
+form{background:var(--bg);border-radius:22px;padding:28px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
+form h3{grid-column:1/-1;font-size:20px;letter-spacing:-.02em}
+label{display:grid;gap:6px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+label.full{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid #d6d2ca;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brick);outline-offset:1px;border-color:transparent}
+textarea{min-height:110px;resize:vertical}
+form .btn{grid-column:1/-1}
+.fine{grid-column:1/-1;font-size:13px;color:var(--muted)}
+
+footer{background:var(--night);color:#9aa3a9;padding:44px 0 28px;font-size:14.5px}
+.f-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+footer .logo{color:#fff;margin-bottom:10px}
+footer a:hover{color:#fff}
+.f-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:28px;padding-top:18px;font-size:13px}
+
+.callbar{display:none}
+@media (max-width:900px){
+  .hero-grid,.intro,.c-grid{grid-template-columns:1fr;gap:32px}
+  .hero-grid{padding-top:56px;padding-bottom:120px}
+  .pillars,.projects,.rev,.crew{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .pillars,.projects,.rev,.crew,.about-grid,form{grid-template-columns:1fr}
+  .strip .wrap{display:grid;grid-template-columns:1fr 1fr}
+  .scale div:nth-child(n){margin-right:0}
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px}
+  .callbar .btn{flex:1;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+  footer{padding-bottom:90px}
+}
+</style>
+</head>
+<body>
+
+<div class="preview"><b>Preview</b> · draft redesign for Promondo · highlighted items need to be confirmed</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><span class="mk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M6 10v10h12V10"/></svg></span>PROMONDO</a>
+    <nav class="links"><a href="#services">Services</a><a href="#work">Our Work</a><a href="#about">About</a><a href="#areas">Areas</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-brick" href="tel:+12063342285"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg><span>(206) 334-2285</span></a>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kick"><i></i>Seattle general contractor · family-run</span>
+      <h1>Remodels, build-outs &amp; repairs. <em>We're always around.</em></h1>
+      <p class="lead">Promondo is a boutique construction company founded by native Seattleites Joe and Mateo Monda. We maintain and remodel homes and commercial spaces downtown and across Greater Seattle.</p>
+      <div class="cta">
+        <a class="btn btn-brick" href="#contact">Get a free estimate</a>
+        <a class="btn btn-line" href="#work">See our work</a>
+      </div>
+    </div>
+    <div class="range" aria-label="Job sizes we take on">
+      <h3>No job too small, or too large</h3>
+      <div class="scale">
+        <div>Lightbulb swap<span>studio condo</span></div>
+        <div>Fixture &amp; repair<span>disposals, bidets, locks</span></div>
+        <div>Kitchen or bath<span>full remodel</span></div>
+        <div>Whole house or build-out<span>3-story homes, restaurants</span></div>
+      </div>
+      <p>One crew for the whole range, so the people who remodeled your kitchen are the ones who fix the faucet later.</p>
+    </div>
+  </div>
+  <svg class="skyline" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#22272b" d="M0 120V92h60V78h40v14h50V60h30v32h70V70h24V40h8V20l6-14 6 14v20h8v30h24v22h80V56h50v36h60V74h36v18h90V50h20V30h40v20h20v42h70V64h50v28h60V80h40v12h90V58h44v34h80V72h40v20h70V86h60v34Z"/>
+    <path fill="#fff" d="M0 120v-10c240-14 480-14 720-6s480 8 720-4v20Z"/>
+  </svg>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 11 12 4l9 7v9H3z"/></svg>Residential remodels</span>
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></svg>Commercial build-outs</span>
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>Ongoing maintenance</span>
+    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Greater Seattle</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">What we do</div>
+      <h2>Three kinds of work, one crew</h2>
+      <p class="sub">Homes, businesses, and the upkeep in between.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div>
+        <h3>Residential remodels</h3>
+        <p>Craftsman homes, condos and high-rises. We take on single rooms or the whole house.</p>
+        <ul><li>Kitchen remodels</li><li>Bathroom remodels</li><li>Whole-home renovations</li><li>Condo &amp; high-rise updates</li></ul>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18l-2-5H5z"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>Commercial build-outs</h3>
+        <p>Extensive experience with tenant improvements and custom build-outs for local businesses.</p>
+        <ul><li>Restaurants &amp; bars</li><li>Retail stores</li><li>Office spaces</li><li>Tenant improvements</li></ul>
+      </div>
+      <div class="pillar">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
+        <h3>Maintenance &amp; repairs</h3>
+        <p>For homeowners, property managers and businesses that need someone reliable on call.</p>
+        <ul><li>General repairs &amp; fixes</li><li>Security updates</li><li>Bidet seat installs</li><li>Garbage disposals &amp; fixtures</li></ul>
+      </div>
+    </div>
+    <div class="joke"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c4532d" stroke-width="2"><path d="M12 7c-1-3-5-3-6 0-1.5 4 1 11 4 12 1 .3 1.5-.3 2-.3s1 .6 2 .3c3-1 5.5-8 4-12-1-3-5-3-6 0Z"/><path d="M12 7c0-2 1-3 2-4"/></svg><span><b>A garbage disposal is not a garbage can.</b> An apple a day may keep the doctor away, but it will destroy your disposal. When it does, call us.</span></div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Our work</div>
+      <h2>Projects around Seattle</h2>
+      <p class="sub">A few recent jobs, from Craftsman homes to cider taprooms.</p>
+    </div>
+    <div class="projects">
+      <div class="proj"><div class="img" style="background:linear-gradient(135deg,#7a5a43,#3d2c22)"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><path d="M20 75V40l30-22 30 22v35" fill="none" stroke="#fff" stroke-width=".8"/></svg><span class="ph">project photo</span></div><div class="meta"><div class="tag">Residential</div><h3>Craftsman Remodel</h3><p>Madrona</p></div></div>
+      <div class="proj"><div class="img" style="background:linear-gradient(135deg,#9a4a2a,#4a2414)"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><path d="M10 75V30h80v45M10 45h80" fill="none" stroke="#fff" stroke-width=".8"/></svg><span class="ph">project photo</span></div><div class="meta"><div class="tag">Commercial</div><h3>Schilling Cider Tasting Room</h3><p>Fremont</p></div></div>
+      <div class="proj"><div class="img" style="background:linear-gradient(135deg,#5d7a8a,#2a3a44)"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><path d="M30 75V10h40v65M30 25h40M30 40h40M30 55h40" fill="none" stroke="#fff" stroke-width=".8"/></svg><span class="ph">project photo</span></div><div class="meta"><div class="tag">Residential</div><h3>Madison Park Condominium</h3><p>Madison Park</p></div></div>
+      <div class="proj"><div class="img" style="background:linear-gradient(135deg,#6f7d6a,#323a30)"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><path d="M15 75V38l35-24 35 24v37" fill="none" stroke="#fff" stroke-width=".8"/></svg><span class="ph">project photo</span></div><div class="meta"><div class="tag">Residential</div><h3>Capitol Hill Craftsman</h3><p>Capitol Hill</p></div></div>
+      <div class="proj"><div class="img" style="background:linear-gradient(135deg,#8c7a6a,#3f362e)"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><path d="M10 60h80M25 60V35h50v25" fill="none" stroke="#fff" stroke-width=".8"/></svg><span class="ph">project photo</span></div><div class="meta"><div class="tag">Residential</div><h3>Lower Queen Anne "Fantasy Bath"</h3><p>Lower Queen Anne</p></div></div>
+      <div class="proj"><div class="img" style="background:linear-gradient(135deg,#434b52,#1b1f22)"><svg viewBox="0 0 100 75" preserveAspectRatio="none"><path d="M5 75V25h90v50M5 40h90" fill="none" stroke="#fff" stroke-width=".8"/></svg><span class="ph">project photo</span></div><div class="meta"><div class="tag">Commercial</div><h3>Sub Pop Office Remodel</h3><p>Seattle</p></div></div>
+    </div>
+    <div class="more"><b>Also:</b><span>Broadmoor Colonial</span><span>High-Rise Condo</span><span>MOES Home Collection</span><span>DEI Creative</span><span>The Mill on First Hill</span><span>Dabble Drop-In Art Studio</span><span>Greenworks</span></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <div class="kicker">About</div>
+        <h2>Two brothers who grew up here</h2>
+      </div>
+      <p>Building things is our passion. We founded Promondo to take part in rebuilding modern-day Seattle, and we're grateful for every project that lets us do it.</p>
+    </div>
+    <div class="about-grid">
+      <div class="bro">
+        <div class="av">JM</div>
+        <h3>Joe Monda</h3>
+        <div class="role">Co-owner</div>
+        <p>Born and raised on Capitol Hill, Joe studied history at Seattle University. That led him to Seattle's landmark buildings, including the Loveless Building, where he was manager and head of maintenance. His interest in preserving property grew into Promondo, a maintenance and remodel business for downtown's new entrepreneurs and for Seattle homes.</p>
+      </div>
+      <div class="bro">
+        <div class="av">MM</div>
+        <h3>Matt "Mateo" Monda</h3>
+        <div class="role">Co-owner</div>
+        <p>After graduating from the University of Washington, Mateo founded Mondo Caffé in Guadalajara, where he became known as a pioneer of gourmet coffee in Western Mexico. He handled concept, design, construction and upkeep of every café and restaurant he opened. After selling the business, he came home to Seattle and joined Joe to grow Promondo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" style="color:var(--brick-2)">Our crew</div>
+      <h2>There's no "I" in team</h2>
+      <p class="sub">The people you'll actually work with.</p>
+    </div>
+    <div class="crew">
+      <div><h3>Project management</h3><ul><li>Joe Monda</li><li>Matt Monda</li><li>Ben Watts</li><li>Holton Halfaker</li><li>Tim Ripley</li></ul></div>
+      <div><h3>Specialists</h3><ul><li>Marc O'Brien</li><li>Marcos Sanchez</li><li>Matt Irwin</li><li>Manuel Cortez</li><li>Juan José Toscano</li><li>Mike Ripley</li><li>Iain Brixey</li></ul></div>
+      <div><h3>Administration</h3><ul><li>Liz Murphy</li><li>Sherrie Vigil</li><li>Monica Monda</li><li>Erika Monda</li><li>Fatima Lopez-Villanueva</li><li>Jim Keegan</li></ul></div>
+    </div>
+    <div class="join">
+      <div><b>Join our team</b><p>We're looking for skilled people who take pride in their work.</p></div>
+      <a class="btn" href="mailto:info@alwaysdowntown.com?subject=Joining%20the%20Promondo%20team">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Reviews</div>
+      <h2>What clients say</h2>
+    </div>
+    <div class="rev">
+      <div class="rcard"><span class="stars">★★★★★</span><p><span class="ph">Real client review #1 (Google/Yelp, with permission).</span></p><cite><span class="ph">Name, neighborhood</span></cite></div>
+      <div class="rcard"><span class="stars">★★★★★</span><p><span class="ph">Real client review #2.</span></p><cite><span class="ph">Name, business</span></cite></div>
+      <div class="rcard"><span class="stars">★★★★★</span><p><span class="ph">Real client review #3.</span></p><cite><span class="ph">Name, neighborhood</span></cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Where we work</div>
+      <h2>Downtown and all over Greater Seattle</h2>
+      <p class="sub">Businesses in the city core, and homes in Seattle's older neighborhoods.</p>
+    </div>
+    <div class="hoods">
+      <span class="dt">Downtown</span><span class="dt">South Lake Union</span><span class="dt">Fremont</span><span class="dt">Ballard</span>
+      <span>Capitol Hill</span><span>Queen Anne</span><span>Magnolia</span><span>Madison Park</span><span>Madrona</span><span>First Hill</span><span>Broadmoor</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap c-grid">
+    <div>
+      <div class="kicker">Contact</div>
+      <h2>Get your free estimate</h2>
+      <p class="sub">Big project or small fix, tell us what you need. We're always around.</p>
+      <div class="c-list">
+        <a class="c-item" href="tel:+12063342285"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg><div><small>Phone</small><b>(206) 334-2285</b></div></a>
+        <a class="c-item" href="mailto:info@alwaysdowntown.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div><small>Email</small><b>info@alwaysdowntown.com</b></div></a>
+        <div class="c-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><small>Office</small><b>937 NE Boat Street, Seattle, WA 98105</b></div></div>
+        <div class="c-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>Hours</small><b><span class="ph">Mon–Fri, 8 am – 5 pm</span></b></div></div>
+      </div>
+    </div>
+    <form id="estimate">
+      <h3>Request an estimate</h3>
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+      <label class="full">Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Project type<select name="type"><option>Residential remodel</option><option>Commercial build-out</option><option>Maintenance / repair</option><option>Something else</option></select></label>
+      <label>Neighborhood<input name="hood" placeholder="e.g. Capitol Hill"></label>
+      <label class="full">Tell us about it<textarea name="msg" placeholder="What needs doing, and roughly when?"></textarea></label>
+      <button class="btn btn-brick" type="submit">Send request</button>
+      <p class="fine">Opens your email app with the details filled in.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><div class="logo"><span class="mk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M6 10v10h12V10"/></svg></span>PROMONDO</div>Promondo, LLC · General Contractor<br>WA Contractor Lic. # <span class="ph">XXXXXXXXXX</span></div>
+      <div>937 NE Boat Street<br>Seattle, WA 98105</div>
+      <div><a href="tel:+12063342285">(206) 334-2285</a><br><a href="mailto:info@alwaysdowntown.com">info@alwaysdowntown.com</a></div>
+    </div>
+    <div class="f-bottom">© <span id="yr"></span> Promondo, LLC. Seattle, Washington.</div>
+  </div>
+</footer>
+
+<div class="callbar"><a class="btn btn-brick" href="tel:+12063342285">Call now</a><a class="btn btn-dark" href="#contact">Free estimate</a></div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('estimate').addEventListener('submit',function(e){
+  e.preventDefault();var f=new FormData(this);
+  var body='Name: '+f.get('name')+'\nPhone: '+f.get('phone')+'\nEmail: '+f.get('email')+'\nProject: '+f.get('type')+'\nNeighborhood: '+f.get('hood')+'\n\n'+f.get('msg');
+  location.href='mailto:info@alwaysdowntown.com?subject='+encodeURIComponent('Estimate request: '+f.get('type'))+'&body='+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
