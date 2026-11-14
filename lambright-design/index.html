@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lambright Design Group: Website Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Architects+Daughter&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vellum:#E7E9E2;
+  --sheet:#F3F4EF;
+  --graphite:#26292A;
+  --lead:#6B6F6C;
+  --pencil:#2F5E9E;
+  --trace:#F3DC6B;
+  --line:rgba(38,41,42,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--vellum);
+  color:var(--graphite);
+  font:400 1.0625rem/1.65 "Source Serif 4",Georgia,serif;
+  background-image:
+    linear-gradient(rgba(47,94,158,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(47,94,158,.07) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pencil);outline-offset:3px}
+.wide{font-family:"Archivo",sans-serif;font-stretch:125%;font-weight:700;letter-spacing:-.01em}
+.hand{font-family:"Architects Daughter",cursive;color:var(--pencil)}
+
+/* drawing sheet */
+.sheet{
+  max-width:1180px;margin:20px auto;background:var(--sheet);
+  border:2px solid var(--graphite);outline:1px solid var(--graphite);outline-offset:-10px;
+  position:relative;
+}
+.inner{padding:clamp(22px,5vw,64px)}
+
+/* top bar */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px clamp(22px,5vw,64px);border-bottom:1px solid var(--graphite);flex-wrap:wrap}
+.topbar .mark{font-family:"Archivo";font-stretch:125%;font-weight:800;font-size:1rem}
+.topbar nav{display:flex;gap:22px;font-family:"Archivo";font-stretch:100%;font-size:.92rem}
+.topbar nav a{text-decoration:none;border-bottom:1px solid transparent}
+.topbar nav a:hover{border-color:var(--graphite)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 340px;border-bottom:1px solid var(--graphite)}
+.hero-main{padding:clamp(28px,6vw,80px) clamp(22px,5vw,64px);position:relative;border-right:1px solid var(--graphite)}
+.hero h1{font-family:"Archivo";font-stretch:125%;font-weight:800;line-height:.92;
+  font-size:clamp(2.6rem,7.4vw,6.2rem);letter-spacing:-.03em}
+.hero h1 span{display:block;font-weight:400;font-stretch:62%;letter-spacing:0;font-size:.62em;margin-top:.12em}
+.hero p.lede{max-width:34em;margin-top:28px;font-size:1.2rem}
+.hero .note{position:absolute;right:28px;top:26px;transform:rotate(-4deg);font-size:1.15rem;max-width:14em;text-align:right}
+.ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:"Archivo";font-stretch:110%;font-weight:700;font-size:1rem;
+  padding:14px 22px;border:2px solid var(--graphite);text-decoration:none;background:var(--graphite);color:var(--sheet)}
+.btn.ghost{background:transparent;color:var(--graphite)}
+.btn:hover{background:var(--pencil);border-color:var(--pencil);color:#fff}
+
+/* title block */
+.titleblock{display:grid;grid-template-rows:auto;font-family:"Archivo";font-stretch:100%;font-size:.88rem}
+.titleblock div{border-bottom:1px solid var(--graphite);padding:12px 18px}
+.titleblock div:last-child{border-bottom:0}
+.titleblock small{display:block;color:var(--lead);font-size:.74rem;margin-bottom:2px}
+.titleblock .big{font-stretch:125%;font-weight:800;font-size:1.9rem;line-height:1}
+.titleblock a{text-decoration:none}
+.titleblock .photo{min-height:170px;display:grid;place-items:center;color:var(--lead);
+  background:repeating-linear-gradient(45deg,transparent 0 9px,rgba(38,41,42,.08) 9px 10px)}
+
+/* section heads */
+.sect{border-bottom:1px solid var(--graphite)}
+.sect-head{display:flex;align-items:baseline;gap:18px;margin-bottom:28px;flex-wrap:wrap}
+.sect-head h2{font-family:"Archivo";font-stretch:125%;font-weight:800;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1}
+.sect-head .hand{font-size:1.1rem}
+
+/* about */
+.about{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,5vw,64px)}
+.about p+p{margin-top:1em}
+.about .pull{border-left:3px solid var(--pencil);padding-left:20px;font-style:italic;font-size:1.15rem}
+.facts{list-style:none;border-top:1px solid var(--graphite);margin-top:26px}
+.facts li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:9px 0;font-family:"Archivo";font-size:.95rem}
+.facts li b{font-stretch:115%}
+
+/* featured on trace */
+.featured{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.trace{background:rgba(243,220,107,.55);padding:26px;position:relative;box-shadow:2px 3px 0 rgba(38,41,42,.15)}
+.trace:nth-child(2){transform:rotate(.6deg)}
+.trace:nth-child(1){transform:rotate(-.5deg)}
+.trace h3{font-family:"Archivo";font-stretch:115%;font-weight:800;font-size:1.35rem;line-height:1.1}
+.trace .sheetno{font-family:"Archivo";font-size:.82rem;color:var(--lead);display:block;margin-bottom:6px}
+.trace svg{width:100%;height:auto;margin:14px 0 10px;display:block}
+.trace p{font-size:1rem}
+.trace .hand{display:block;margin-top:10px}
+
+/* sheet index */
+.index{width:100%;border-collapse:collapse;font-family:"Archivo";font-size:1rem}
+.index th{font-stretch:100%;font-weight:600;font-size:.8rem;color:var(--lead);text-align:left;border-bottom:2px solid var(--graphite);padding:8px 10px}
+.index td{border-bottom:1px solid var(--line);padding:11px 10px;vertical-align:baseline}
+.index td.no{font-stretch:125%;font-weight:700;width:90px;color:var(--pencil)}
+.index td.name{font-stretch:110%;font-weight:600}
+.index td.type{color:var(--lead);font-family:"Source Serif 4";font-style:italic}
+.index tr.feat td.name::after{content:" ✱";color:var(--pencil)}
+.index-wrap{columns:2;column-gap:40px}
+.index-legend{margin-top:16px;font-size:.95rem;color:var(--lead)}
+
+/* how we work: genuine sequence */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--graphite)}
+.steps div{padding:22px;border-right:1px solid var(--graphite)}
+.steps div:last-child{border-right:0}
+.steps b{font-family:"Archivo";font-stretch:125%;font-weight:800;font-size:2rem;color:var(--pencil);display:block;line-height:1}
+.steps h3{font-family:"Archivo";font-stretch:110%;font-size:1.1rem;margin:10px 0 6px}
+
+/* contact title block */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:0;border:2px solid var(--graphite)}
+.contact > div{padding:28px}
+.contact > div:first-child{border-right:1px solid var(--graphite)}
+.contact .big-phone{font-family:"Archivo";font-stretch:125%;font-weight:800;font-size:clamp(2rem,5vw,3.4rem);line-height:1;text-decoration:none;display:inline-block;margin:8px 0 18px}
+.contact dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-family:"Archivo"}
+.contact dt{color:var(--lead);font-size:.85rem;padding-top:2px}
+.contact dd a{word-break:break-all}
+
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px clamp(22px,5vw,64px);font-family:"Archivo";font-size:.85rem;color:var(--lead)}
+
+/* mobile call bar */
+.callbar{display:none}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .hero-main{border-right:0;border-bottom:1px solid var(--graphite)}
+  .hero .note{position:static;transform:rotate(-2deg);text-align:left;margin-bottom:18px}
+  .about,.featured,.contact{grid-template-columns:1fr}
+  .contact > div:first-child{border-right:0;border-bottom:1px solid var(--graphite)}
+  .index-wrap{columns:1}
+  .steps{grid-template-columns:1fr}
+  .steps div{border-right:0;border-bottom:1px solid var(--graphite)}
+  .steps div:last-child{border-bottom:0}
+  .topbar nav{display:none}
+  .sheet{margin:0;border-width:0 0 2px;outline-offset:-6px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--graphite);border-top:2px solid var(--pencil)}
+  .callbar a{flex:1;text-align:center;color:var(--sheet);padding:15px 8px;font-family:"Archivo";font-stretch:110%;font-weight:700;text-decoration:none}
+  .callbar a+a{border-left:1px solid var(--lead)}
+  body{padding-bottom:56px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="topbar">
+    <div class="mark">Lambright Design Group</div>
+    <nav aria-label="Main">
+      <a href="#studio">Studio</a>
+      <a href="#work">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-main">
+      <p class="hand note">Keep the bones.<br>Open it to the light.</p>
+      <h1>Houses, rethought.<span>Residential architecture from Phinney Ridge since 2001</span></h1>
+      <p class="lede">A small Seattle design studio led by Tom Lambright. We remodel mid-century homes and design new ones, and we keep you involved from the first sketch to the last day of construction.</p>
+      <div class="ctas">
+        <a class="btn" href="tel:+12065246002">Call 206.524.6002</a>
+        <a class="btn ghost" href="#work">See the sheet index</a>
+      </div>
+    </div>
+    <aside class="titleblock" aria-label="Studio details">
+      <div class="photo">[Project photo]</div>
+      <div><small>Project</small>Your house</div>
+      <div><small>Architect</small>Lambright Design Group</div>
+      <div><small>Studio</small><a href="https://www.google.com/maps/place/6824+Phinney+Ave+N,+Seattle,+WA+98103">6824 Phinney Ave. N., Seattle</a></div>
+      <div><small>Sheet</small><span class="big">A-000</span></div>
+    </aside>
+  </section>
+
+  <section class="sect" id="studio">
+    <div class="inner">
+      <div class="sect-head"><h2>The studio</h2><span class="hand">Phinney Ridge, since 2001</span></div>
+      <div class="about">
+        <div>
+          <p>Lambright Design Group opened in January 2001 and has worked mostly on houses ever since, from single-room remodels to new homes across Seattle's neighborhoods.</p>
+          <p>Every project starts with two questions: what do you actually want from this house, and what design gets you there? From there you stay part of the process through design and construction, so you understand each decision as your home takes shape.</p>
+        </div>
+        <div>
+          <p class="pull">Small on purpose: you work directly with the person drawing your house.</p>
+          <ul class="facts">
+            <li><span>Founded</span><b>January 2001</b></li>
+            <li><span>Focus</span><b>Residential</b></li>
+            <li><span>Specialty</span><b>Mid-century remodels</b></li>
+            <li><span>Studio</span><b>Phinney Ridge</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" id="work">
+    <div class="inner">
+      <div class="sect-head"><h2>Featured remodels</h2><span class="hand">two 1960s houses</span></div>
+      <div class="featured">
+        <article class="trace">
+          <span class="sheetno">Sheet A-104</span>
+          <h3>View Ridge Mid-Century Remodel</h3>
+          <svg viewBox="0 0 320 130" role="img" aria-label="Section sketch: a clerestory monitor rising from the center of the roof">
+            <g fill="none" stroke="#26292A" stroke-width="2">
+              <path d="M20 110 H300"/>
+              <path d="M40 110 V60 H125 M195 60 H280 V110"/>
+              <path d="M125 60 V30 H195 V60"/>
+            </g>
+            <g stroke="#2F5E9E" stroke-width="1.5" stroke-dasharray="4 4" fill="none">
+              <path d="M140 35 L120 95"/><path d="M160 35 L160 95"/><path d="M180 35 L200 95"/>
+            </g>
+            <text x="200" y="24" font-family="Architects Daughter" font-size="13" fill="#2F5E9E">clerestory</text>
+          </svg>
+          <p>The owner wanted fresh interiors that still felt true to the house's 1960s modernism. We opened the kitchen and family room to each other and set a clerestory monitor at the center of the roof, which pulls daylight into an east-facing house. Downstairs became an easy room for family gatherings.</p>
+          <span class="hand">[Project photo]</span>
+        </article>
+        <article class="trace">
+          <span class="sheetno">Sheet A-103</span>
+          <h3>Seward Park Mid-Century Remodel</h3>
+          <svg viewBox="0 0 320 130" role="img" aria-label="Plan sketch: living room opening to the yard on both sides through folding doors">
+            <g fill="none" stroke="#26292A" stroke-width="2">
+              <rect x="70" y="25" width="180" height="80"/>
+            </g>
+            <g stroke="#2F5E9E" stroke-width="1.5" fill="none">
+              <path d="M95 25 l12 -14 l12 14 l12 -14 l12 14 l12 -14 l12 14"/>
+              <path d="M155 105 l12 14 l12 -14 l12 14 l12 -14 l12 14 l12 -14"/>
+            </g>
+            <text x="8" y="70" font-family="Architects Daughter" font-size="13" fill="#2F5E9E">yard</text>
+            <text x="262" y="70" font-family="Architects Daughter" font-size="13" fill="#2F5E9E">yard</text>
+          </svg>
+          <p>We kept the original 1960s structure and reworked the living area so the rooms connect better and frame the views outside. Shared and private spaces were rethought, and folding door systems replaced many exterior walls, so the living room opens to the yard on both sides.</p>
+          <span class="hand">[Project photo]</span>
+        </article>
+      </div>
+
+      <div class="sect-head" style="margin-top:56px"><h2>Sheet index</h2><span class="hand">17 projects</span></div>
+      <div class="index-wrap">
+        <table class="index">
+          <thead><tr><th>Sheet</th><th>Project</th></tr></thead>
+          <tbody>
+            <tr><td class="no">A-101</td><td class="name">West Seattle Residence</td></tr>
+            <tr><td class="no">A-102</td><td class="name">Hawthorne Hills Residence</td></tr>
+            <tr class="feat"><td class="no">A-103</td><td class="name">Seward Park Mid-Century Remodel</td></tr>
+            <tr class="feat"><td class="no">A-104</td><td class="name">View Ridge Mid-Century Remodel</td></tr>
+            <tr><td class="no">A-105</td><td class="name">Washington Park Remodel</td></tr>
+            <tr><td class="no">A-106</td><td class="name">Christensen Residence</td></tr>
+            <tr><td class="no">A-107</td><td class="name">Lumpkin Residence</td></tr>
+            <tr><td class="no">A-108</td><td class="name">Jones Residence</td></tr>
+            <tr><td class="no">A-109</td><td class="name">Williams Residence</td></tr>
+          </tbody>
+        </table>
+        <table class="index">
+          <thead><tr><th>Sheet</th><th>Project</th></tr></thead>
+          <tbody>
+            <tr><td class="no">A-110</td><td class="name">Cady Residence</td></tr>
+            <tr><td class="no">A-111</td><td class="name">Allnutt Residence</td></tr>
+            <tr><td class="no">A-112</td><td class="name">Wallingford Residence</td></tr>
+            <tr><td class="no">A-113</td><td class="name">Seward Park Residence</td></tr>
+            <tr><td class="no">A-114</td><td class="name">Jacobson Residence</td></tr>
+            <tr><td class="no">A-115</td><td class="name">Klinghoffer Residence</td></tr>
+            <tr><td class="no">A-116</td><td class="name">Bontje Residence</td></tr>
+            <tr><td class="no">A-117</td><td class="name">Broadmoor Residence</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="index-legend">✱ Featured above. Each sheet would open a project page with photos and a short write-up.</p>
+    </div>
+  </section>
+
+  <section class="sect" id="process">
+    <div class="inner">
+      <div class="sect-head"><h2>How a project runs</h2></div>
+      <div class="steps">
+        <div><b>1</b><h3>Listen</h3><p>We start with what you want from the house and how you live in it.</p></div>
+        <div><b>2</b><h3>Design</h3><p>We work out the design that best gets you there, with you at the table for each round.</p></div>
+        <div><b>3</b><h3>Build</h3><p>We stay with you through construction, so you know why each piece is where it is.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="inner">
+      <div class="sect-head"><h2>Start a project</h2><span class="hand">call or write, we'll set a time</span></div>
+      <div class="contact">
+        <div>
+          <span class="hand">Phone</span><br>
+          <a class="big-phone" href="tel:+12065246002">206.524.6002</a>
+          <div class="ctas" style="margin-top:0">
+            <a class="btn" href="mailto:ldgroup1@qwestoffice.net?subject=Online%20Inquiry">Email the studio</a>
+          </div>
+        </div>
+        <div>
+          <dl>
+            <dt>Studio</dt><dd>6824 Phinney Ave. N.<br>Seattle, WA 98103</dd>
+            <dt>Map</dt><dd><a href="https://www.google.com/maps/place/6824+Phinney+Ave+N,+Seattle,+WA+98103">Open in Google Maps</a></dd>
+            <dt>Email</dt><dd><a href="mailto:ldgroup1@qwestoffice.net?subject=Online%20Inquiry">ldgroup1@qwestoffice.net</a></dd>
+            <dt>Also on</dt><dd><a href="http://www.houzz.com/pro/lambrightdesign">Houzz</a></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Lambright Design Group</span>
+    <span>Concept redesign by Theo, not the official site.</span>
+  </footer>
+</div>
+
+<div class="callbar">
+  <a href="tel:+12065246002">Call</a>
+  <a href="mailto:ldgroup1@qwestoffice.net?subject=Online%20Inquiry">Email</a>
+  <a href="https://www.google.com/maps/place/6824+Phinney+Ave+N,+Seattle,+WA+98103">Map</a>
+</div>
+</body>
+</html>
