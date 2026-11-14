@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JM Design | Seattle Interior Design Studio</title>
+<meta name="description" content="JM Design is a Seattle interior design studio led by Julie Evans Reid. Room refreshes, virtual design, on-site design and full remodel and new build interiors across Western and Eastern Washington.">
+<meta name="robots" content="noindex"><!-- preview only: remove when it goes live -->
+<meta property="og:title" content="JM Design: Seattle Interior Design Studio">
+<meta property="og:description" content="Timeless interiors rooted in the Pacific Northwest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2a2724; --ink-2:#4a4540; --muted:#7a726a; --line:#e7e0d6;
+  --cream:#f7f3ed; --sand:#efe8dd; --white:#fffdf9;
+  --sage:#6f7f6a; --sage-d:#4f5d4b; --clay:#b07a5a; --clay-soft:#f3e6dc;
+  --radius:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;font-weight:400}
+a{color:inherit;text-decoration:none}
+svg{display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.ph{background:#fff4c2;border-bottom:1px dashed #d4b200;padding:0 4px;border-radius:3px;color:#3a3000}
+.preview{background:#2a2724;color:#d8d0c6;font-size:13px;text-align:center;padding:8px 16px}
+.preview b{color:#fff}
+
+header{position:sticky;top:0;z-index:50;background:rgba(255,253,249,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo b{font-weight:300;font-size:24px;letter-spacing:.32em}
+.logo span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.links{display:flex;gap:30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.links a:hover{color:var(--clay)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:15px 26px;border-radius:var(--radius);border:1px solid transparent;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--sage-d)}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.nav .btn{padding:11px 18px}
+@media (max-width:920px){.links{display:none}}
+@media (max-width:440px){.logo span{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:640px;border-bottom:1px solid var(--line)}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:72px max(20px,calc((100vw - 1180px)/2 + 20px));padding-right:56px}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--clay)}
+h1{font-size:clamp(38px,5vw,64px);line-height:1.08;font-weight:300;letter-spacing:-.025em;margin:22px 0 22px}
+h1 em{font-style:normal;font-weight:500}
+.lead{font-size:17.5px;color:var(--ink-2);max-width:480px;font-weight:300}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.since{display:flex;gap:36px;margin-top:46px;padding-top:26px;border-top:1px solid var(--line)}
+.since b{display:block;font-size:30px;font-weight:300;letter-spacing:-.02em;line-height:1.1}
+.since span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero-art{position:relative;background:var(--sand);overflow:hidden}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.hero-art .note{position:absolute;left:24px;bottom:24px;background:rgba(255,253,249,.92);padding:14px 18px;font-size:13px;color:var(--ink-2);max-width:280px;border-radius:var(--radius)}
+.hero-art .note b{display:block;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+
+section{padding:100px 0}
+h2{font-size:clamp(30px,3.6vw,44px);line-height:1.15;font-weight:300;letter-spacing:-.02em;margin:14px 0 16px}
+.sub{color:var(--ink-2);font-size:17px;max-width:620px;font-weight:300}
+.head{margin-bottom:52px}
+.center{text-align:center}.center .sub{margin:0 auto}
+
+/* philosophy */
+.phil{background:var(--cream)}
+.phil-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center}
+.phil blockquote{font-size:clamp(24px,2.8vw,34px);line-height:1.35;font-weight:300;letter-spacing:-.015em}
+.phil blockquote em{font-style:normal;color:var(--clay)}
+.phil p{color:var(--ink-2);font-size:16.5px;margin-bottom:14px}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.s{background:var(--white);padding:40px;display:flex;flex-direction:column}
+.s .n{font-size:12px;letter-spacing:.2em;color:var(--clay);font-weight:600}
+.s h3{font-size:24px;font-weight:400;letter-spacing:-.015em;margin:10px 0 6px}
+.s .tag{font-size:15px;color:var(--muted);font-style:italic;margin-bottom:18px}
+.s ul{list-style:none;display:grid;gap:7px;margin-bottom:22px}
+.s li{display:flex;gap:12px;font-size:15px;color:var(--ink-2)}
+.s li::before{content:"";width:14px;height:1px;background:var(--clay);margin-top:13px;flex:none}
+.s .ideal{margin-top:auto;font-size:14px;color:var(--muted);padding-top:16px;border-top:1px solid var(--line)}
+.s .ideal b{color:var(--ink);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-right:6px}
+
+/* portfolio */
+.work{background:var(--cream)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:36px}
+.filters button{font:inherit;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--line);background:var(--white);border-radius:999px;cursor:pointer;color:var(--ink-2)}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.p{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.p::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(30,26,22,.55))}
+.p>*{position:relative;z-index:1}
+.p small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.p b{font-weight:400;font-size:19px;letter-spacing:-.01em}
+.p .ph{position:absolute;top:14px;left:14px;font-size:11.5px;z-index:2}
+.p.hide{display:none}
+.p.big{grid-column:span 2;aspect-ratio:auto}
+.t1{background:linear-gradient(160deg,#c9b8a3,#8d7a66)}
+.t2{background:linear-gradient(160deg,#a9b3a4,#5f6d5b)}
+.t3{background:linear-gradient(160deg,#d6c7b4,#a48c72)}
+.t4{background:linear-gradient(160deg,#9fa9ad,#5b666b)}
+.t5{background:linear-gradient(160deg,#c7a68f,#86624c)}
+.t6{background:linear-gradient(160deg,#b9b2a6,#726a5d)}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px}
+.m{border-top:1px solid var(--ink);padding-top:22px}
+.m .av{width:68px;height:68px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-weight:300;font-size:22px;letter-spacing:.06em;margin-bottom:16px;color:var(--ink-2)}
+.m h3{font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.m .role{font-size:14px;color:var(--clay);margin:2px 0 12px}
+.m p{font-size:15px;color:var(--ink-2)}
+.m.lead-m .av{background:var(--sage);color:#fff}
+
+/* areas */
+.areas{background:var(--sage-d);color:#f3efe8}
+.areas h2{color:#fff}
+.areas .sub{color:#d6dccf}
+.area-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.region{display:grid;gap:14px}
+.region div{border:1px solid rgba(255,255,255,.2);padding:20px 22px;border-radius:var(--radius)}
+.region b{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#e4c9b4;margin-bottom:4px;font-weight:600}
+.region span{font-size:17px;font-weight:300}
+
+/* reviews */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.q{padding:30px;background:var(--cream);border-radius:var(--radius)}
+.q p{font-size:16.5px;font-weight:300;color:var(--ink-2);margin-bottom:16px}
+.q cite{font-style:normal;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--sand)}
+.c-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+.c-list{margin-top:30px;display:grid;gap:22px}
+.c-list small{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);font-weight:600}
+.c-list b,.c-list a{font-size:18px;font-weight:400;word-break:break-word}
+.c-list a:hover{color:var(--clay)}
+form{background:var(--white);padding:36px;border-radius:var(--radius);display:grid;gap:16px;grid-template-columns:1fr 1fr}
+form h3{grid-column:1/-1;font-size:22px;font-weight:400}
+label{display:grid;gap:6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+label.full{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:15.5px;letter-spacing:0;text-transform:none;padding:12px 0;border:0;border-bottom:1px solid #cfc6b9;background:transparent;color:var(--ink);width:100%;border-radius:0}
+select{padding:12px 0}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--clay)}
+textarea{min-height:100px;resize:vertical}
+form .btn{grid-column:1/-1;margin-top:6px}
+.fine{grid-column:1/-1;font-size:13px;color:var(--muted)}
+
+footer{background:var(--ink);color:#b8afa4;padding:48px 0 30px;font-size:14px}
+.f-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+footer .logo b{color:#fff}
+footer .logo{margin-bottom:8px}
+footer a:hover{color:#fff}
+.f-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:18px;font-size:12.5px}
+
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-txt{padding:60px 20px}
+  .hero-art{min-height:340px}
+  .phil-grid,.c-grid,.area-grid{grid-template-columns:1fr;gap:40px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid,.quotes{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  section{padding:72px 0}
+  .svc{grid-template-columns:1fr}
+  .s{padding:30px 24px}
+  .grid{gap:10px}
+  .p{padding:14px}.p b{font-size:16px}
+  .p.big{grid-column:span 2;aspect-ratio:4/3}
+  form{grid-template-columns:1fr;padding:26px}
+  .since{gap:22px}
+  .since b{font-size:23px;white-space:nowrap}
+  .since span{font-size:10.5px}
+}
+</style>
+</head>
+<body>
+
+<div class="preview"><b>Preview</b> · draft redesign for JM Design · highlighted items need to be confirmed</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><b>JM DESIGN</b><span>Interior Design Studio</span></a>
+    <nav class="links"><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-dark" href="#contact">Inquire</a>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="hero-txt">
+    <div class="eyebrow">Seattle · Interior Design Studio</div>
+    <h1>Timeless interiors, <em>rooted in the Pacific Northwest.</em></h1>
+    <p class="lead">Classic sophistication with a relaxed, livable feel. From a single room refresh to a full remodel or new build, JM Design brings your home together, from Seattle to Eastern Washington.</p>
+    <div class="cta">
+      <a class="btn btn-dark" href="#contact">Start your project</a>
+      <a class="btn btn-line" href="#portfolio">View portfolio</a>
+    </div>
+    <div class="since">
+      <div><b>1983</b><span>Designing in Seattle</span></div>
+      <div><b>40+ yrs</b><span>Experience</span></div>
+      <div><b>W &amp; E</b><span>Washington</span></div>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 600 640" preserveAspectRatio="xMidYMid slice">
+      <rect width="600" height="640" fill="#efe8dd"/>
+      <rect x="0" y="470" width="600" height="170" fill="#e2d8ca"/>
+      <!-- window -->
+      <rect x="330" y="80" width="200" height="270" fill="#dfe5dc" stroke="#c9bfb1" stroke-width="10"/>
+      <line x1="430" y1="80" x2="430" y2="350" stroke="#c9bfb1" stroke-width="6"/>
+      <line x1="330" y1="215" x2="530" y2="215" stroke="#c9bfb1" stroke-width="6"/>
+      <path d="M335 330 L380 260 L410 300 L450 240 L525 330 Z" fill="#a9b3a4" opacity=".7"/>
+      <!-- art -->
+      <rect x="90" y="130" width="150" height="110" fill="#fffdf9" stroke="#b9a58e" stroke-width="4"/>
+      <circle cx="140" cy="180" r="22" fill="#d9b9a1"/><path d="M110 225 Q165 170 225 225Z" fill="#9aa596"/>
+      <!-- lamp -->
+      <line x1="545" y1="300" x2="545" y2="470" stroke="#6b6157" stroke-width="4"/>
+      <path d="M515 300 h60 l-12 -44 h-36 Z" fill="#f6efe4" stroke="#c9bfb1" stroke-width="2"/>
+      <!-- sofa -->
+      <rect x="60" y="360" width="400" height="70" rx="22" fill="#b07a5a"/>
+      <rect x="40" y="400" width="440" height="80" rx="20" fill="#c08a6a"/>
+      <rect x="80" y="368" width="110" height="52" rx="14" fill="#e9dccb"/>
+      <rect x="320" y="368" width="110" height="52" rx="14" fill="#a9b3a4"/>
+      <rect x="62" y="480" width="10" height="26" fill="#6b6157"/><rect x="448" y="480" width="10" height="26" fill="#6b6157"/>
+      <!-- table + plant -->
+      <ellipse cx="300" cy="560" rx="120" ry="18" fill="#cdbfad"/>
+      <rect x="200" y="530" width="200" height="16" rx="8" fill="#8d7a66"/>
+      <path d="M260 530 q-6 -40 10 -60 M270 530 q10 -30 30 -40 M280 530 q-20 -30 -40 -30" stroke="#5f6d5b" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <rect x="252" y="512" width="40" height="22" rx="4" fill="#fffdf9"/>
+    </svg>
+    <div class="note"><b>Your photo here</b><span class="ph">Hero image from a finished JM Design project</span></div>
+  </div>
+</section>
+
+<section class="phil">
+  <div class="wrap phil-grid">
+    <blockquote>Spaces that feel <em>elegant and welcoming</em> at the same time. Beautiful, practical, and easy to live in.</blockquote>
+    <div>
+      <p>JM Design is a Seattle interior design studio led by Julie Evans Reid, specializing in high-end residential design, new construction and extensive remodels, along with select commercial, multi-family and resort projects.</p>
+      <p>We work closely with architects, builders and trades, and our planning and clear communication keep your project on track from the first walk-through to the final pillow.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">Services</div>
+      <h2>Design support for every size of project</h2>
+      <p class="sub">Reimagining a single space or building from the ground up, our services are tailored to your project, style and lifestyle.</p>
+    </div>
+    <div class="svc">
+      <div class="s">
+        <div class="n">01</div>
+        <h3>Room Refresh &amp; Styling</h3>
+        <p class="tag">A renewed sense of comfort and beauty.</p>
+        <ul><li>Design consultation, virtual or in-home</li><li>Space planning &amp; layout</li><li>Color palette &amp; material recommendations</li><li>Furniture &amp; decor sourcing, trade and retail</li><li>Optional installation &amp; final styling</li></ul>
+        <p class="ideal"><b>Ideal for</b>Living rooms, bedrooms, home offices</p>
+      </div>
+      <div class="s">
+        <div class="n">02</div>
+        <h3>Virtual Design</h3>
+        <p class="tag">Professional design guidance, wherever you are.</p>
+        <ul><li>Digital consultation via Zoom</li><li>Style assessment &amp; concept</li><li>Scaled floor plan &amp; layout</li><li>Sourcing list with clickable links</li><li>Two design revisions</li></ul>
+        <p class="ideal"><b>Ideal for</b>DIY clients and those outside Seattle or the Tri-Cities</p>
+      </div>
+      <div class="s">
+        <div class="n">03</div>
+        <h3>Local On-Site Design</h3>
+        <p class="tag">Hands-on design support in Eastern &amp; Western Washington.</p>
+        <ul><li>In-person consultation &amp; site walk-through</li><li>Space planning &amp; custom design concept</li><li>Furniture, finish &amp; material sourcing</li><li>Coordination with trusted trades &amp; vendors</li><li>On-site styling &amp; installation support</li></ul>
+        <p class="ideal"><b>Serving</b>Seattle Metro, Eastside, Tri-Cities, Wenatchee</p>
+      </div>
+      <div class="s">
+        <div class="n">04</div>
+        <h3>Full Remodel &amp; New Build</h3>
+        <p class="tag">From blueprint to final styling, every detail.</p>
+        <ul><li>Design concept &amp; vision development</li><li>Finish &amp; material selections</li><li>Lighting, cabinetry, tile, flooring &amp; fixture specs</li><li>Coordination with contractors &amp; vendors</li><li>Furniture procurement &amp; installation oversight</li></ul>
+        <p class="ideal"><b>Ideal for</b>Full remodels, new builds and second homes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="portfolio">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">Portfolio</div>
+      <h2>Selected projects</h2>
+    </div>
+    <div class="filters" role="tablist">
+      <button class="on" data-f="all">All</button><button data-f="res">Residential</button><button data-f="com">Commercial / Multi-family</button><button data-f="resort">Resort</button>
+    </div>
+    <div class="grid">
+      <div class="p big t1" data-c="com"><span class="ph">photo</span><small>Commercial / Multi-family</small><b>The Morrow</b></div>
+      <div class="p t2" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Haro Strait</b></div>
+      <div class="p t3" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Alpenglow</b></div>
+      <div class="p t4" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Soundview</b></div>
+      <div class="p t5" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Hindely House</b></div>
+      <div class="p t6" data-c="com"><span class="ph">photo</span><small>Commercial</small><b>Paracle Financial Advisors</b></div>
+      <div class="p t2" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Mercer Island</b></div>
+      <div class="p big t3" data-c="resort"><span class="ph">photo</span><small>Resort</small><b>Snug Harbor</b></div>
+      <div class="p t1" data-c="com"><span class="ph">photo</span><small>Multi-family</small><b>Madison Bellevue</b></div>
+      <div class="p t4" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Hanna Park</b></div>
+      <div class="p t5" data-c="resort"><span class="ph">photo</span><small>Resort</small><b>The Lake House</b></div>
+      <div class="p t6" data-c="com"><span class="ph">photo</span><small>Multi-family</small><b>Ridgedale</b></div>
+      <div class="p t2" data-c="com"><span class="ph">photo</span><small>Multi-family</small><b>Larkspur</b></div>
+      <div class="p t3" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Woodway</b></div>
+      <div class="p t1" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Seacliff</b></div>
+      <div class="p t4" data-c="res"><span class="ph">photo</span><small>Residential</small><b>Brace Point</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Who we are</div>
+      <h2>The studio</h2>
+    </div>
+    <div class="team-grid">
+      <div class="m lead-m">
+        <div class="av">JER</div>
+        <h3>Julie Evans Reid</h3>
+        <div class="role">Principal / Lead Interior Designer</div>
+        <p>Julie began her career in Seattle in 1983 and has spent more than 40 years in high-end residential design, specializing in new construction and extensive remodels. She has worked across the West Coast, the East Coast and London, and her recent focus on second homes brings luxurious yet inviting retreats to life. Clients and contractors return to her for her meticulous planning and clear communication.</p>
+      </div>
+      <div class="m">
+        <div class="av">JH</div>
+        <h3>Jess Hupf</h3>
+        <div class="role">Interior Designer</div>
+        <p>A decade of interior design experience plus a background in social media marketing. A mother of five, Jess designs spaces that are stylish, functional and family-friendly, whether it's a single room or an entire home.</p>
+      </div>
+      <div class="m">
+        <div class="av">TM</div>
+        <h3>Thomas Miller</h3>
+        <div class="role">Senior Architectural Interior Designer</div>
+        <p>More than three decades in architecture, planning, interiors and construction. Thomas shapes the architectural direction of projects, from early concepts and 3D modeling to construction and final detailing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="wrap area-grid">
+    <div>
+      <div class="eyebrow" style="color:#e4c9b4">Where we work</div>
+      <h2>Both sides of the mountains</h2>
+      <p class="sub">On-site design in Western and Eastern Washington, and virtual design anywhere.</p>
+    </div>
+    <div class="region">
+      <div><b>Western Washington</b><span>Seattle Metro · the Eastside</span></div>
+      <div><b>Eastern Washington</b><span>Tri-Cities · Wenatchee · Spokane</span></div>
+      <div><b>Anywhere</b><span>Virtual design over Zoom</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">Kind words</div>
+      <h2>From our clients</h2>
+    </div>
+    <div class="quotes">
+      <div class="q"><p><span class="ph">Real client testimonial #1 (with permission).</span></p><cite><span class="ph">Name, project</span></cite></div>
+      <div class="q"><p><span class="ph">Real client testimonial #2.</span></p><cite><span class="ph">Name, project</span></cite></div>
+      <div class="q"><p><span class="ph">Testimonial from a builder or architect partner.</span></p><cite><span class="ph">Name, firm</span></cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap c-grid">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2>Let's create something beautiful</h2>
+      <p class="sub">Starting fresh, redesigning a single space, or ready for a full remodel? We'd love to help make your home uniquely yours.</p>
+      <div class="c-list">
+        <div><small>Email</small><a href="mailto:julie@jmdesignseattle.com">julie@jmdesignseattle.com</a></div>
+        <div><small>Phone</small><a href="tel:+12063548415">206.354.8415</a></div>
+        <div><small>Studio</small><b>Fishermen's Terminal, C-10 Building<br>3920 15th Place West, Seattle, WA 98119</b></div>
+      </div>
+    </div>
+    <form id="inquiry">
+      <h3>Project inquiry</h3>
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Service<select name="svc"><option>Room Refresh &amp; Styling</option><option>Virtual Design</option><option>Local On-Site Design</option><option>Full Remodel &amp; New Build</option><option>Not sure yet</option></select></label>
+      <label>Location<input name="loc" placeholder="e.g. Queen Anne, Wenatchee"></label>
+      <label class="full">Tell us about your project<textarea name="msg" placeholder="Rooms, timeline, style you love..."></textarea></label>
+      <button class="btn btn-dark" type="submit">Send inquiry</button>
+      <p class="fine">Opens your email app with the details filled in.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><div class="logo"><b>JM DESIGN</b></div>JM Design, LLC · Interior Design Studio</div>
+      <div>Fishermen's Terminal, C-10 Building<br>3920 15th Place West, Seattle, WA 98119</div>
+      <div><a href="tel:+12063548415">206.354.8415</a><br><a href="mailto:julie@jmdesignseattle.com">julie@jmdesignseattle.com</a></div>
+    </div>
+    <div class="f-bottom">© <span id="yr"></span> JM Design, LLC. Seattle, Washington.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.querySelectorAll('.filters button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.filters button').forEach(function(x){x.classList.toggle('on',x===b)});
+    var f=b.dataset.f;
+    document.querySelectorAll('.p').forEach(function(p){p.classList.toggle('hide',f!=='all'&&p.dataset.c!==f)});
+  });
+});
+document.getElementById('inquiry').addEventListener('submit',function(e){
+  e.preventDefault();var f=new FormData(this);
+  var body='Name: '+f.get('name')+'\nEmail: '+f.get('email')+'\nService: '+f.get('svc')+'\nLocation: '+f.get('loc')+'\n\n'+f.get('msg');
+  location.href='mailto:julie@jmdesignseattle.com?subject='+encodeURIComponent('Project inquiry: '+f.get('svc'))+'&body='+encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
