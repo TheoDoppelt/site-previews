@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L&amp;K Roofing LLC: Website Concept</title>
+<meta name="description" content="L&amp;K Roofing LLC roofs homes all over Central Washington, with 10 years of experience. Call (509) 699-5679 for a free estimate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#cfe0ea;
+  --sky-deep:#a9c6d8;
+  --basalt:#2b2f33;
+  --slate:#41474d;
+  --wheat:#d9b865;
+  --sage:#6f7f5a;
+  --paper:#f6f4ec;
+  --galv:#b9bec0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important}}
+body{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:1.0625rem;line-height:1.55;color:var(--basalt);background:var(--paper)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--wheat);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+
+/* ---------- top bar ---------- */
+.bar{background:var(--sky);}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;padding-bottom:1rem;gap:1rem}
+.mark{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:1.6rem;letter-spacing:.01em;text-decoration:none;line-height:1}
+.mark small{font-weight:600;font-size:.95rem;margin-left:.25rem;color:var(--slate)}
+.bar-call{font-weight:700;text-decoration:none;border-bottom:2px solid var(--basalt);white-space:nowrap}
+
+/* ---------- hero: sky + gable ---------- */
+.hero{background:linear-gradient(var(--sky) 0, var(--sky) 40%, var(--sky-deep) 100%);position:relative;overflow:hidden}
+.hero-copy{padding-top:2.5rem;padding-bottom:1.5rem;position:relative;z-index:2}
+.hero h1{font-family:"Big Shoulders Display",sans-serif;font-weight:900;font-size:clamp(3.6rem,13vw,10.5rem);line-height:.82;letter-spacing:-.01em;color:var(--basalt)}
+.hero h1 span{display:block;font-size:.42em;font-weight:800;letter-spacing:.01em;margin-top:.18em;color:var(--slate)}
+.hero p.lede{max-width:34ch;font-size:1.25rem;margin-top:1.25rem}
+/* hills */
+.hills{height:70px;margin-top:-10px;background:var(--sage);clip-path:polygon(0 70%,12% 35%,22% 55%,38% 15%,52% 50%,63% 30%,78% 60%,90% 25%,100% 45%,100% 100%,0 100%)}
+.hills.back{background:var(--wheat);height:90px;margin-bottom:-70px;clip-path:polygon(0 50%,10% 30%,28% 60%,45% 20%,60% 45%,72% 10%,86% 40%,100% 20%,100% 100%,0 100%)}
+/* gable */
+.gable{position:relative;background:var(--basalt);clip-path:polygon(50% 0,100% 62%,100% 100%,0 100%,0 62%);
+  padding:clamp(7rem,22vw,15rem) 1.25rem 3rem;margin-top:-1px;
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 34px, rgba(0,0,0,.35) 34px 36px),
+    repeating-linear-gradient(90deg, transparent 0 70px, rgba(0,0,0,.25) 70px 72px);
+}
+.gable::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(90deg, transparent 0 35px, rgba(0,0,0,.25) 35px 37px, transparent 37px 72px);
+  -webkit-mask:repeating-linear-gradient(180deg,#000 0 36px,transparent 36px 72px);mask:repeating-linear-gradient(180deg,#000 0 36px,transparent 36px 72px)}
+.gable-inner{position:relative;z-index:1;max-width:1120px;margin:0 auto;text-align:center;color:var(--paper)}
+.gable-inner p{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:clamp(1.9rem,5vw,3.4rem);line-height:1;max-width:18ch;margin:0 auto}
+.ctas{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:1.75rem}
+.btn{display:inline-block;font-weight:700;font-size:1.05rem;text-decoration:none;padding:.9rem 1.3rem;border-radius:3px;line-height:1.2}
+.btn-wheat{background:var(--wheat);color:var(--basalt)}
+.btn-line{border:2px solid var(--paper);color:var(--paper)}
+.btn:hover{filter:brightness(1.08)}
+.ground{background:linear-gradient(var(--sage),#5f6e4b)}
+.drip{height:14px;background:linear-gradient(var(--galv),#8f9597);border-bottom:3px solid #767c7e}
+
+/* ---------- shingle courses ---------- */
+.courses{padding:4.5rem 0 3.5rem}
+.courses h2,.estimate h2,.where h2{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;margin-bottom:.5rem}
+.intro{max-width:56ch;margin-bottom:2.5rem;color:var(--slate)}
+.roof{overflow:hidden;padding-bottom:6px}
+.course{display:flex;gap:4px;margin-bottom:-14px;position:relative}
+.half{flex:.5 1 0}
+.course:nth-child(1){z-index:5}.course:nth-child(2){z-index:4}.course:nth-child(3){z-index:3}
+.tab{flex:1 1 0;min-width:0;background:var(--slate);color:var(--paper);padding:1.4rem 1.25rem 2.1rem;
+  border-bottom:6px solid #23272a;box-shadow:inset 0 -18px 0 rgba(0,0,0,.12);
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.5px);background-size:6px 6px}
+.course:nth-child(even) .tab{background-color:#4a5157}
+.tab h3{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:1.6rem;line-height:1.05;margin-bottom:.4rem;color:var(--wheat)}
+.tab p{font-size:.98rem;max-width:32ch}
+.tab a{color:var(--paper);font-weight:700}
+.tab.ph{background:repeating-linear-gradient(135deg,#5a6066 0 10px,#53595f 10px 20px);border-bottom-color:#3b4045}
+.tab.ph h3{color:var(--sky)}
+.tab.wheat{background-color:var(--wheat);color:var(--basalt);border-bottom-color:#b39548}
+.tab.wheat h3{color:var(--basalt)}
+.tab.wheat a{color:var(--basalt)}
+.ridge{height:10px;background:var(--basalt);margin-top:20px}
+
+/* ---------- estimate ---------- */
+.estimate{background:var(--basalt);color:var(--paper);padding:4rem 0}
+.est-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+.estimate .intro{color:var(--galv)}
+.phones{list-style:none;margin-top:1.5rem}
+.phones li{border-top:1px solid #4d5359;padding:1rem 0}
+.phones li:last-child{border-bottom:1px solid #4d5359}
+.phones a{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:clamp(2.2rem,6vw,3.2rem);text-decoration:none;color:var(--wheat);line-height:1}
+.phones span{display:block;font-size:.95rem;color:var(--galv)}
+.form-card{background:var(--paper);color:var(--basalt);padding:1.75rem;border-radius:3px;border-top:10px solid var(--wheat)}
+.form-card h3{font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:1.9rem;line-height:1;margin-bottom:.6rem}
+.form-card p{margin-bottom:1.25rem}
+.form-card .btn{background:var(--basalt);color:var(--paper)}
+.form-card .mail{display:block;margin-top:1.25rem;font-weight:700;word-break:break-all}
+
+/* ---------- where / reviews ---------- */
+.where{padding:4rem 0}
+.where-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.area{background:var(--sky);padding:1.75rem;border-radius:3px;position:relative;overflow:hidden}
+.area .hills{position:absolute;left:0;right:0;bottom:0;margin:0;height:56px;opacity:.9}
+.area p{max-width:36ch;margin:.5rem 0 1.25rem;position:relative}
+.area a{font-weight:700;position:relative}
+.area-pad{height:40px}
+.hours{margin-top:1.25rem;font-size:.95rem;color:var(--slate)}
+.reviews{border:2px dashed var(--galv);padding:1.75rem;border-radius:3px;display:flex;flex-direction:column;justify-content:center;color:var(--slate)}
+.reviews strong{font-family:"Big Shoulders Display",sans-serif;font-size:1.7rem;color:var(--basalt)}
+.social{margin-top:1rem;display:flex;gap:1.25rem;flex-wrap:wrap}
+.social a{font-weight:700}
+
+footer{background:#23272a;color:var(--galv);padding:2rem 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer .note{color:var(--wheat)}
+
+/* ---------- mobile ---------- */
+@media (max-width:760px){
+  .bar-call{display:none}
+  .gable{clip-path:polygon(50% 0,100% 40%,100% 100%,0 100%,0 40%);padding-top:9rem}
+  .course{flex-direction:column;gap:0;margin-bottom:0}
+  .course .half{display:none}
+  .tab{border-bottom-width:5px}
+  .course .tab:nth-child(odd){margin-right:14%}
+  .course .tab:nth-child(even){margin-left:14%}
+  .est-grid,.where-grid{grid-template-columns:1fr}
+  .phones a{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">L&amp;K <small>Roofing LLC</small></a>
+    <a class="bar-call" href="tel:+15096995679">(509) 699-5679</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-copy">
+      <h1 id="h1">L&amp;K Roofing<span>Central Washington</span></h1>
+      <p class="lede">Ten years putting roofs over Central Washington homes. Call either line and talk to the crew.</p>
+    </div>
+    <div class="hills back" aria-hidden="true"></div>
+    <div class="hills" aria-hidden="true"></div>
+    <div class="ground"><div class="gable">
+      <div class="gable-inner">
+        <p>We’ve got your back, and the roof over it.</p>
+        <div class="ctas">
+          <a class="btn btn-wheat" href="tel:+15096995679">Call (509) 699-5679</a>
+          <a class="btn btn-line" href="#estimate">Get a free estimate</a>
+        </div>
+      </div>
+    </div></div>
+    <div class="drip" aria-hidden="true"></div>
+  </section>
+
+  <section class="courses" aria-labelledby="courses-h">
+    <div class="wrap">
+      <h2 id="courses-h">Laid down course by course</h2>
+      <p class="intro">Everything you need to know about hiring L&amp;K, stacked the way we stack shingles: each row overlapping the last.</p>
+      <div class="roof">
+        <div class="course">
+          <div class="tab"><h3>All over Central Washington</h3><p>We travel to the job. If you’re in Central Washington, you’re in our range.</p></div>
+          <div class="tab wheat"><h3>Ten years on roofs</h3><p>A decade of roofing through hot, dry summers and heavy winter snow.</p></div>
+          <div class="tab"><h3>Free estimates</h3><p>Fill out the <a href="#estimate">service form</a> or call, and we’ll look at what your roof needs.</p></div>
+          <div class="tab half" aria-hidden="true"></div>
+        </div>
+        <div class="course">
+          <div class="tab half" aria-hidden="true"></div>
+          <div class="tab"><h3>Two lines, real people</h3><p><a href="tel:+15096995679">(509) 699-5679</a><br><a href="tel:+15096995693">(509) 699-5693</a></p></div>
+          <div class="tab ph"><h3>[Your services]</h3><p>List the roof work L&amp;K takes on here: repairs, re-roofs, the materials you install.</p></div>
+          <div class="tab ph"><h3>[Job photo]</h3><p>A finished roof from a recent job goes here.</p></div>
+          <div class="tab"><h3>Follow the work</h3><p>New jobs go up on <a href="https://www.instagram.com/landk_roofingllc/">Instagram</a> and <a href="https://www.facebook.com/LK-Construction-103075145703526">Facebook</a>.</p></div>
+        </div>
+      </div>
+      <div class="ridge" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="estimate" id="estimate" aria-labelledby="est-h">
+    <div class="wrap est-grid">
+      <div>
+        <h2 id="est-h">Get your free estimate</h2>
+        <p class="intro">Call either number. If nobody picks up, try the other one, or leave a message and we’ll call back.</p>
+        <ul class="phones">
+          <li><a href="tel:+15096995679">(509) 699-5679</a><span>Main line</span></li>
+          <li><a href="tel:+15096995693">(509) 699-5693</a><span>Second line</span></li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <h3>Rather write it down?</h3>
+        <p>Use our service form to tell us where the house is and what’s going on with the roof. We’ll get back to you with a time to come look.</p>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc1Xot8pFIa_laSIiYMYbZ2tgnOmMkY8xpYoN-6qV48RGbM6w/viewform">Open the service form</a>
+        <a class="mail" href="mailto:landkroofing1920@gmail.com">landkroofing1920@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="where" aria-labelledby="where-h">
+    <div class="wrap where-grid">
+      <div>
+        <h2 id="where-h">Where we work</h2>
+        <div class="area">
+          <p>Homes all over the Central Washington area. Not sure if you’re in range? Call and ask.</p>
+          <a href="https://www.google.com/maps/search/Central+Washington">See the area on Google Maps</a>
+          <div class="area-pad"></div>
+          <div class="hills" aria-hidden="true"></div>
+        </div>
+        <p class="hours">[Hours: add the days and times you take calls]</p>
+      </div>
+      <div class="reviews">
+        <strong>Your Google reviews go here</strong>
+        <p>Placeholder: real reviews from L&amp;K customers would show in this spot.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/landk_roofingllc/">@landk_roofingllc</a>
+          <a href="https://www.facebook.com/LK-Construction-103075145703526">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>L&amp;K Roofing LLC, Central Washington, <a href="tel:+15096995679">(509) 699-5679</a></span>
+    <span class="note">Concept redesign by Theo, not the official site.</span>
+  </div>
+</footer>
+</body>
+</html>
