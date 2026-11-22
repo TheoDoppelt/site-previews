@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  Palette: "Vivid Electric Dreams" from coolors.co
+  https://coolors.co/3d0066-c670ff-eec7fc-ffe047-ffce1f
+  Design direction: Bellevue licensed electrician with a violet-wrapped truck. The page IS a breaker panel:
+  it starts dark until the main breaker flips on, services read like a panel schedule, reviews live on the
+  handwritten circuit-directory card inside the door, and the service area is drawn as wire runs from Bellevue.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sparkson Electrical: Website Concept</title>
+<meta name="description" content="Licensed electrician in Bellevue / Seattle, WA. Panel upgrades, EV charger installation, troubleshooting, lighting, GFCI and dedicated circuits. Call 206-823-5237.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --volt:#3D0066; --orchid:#C670FF; --lilac:#EEC7FC; --spark:#FFE047; --amber:#FFCE1F;
+  --ink:#120A1C; --night:#1B0F2B; --paper:#FBF7FD; --steel:#C9C4CF;
+  --display:'Unbounded',system-ui,sans-serif; --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --hand:'Kalam',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+:focus-visible{outline:3px solid var(--spark);outline-offset:3px}
+
+/* ---------- top strip + header ---------- */
+.strip{background:var(--spark);color:var(--ink);font:600 13px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;overflow:hidden;white-space:nowrap}
+.strip .run{display:inline-flex;gap:2.5rem;padding:.6rem 0;animation:tick 38s linear infinite}
+.strip span::before{content:"⚡ "}
+@keyframes tick{to{transform:translateX(-50%)}}
+header{background:#fff;border-bottom:4px solid var(--volt);position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem 0}
+.logo img{height:58px;width:auto}
+nav{display:flex;align-items:center;gap:1.4rem;font-weight:500;font-size:15px}
+nav a{text-decoration:none}
+nav a:not(.btn):hover{color:var(--volt);text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;gap:.55rem;font:700 15px/1 var(--body);text-decoration:none;padding:.95rem 1.25rem;border-radius:6px;border:2px solid transparent;cursor:pointer;transition:transform .15s,background .2s}
+.btn:active{transform:translateY(1px)}
+.btn-call{background:var(--volt);color:#fff}
+.btn-call:hover{background:#52008a}
+.btn-spark{background:var(--spark);color:var(--ink)}
+.btn-spark:hover{background:var(--amber)}
+.btn-ghost{border-color:currentColor;color:#fff;background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+@media (max-width:820px){nav .hide-m{display:none} .logo img{height:46px}}
+
+/* ---------- HERO: the panel ---------- */
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(60% 70% at 22% 35%, rgba(198,112,255,.32), transparent 70%),
+             radial-gradient(40% 50% at 85% 70%, rgba(255,224,71,.16), transparent 70%);
+  opacity:0;transition:opacity 1.2s ease .2s}
+.hero.live::before{opacity:1}
+.hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:3.5rem;align-items:center;padding:4.5rem 0 4.8rem}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--orchid);display:flex;gap:.6rem;align-items:center}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:#4a3b58;display:inline-block;transition:background .3s,box-shadow .3s}
+.hero.live .eyebrow i{background:#7CFF8A;box-shadow:0 0 10px #7CFF8A}
+.hero h1{font:900 clamp(2.4rem,5.6vw,4.6rem)/.98 var(--display);letter-spacing:-.02em;margin:1.1rem 0 1.2rem;color:#3a2f45;transition:color .5s}
+.hero h1 .city{display:block;color:#3a2f45;transition:color .6s .25s,text-shadow .6s .25s}
+.hero.live h1{color:#fff}
+.hero.live h1 .city{color:var(--spark);text-shadow:0 0 28px rgba(255,224,71,.45)}
+.slogan{font:600 clamp(1rem,1.6vw,1.15rem)/1.4 var(--body);color:var(--lilac);letter-spacing:.02em}
+.hero .lede{max-width:34rem;color:#d9cfe2;margin:.8rem 0 1.8rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.respond{margin-top:1.1rem;font:500 14px/1.4 var(--mono);color:#bfb3cc}
+.respond b{color:var(--spark);font-weight:600}
+
+/* panel box */
+.panel{position:relative;background:linear-gradient(160deg,#d9d5dd,#a8a2af 55%,#8f8996);border-radius:10px;padding:18px 18px 20px;
+  box-shadow:0 30px 60px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.6), inset 0 -3px 0 rgba(0,0,0,.25)}
+.panel::before,.panel::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eee,#777);top:9px}
+.panel::before{left:9px}.panel::after{right:9px}
+.panel-top{display:flex;justify-content:space-between;align-items:center;background:#2b2433;border-radius:6px;padding:10px 12px;margin:6px 0 14px}
+.main-label{font:600 11px/1.2 var(--mono);color:#b9aec5;letter-spacing:.12em}
+.main-label b{display:block;color:#fff;font-size:13px}
+.main-sw{width:86px;height:40px;border-radius:6px;background:#0e0b12;position:relative;border:2px solid #000}
+.main-sw::after{content:"";position:absolute;top:4px;left:4px;width:38px;height:28px;border-radius:4px;background:linear-gradient(#5c5266,#3b3343);transition:left .35s cubic-bezier(.6,-0.4,.3,1.6),background .3s}
+.hero.live .main-sw::after{left:42px;background:linear-gradient(var(--orchid),#8f3ad0)}
+.breakers{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:#3a3342;padding:12px;border-radius:6px;box-shadow:inset 0 2px 8px rgba(0,0,0,.5)}
+.brk{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;background:#211b28;border-radius:5px;padding:9px 10px;border:2px solid transparent;transition:border-color .2s,background .2s}
+.brk:hover{background:#2a2233}
+.brk:focus-visible{outline:3px solid var(--spark);outline-offset:2px}
+.brk[aria-checked="true"]{border-color:var(--spark);background:#2d2238}
+.brk .tog{width:22px;height:40px;border-radius:4px;background:#0c0a0f;position:relative}
+.brk .tog::after{content:"";position:absolute;left:3px;width:16px;height:18px;border-radius:3px;top:19px;background:linear-gradient(#56505c,#36303c);transition:top .25s cubic-bezier(.6,-0.5,.3,1.6),background .2s}
+.brk.on .tog::after{top:3px;background:linear-gradient(#f4f2f6,#bdb7c4)}
+.brk .num{font:600 10px/1 var(--mono);color:#8d8198;letter-spacing:.1em}
+.brk .name{font:600 13px/1.2 var(--body);color:#e8e1ef;margin-top:3px}
+.brk .led{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3c3345;margin-left:6px;vertical-align:middle;transition:background .2s,box-shadow .2s}
+.brk.on .led{background:var(--orchid);box-shadow:0 0 6px var(--orchid)}
+.brk[aria-checked="true"] .led{background:var(--spark);box-shadow:0 0 8px var(--spark)}
+.brk.zap .tog::after{animation:zap .45s}
+@keyframes zap{0%{top:3px}40%{top:19px}100%{top:3px}}
+/* multimeter readout */
+.meter{margin-top:14px;background:#1d1a14;border-radius:8px;padding:10px;border:3px solid #111}
+.lcd{background:linear-gradient(#b9c48a,#9fae6c);border-radius:4px;padding:10px 12px;color:#1d2410;font-family:var(--mono);min-height:104px;box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.lcd .k{font-size:11px;letter-spacing:.12em;opacity:.75}
+.lcd .t{font-weight:600;font-size:16px;line-height:1.2;margin:4px 0 5px}
+.lcd .d{font-size:12.5px;line-height:1.35}
+.hint{font:500 12px/1.3 var(--mono);color:#bfb3cc;margin-top:10px;text-align:center}
+.flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:3}
+.hero.boot .flash{animation:flash .5s ease-out}
+@keyframes flash{0%{opacity:.0}15%{opacity:.35}100%{opacity:0}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:2.4rem;padding:3rem 0 3.4rem}}
+
+/* ---------- trust tags ---------- */
+.tags{background:var(--volt);color:#fff;padding:1.4rem 0}
+.tags .wrap{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.tag{font:600 12.5px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:.6rem .85rem;border:1.5px dashed rgba(238,199,252,.6);border-radius:4px;background:rgba(255,255,255,.04)}
+.tag b{color:var(--spark)}
+
+section{padding:5.5rem 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.6rem;flex-wrap:wrap}
+.sec-head h2{font:800 clamp(1.9rem,3.8vw,3rem)/1.02 var(--display);letter-spacing:-.02em;max-width:16ch}
+.sec-head p{max-width:30rem;color:#4b4057}
+.kicker{font:600 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--volt);margin-bottom:.9rem;display:block}
+
+/* ---------- panel schedule (services) ---------- */
+.schedule{border:2px solid var(--ink);background:#fff}
+.sched-hd,.ckt{display:grid;grid-template-columns:70px 1.1fr 1.6fr 200px;align-items:stretch}
+.sched-hd{background:var(--ink);color:var(--lilac);font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.sched-hd div{padding:.8rem 1rem}
+.ckt{border-top:1.5px solid var(--ink);transition:background .25s}
+.ckt:hover{background:#faf3ff}
+.ckt>div{padding:1.2rem 1rem;border-right:1.5px solid #e3dbe9}
+.ckt>div:last-child{border-right:0;padding:0}
+.ckt .no{font:800 1.5rem/1 var(--display);color:var(--orchid)}
+.ckt h3{font:700 1.15rem/1.2 var(--display);letter-spacing:-.01em}
+.ckt .amp{display:inline-block;margin-top:.5rem;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;background:var(--lilac);color:var(--volt);padding:.35rem .5rem;border-radius:3px}
+.ckt p{color:#3f3549;font-size:15.5px}
+.ckt img{width:100%;height:100%;min-height:150px;object-fit:cover}
+@media (max-width:820px){
+  .sched-hd{display:none}
+  .ckt{grid-template-columns:56px 1fr;grid-template-areas:"no name" "no desc" "img img"}
+  .ckt>div{border-right:0}
+  .ckt .c-no{grid-area:no}.ckt .c-name{grid-area:name;padding-bottom:.2rem}.ckt .c-desc{grid-area:desc;padding-top:.2rem}.ckt .c-img{grid-area:img}
+  .ckt img{height:210px}
+}
+
+/* ---------- about: truck ---------- */
+.about{background:var(--night);color:#fff;position:relative;overflow:hidden}
+.about .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:center}
+.truck{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.truck img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:45% 50%}
+.truck figcaption{position:absolute;left:12px;bottom:12px;background:var(--spark);color:var(--ink);font:600 12px/1 var(--mono);padding:.5rem .65rem;border-radius:3px;letter-spacing:.06em}
+.about .kicker{color:var(--orchid)}
+.about h2{font:800 clamp(1.8rem,3.4vw,2.7rem)/1.05 var(--display);letter-spacing:-.02em;margin-bottom:1.2rem}
+.goal{font:700 clamp(1.15rem,1.9vw,1.4rem)/1.4 var(--body);color:var(--lilac);border-left:4px solid var(--spark);padding-left:1rem;margin:1.2rem 0}
+.about p{color:#d9cfe2}
+.stats{display:flex;gap:2rem;margin-top:1.6rem;flex-wrap:wrap}
+.stat b{display:block;font:900 2.3rem/1 var(--display);color:var(--spark)}
+.stat span{font:500 13px/1.3 var(--mono);color:#bfb3cc;text-transform:uppercase;letter-spacing:.08em}
+@media (max-width:900px){.about .wrap{grid-template-columns:1fr}}
+
+/* ---------- circuit directory card (reviews) ---------- */
+.reviews{background:var(--paper)}
+.door{background:linear-gradient(160deg,#dcd8df,#b3adb9);padding:clamp(14px,3vw,34px);border-radius:12px;box-shadow:0 20px 40px rgba(61,0,102,.18)}
+.card{background:#fffdf4;background-image:repeating-linear-gradient(#fffdf4 0 37px,#c9dcf2 37px 38px);border:1px solid #d6cfb8;padding:1.4rem clamp(1rem,3vw,2.4rem) 2rem;position:relative;font-family:var(--hand);color:#1f2a5c}
+.card::before{content:"";position:absolute;top:0;bottom:0;left:clamp(46px,7vw,78px);width:2px;background:#e9a2a2}
+.card-title{font:700 1.6rem/1.2 var(--hand);text-align:center;margin-bottom:.4rem;letter-spacing:.02em}
+.card-sub{text-align:center;font:600 12px/1.4 var(--mono);color:#6b6478;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.2rem}
+.entry{display:grid;grid-template-columns:clamp(36px,6vw,64px) 1fr;gap:clamp(10px,2vw,24px);padding:.6rem 0 1rem;line-height:38px}
+.entry .n{font:700 1.4rem/38px var(--hand);text-align:right;color:#a03a3a}
+.entry h3{font:700 1.35rem/38px var(--hand)}
+.entry q{font-size:1.15rem;quotes:"\201C" "\201D"}
+.entry .who{font-size:1rem;color:#5a4c8a;display:block}
+.stars{color:#b8860b;letter-spacing:2px}
+.rating{display:flex;justify-content:center;gap:.8rem;align-items:center;margin-top:1.4rem;font:600 14px/1.3 var(--mono);flex-wrap:wrap;text-align:center}
+.rating .big{font:900 2rem/1 var(--display);color:var(--volt)}
+
+/* ---------- service area wires ---------- */
+.area{background:#fff;border-top:2px solid var(--ink)}
+.area .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:center}
+.wires svg{width:100%;height:auto;overflow:visible}
+.wires .run{fill:none;stroke:var(--volt);stroke-width:4;stroke-linecap:round}
+.wires .run.hot{stroke:var(--orchid);stroke-width:2;stroke-dasharray:2 14;opacity:0;transition:opacity .6s}
+.wires.done .run.hot{opacity:1;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-32}}
+.wires .node circle{fill:#fff;stroke:var(--ink);stroke-width:2.5}
+.wires .node.hub circle{fill:var(--spark);stroke:var(--volt);stroke-width:4}
+.wires .node text{font:600 14px var(--mono);fill:var(--ink);letter-spacing:.04em}
+.wires .node.hub text{font:800 16px var(--display);fill:var(--volt)}
+.wires .node{opacity:.25;transition:opacity .4s}
+.wires .node.lit{opacity:1}
+.area ul{list-style:none;columns:2;gap:1rem;margin-top:1.2rem;font:600 15px/2 var(--mono)}
+.area li::before{content:"● ";color:var(--orchid)}
+@media (max-width:900px){.area .wrap{grid-template-columns:1fr}}
+
+/* ---------- contact: door sign ---------- */
+.contact{background:var(--volt);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.contact h2{font:900 clamp(2rem,4.4vw,3.6rem)/1 var(--display);letter-spacing:-.02em}
+.contact h2 a{color:var(--spark);text-decoration:none;display:block;margin-top:.4rem;white-space:nowrap}
+.contact p{color:var(--lilac);margin:1rem 0 1.6rem;max-width:30rem}
+.sign{justify-self:center;width:min(380px,100%);background:#0f0a15;border-radius:14px;padding:1.6rem 1.6rem 1.8rem;border:6px solid #2a2232;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.sign::before{content:"";position:absolute;top:-34px;left:50%;width:120px;height:30px;transform:translateX(-50%);border:3px solid #6f6778;border-bottom:0;border-radius:60px 60px 0 0}
+.neon{font:800 2rem/1 var(--display);text-align:center;color:var(--spark);text-shadow:0 0 8px rgba(255,224,71,.8),0 0 24px rgba(255,206,31,.5);letter-spacing:.06em}
+.sign .open{animation:buzz 6s infinite}
+@keyframes buzz{0%,92%,100%{opacity:1}93%{opacity:.3}94%{opacity:1}96%{opacity:.5}97%{opacity:1}}
+.sign dl{margin-top:1.3rem;font:500 14px/1.5 var(--mono);color:#e7ddef}
+.sign dt{color:var(--orchid);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-top:.9rem}
+.sign dd a{color:#fff}
+@media (max-width:900px){.contact .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#bfb3cc;padding:2.6rem 0 2.2rem;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1.6rem 3rem;justify-content:space-between;align-items:flex-start}
+footer .plate{background:#fff;padding:.55rem .8rem;border-radius:6px;display:inline-block}
+footer .plate img{height:64px;width:auto}
+footer a{color:#fff}
+footer .note{width:100%;border-top:1px solid #34283f;padding-top:1.2rem;font:500 12.5px/1.6 var(--mono);color:#9a8ea8}
+
+/* scroll reveal for schedule rows */
+.ckt{opacity:1}
+.js .ckt{opacity:0;transform:translateX(-14px);transition:opacity .5s,transform .5s,background .25s}
+.js .ckt.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .ckt{opacity:1;transform:none}
+  .strip .run{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="strip" aria-label="Highlights"><div class="run">
+  <span>4.9 Rated Electrician (150+ Reviews)</span><span>Licensed &amp; Insured (SPARKEL755L3)</span><span>Same-Day Service Available</span><span>Licensed • Bonded • Insured</span><span>Call or text today for a free estimate</span>
+  <span aria-hidden="true">4.9 Rated Electrician (150+ Reviews)</span><span aria-hidden="true">Licensed &amp; Insured (SPARKEL755L3)</span><span aria-hidden="true">Same-Day Service Available</span><span aria-hidden="true">Licensed • Bonded • Insured</span><span aria-hidden="true">Call or text today for a free estimate</span>
+</div></div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Sparkson Electrical home"><img src="https://static.wixstatic.com/media/729ad6_4ed00c1d2c9a4c248bf9066dfbf96dda~mv2.png/v1/fill/w_400,h_400,al_c/sparkson-logo.png" alt="Sparkson Electrical logo" width="58" height="58"></a>
+    <nav aria-label="Main">
+      <a class="hide-m" href="#services">Services</a>
+      <a class="hide-m" href="#reviews">Reviews</a>
+      <a class="hide-m" href="#area">Service area</a>
+      <a class="btn btn-call" href="tel:+12068235237">Call 206-823-5237</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero" style="padding:0">
+  <div class="flash" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><i aria-hidden="true"></i> Bellevue · Seattle · the Eastside</span>
+      <h1>Licensed Electrician in <span class="city">Bellevue / Seattle, WA</span></h1>
+      <p class="slogan">Clean • Fast scheduling • Code Compliant Work</p>
+      <p class="lede">Panel upgrades, EV charger installation and troubleshooting for homes across Bellevue, Seattle and the Eastside. Licensed, bonded and insured, with same-day service available.</p>
+      <div class="cta-row">
+        <a class="btn btn-spark" id="heroCall" href="tel:+12068235237">⚡ <span id="callText">Call 206-823-5237</span></a>
+        <a class="btn btn-ghost" href="https://www.sparkson-electrical.com/book-online">Get free estimate</a>
+      </div>
+      <p class="respond">We usually respond within <b>5–15 minutes</b>.</p>
+    </div>
+
+    <div>
+      <div class="panel">
+        <div class="panel-top">
+          <div class="main-label">SPARKSON ELECTRICAL<b>MAIN</b></div>
+          <div class="main-sw" aria-hidden="true"></div>
+        </div>
+        <div class="breakers" role="radiogroup" aria-label="Pick a service to see details" id="breakers"></div>
+        <div class="meter" aria-live="polite">
+          <div class="lcd" id="lcd">
+            <div class="k">STATUS</div>
+            <div class="t">Powering up…</div>
+            <div class="d">&nbsp;</div>
+          </div>
+        </div>
+        <p class="hint">Flip a breaker to see that service</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tags" aria-label="Credentials">
+  <div class="wrap">
+    <span class="tag"><b>★ 4.9</b> Rated Electrician (150+ Reviews)</span>
+    <span class="tag">Licensed &amp; Insured (SPARKEL755L3)</span>
+    <span class="tag">Electrician Contractor SPARKSE115RL</span>
+    <span class="tag">Licensed • Bonded • Insured</span>
+    <span class="tag">Same-Day Service Available</span>
+    <span class="tag">Free estimates</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="kicker">Panel schedule</span><h2>Six circuits we run every week.</h2></div>
+      <p>Clean, code-compliant work with fast scheduling and fair pricing. Call or text today for a free estimate.</p>
+    </div>
+    <div class="schedule" id="schedule">
+      <div class="sched-hd" aria-hidden="true"><div>CKT</div><div>Service</div><div>What we do</div><div>On the job</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <figure class="truck">
+      <img src="https://static.wixstatic.com/media/729ad6_2c1ccdc083cb432baf73055a0b4fafeb~mv2.jpg/v1/fill/w_1400,h_600,al_c,q_80/sparkson-truck.jpg" alt="The purple Sparkson Electrical truck parked in a driveway, with the phone number 206-823-5237 on the side" loading="lazy">
+      <figcaption>Look for the purple truck</figcaption>
+    </figure>
+    <div>
+      <span class="kicker">About Sparkson</span>
+      <h2>Licensed, bonded and insured. Based in Bellevue.</h2>
+      <p class="goal">“Our goal is simple — do the job right, keep everything clean, and make sure every customer is 100% satisfied.”</p>
+      <p>Sparkson Electrical serves Bellevue, Seattle and the surrounding Eastside, specializing in panel upgrades, EV charger installations and residential electrical work. Every job is done to code and left clean.</p>
+      <div class="stats">
+        <div class="stat"><b>4.9★</b><span>Google rating</span></div>
+        <div class="stat"><b>150+</b><span>Happy customers</span></div>
+        <div class="stat"><b>5–15</b><span>Min. to respond</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="kicker">Circuit directory</span><h2>What homeowners wrote on the door.</h2></div>
+      <p>Every panel has a handwritten card inside the door. Here's ours, filled in by customers.</p>
+    </div>
+    <div class="door">
+      <div class="card">
+        <div class="card-title">Circuit Directory</div>
+        <div class="card-sub">Sparkson Electrical · customer notes</div>
+        <div class="entry"><div class="n">1</div><div><h3>Panel upgrade done perfectly</h3><q>Sparkson Electrical replaced our electrical panel and handled everything professionally. The work was clean, organized, and completed faster than expected.</q><span class="who">— Bellevue homeowner</span></div></div>
+        <div class="entry"><div class="n">2</div><div><h3>Great communication and service</h3><q>Sparkson Electrical was easy to work with from start to finish. Clear communication, honest recommendations, and very clean work.</q><span class="who">— Issaquah homeowner</span></div></div>
+        <div class="entry"><div class="n">3</div><div><h3>Professional electrical work</h3><q>Needed new circuits and outlets installed and everything was done safely and up to code. Very professional and reliable electrician.</q><span class="who">— Google Review</span></div></div>
+        <div class="entry"><div class="n">4</div><div><h3>EV charger installation</h3><q>Andriy installed our EV charger in the garage and explained everything clearly. Very professional work and fair pricing. Highly recommend.</q><span class="who">— Google Review</span></div></div>
+      </div>
+      <div class="rating"><span class="big">4.9</span><span class="stars" aria-label="4.9 stars">★★★★★</span><span>4.9 Rated Electrician (150+ Reviews)</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Service area</span>
+      <h2 style="font:800 clamp(1.8rem,3.4vw,2.7rem)/1.05 var(--display);letter-spacing:-.02em">Wired out from Bellevue.</h2>
+      <p style="margin-top:1rem;color:#4b4057">Same-day service available across Bellevue, Seattle and the surrounding Eastside.</p>
+      <ul>
+        <li>Bellevue</li><li>Seattle</li><li>Kirkland</li><li>Redmond</li><li>Sammamish</li><li>Issaquah</li><li>Mercer Island</li>
+      </ul>
+      <p style="margin-top:1.2rem"><a class="btn btn-call" href="https://www.google.com/maps/place/Sparkson+Electrical/@47.6099557,-122.2010725,17z/data=!4m8!3m7!1s0x54906d74fe74df53:0x1cbe63975480b056!8m2!3d47.6099557!4d-122.1984976!9m1!1b1!16s%2Fg%2F11xl08glxp">Find us on Google Maps →</a></p>
+    </div>
+    <div class="wires" id="wires" aria-hidden="true">
+      <svg viewBox="0 0 560 440">
+        <g id="runs"></g>
+        <g id="nodes"></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="kicker" style="color:var(--spark)">Free estimate</span>
+      <h2>Call or text today <a href="tel:+12068235237">206-823-5237</a></h2>
+      <p>Tell us what's going on: a panel that's maxed out, a new EV in the garage, a breaker that keeps tripping. We usually respond within 5–15 minutes.</p>
+      <div class="cta-row">
+        <a class="btn btn-spark" href="tel:+12068235237">⚡ Call now</a>
+        <a class="btn btn-ghost" href="sms:+12068235237">Text us</a>
+        <a class="btn btn-ghost" href="https://www.sparkson-electrical.com/book-online">Book online</a>
+      </div>
+    </div>
+    <div class="sign">
+      <div class="neon open">WE'RE ON</div>
+      <dl>
+        <dt>Scheduling</dt><dd>Same-day service available</dd>
+        <dt>Response time</dt><dd>Usually within 5–15 minutes</dd>
+        <dt>Phone / text</dt><dd><a href="tel:+12068235237">206-823-5237</a></dd>
+        <dt>Estimates</dt><dd>Free · <a href="https://www.sparkson-electrical.com/book-online">book online</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <span class="plate"><img src="https://static.wixstatic.com/media/729ad6_4ed00c1d2c9a4c248bf9066dfbf96dda~mv2.png/v1/fill/w_400,h_400,al_c/sparkson-logo.png" alt="Sparkson Electrical logo" width="64" height="64" loading="lazy"></span>
+      <p style="margin-top:.8rem">Licensed • Bonded • Insured<br>Licensed &amp; Insured (SPARKEL755L3)<br>Electrician Contractor SPARKSE115RL</p>
+    </div>
+    <div>
+      <p><strong style="color:#fff">Sparkson Electrical</strong><br>Bellevue · Seattle · Issaquah · Kirkland<br>Mercer Island · Redmond · Sammamish</p>
+    </div>
+    <div>
+      <p><a href="tel:+12068235237">206-823-5237</a><br><a href="https://www.sparkson-electrical.com/book-online">Get a free estimate</a><br><a href="https://www.google.com/maps/place/Sparkson+Electrical/@47.6099557,-122.2010725,17z/data=!4m8!3m7!1s0x54906d74fe74df53:0x1cbe63975480b056!8m2!3d47.6099557!4d-122.1984976!9m1!1b1!16s%2Fg%2F11xl08glxp">Google Maps &amp; reviews</a></p>
+    </div>
+    <p class="note">Concept redesign by Theo, not the official site. Photos from Sparkson Electrical's own website, used for this concept only.</p>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const W='https://static.wixstatic.com/media/';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const services=[
+  {no:'01',name:'Panel Upgrade',short:'Panel upgrade',tag:'Most requested',
+   desc:'Replace an old or maxed-out panel so your home can handle what you plug into it today, done to code and left clean.',
+   img:W+'729ad6_54ef07b6a9a54aab9f5c4165398475f4~mv2.jpg/v1/fill/w_640,h_520,al_c,q_80/panel.jpg',alt:'Electrician testing a breaker panel with a multimeter'},
+  {no:'02',name:'EV Charger Installation',short:'EV charger install',tag:'Garage & driveway',
+   desc:'Home EV charger installs, including the dedicated circuit it needs, with everything explained clearly before we leave.',
+   img:W+'729ad6_d7881887c8fc428abfa40d9b227af5b6~mv2.png/v1/crop/x_0,y_560,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/ev.jpg',alt:'Wall-mounted EV charger with its cable coiled'},
+  {no:'03',name:'Electrical Troubleshooting & Repair',short:'Troubleshooting',tag:'Same-day available',
+   desc:'Breakers that keep tripping, dead outlets, flickering lights. We track down the cause and fix it safely.',
+   img:W+'729ad6_a290298a8e8341679a9c0edd2c02cfac~mv2.png/v1/crop/x_0,y_380,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/trouble.jpg',alt:'Hands holding a multimeter in front of an open electrical panel'},
+  {no:'04',name:'Lighting Installation',short:'Lighting install',tag:'Kitchens & more',
+   desc:'Recessed lights, pendants and fixtures installed and wired cleanly, so the room looks finished.',
+   img:W+'729ad6_752ce870fa804e1b9410b052d246a03b~mv2.png/v1/crop/x_0,y_420,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/lighting.jpg',alt:'Kitchen with pendant lights over an island and recessed ceiling lights'},
+  {no:'05',name:'Breaker / GFCI / Outlet Installation',short:'GFCI & outlets',tag:'Up to code',
+   desc:'New breakers, GFCI protection and outlets where you need them, installed safely and up to code.',
+   img:W+'729ad6_7af52450eb0b40398c35ab84a6344833~mv2.png/v1/crop/x_0,y_420,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/gfci.jpg',alt:'Gloved hands testing a GFCI outlet with a voltage tester'},
+  {no:'06',name:'Dedicated Circuits & Remodel',short:'Circuits & remodel',tag:'New work',
+   desc:'Dedicated circuits for new appliances and full wiring for remodels, from rough-in to final.',
+   img:W+'729ad6_df36638aa0e7411491bca6c21dfb56fc~mv2.png/v1/crop/x_0,y_420,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/circuits.jpg',alt:'New electrical panel and wiring in an open-stud remodel'}
+];
+
+/* breakers */
+const bwrap=document.getElementById('breakers'), lcd=document.getElementById('lcd'), callText=document.getElementById('callText');
+const brks=services.map((s,i)=>{
+  const b=document.createElement('button');
+  b.className='brk'; b.type='button'; b.setAttribute('role','radio'); b.setAttribute('aria-checked','false'); b.tabIndex=i===0?0:-1;
+  b.innerHTML=`<span class="tog" aria-hidden="true"></span><span><span class="num">CKT ${s.no}<span class="led"></span></span><span class="name" style="display:block">${s.short}</span></span>`;
+  b.setAttribute('aria-label',s.name);
+  b.addEventListener('click',()=>select(i,true));
+  b.addEventListener('keydown',e=>{
+    const k=e.key; let j=null;
+    if(k==='ArrowDown'||k==='ArrowRight') j=(i+1)%services.length;
+    if(k==='ArrowUp'||k==='ArrowLeft') j=(i-1+services.length)%services.length;
+    if(j!==null){e.preventDefault();select(j,true);brks[j].focus();}
+  });
+  bwrap.appendChild(b); return b;
+});
+function show(t,k,d){lcd.innerHTML=`<div class="k">${k}</div><div class="t">${t}</div><div class="d">${d}</div>`;}
+function select(i,user){
+  brks.forEach((b,j)=>{b.setAttribute('aria-checked',j===i?'true':'false');b.tabIndex=j===i?0:-1;});
+  const s=services[i];
+  show(s.name,`CKT ${s.no} · ${s.tag.toUpperCase()}`,s.desc);
+  callText.textContent=`Call about ${s.short.toLowerCase()}`;
+  if(user&&!reduce){brks[i].classList.remove('zap');void brks[i].offsetWidth;brks[i].classList.add('zap');}
+}
+/* power-on showpiece */
+const hero=document.getElementById('hero');
+function powerOn(){
+  hero.classList.add('live','boot');
+  brks.forEach((b,i)=>setTimeout(()=>b.classList.add('on'),reduce?0:350+i*140));
+  setTimeout(()=>{show('All circuits live','STATUS · 6/6 ON','Flip any breaker to see what Sparkson does on that circuit.');},reduce?0:350+services.length*140+150);
+}
+if(reduce){powerOn();} else {setTimeout(powerOn,700);}
+
+/* schedule rows */
+const sched=document.getElementById('schedule');
+services.forEach(s=>{
+  const r=document.createElement('article'); r.className='ckt';
+  r.innerHTML=`<div class="c-no"><span class="no">${s.no}</span></div>
+  <div class="c-name"><h3>${s.name}</h3><span class="amp">${s.tag}</span></div>
+  <div class="c-desc"><p>${s.desc}</p></div>
+  <div class="c-img"><img src="${s.img}" alt="${s.alt}" loading="lazy"></div>`;
+  sched.appendChild(r);
+});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.2});
+document.querySelectorAll('.ckt').forEach((r,i)=>{r.style.transitionDelay=(i%2)*80+'ms';io.observe(r);});
+
+/* service-area wire runs, drawn by scroll */
+const hub={x:300,y:250,name:'BELLEVUE'};
+const towns=[
+  {x:80,y:200,name:'SEATTLE'},{x:205,y:300,name:'MERCER ISLAND'},{x:290,y:80,name:'KIRKLAND'},
+  {x:470,y:110,name:'REDMOND'},{x:500,y:265,name:'SAMMAMISH'},{x:430,y:395,name:'ISSAQUAH'}
+];
+const NS='http://www.w3.org/2000/svg', runsG=document.getElementById('runs'), nodesG=document.getElementById('nodes');
+const paths=towns.map(t=>{
+  const midx=(hub.x+t.x)/2, d=`M${hub.x} ${hub.y} L${midx} ${hub.y} L${midx} ${t.y} L${t.x} ${t.y}`;
+  const p=document.createElementNS(NS,'path'); p.setAttribute('d',d); p.setAttribute('class','run'); runsG.appendChild(p);
+  const h=document.createElementNS(NS,'path'); h.setAttribute('d',d); h.setAttribute('class','run hot'); runsG.appendChild(h);
+  const L=p.getTotalLength(); p.style.strokeDasharray=L; p.style.strokeDashoffset=L; return {p,L};
+});
+function node(t,hubby){
+  const g=document.createElementNS(NS,'g'); g.setAttribute('class','node'+(hubby?' hub lit':''));
+  const c=document.createElementNS(NS,'circle'); c.setAttribute('cx',t.x); c.setAttribute('cy',t.y); c.setAttribute('r',hubby?16:8);
+  const tx=document.createElementNS(NS,'text'); tx.textContent=t.name;
+  const below=t.y>hub.y; tx.setAttribute('x',t.x); tx.setAttribute('y',hubby?t.y+40:(below?t.y+28:t.y-16)); tx.setAttribute('text-anchor','middle');
+  g.append(c,tx); nodesG.appendChild(g); return g;
+}
+const tn=towns.map(t=>node(t,false)); node(hub,true);
+const wires=document.getElementById('wires');
+function drawWires(){
+  const r=wires.getBoundingClientRect(), vh=innerHeight;
+  let prog=reduce?1:Math.min(1,Math.max(0,(vh-r.top)/(vh*.55+r.height*.5)));
+  paths.forEach(({p,L},i)=>{const local=Math.min(1,Math.max(0,prog*1.25-i*0.05)); p.style.strokeDashoffset=L*(1-local); tn[i].classList.toggle('lit',local>.97);});
+  wires.classList.toggle('done',prog>=.99);
+}
+addEventListener('scroll',drawWires,{passive:true}); addEventListener('resize',drawWires); drawWires();
+</script>
+</body>
+</html>
