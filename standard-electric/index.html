@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Standard Electric Company: Website Concept</title>
+<meta name="description" content="Standard Electric Company, Inc. Master Electrician Steve Kirkpatrick. Rewiring older Seattle homes, panel upgrades, remodels, additions and troubleshooting. (206) 284-2388.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,500;0,700;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#36213f;      /* the sign bar on the van */
+  --plum-deep:#22142a;
+  --brass:#c9a94e;     /* the SE monogram */
+  --brass-lite:#e6cf86;
+  --steel:#cfcac0;     /* the champagne-silver van */
+  --steel-dk:#8f8a80;
+  --ladder:#c8362b;    /* the red ladder on the roof rack */
+  --ink:#1d1822;
+  --copper:#b8693a;
+  --glow:233,162,59;
+  --display:"Zilla Slab", "Rockwell", Georgia, serif;
+  --body:"Work Sans", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--steel);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1160px,100% - 3rem);margin-inline:auto}
+
+/* ---------- copper wire that runs the length of the page ---------- */
+.wire{position:fixed;left:18px;top:0;height:100vh;width:28px;z-index:5;pointer-events:none}
+.wire path{fill:none;stroke-linecap:round}
+.wire .sheath{stroke:rgba(0,0,0,.12);stroke-width:7}
+.wire .core{stroke:var(--copper);stroke-width:3.5}
+@media (max-width:760px){.wire{display:none}}
+
+/* ---------- top bar ---------- */
+.bar{background:var(--plum-deep);color:var(--steel);font-size:.9rem}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.7rem 0}
+.mark{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--steel)}
+.mono{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--plum-deep);background:var(--brass);padding:.05rem .45rem;border-radius:3px;letter-spacing:.02em}
+.mark b{font-family:var(--display);font-weight:700;font-size:1.1rem;letter-spacing:.01em}
+.bar nav{display:flex;gap:1.4rem}
+.bar nav a{text-decoration:none;opacity:.8}
+.bar nav a:hover{opacity:1;color:var(--brass-lite)}
+.bar .tel{font-weight:600;color:var(--brass-lite);text-decoration:none;white-space:nowrap}
+@media (max-width:860px){.bar nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--plum);color:#f1ece2;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-20%;z-index:-1;background:radial-gradient(40% 45% at 72% 48%,rgba(var(--glow),.34),transparent 70%);transition:background 1.2s ease}
+body.era-fuse .hero::before{animation:flick 3.2s infinite steps(1)}
+body.era-breaker .hero::before{background:radial-gradient(42% 48% at 72% 48%,rgba(230,224,210,.20),transparent 70%)}
+@keyframes flick{0%,100%{opacity:1}8%{opacity:.55}10%{opacity:1}52%{opacity:.8}54%{opacity:1}55%{opacity:.4}57%{opacity:1}}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;padding:4.5rem 0 5rem}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,5.6vw,4.9rem);line-height:.98;margin:0 0 1.6rem;letter-spacing:-.01em;color:#fbf7ee;max-width:13.5ch}
+.hero .lede{font-size:1.18rem;max-width:34em;margin:0 0 2.2rem;color:#ddd3e0}
+.cta{display:inline-flex;align-items:center;gap:.7rem;background:var(--brass);color:var(--plum-deep);font-weight:600;text-decoration:none;padding:1rem 1.5rem;border-radius:4px;font-size:1.1rem;box-shadow:0 3px 0 #8c7431}
+.cta:hover{background:var(--brass-lite)}
+.cta .n{font-family:var(--display);font-weight:700;font-size:1.25rem}
+.hero .sub{margin-top:1.1rem;font-size:.95rem;color:#bfb2c4}
+
+/* ---------- the panel ---------- */
+.panel-zone{display:grid;grid-template-columns:1fr auto;gap:1.1rem;align-items:stretch}
+.box{position:relative;background:linear-gradient(160deg,#dcd7cd,#b9b3a7 55%,#a49e92);border-radius:8px;padding:18px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35),0 22px 40px rgba(0,0,0,.35)}
+.box::after{content:"";position:absolute;inset:8px;border:1px solid rgba(0,0,0,.18);border-radius:5px;pointer-events:none}
+.screws i{position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eee,#888);box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+.screws i::after{content:"";position:absolute;left:1px;right:1px;top:4px;height:2px;background:rgba(0,0,0,.4);transform:rotate(35deg)}
+.screws i:nth-child(1){top:6px;left:6px}.screws i:nth-child(2){top:6px;right:6px}.screws i:nth-child(3){bottom:6px;left:6px}.screws i:nth-child(4){bottom:6px;right:6px}
+.inner{position:relative;background:#2a2430;border-radius:4px;min-height:330px;padding:22px 18px;overflow:hidden}
+
+.fuses{position:absolute;inset:22px 18px;display:grid;grid-template-columns:1fr 1fr;gap:22px;place-items:center;transition:opacity .5s ease,transform .5s ease}
+.fuse{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle,#4a4048 58%,#6a6068 60%,#3a3238 72%);display:grid;place-items:center;box-shadow:0 4px 8px rgba(0,0,0,.5)}
+.fuse span{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff6d8,rgb(var(--glow)) 45%,#7a4a12 100%);box-shadow:0 0 18px rgba(var(--glow),.8),inset 0 0 0 3px rgba(255,255,255,.25)}
+.fuse:nth-child(3) span{animation:fuseflick 2.4s infinite steps(1)}
+@keyframes fuseflick{0%,100%{opacity:1}30%{opacity:.25}33%{opacity:1}36%{opacity:.4}38%{opacity:1}}
+.fuse.blown span{background:radial-gradient(circle at 40% 35%,#6b6258,#3a332c);box-shadow:inset 0 0 0 3px rgba(255,255,255,.1)}
+
+.breakers{position:absolute;inset:22px 14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 14px;align-content:center}
+.breakers::before{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:6px;margin-left:-3px;background:linear-gradient(#9a8f7c,#6f665a);border-radius:2px}
+.brk{position:relative;display:flex;align-items:center;gap:.55rem;height:46px;padding:0 .45rem;min-width:0;background:#141016;border:1px solid #3c3440;border-radius:3px;color:#d9d2dc;font:500 .78rem/1.1 var(--body);text-align:left;cursor:pointer;opacity:0;transform:translateY(-14px);transition:opacity .25s ease,transform .25s cubic-bezier(.3,1.6,.5,1),border-color .2s}
+.brk:nth-child(even){flex-direction:row-reverse;text-align:right}
+.brk .tog{flex:none;width:30px;height:22px;border-radius:2px;background:#0a080b;position:relative;box-shadow:inset 0 0 0 1px #4a424e}
+.brk .tog::after{content:"";position:absolute;top:3px;left:3px;width:12px;height:16px;border-radius:1px;background:linear-gradient(#5a525e,#3a333e);transition:left .14s ease}
+.brk[aria-checked="true"]{border-color:var(--brass)}
+.brk[aria-checked="true"] .tog::after{left:15px;background:linear-gradient(var(--brass-lite),var(--brass))}
+.brk:hover{border-color:#7a6a80}
+body.era-breaker .brk{opacity:1;transform:none}
+body.era-breaker .fuses{opacity:0;transform:scale(.85);pointer-events:none}
+body.era-fuse .breakers{pointer-events:none}
+.brk:nth-child(1){transition-delay:.05s}.brk:nth-child(2){transition-delay:.12s}.brk:nth-child(3){transition-delay:.19s}.brk:nth-child(4){transition-delay:.26s}.brk:nth-child(5){transition-delay:.33s}.brk:nth-child(6){transition-delay:.4s}
+
+/* the throw lever */
+.lever{position:relative;width:46px;border-radius:23px;background:linear-gradient(90deg,#9e978b,#d8d3c9 45%,#9e978b);box-shadow:inset 0 2px 6px rgba(0,0,0,.35);cursor:grab;touch-action:none;min-height:240px}
+.lever:active{cursor:grabbing}
+.lever .track{position:absolute;left:50%;top:22px;bottom:22px;width:8px;margin-left:-4px;background:#2b252e;border-radius:4px}
+.lever .handle{position:absolute;left:50%;width:58px;height:34px;margin-left:-29px;top:calc(8px + var(--t,0) * (100% - 50px));background:linear-gradient(var(--ladder),#8f2219);border-radius:6px;box-shadow:0 5px 10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.3);transition:top .5s cubic-bezier(.5,0,.3,1.3)}
+.lever.dragging .handle{transition:none}
+.lever .handle::after{content:"";position:absolute;inset:12px 10px;border-top:2px solid rgba(255,255,255,.35);border-bottom:2px solid rgba(0,0,0,.25)}
+.lever-labels{display:flex;flex-direction:column;justify-content:space-between;font-size:.78rem;color:#bfb2c4;text-align:center;padding:.2rem 0}
+.readout{grid-column:1/-1;min-height:4.6em;margin:.2rem 0 0;padding:.85rem 1rem;background:rgba(0,0,0,.22);border-left:3px solid var(--brass);font-size:.98rem;color:#ece4ee;border-radius:0 4px 4px 0}
+.readout b{font-family:var(--display);font-weight:700;color:var(--brass-lite);font-size:1.08rem;display:block}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:2.6rem;padding:3rem 0 3.5rem}
+  .inner{min-height:300px}
+}
+@media (max-width:560px){
+  .fuse{width:72px;height:72px}.fuse span{width:44px;height:44px}
+  .breakers{grid-template-columns:1fr;gap:7px}
+  .breakers::before{display:none}
+  .brk,.brk:nth-child(even){flex-direction:row;text-align:left;height:38px;font-size:.85rem}
+  .inner{min-height:310px}
+  .lever-labels{display:none}
+  .lever{width:40px}
+  .cta{flex-wrap:wrap;gap:.2rem .7rem}
+}
+.cta .n{white-space:nowrap}
+
+/* ---------- sections ---------- */
+section{padding:5.5rem 0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4vw,3.1rem);line-height:1.04;margin:0 0 1.2rem;color:var(--plum)}
+.prose{max-width:36em}
+.prose p{margin:0 0 1.1rem}
+
+.older{background:var(--steel)}
+.older .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.photo{position:relative}
+.pull cite{display:block;font-family:var(--body);font-style:normal;font-size:.95rem;color:#5d5764;margin-top:.4rem}
+.photo img{border-radius:3px;box-shadow:0 18px 40px rgba(34,20,42,.35);transform:rotate(-1.2deg)}
+.photo figcaption{margin-top:1.1rem;font-size:.9rem;color:#5d5764}
+.pull{font-family:var(--display);font-style:italic;font-weight:500;font-size:1.45rem;line-height:1.3;color:var(--plum);border-left:4px solid var(--ladder);padding-left:1rem;margin:1.8rem 0}
+@media (max-width:860px){.older .wrap{grid-template-columns:1fr;gap:2.5rem}}
+
+/* panel schedule (services) */
+.schedule{background:#e9e5dc}
+.card{background:#fbf9f3;border:2px solid var(--plum);border-radius:4px;box-shadow:6px 6px 0 var(--plum);max-width:900px}
+.card header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 1.3rem;border-bottom:2px solid var(--plum);background:var(--plum);color:#f1ece2}
+.card header strong{font-family:var(--display);font-size:1.3rem}
+.card header span{font-size:.9rem;color:#cbbfd0}
+.card ol{list-style:none;margin:0;padding:0;counter-reset:ckt}
+.card li{display:grid;grid-template-columns:3.2rem 13rem 1fr;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid #d8d2c4;counter-increment:ckt;transition:background .3s}
+.card li:last-child{border-bottom:0}
+.card li::before{content:counter(ckt);font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--steel-dk)}
+.card li h3{margin:0;font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--plum)}
+.card li p{margin:0}
+.card li.lit{background:#f6edcf}
+.card li.lit::before{color:var(--ladder)}
+.note{margin-top:1.4rem;font-size:.92rem;color:#5d5764;max-width:40em}
+@media (max-width:700px){.card li{grid-template-columns:2.2rem 1fr;row-gap:.35rem}.card li p{grid-column:2}}
+
+/* nameplate (licenses) */
+.creds{background:var(--plum-deep);color:#e8e1ea}
+.creds .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+.creds h2{color:#fbf7ee}
+.plate{position:relative;background:linear-gradient(135deg,#e7d79f,#c9a94e 40%,#a98a36 70%,#d9c37c);color:#2a1e10;border-radius:6px;padding:2.2rem 2.4rem;box-shadow:0 20px 40px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.4)}
+.plate .screws i{width:12px;height:12px;background:radial-gradient(circle at 35% 35%,#f4ecd0,#8c7431)}
+.plate .screws i:nth-child(1){top:10px;left:10px}.plate .screws i:nth-child(2){top:10px;right:10px}.plate .screws i:nth-child(3){bottom:10px;left:10px}.plate .screws i:nth-child(4){bottom:10px;right:10px}
+.plate h3{font-family:var(--display);font-weight:700;font-size:1.5rem;margin:0 0 1.2rem;text-shadow:0 1px 0 rgba(255,255,255,.45);border-bottom:2px solid rgba(42,30,16,.35);padding-bottom:.8rem}
+.plate dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.4rem}
+.plate dt{font-weight:600}
+.plate dd{margin:0;font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.06em;text-shadow:0 1px 0 rgba(255,255,255,.45)}
+.plate .foot{margin:1.4rem 0 0;font-size:.95rem}
+.promise{list-style:none;padding:0;margin:1.6rem 0 0}
+.promise li{padding:.7rem 0;border-top:1px solid rgba(255,255,255,.14)}
+@media (max-width:860px){.creds .wrap{grid-template-columns:1fr;gap:2.5rem}.plate{padding:2rem 1.4rem}.plate dl{grid-template-columns:1fr;gap:.2rem}.plate dd{margin-bottom:.6rem}}
+
+/* service area run */
+.area{background:var(--steel)}
+.run{position:relative;margin:2.6rem 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.run::before{content:"";position:absolute;left:8px;right:8px;top:9px;height:5px;background:var(--copper);border-radius:3px;transform-origin:left;transform:scaleX(var(--run,0));transition:transform 1.4s ease}
+.run div{position:relative;padding-top:2.2rem}
+.run div::before{content:"";position:absolute;top:0;left:0;width:22px;height:22px;border-radius:50%;background:var(--plum);box-shadow:0 0 0 4px var(--steel)}
+.run div:last-child{text-align:right}.run div:last-child::before{left:auto;right:0}
+.run div:nth-child(2){text-align:center}.run div:nth-child(2)::before{left:50%;margin-left:-11px}
+.run strong{font-family:var(--display);font-size:1.3rem;color:var(--plum);display:block}
+.run span{font-size:.95rem;color:#5d5764}
+@media (max-width:640px){.run{grid-template-columns:1fr;gap:1.4rem}.run::before{left:9px;right:auto;top:0;bottom:0;width:5px;height:auto;transform-origin:top;transform:scaleY(var(--run,0))}.run div,.run div:nth-child(2),.run div:last-child{text-align:left;padding:0 0 0 2.4rem}.run div::before,.run div:nth-child(2)::before,.run div:last-child::before{left:0;right:auto;margin:0}}
+
+/* reviews placeholder */
+.reviews{background:#e9e5dc;padding:4rem 0}
+.slot{border:2px dashed var(--steel-dk);border-radius:4px;padding:2rem;text-align:center;color:#5d5764;max-width:900px}
+.slot strong{display:block;font-family:var(--display);font-size:1.3rem;color:var(--plum);margin-bottom:.3rem}
+
+/* contact */
+.contact{background:var(--plum);color:#f1ece2}
+.contact .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:end}
+.contact h2{color:#fbf7ee}
+.bigtel{display:inline-block;font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7vw,5rem);line-height:1;color:var(--brass);text-decoration:none;margin:.4rem 0 1rem}
+.bigtel:hover{color:var(--brass-lite)}
+.contact address{font-style:normal;font-size:1.05rem;line-height:1.7}
+.contact address a{color:var(--brass-lite)}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--plum-deep);color:#a99cae;font-size:.88rem;padding:2rem 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+footer p{margin:0}
+
+body.still *,body.still *::before,body.still *::after{transition:none!important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body class="era-fuse">
+
+<svg class="wire" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 28 1000"><path class="sheath" d="M14 0 V180 C14 200 22 205 22 225 V520 C22 540 6 545 6 565 V1000"/><path class="core" id="wireCore" d="M14 0 V180 C14 200 22 205 22 225 V520 C22 540 6 545 6 565 V1000"/></svg>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Standard Electric Company, home"><span class="mono">SE</span><b>Standard Electric</b></a>
+    <nav aria-label="Sections">
+      <a href="#older-homes">Older homes</a>
+      <a href="#services">Services</a>
+      <a href="#licenses">Licenses</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="tel" href="tel:+12062842388">(206) 284-2388</a>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Rewiring old Seattle houses, plaster intact.</h1>
+      <p class="lede">Steve Kirkpatrick grew up in the electrical business and has run Standard Electric for more than 35 years. He's a Master Electrician, and older homes are his specialty: remodels, panel upgrades, additions and troubleshooting, from Queen Anne and Magnolia up to lower Snohomish County.</p>
+      <a class="cta" id="heroCta" href="tel:+12062842388"><span id="ctaText">Call about a panel upgrade</span> <span class="n">(206) 284-2388</span></a>
+      <p class="sub">Bonded, licensed and insured. References gladly provided.</p>
+    </div>
+
+    <div class="panel-zone">
+      <div class="box">
+        <div class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="inner">
+          <div class="fuses" aria-hidden="true">
+            <div class="fuse"><span></span></div>
+            <div class="fuse"><span></span></div>
+            <div class="fuse"><span></span></div>
+            <div class="fuse blown"><span></span></div>
+          </div>
+          <div class="breakers" id="breakers" role="group" aria-label="Services, one breaker each">
+            <button class="brk" role="switch" aria-checked="false" data-svc="1"><span class="tog"></span><span>Remodels</span></button>
+            <button class="brk" role="switch" aria-checked="false" data-svc="2"><span class="tog"></span><span>Additions</span></button>
+            <button class="brk" role="switch" aria-checked="false" data-svc="3"><span class="tog"></span><span>New construction</span></button>
+            <button class="brk" role="switch" aria-checked="false" data-svc="4"><span class="tog"></span><span>Service upgrades</span></button>
+            <button class="brk" role="switch" aria-checked="false" data-svc="5"><span class="tog"></span><span>Light commercial</span></button>
+            <button class="brk" role="switch" aria-checked="false" data-svc="6"><span class="tog"></span><span>Troubleshooting</span></button>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:.6rem">
+        <div class="lever" id="lever" role="slider" tabindex="0" aria-label="Panel: fuse box or breaker panel" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-valuetext="Old fuse box"><span class="track"></span><span class="handle"></span></div>
+        <div class="lever-labels" aria-hidden="true"><span>Fuses</span><span>Breakers</span></div>
+      </div>
+      <p class="readout" id="readout" aria-live="polite"><b>Still on screw-in fuses?</b>Standard Electric swaps fuse-type panels for modern circuit breaker panels. Pull the red lever to see the upgrade.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="older" id="older-homes">
+    <div class="wrap">
+      <div class="prose">
+        <h2>Difficult older homes are the everyday job here.</h2>
+        <p>Plenty of electricians can wire a new build. Fewer want to fish new circuits through an older Queen Anne house without opening up half the walls. That's the work Standard Electric has specialized in for decades: bringing older homes up to modern, inspected wiring while protecting the rest of the house.</p>
+        <p class="pull">“I am qualified to work on any project.”<cite>Steve Kirkpatrick, Master Electrician</cite></p>
+        <p>Steve holds a Master Electrician license with a General Administrator license, the highest designation an electrician can earn. His background covers remodels, additions, new construction, custom homes and light commercial work.</p>
+      </div>
+      <figure class="photo">
+        <img src="img/van.jpg" alt="Standard Electric's silver work van with a red ladder on the roof rack and the purple SE Standard Electric sign on the side window, showing the phone number (206) 284-2388" width="800" height="600">
+        <figcaption>The Standard Electric van, ladder up and ready.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="schedule" id="services">
+    <div class="wrap">
+      <h2>Panel schedule</h2>
+      <p class="prose">Every breaker panel has a directory card telling you what each circuit runs. Here's ours.</p>
+      <div class="card">
+        <header><strong>Standard Electric Company, Inc.</strong><span>Residential and light commercial</span></header>
+        <ol id="schedule">
+          <li data-svc="1"><h3>Remodels</h3><p>Rewiring older homes is the specialty. New work goes in with minimal or no damage to existing walls, trim and plaster.</p></li>
+          <li data-svc="2"><h3>Additions</h3><p>Wiring for new additions and improvements, tied cleanly into the house you already have.</p></li>
+          <li data-svc="3"><h3>New construction</h3><p>Residential and light commercial projects, including custom homes, wired from the start.</p></li>
+          <li data-svc="4"><h3>Service upgrades</h3><p>Old fuse-type panels replaced with modern circuit breaker panels.</p></li>
+          <li data-svc="5"><h3>Light commercial</h3><p>Shops, studios and office spaces.</p></li>
+          <li data-svc="6"><h3>Troubleshooting</h3><p>Finding, diagnosing and repairing electrical problems in older and newer homes. Problems get identified quickly, repaired properly, and upgrades are safe and meet inspection.</p></li>
+        </ol>
+      </div>
+      <p class="note">Only top-quality equipment and materials. No corners cut, no inferior products. It's the best investment for safety, dependability and value.</p>
+    </div>
+  </section>
+
+  <section class="creds" id="licenses">
+    <div class="wrap">
+      <div>
+        <h2>Licensed for residential and commercial work.</h2>
+        <ul class="promise">
+          <li>Workmanship guaranteed.</li>
+          <li>Materials warrantied for one year.</li>
+          <li>References gladly provided on request.</li>
+        </ul>
+      </div>
+      <div class="plate">
+        <div class="screws" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <h3>Standard Electric Company, Inc.</h3>
+        <dl>
+          <dt>General Electrical Contractor</dt><dd>STANDEC962P1</dd>
+          <dt>Master Electrician</dt><dd>KIRKPSSG972RA</dd>
+        </dl>
+        <p class="foot">Electrical Journeyman plus General Administrator license. Bonded and insured.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="area">
+    <div class="wrap">
+      <h2>Where the wire runs</h2>
+      <p class="prose">One of Seattle's most referred electrical contractors, working out of Interbay.</p>
+      <div class="run" id="run">
+        <div><strong>Queen Anne</strong><span>Older homes, plenty of them</span></div>
+        <div><strong>Magnolia</strong><span>Right next door to the shop</span></div>
+        <div><strong>Lower Snohomish County</strong><span>As far north as we go</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" aria-label="Customer reviews">
+    <div class="wrap">
+      <div class="slot"><strong>Your Google reviews go here</strong>Real customer reviews would be pulled in from the Standard Electric Google profile.</div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Call Steve for an estimate.</h2>
+        <a class="bigtel" href="tel:+12062842388">(206) 284-2388</a>
+        <p>For immediate response, calling is fastest.</p>
+      </div>
+      <address>
+        Standard Electric Company, Inc.<br>
+        2233 15th Ave W<br>
+        Seattle, WA 98119<br>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=2233+15th+Ave+W+Seattle+WA+98119">Open in Google Maps</a>
+      </address>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Standard Electric Company, Inc. · Seattle, Washington</p>
+    <p>Concept redesign by Theo, not the official site. Photo from Standard Electric's own website, used for this concept only.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var body=document.body, lever=document.getElementById('lever'), readout=document.getElementById('readout'),
+      ctaText=document.getElementById('ctaText'), brks=[].slice.call(document.querySelectorAll('.brk')),
+      rows=[].slice.call(document.querySelectorAll('#schedule li')),
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var info={
+    1:['Remodels','Rewiring older homes is the specialty, with minimal or no damage to walls and plaster.'],
+    2:['Additions','New additions and improvements, tied cleanly into the existing house.'],
+    3:['New construction','Residential and light commercial builds, custom homes included.'],
+    4:['Service upgrades','Fuse-type panels replaced with modern circuit breaker panels.'],
+    5:['Light commercial','Shops, studios and office spaces.'],
+    6:['Troubleshooting','Problems found fast, repaired properly, and up to inspection.']
+  };
+  var fuseMsg='<b>Still on screw-in fuses?</b>Standard Electric swaps fuse-type panels for modern circuit breaker panels. Pull the red lever to see the upgrade.';
+  var brkMsg='<b>Upgraded.</b>Each breaker is a service. Flip one to see what Standard Electric does.';
+  var era=0;
+  function setEra(v){
+    era=v; lever.style.setProperty('--t',v);
+    lever.setAttribute('aria-valuenow',v);
+    lever.setAttribute('aria-valuetext',v?'Modern breaker panel':'Old fuse box');
+    body.classList.toggle('era-fuse',!v); body.classList.toggle('era-breaker',!!v);
+    readout.innerHTML=v?brkMsg:fuseMsg;
+    ctaText.textContent=v?'Call Standard Electric':'Call about a panel upgrade';
+    if(!v){brks.forEach(function(b){b.setAttribute('aria-checked','false')});rows.forEach(function(r){r.classList.remove('lit')});}
+    brks.forEach(function(b){b.tabIndex=v?0:-1});
+  }
+  brks.forEach(function(b){
+    b.addEventListener('click',function(){
+      var on=b.getAttribute('aria-checked')!=='true', id=b.dataset.svc;
+      b.setAttribute('aria-checked',on);
+      var row=document.querySelector('#schedule li[data-svc="'+id+'"]');
+      row.classList.toggle('lit',on);
+      readout.innerHTML=on?'<b>'+info[id][0]+'</b>'+info[id][1]:brkMsg;
+    });
+  });
+  // drag
+  var dragging=false;
+  function pos(e){var r=lever.getBoundingClientRect();return Math.min(1,Math.max(0,(e.clientY-r.top-25)/(r.height-50)));}
+  lever.addEventListener('pointerdown',function(e){dragging=true;lever.classList.add('dragging');lever.setPointerCapture(e.pointerId);lever.style.setProperty('--t',pos(e));});
+  lever.addEventListener('pointermove',function(e){if(dragging)lever.style.setProperty('--t',pos(e));});
+  function end(e){if(!dragging)return;dragging=false;lever.classList.remove('dragging');setEra(pos(e)>.5?1:0);}
+  lever.addEventListener('pointerup',end);lever.addEventListener('pointercancel',end);
+  lever.addEventListener('keydown',function(e){
+    if(['ArrowDown','ArrowRight','End','PageDown'].indexOf(e.key)>-1){setEra(1);e.preventDefault();}
+    else if(['ArrowUp','ArrowLeft','Home','PageUp'].indexOf(e.key)>-1){setEra(0);e.preventDefault();}
+    else if(e.key===' '||e.key==='Enter'){setEra(era?0:1);e.preventDefault();}
+  });
+  setEra(0);
+  // showpiece: fuses flicker, then the lever throws itself
+  var params=new URLSearchParams(location.search);
+  if(params.has('era'))body.classList.add('still');
+  if(params.get('era')==='breaker'){setEra(1);var s=params.get('svc');if(s){var b=brks[+s-1];b&&b.click();}}
+  else if(!params.has('era')){setTimeout(function(){setEra(1)},reduce?0:2200);}
+
+  // copper wire draws as you scroll
+  var core=document.getElementById('wireCore'), L=core.getTotalLength();
+  core.style.strokeDasharray=L;
+  function draw(){var h=document.documentElement.scrollHeight-innerHeight;var p=h>0?scrollY/h:1;core.style.strokeDashoffset=L*(1-Math.max(.06,p));}
+  draw(); addEventListener('scroll',draw,{passive:true}); addEventListener('resize',draw);
+  // service area run fills when visible
+  var run=document.getElementById('run');
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run.style.setProperty('--run',1)})},{threshold:.4}).observe(run);}else run.style.setProperty('--run',1);
+})();
+</script>
+</body>
+</html>
