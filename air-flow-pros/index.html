@@ -72,9 +72,9 @@ header.top .wrap{display:flex;justify-content:space-between;align-items:center;g
 .proof img{display:block;width:100%;height:auto;border-radius:3px}
 .proof figcaption{display:flex;justify-content:space-between;gap:10px;font:700 14px var(--display);padding:10px 4px 0}
 .proof figcaption span:first-child{color:var(--primary)}
-.stamp{position:absolute;left:-18px;bottom:-24px;background:var(--accent);color:var(--ink);font:900 15px/1.1 var(--display);border-radius:50%;width:124px;height:124px;display:grid;place-items:center;text-align:center;transform:rotate(-10deg);box-shadow:0 8px 20px -10px rgba(0,0,0,.4);text-decoration:none;padding:12px}
-.stamp .n{font-size:30px;display:block;letter-spacing:-.02em}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.proof figcaption{padding-right:112px;flex-wrap:wrap;font-size:13px}.proof figcaption span:last-child{display:none}.stamp{left:auto;right:4px;bottom:-30px;width:108px;height:108px;font-size:13px}.stamp .n{font-size:26px}}
+.stamp{position:absolute;left:-18px;bottom:-24px;background:var(--accent);color:var(--ink);font:800 13px/1.15 var(--display);border-radius:50%;width:132px;height:132px;display:grid;place-items:center;text-align:center;transform:rotate(-10deg);box-shadow:0 8px 20px -10px rgba(0,0,0,.4);text-decoration:none;padding:12px}
+.stamp .n{font:900 36px/1 var(--display);display:block;letter-spacing:-.02em;margin:1px 0 2px}.stamp small{display:block;font:700 10.5px/1.2 var(--display);letter-spacing:.02em}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.proof figcaption{padding-right:112px;flex-wrap:wrap;font-size:13px}.proof figcaption span:last-child{display:none}.stamp{left:auto;right:4px;bottom:-30px;width:112px;height:112px;font-size:12px}.stamp .n{font-size:30px}.stamp small{font-size:9.5px}}
 
 /* TICKER */
 .ticker{background:var(--primary);color:#fff;overflow:hidden;padding:14px 0;border-block:3px solid var(--ink)}
@@ -90,15 +90,15 @@ section{scroll-margin-top:70px}
 .sec{padding-top:clamp(52px,7vw,96px);padding-bottom:clamp(52px,7vw,96px)}
 h2{font:900 clamp(34px,4.6vw,60px)/1 var(--display);letter-spacing:-.03em;margin:0 0 10px}
 .sec-lede{color:var(--muted);margin:0 0 34px;max-width:60ch}
-.svcgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px}
-.svcgrid article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px;display:flex;flex-direction:column}
+.svcgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:20px}
+.svcgrid article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:30px;display:flex;flex-direction:column;justify-content:center}
 .svcgrid article.big{grid-row:span 2;padding:0;overflow:hidden}
-.svcgrid article.big img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.svcgrid article.big img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 60%;display:block}
 .svcgrid article.big div{padding:26px}
-.svcgrid h3{font:700 25px/1.1 var(--display);margin:0 0 10px;color:var(--primary)}
+.svcgrid h3{font:700 clamp(23px,2.2vw,30px)/1.1 var(--display);margin:0 0 10px;color:var(--primary)}
 .svcgrid p{margin:0}
 .svcgrid ul{margin:14px 0 0;padding-left:20px}
-.svcgrid .tag{margin-top:auto;padding-top:16px;font:700 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.svcgrid .tag{padding-top:18px;font:700 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .svcgrid article.dark{background:var(--ink);color:#F6F1E7;border:0}
 .svcgrid article.dark h3{color:var(--accent)}.svcgrid article.dark .tag{color:#CFC6B8}
 @media(max-width:900px){.svcgrid{grid-template-columns:1fr}.svcgrid article.big{grid-row:auto}}
@@ -208,7 +208,7 @@ footer a{color:#F6F1E7}
       <img src="img/filters.jpg" alt="A furnace filter caked gray with dust and torn, next to a clean new white filter" width="1440" height="810" fetchpriority="high">
       <figcaption><span>Before</span><span>Dirty filter vs. clean filter</span><span>After</span></figcaption>
     </figure>
-    <a class="stamp" href="https://www.homeadvisor.com/rated.airflowpros.158941863.html" aria-label="5.0 stars from 24 reviews on HomeAdvisor"><span>5.0 ★<span class="n" id="count">24</span>reviews on HomeAdvisor</span></a>
+    <a class="stamp" href="https://www.homeadvisor.com/rated.airflowpros.158941863.html" aria-label="5.0 stars from 24 reviews on HomeAdvisor"><span>5.0 ★<span class="n" id="count">24</span>reviews<small>on HomeAdvisor</small></span></a>
   </div>
 </section>
 
@@ -221,7 +221,7 @@ footer a{color:#F6F1E7}
   <p class="sec-lede">Homes and commercial spaces. Estimates are free, and reviewers keep pointing out that the price he quotes on the phone is the price on the bill.</p>
   <div class="svcgrid">
     <article class="big">
-      <img src="img/power-vac.jpg" alt="Air Flow Pros' yellow Hornet power vacuum with its striped hose, set up on a lawn" width="605" height="450" loading="lazy">
+      <img src="img/power-vac.jpg" alt="Air Flow Pros' yellow Hornet power vacuum with its striped hose, set up on a lawn" width="605" height="408" loading="lazy">
       <div><h3>Furnace &amp; air duct cleaning</h3><p>The whole system, not just the grilles you can reach:</p>
         <ul><li>Supply and return ducts</li><li>Registers and return grilles</li><li>The furnace itself</li></ul></div>
     </article>
