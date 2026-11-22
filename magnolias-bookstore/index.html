@@ -44,7 +44,7 @@ img{display:block;max-width:100%}
 .skip:focus{left:8px}
 
 /* ---------- ribbon menu ---------- */
-.ribbon{position:fixed;right:clamp(16px,4vw,56px);top:0;z-index:40;width:200px;background:var(--ox);color:var(--paper);
+.ribbon{transition:background-color .35s ease;position:fixed;right:clamp(16px,4vw,56px);top:0;z-index:40;width:200px;background:var(--ox);color:var(--paper);
   padding:22px 22px 58px;clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 28px),0 100%);
   box-shadow:0 10px 30px rgba(26,23,20,.2);font-size:15px}
 .ribbon-toggle{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;width:100%;
@@ -52,6 +52,8 @@ img{display:block;max-width:100%}
 .ribbon-toggle:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
 .ribbon-toggle .chev{transition:transform .3s}
 .ribbon.is-tucked .ribbon-toggle .chev{transform:rotate(180deg)}
+.ribbon.is-alt{background:var(--ink)}
+.ribbon.is-alt li a{border-bottom-color:rgba(239,233,221,.22)}
 .ribbon ul{list-style:none;margin:10px 0 0;padding:0;overflow:hidden}
 .ribbon li a{display:block;padding:10px 0;color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(239,233,221,.28);transition:padding-left .3s,color .3s}
 .ribbon li:last-child a{border-bottom:0}
@@ -307,7 +309,7 @@ footer .small{flex:1 1 100%;font-size:12px;color:#BDB3A3;border-top:1px solid rg
   </div>
 </section>
 
-<section class="events" id="events" aria-labelledby="evTitle">
+<section class="events" id="events" aria-labelledby="evTitle" data-ribbon="alt">
   <div class="wrap">
     <div class="events-head reveal">
       <p class="eyebrow">Recently at the store</p>
@@ -390,6 +392,19 @@ footer .small{flex:1 1 100%;font-size:12px;color:#BDB3A3;border-top:1px solid rg
   if(small) setRibbon(false);
   list.addEventListener('click',function(e){ if(e.target.closest('a[href^="#"]') && window.innerWidth<=760) setRibbon(false); });
 
+  /* ---- ribbon color: never match the section behind it ---- */
+  var altSections=[].slice.call(document.querySelectorAll('[data-ribbon="alt"]'));
+  var ticking=false;
+  function checkRibbon(){
+    ticking=false;
+    var rb=ribbon.getBoundingClientRect(),y1=rb.top,y2=rb.bottom;
+    var over=altSections.some(function(sec){var r=sec.getBoundingClientRect();return Math.min(r.bottom,y2)-Math.max(r.top,y1)>12;});
+    ribbon.classList.toggle('is-alt',over);
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(checkRibbon);}},{passive:true});
+  window.addEventListener('resize',checkRibbon);
+  checkRibbon();
+
   /* ---- staff picks: stack -> fan -> pick ---- */
   var fan=document.getElementById('fan'),slots=[].slice.call(fan.querySelectorAll('.slot'));
   var picked=-1,fanned=false;
@@ -400,14 +415,15 @@ footer .small{flex:1 1 100%;font-size:12px;color:#BDB3A3;border-top:1px solid rg
     slots.forEach(function(el,i){
       var isPick=i===picked, base=(fanned||picked>-1)?FAN[i]:STACK[i];
       var vars={x:base[0]*s,rotation:isPick?base[1]*0.25:base[1],y:isPick?-58:0,scale:isPick?1.12:1,zIndex:isPick?10:i+1,
-        duration:instant?0:(isPick?0.55:0.6),ease:isPick?'back.out(1.6)':'power3.out',overwrite:'auto'};
+        duration:instant?0:(isPick?0.55:0.6),ease:isPick?'back.out(1.6)':'power3.out',overwrite:true};
       if(window.gsap){gsap.to(el,vars);}
       else{el.style.transform='translateX('+vars.x+'px) translateY('+vars.y+'px) rotate('+vars.rotation+'deg) scale('+vars.scale+')';el.style.zIndex=vars.zIndex;}
       el.classList.toggle('is-picked',isPick);
       var tag=el.querySelector('.tag');
       if(window.gsap){
-        if(isPick){gsap.set(tag,{visibility:'visible'});gsap.to(tag,{y:tag.offsetHeight-8,duration:.5,delay:.12,ease:'power3.out',overwrite:'auto'});}
-        else{gsap.to(tag,{y:0,duration:.3,ease:'power2.in',overwrite:'auto',onComplete:function(){if(!el.classList.contains('is-picked'))tag.style.visibility='hidden';}});}
+        gsap.killTweensOf(tag);
+        if(isPick){gsap.set(tag,{visibility:'visible'});gsap.to(tag,{y:tag.offsetHeight-8,duration:.5,delay:.12,ease:'power3.out'});}
+        else{gsap.set(tag,{y:0,visibility:'hidden'});}
       }else{tag.style.transform=isPick?'translateY(calc(100% - 8px))':'';}
     });
     fan.classList.toggle('has-pick',picked>-1);
@@ -419,14 +435,35 @@ footer .small{flex:1 1 100%;font-size:12px;color:#BDB3A3;border-top:1px solid rg
     c.classList.remove('shine');void c.offsetWidth;c.classList.add('shine');
   }
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  fan.addEventListener('mouseenter',function(){fanned=true;layout();});
-  fan.addEventListener('mouseleave',function(){fanned=false;picked=-1;layout();});
+  // Mouse picking uses the books' fixed fanned positions (not the animated ones),
+  // so a lifting/rotating book can't slide out from under the cursor and flicker,
+  // and only one book can be picked at a time.
+  function pickFromPointer(e){
+    if(e.pointerType&&e.pointerType!=='mouse') return;
+    var r=fan.getBoundingClientRect(),s=k(),bw=slots[0].offsetWidth;
+    var px=e.clientX-(r.left+r.width/2);
+    var centers=FAN.map(function(f){return f[0]*s;});
+    var inside=px>centers[0]-bw/2-24&&px<centers[3]+bw/2+24;
+    var next=-1;
+    if(inside){
+      var best=0;for(var i=1;i<4;i++){if(Math.abs(px-centers[i])<Math.abs(px-centers[best]))best=i;}
+      // hysteresis: stay on the current book until the pointer is clearly nearer another
+      if(picked>-1&&best!==picked&&Math.abs(px-centers[picked])-Math.abs(px-centers[best])<28) best=picked;
+      next=best;
+    }
+    if(!fanned){fanned=true;}
+    if(next!==picked){picked=next;layout();if(next>-1)sheen(slots[next]);}
+    else if(!fan.classList.contains('is-fanned')){layout();}
+    fan.classList.add('is-fanned');
+  }
+  fan.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){fanned=true;layout();fan.classList.add('is-fanned');}});
+  fan.addEventListener('pointermove',pickFromPointer);
+  fan.addEventListener('pointerleave',function(e){if(e.pointerType!=='mouse')return;fanned=false;picked=-1;fan.classList.remove('is-fanned');layout();});
   slots.forEach(function(el,i){
     var book=el.querySelector('.book'),cover=el.querySelector('.cover');
-    book.addEventListener('mouseenter',function(){if(picked!==i){picked=i;fanned=true;layout();sheen(el);}});
-    cover.addEventListener('focus',function(){picked=i;fanned=true;layout();sheen(el);});
+    cover.addEventListener('focus',function(){if(picked!==i){picked=i;fanned=true;layout();sheen(el);}});
     cover.addEventListener('blur',function(){setTimeout(function(){if(!fan.contains(document.activeElement)){picked=-1;fanned=false;layout();}},0);});
-    cover.addEventListener('click',function(){picked=(picked===i?-1:i);fanned=true;layout();if(picked===i)sheen(el);});
+    cover.addEventListener('click',function(e){if(e.pointerType==='mouse')return;picked=(picked===i?-1:i);fanned=true;layout();if(picked===i)sheen(el);});
   });
   if(window.matchMedia('(hover: none)').matches){document.getElementById('fanHint').textContent='Tap a book to pull it out';}
   window.addEventListener('resize',function(){layout(true);});
