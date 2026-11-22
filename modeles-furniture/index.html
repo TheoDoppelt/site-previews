@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modele's Home Furnishings: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Concept redesign for Modele's Home Furnishings, a high-end consignment furniture store in Magnolia Village, Seattle, since 1995.">
+<meta property="og:title" content="Modele's Home Furnishings: Website Concept">
+<meta property="og:description" content="High-end consignment furniture, gifts and accessories in Magnolia Village since 1995. A concept redesign.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/modeles-furniture/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Franklin:wght@400;500;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<style>
+/* Palette: paper #F3EEE4 · linen #E6DCCB · espresso ink #221E1A · muted #625A51
+   primary deep teal #1C6670 (from logo M, darkened) · accent logo turquoise #5CC6D0 */
+:root{
+  --bg:#F3EEE4; --surface:#E6DCCB; --ink:#221E1A; --muted:#625A51;
+  --primary:#1C6670; --accent:#5CC6D0; --on-primary:#FFFFFF; --on-accent:#10262A;
+  --cream:#E3D7B9; --tag:#FBF7EC;
+  --serif:"Libre Caslon Display","Times New Roman",Georgia,serif;
+  --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --hand:"Reenie Beanie","Bradley Hand","Segoe Print",cursive;
+  --ease:cubic-bezier(.2,.7,.2,1); --dur:.8s;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--primary)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.ph{background:#fff3a8;color:#3a3000;padding:0 .25em;border-radius:3px}
+.preview{background:var(--ink);color:var(--cream);font-size:13px;text-align:center;padding:8px 16px}
+.preview a{color:var(--accent)}
+.kicker{font:700 12px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:14px 22px;font:700 15px/1 var(--sans);text-decoration:none;border:2px solid var(--ink);transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.btn.solid{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink)}
+.btn.line{color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--bg)}
+
+/* header */
+header.top{background:var(--ink)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+header.top img{height:64px;width:auto}
+header.top nav{display:flex;gap:20px;flex-wrap:wrap}
+header.top nav a{color:var(--cream);text-decoration:none;font-size:14px;letter-spacing:.04em}
+header.top nav a:hover{color:var(--accent)}
+
+/* thread: the tag string running down the page */
+main{position:relative}
+#thread{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#thread path{fill:none;stroke:var(--primary);stroke-width:1.5;opacity:.45}
+section{position:relative;z-index:1}
+
+/* hero */
+.hero{padding:48px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(44px,6.4vw,88px);letter-spacing:-.01em;margin:16px 0 20px}
+.hero h1 em{font-style:italic;color:var(--primary)}
+.hero p.lead{font-size:19px;max-width:34em;color:var(--muted);margin:0 0 28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.since{margin-top:28px;font-size:14px;color:var(--muted)}
+.stage{position:relative}
+.stage .frame{position:relative;aspect-ratio:4/4.3;overflow:hidden;background:var(--surface)}
+.stage .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity var(--dur) var(--ease),transform 1.4s var(--ease);transform:scale(1.04)}
+.stage .frame img.on{opacity:1;transform:none}
+.tag{position:absolute;left:-28px;bottom:36px;width:210px;background:var(--tag);color:var(--ink);padding:26px 18px 16px 26px;clip-path:polygon(18% 0,100% 0,100% 100%,18% 100%,0 50%);filter:drop-shadow(0 6px 10px rgba(34,30,26,.18));transform-origin:0 50%;transition:transform var(--dur) var(--ease)}
+.tag::before{content:"";position:absolute;left:12%;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--muted)}
+.tag .lbl{font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.tag .nm{font:400 30px/1 var(--hand);margin:8px 0 6px}
+.tag .nt{font-size:12.5px;color:var(--muted);line-height:1.4}
+.tag.swing{transform:rotate(-4deg)}
+.stage .ctl{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:14px;font-size:13px;color:var(--muted)}
+.stage .ctl button{width:44px;height:44px;border:2px solid var(--ink);background:none;font:700 18px/1 var(--sans);color:var(--ink);cursor:pointer}
+.stage .ctl button:hover,.stage .ctl button:focus-visible{background:var(--ink);color:var(--bg)}
+
+/* about */
+.about{padding:110px 0;background:var(--surface)}
+.about .wrap{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:start}
+.yrs{font-family:var(--serif);font-size:clamp(120px,17vw,240px);line-height:.8;color:var(--primary)}
+.yrs small{display:block;font:700 13px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-top:18px}
+.about h2{font-size:clamp(34px,4.4vw,58px);margin-bottom:24px}
+.about p{max-width:38em}
+.about .route{display:flex;gap:14px;align-items:center;margin-top:28px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.about .route b{font-family:var(--hand);font-weight:400;font-size:28px;color:var(--ink)}
+.about .route i{flex:0 0 60px;height:1.5px;background:var(--primary)}
+
+/* masked heading reveal */
+.mask{display:block;overflow:hidden}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(105%);transition:transform var(--dur) var(--ease)}
+html.js .in .mask>span{transform:none}
+html.js .in .mask:nth-child(2)>span{transition-delay:.12s}
+
+/* floor */
+.floor{padding:120px 0}
+.floor .head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+.floor h2{font-size:clamp(38px,5vw,68px);max-width:12em}
+.floor .head p{max-width:24em;color:var(--muted);margin:0}
+.pieces{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.pc{margin:0}
+.pc .im{overflow:hidden;background:var(--surface)}
+.pc img{width:100%;height:100%;object-fit:cover;transform:translateY(calc((var(--p,.5) - .5) * var(--d,30px)));scale:1.1}
+.pc figcaption{font:400 26px/1 var(--hand);margin-top:10px}
+.pc figcaption span{font:400 13px/1.4 var(--sans);color:var(--muted);margin-left:6px}
+.pc.a{grid-column:1/8}.pc.a .im{aspect-ratio:5/4}
+.pc.b{grid-column:8/13;margin-top:120px}.pc.b .im{aspect-ratio:3/4}
+.pc.c{grid-column:2/6}.pc.c .im{aspect-ratio:1}
+.pc.d{grid-column:6/10;margin-top:60px}.pc.d .im{aspect-ratio:1}
+.pc.e{grid-column:10/13;margin-top:-40px}.pc.e .im{aspect-ratio:3/4}
+.floor .note{margin-top:40px;font-size:14px;color:var(--muted)}
+
+/* consign: pinned tag timeline */
+.consign{background:var(--ink);color:var(--bg)}
+.consign .pin{height:340vh}
+.consign .sticky{position:sticky;top:0;min-height:100vh;display:flex;align-items:center;padding:60px 0}
+.consign .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.consign .kicker{color:var(--accent)}
+.consign h2{font-size:clamp(38px,5vw,66px);margin:14px 0 22px}
+.consign .intro p{color:#cfc6b7;max-width:30em}
+.consign .intro a{color:var(--accent)}
+.steps{list-style:none;padding:0;margin:28px 0 0;counter-reset:s}
+.steps li{display:flex;gap:14px;align-items:baseline;padding:8px 0;color:#8d857a;transition:color var(--dur) var(--ease);font-size:15px}
+.steps li b{font-family:var(--serif);font-weight:400;font-size:22px;min-width:1.4em}
+.steps li.on{color:var(--bg)}
+.steps li.on b{color:var(--accent)}
+.bigtag{position:relative;background:var(--tag);color:var(--ink);padding:40px 36px 34px 92px;clip-path:polygon(15% 0,100% 0,100% 100%,15% 100%,0 50%);min-height:380px}
+.bigtag::before{content:"";position:absolute;left:8%;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:var(--ink)}
+.bigtag .day{font:700 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.bigtag .bar{height:6px;background:var(--surface);margin:14px 0 26px;position:relative}
+.bigtag .bar i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--fill,0) * 100%);background:var(--primary);transition:width var(--dur) var(--ease)}
+.bigtag .card{display:none}
+.bigtag .card.on{display:block;animation:tagin var(--dur) var(--ease)}
+@keyframes tagin{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.bigtag h3{font:400 46px/1 var(--hand);margin-bottom:12px}
+.bigtag p{margin:0 0 10px;font-size:16px}
+.bigtag ul{margin:6px 0 0;padding-left:18px;font-size:14.5px;color:var(--muted);columns:2;column-gap:24px}
+
+/* gifts: horizontal shelf */
+.gifts{background:var(--bg)}
+.gifts .track-wrap{height:var(--h,300vh)}
+.gifts .sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.gifts .head{margin-bottom:36px}
+.gifts h2{font-size:clamp(38px,5vw,66px);margin-top:12px}
+.gifts .head p{color:var(--muted);max-width:36em}
+.shelf{display:flex;gap:0;will-change:transform;padding-left:max(16px,calc((100vw - 1180px)/2));border-bottom:10px solid var(--ink)}
+.brand{flex:0 0 300px;padding:28px 26px 30px;border-left:1.5px solid var(--surface)}
+.brand .org{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.brand h3{font-size:36px;margin:12px 0 10px}
+.brand p{margin:0;font-size:15px;color:var(--muted)}
+
+/* village */
+.village{padding:120px 0;background:var(--surface)}
+.village .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
+.village img{width:100%;max-width:340px;transform:rotate(-2deg);box-shadow:0 14px 30px rgba(34,30,26,.2)}
+.village h2{font-size:clamp(36px,4.6vw,60px);margin:14px 0 20px}
+.village ul{list-style:none;padding:0;margin:24px 0 0}
+.village li{padding:14px 0;border-top:1.5px solid var(--bg);display:flex;justify-content:space-between;gap:16px}
+.village li span{font:400 26px/1 var(--hand)}
+.village li em{font-style:normal;color:var(--muted);font-size:14px}
+
+/* visit: shop door sign */
+.visit{padding:120px 0}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.door{background:var(--primary);color:var(--on-primary);padding:40px 36px 36px;position:relative}
+.door .hang{display:flex;justify-content:center;margin-bottom:-8px}
+.door .hang svg{width:140px;height:44px}
+.sign{background:var(--tag);color:var(--ink);width:240px;margin:0 auto 32px;text-align:center;padding:16px 10px;border:3px solid var(--ink);transform-origin:50% -40px;transition:transform 1s var(--ease)}
+.sign .st{font:400 46px/1 var(--serif);letter-spacing:.06em}
+.sign .sub{font-size:13px;color:var(--muted);margin-top:6px}
+.sign.closed .st{color:#8a3324}
+.door table{width:100%;border-collapse:collapse;font-size:16px}
+.door td{padding:10px 0;border-top:1px solid rgba(255,255,255,.25)}
+.door td:last-child{text-align:right}
+.door tr.today td{font-weight:700;color:var(--accent)}
+.door small{display:block;margin-top:14px;opacity:.85}
+.visit h2{font-size:clamp(38px,5vw,66px);margin:14px 0 22px}
+.visit address{font-style:normal;font-size:20px;line-height:1.5;margin-bottom:22px}
+.visit .lines{display:grid;gap:10px;margin:22px 0 30px}
+.visit .lines a{font-size:18px;text-decoration:none;border-bottom:1.5px solid var(--surface);padding-bottom:8px;color:var(--ink)}
+.visit .lines a:hover{color:var(--primary)}
+.visit .lines span{display:block;font:700 11px/1.6 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+footer{background:var(--ink);color:var(--cream);padding:56px 0 110px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+footer img{height:84px;width:auto}
+footer a{color:var(--accent)}
+footer p{margin:0 0 6px;max-width:36em}
+
+.callbar{display:none}
+@media (max-width:820px){
+  header.top nav{display:none}
+  header.top img{height:52px}
+  .hero{padding:28px 0 110px}
+  .hero .wrap,.about .wrap,.consign .wrap,.village .wrap,.visit .wrap{grid-template-columns:1fr;gap:36px}
+  .tag{left:-8px;bottom:20px;width:180px}
+  .pieces{grid-template-columns:1fr 1fr;gap:14px}
+  .pc.a{grid-column:1/3}.pc.b{grid-column:1/2;margin-top:0}.pc.c{grid-column:2/3;margin-top:50px}
+  .pc.d{grid-column:1/2;margin-top:0}.pc.e{grid-column:2/3;margin-top:30px}
+  .pc figcaption{font-size:22px}.pc figcaption span{display:block;margin:2px 0 0}
+  .consign .pin{height:auto}
+  .consign .sticky{position:relative;min-height:0;padding:90px 0}
+  .bigtag{padding:30px 22px 26px 56px;min-height:0}
+  .bigtag ul{columns:1}
+  .brand{flex-basis:250px}
+  .yrs{font-size:120px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);border-top:3px solid var(--accent)}
+  .callbar a{flex:1;text-align:center;padding:15px 8px;color:var(--cream);text-decoration:none;font-weight:700;font-size:15px}
+  .callbar a+a{border-left:1px solid #4a433b}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html.js .mask>span{transform:none}
+  .pc img{transform:none}
+  .consign .pin{height:auto}.consign .sticky{position:relative;min-height:0;padding:90px 0}
+  .bigtag .card{display:block;margin-bottom:22px}
+  .gifts .track-wrap{height:auto}
+  .gifts .sticky{position:relative;height:auto;padding:100px 0}
+  .shelf{flex-wrap:wrap;transform:none!important}
+  .brand{flex:1 1 260px}
+  #thread path{stroke-dashoffset:0!important}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Modele's Home Furnishings site. <a href="https://www.modelesfurniture.com/">See their real site</a></div>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="Modele's home"><img src="img/logo.png" alt="Modele's" width="219" height="140"></a>
+    <nav aria-label="Main">
+      <a href="#floor">Furniture</a><a href="#consign">How to Consign</a><a href="#gifts">Retail Accessories</a><a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<svg id="thread" aria-hidden="true" preserveAspectRatio="none"><path d=""/></svg>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Consignment Furniture • Gifts • Accessories</div>
+      <h1>High-end furniture, <em>gently used,</em> from Seattle homes.</h1>
+      <p class="lead">Brand names and high-end custom pieces, mostly from individual homes, with new merchandise arriving almost daily. A broad range of styles, leaning contemporary-transitional, in the heart of Magnolia Village.</p>
+      <div class="ctas">
+        <a class="btn solid" href="tel:+12062879942">Call 206-287-9942</a>
+        <a class="btn line" href="#consign">How to consign</a>
+      </div>
+      <div class="since">3220 W. McGraw St. · Open 7 days · First opened on Western Avenue in 1995</div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="frame">
+        <img class="on" src="img/sofa.jpg" alt="Black rattan-frame three-seat sofa with cream cushions on a kilim rug" width="600" height="484">
+        <img src="img/headboard.jpg" alt="Black metal queen headboard with gothic arch spires" width="450" height="635">
+        <img src="img/coffee.jpg" alt="Round glass coffee table on a geometric bamboo-style base" width="500" height="441">
+        <img src="img/stools.jpg" alt="Pair of rattan bar stools with suede seats" width="500" height="506">
+        <img src="img/chairs.jpg" alt="Set of black rattan dining chairs with cane backs" width="500" height="490">
+      </div>
+      <div class="tag" id="tag" aria-live="polite">
+        <div class="lbl">Past find · <span id="tagn">1</span>/5</div>
+        <div class="nm" id="tagname">McGuire 3-seat sofa</div>
+        <div class="nt" id="tagnote">Rattan frame, cream cushions.</div>
+      </div>
+      <div class="ctl">
+        <span>Flip through past finds</span>
+        <button type="button" id="prev" aria-label="Previous piece">‹</button>
+        <button type="button" id="next" aria-label="Next piece">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about" data-p>
+  <div class="wrap">
+    <div class="yrs"><span id="yrs" data-from="1995">31</span><small>years in Seattle</small></div>
+    <div>
+      <div class="kicker">Who we are</div>
+      <h2 class="rv"><span class="mask"><span>A consignment floor</span></span><span class="mask"><span>you'll want to revisit.</span></span></h2>
+      <p>Modele's Home Furnishings first opened on Western Avenue in downtown Seattle in 1995. Today we're a high-end furniture consignment store in Magnolia Village, specializing in brand names and high-end custom furniture and accessories.</p>
+      <p>The majority of our merchandise comes from individual homes where the furniture has been gently used. New pieces arrive almost daily, so you're sure to see something new each time you visit. Alongside the consigned pieces, we keep a wonderful collection of new retail accessories and gifts you can count on finding in stock.</p>
+      <div class="route"><b>Western Ave</b><i></i>1995<i></i><b>Magnolia Village</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="floor" id="floor">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="kicker">On the floor</div>
+        <h2 class="rv"><span class="mask"><span>Dining, seating, tables,</span></span><span class="mask"><span>bedroom and beyond.</span></span></h2>
+      </div>
+      <p>A few past finds from our floor. The store changes almost daily, so call or stop by to see what's in this week.</p>
+    </div>
+    <div class="pieces">
+      <figure class="pc a" data-p style="--d:50px"><div class="im"><img src="img/trio.jpg" alt="Patterned upholstered seat, white ceramic lamp, and turned wood chair legs" width="1024" height="525"></div><figcaption>Lighting &amp; seating <span>details from the floor</span></figcaption></figure>
+      <figure class="pc b" data-p style="--d:70px"><div class="im"><img src="img/headboard.jpg" alt="Black metal queen headboard with arch spires" width="450" height="635"></div><figcaption>Bedroom <span>McGuire queen headboard</span></figcaption></figure>
+      <figure class="pc c" data-p style="--d:40px"><div class="im"><img src="img/chairs.jpg" alt="Black rattan dining chairs" width="500" height="490"></div><figcaption>Dining <span>set of 4 McGuire chairs</span></figcaption></figure>
+      <figure class="pc d" data-p style="--d:60px"><div class="im"><img src="img/coffee.jpg" alt="Round glass coffee table" width="500" height="441"></div><figcaption>Tables <span>McGuire coffee table</span></figcaption></figure>
+      <figure class="pc e" data-p style="--d:40px"><div class="im"><img src="img/stools.jpg" alt="Rattan bar stools" width="500" height="506"></div><figcaption>Seating <span>McGuire Prescott bar stools</span></figcaption></figure>
+    </div>
+    <p class="note">Also: sideboards, cabinets, chests and shelving · tabletop, lighting, rugs and pillows, mirrors, artwork, jewelry &amp; fashion, and the miscellaneous &amp; unique.</p>
+  </div>
+</section>
+
+<section class="consign" id="consign">
+  <div class="pin" data-p id="pin">
+    <div class="sticky">
+      <div class="wrap">
+        <div class="intro">
+          <div class="kicker">Interested in consignment?</div>
+          <h2>Here's how it works.</h2>
+          <p>We preview items to see if they're a good match for the store. One good overall photo of each item is usually enough. Email it to <a href="mailto:deb@modelesfurniture.com">deb@modelesfurniture.com</a>.</p>
+          <ol class="steps" id="steps">
+            <li class="on" tabindex="0"><b>1</b>Send a photo and the details</li>
+            <li tabindex="0"><b>2</b>We agree on pricing</li>
+            <li tabindex="0"><b>3</b>A written 60-day contract</li>
+            <li tabindex="0"><b>4</b>It sells, you get paid</li>
+          </ol>
+        </div>
+        <div class="bigtag" id="bigtag" style="--fill:0">
+          <div class="day" id="day">Before day 1</div>
+          <div class="bar"><i></i></div>
+          <div class="card on">
+            <h3>Send us a photo</h3>
+            <p>One good overall image per item, plus:</p>
+            <ul><li>Manufacturer's name</li><li>Age</li><li>Where purchased</li><li>Price paid (invoices help)</li><li>Overall dimensions</li><li>Condition: wear, stains, sun-fading, loose joints, water rings</li></ul>
+          </div>
+          <div class="card">
+            <h3>We agree on pricing</h3>
+            <p>Pricing depends on the item, its overall condition and the level of demand. Generally, customers expect to pay no more than half of retail in a consignment setting. Some items go lower, a few can go higher.</p>
+          </div>
+          <div class="card">
+            <h3>A 60-day contract</h3>
+            <p>Once pricing is agreed, you get a written consignment contract for a 60-day period. Delivery to Modele's is at the consignor's expense, but we'll recommend the most cost-efficient way. We're fully responsible for your piece while it's with us.</p>
+          </div>
+          <div class="card">
+            <h3>Sold!</h3>
+            <p>We send you 50% of the sale price within 14 days of the sale. If it hasn't sold in 60 days, we can extend the contract with price reductions, or you can pick it up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gifts" id="gifts">
+  <div class="track-wrap" id="hwrap" data-p>
+    <div class="sticky">
+      <div class="wrap head">
+        <div class="kicker">Retail accessories</div>
+        <h2 class="rv"><span class="mask"><span>Always in stock,</span></span><span class="mask"><span>from Finland to Japan.</span></span></h2>
+        <p>A curated set of new retail lines to go with the consigned accessories that are always changing in the store.</p>
+      </div>
+      <div class="shelf" id="shelf">
+        <div class="brand"><div class="org">Finland</div><h3>iittala</h3><p>Finnish dishware, glassware and serving pieces.</p></div>
+        <div class="brand"><div class="org">Austria</div><h3>David Fussenegger</h3><p>Washable throws, pet blankets and kiddie wraps.</p></div>
+        <div class="brand"><div class="org">France</div><h3>Le Jacquard Français</h3><p>Table linens: dishtowels, runners, tablecloths, napkins and more.</p></div>
+        <div class="brand"><div class="org">Japan</div><h3>Miya</h3><p>Japanese porcelain bowls and serving pieces.</p></div>
+        <div class="brand"><div class="org">Hand-crafted</div><h3>Edward S. Wohl</h3><p>Birdseye maple cutting and serving boards.</p></div>
+        <div class="brand"><div class="org">Placemats &amp; floor mats</div><h3>Chilewich</h3><p>Woven placemats and floor mats.</p></div>
+        <div class="brand"><div class="org">Provence</div><h3>Pré de Provence</h3><p>French quad-milled soap, bath gel and lotions.</p></div>
+        <div class="brand"><div class="org">Paper napkins</div><h3>Marimekko &amp; IHR</h3><p>Cocktail, luncheon and buffet/guest napkins.</p></div>
+        <div class="brand"><div class="org">Tables</div><h3>Yamazaki</h3><p>'Tower' side tables in white or black.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="village" id="village">
+  <div class="wrap">
+    <img src="img/sandclay.jpg" alt="Sand &amp; Clay art walk display: white ceramic vases and porcelain birds" width="290" height="500">
+    <div>
+      <div class="kicker">Part of the Village</div>
+      <h2 class="rv"><span class="mask"><span>Your neighbors</span></span><span class="mask"><span>on McGraw Street.</span></span></h2>
+      <p>Modele's joins in on the Magnolia Village events that bring the neighborhood out.</p>
+      <ul>
+        <li><span>Magnolia Village Art Walk</span><em>glass art &amp; ceramics</em></li>
+        <li><span>Magnolia Summerfest</span><em>Seafair weekend</em></li>
+        <li><span>Vino in the Village</span><em>for the Chamber</em></li>
+        <li><span>Jewelry Trunk Show</span><em>in December</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="door">
+      <div class="hang" aria-hidden="true"><svg viewBox="0 0 140 44"><path d="M10 44 L70 4 L130 44" fill="none" stroke="#E3D7B9" stroke-width="2"/><circle cx="70" cy="4" r="4" fill="#E3D7B9"/></svg></div>
+      <div class="sign" id="sign" role="status"><div class="st" id="signst">OPEN</div><div class="sub" id="signsub">Magnolia Village</div></div>
+      <table id="hours">
+        <tr data-d="1,2,3,4,5"><td>Monday – Friday</td><td>10:00 – 6:00</td></tr>
+        <tr data-d="6"><td>Saturday</td><td>10:00 – 5:00</td></tr>
+        <tr data-d="0"><td>Sunday</td><td>noon – 5:00</td></tr>
+      </table>
+      <small>Hours as listed on the current site. <span class="ph">Confirm holiday hours</span></small>
+    </div>
+    <div id="contact">
+      <div class="kicker">Visit &amp; contact</div>
+      <h2>Come see what's new this week.</h2>
+      <address>Magnolia Village<br>3220 W. McGraw St.<br>Seattle, WA 98199</address>
+      <div class="lines">
+        <a href="tel:+12062879942"><span>Call</span>206-287-9942</a>
+        <a href="mailto:contact@modelesfurniture.com"><span>Email the store</span>contact@modelesfurniture.com</a>
+        <a href="mailto:deb@modelesfurniture.com"><span>Consignment photos</span>deb@modelesfurniture.com</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=3220+W+McGraw+St+Seattle+WA+98199"><span>Directions</span>Open in Google Maps →</a>
+      </div>
+      <p style="color:var(--muted);font-size:15px">Sign up for store announcements in the store or by email. <span class="ph">Instagram / Facebook links</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="Modele's" width="219" height="140">
+    <div>
+      <p>Modele's Home Furnishings · Consignment Furniture • Gifts • Accessories · Seattle since 1995</p>
+      <p>Concept redesign by Theo, not the official Modele's Home Furnishings site. <a href="https://www.modelesfurniture.com/">modelesfurniture.com</a></p>
+      <p>Logo and photos from Modele's own website.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar"><a href="tel:+12062879942">Call the store</a><a href="#visit">Hours &amp; map</a></div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // hero tag flipper
+  var P=[["McGuire 3-seat sofa","Rattan frame, cream cushions."],["McGuire queen headboard","Black metal, arched spires."],["McGuire coffee table","Round glass top, geometric base."],["McGuire Prescott bar stools","Rattan with suede seats."],["Set of 4 McGuire chairs","Black rattan, cane backs."]];
+  var imgs=document.querySelectorAll('#stage .frame img'),tag=document.getElementById('tag'),i=0;
+  function show(n){i=(n+P.length)%P.length;imgs.forEach(function(im,k){im.classList.toggle('on',k===i)});
+    document.getElementById('tagname').textContent=P[i][0];document.getElementById('tagnote').textContent=P[i][1];document.getElementById('tagn').textContent=i+1;
+    if(!reduce){tag.classList.add('swing');setTimeout(function(){tag.classList.remove('swing')},420)}}
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('next').onclick=function(){show(i+1)};
+
+  // years since 1995
+  var yEl=document.getElementById('yrs'),years=new Date().getFullYear()-1995;yEl.textContent=years;
+
+  // reveals + count-up
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');
+    if(e.target.id==='about'&&!reduce){var t0=performance.now();(function tick(t){var k=Math.min(1,(t-t0)/1400);yEl.textContent=Math.round(years*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(tick)})(t0)}
+    io.unobserve(e.target)})},{threshold:.25});
+  document.querySelectorAll('.rv,#about').forEach(function(el){io.observe(el.closest('section')===el?el:el)});
+
+  // shop door sign (Seattle time)
+  function sign(){var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+    var H={0:[12,17],6:[10,17]},r=H[d]||[10,18],open=h>=r[0]&&h<r[1];
+    var s=document.getElementById('sign');s.classList.toggle('closed',!open);
+    document.getElementById('signst').textContent=open?'OPEN':'CLOSED';
+    document.getElementById('signsub').textContent=open?'until '+(r[1]-12)+':00 today':(h<r[0]?'opens '+(r[0]===12?'noon':r[0]+':00')+' today':'see you tomorrow');
+    document.querySelectorAll('#hours tr').forEach(function(tr){tr.classList.toggle('today',tr.dataset.d.split(',').indexOf(String(d))>-1)})}
+  sign();setInterval(sign,60000);
+
+  if(reduce)return;
+  // one shared scroll loop: --p per [data-p], thread, pinned steps, shelf
+  var secs=[].slice.call(document.querySelectorAll('[data-p]')),main=document.querySelector('main'),svg=document.getElementById('thread'),path=svg.querySelector('path'),len=0;
+  var hwrap=document.getElementById('hwrap'),shelf=document.getElementById('shelf'),pin=document.getElementById('pin'),cards=document.querySelectorAll('#bigtag .card'),lis=document.querySelectorAll('#steps li'),big=document.getElementById('bigtag'),dayEl=document.getElementById('day'),step=-1;
+  var DAYS=['Before day 1','Pricing agreed','Days 1 – 60','Within 14 days of sale'];
+  function layout(){var w=main.offsetWidth,h=main.offsetHeight,x=w<820?10:Math.max(18,(w-1180)/2-22);svg.setAttribute('viewBox','0 0 '+w+' '+h);svg.style.height=h+'px';
+    var d='M'+x+' 0',n=Math.ceil(h/700);for(var k=0;k<n;k++){var y=k*700;d+=' C'+(x+16)+' '+(y+230)+' '+(x-14)+' '+(y+470)+' '+x+' '+(y+700)}
+    path.setAttribute('d',d);len=path.getTotalLength();path.style.strokeDasharray=len;
+    if(innerWidth>820||true){hwrap.style.setProperty('--h',(shelf.scrollWidth-innerWidth+innerHeight*1.15)+'px')}}
+  function frame(){var vh=innerHeight;
+    secs.forEach(function(s){var r=s.getBoundingClientRect(),p=s.classList.contains('pc')?(vh-r.top)/(vh+r.height):-r.top/Math.max(1,r.height-vh);s.style.setProperty('--p',Math.max(0,Math.min(1,p)).toFixed(3))});
+    var mr=main.getBoundingClientRect(),tp=Math.max(0,Math.min(1,(vh*.7-mr.top)/mr.height));path.style.strokeDashoffset=len*(1-tp);
+    var hp=+hwrap.style.getPropertyValue('--p')||0;shelf.style.transform='translateX('+(-hp*Math.max(0,shelf.scrollWidth-innerWidth))+'px)';
+    if(innerWidth>820){var pp=+pin.style.getPropertyValue('--p')||0,s=Math.min(3,Math.floor(pp*4));if(s!==step){step=s;cards.forEach(function(c,k){c.classList.toggle('on',k===s)});lis.forEach(function(l,k){l.classList.toggle('on',k<=s)});dayEl.textContent=DAYS[s];big.style.setProperty('--fill',(s+1)/4)}}
+    ticking=false}
+  var ticking=false;function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  // phones: steps advance by tapping the list instead of pinning
+  lis.forEach(function(l,k){l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();l.click()}});l.addEventListener('click',function(){if(innerWidth<=820){cards.forEach(function(c,j){c.classList.toggle('on',j===k)});lis.forEach(function(x,j){x.classList.toggle('on',j<=k)});dayEl.textContent=DAYS[k];big.style.setProperty('--fill',(k+1)/4)}})});
+  layout();frame();addEventListener('scroll',req,{passive:true});addEventListener('resize',function(){layout();req()});addEventListener('load',function(){layout();req()});
+})();
+</script>
+</body>
+</html>
