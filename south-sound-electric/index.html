@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>South Sound Electric: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Concept redesign for South Sound Electric Inc., family-owned union electricians in Port Orchard, WA since 2005.">
+<meta property="og:title" content="South Sound Electric: Website Concept">
+<meta property="og:description" content="Family-owned union electricians in Port Orchard, WA since 2005. 24-hour emergency service.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/south-sound-electric/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Palette (from the logo: sky blue, Rainier white, navy outline; plus panel-label yellow)
+   --bg #EEF4F9 · --surface #FFFFFF · --ink #12213F · --muted #44566E
+   --primary #1565B0 (logo blue, deepened) · --accent #F6C343 (signal yellow) · --navy #1B2A6B
+   ink/bg 14.9 · muted/bg 6.6 · white on primary 6.2 · ink on accent 10.6 */
+:root{
+  --bg:#EEF4F9;--surface:#FFFFFF;--ink:#12213F;--muted:#44566E;--primary:#1565B0;--accent:#F6C343;--navy:#1B2A6B;--line:#C9D6E3;--steel:#D7DEE5;
+  --display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --hand:"Caveat","Bradley Hand","Segoe Print",cursive;
+  --ease:cubic-bezier(.22,.8,.2,1);--dur:.6s;--dur-s:.3s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--display);font-stretch:100%;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.ph{background:#ffe86b;color:#111;padding:0 .2em;border-radius:2px}
+.wrap{width:min(1160px,100% - 32px);margin:0 auto;position:relative}
+h1,h2,h3{font-family:var(--display);font-stretch:72%;font-weight:850;line-height:.95;letter-spacing:-.01em;text-transform:uppercase}
+h2{font-size:clamp(40px,7vw,84px)}
+.kick{font:700 13px var(--display);font-stretch:110%;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font:800 16px var(--display);font-stretch:90%;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:15px 22px;border-radius:4px}
+.btn.y{background:var(--accent);color:var(--ink)}
+.btn.o{background:none;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+
+.preview{background:#ffe86b;color:#111;font:600 13px/1.4 var(--display);text-align:center;padding:8px 16px}
+.preview a{text-decoration:underline}
+
+header.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+.hdr img{height:64px;width:auto}
+.hdr nav{display:flex;gap:24px;align-items:center;font:700 14px var(--display);font-stretch:90%;text-transform:uppercase;letter-spacing:.06em}
+.hdr nav a{text-decoration:none}
+.hdr nav a:hover{color:var(--primary)}
+@media(max-width:860px){.hdr nav a:not(.btn){display:none}.hdr img{height:46px}.hdr .btn{padding:10px 12px;font-size:14px}}
+
+/* wire thread */
+.wire{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:0;overflow:visible}
+.wire path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.wire .bed{stroke:var(--line);stroke-width:3}
+.wire .hot{stroke:var(--accent);stroke-width:4;filter:drop-shadow(0 0 4px rgba(246,195,67,.8))}
+.node{position:relative;display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--steel);box-shadow:inset 0 0 0 3px var(--surface),0 0 0 2px var(--line);transition:background var(--dur-s),box-shadow var(--dur-s);vertical-align:middle;z-index:1}
+.node.live{background:var(--accent);box-shadow:inset 0 0 0 3px var(--surface),0 0 0 2px var(--accent),0 0 16px rgba(246,195,67,.9)}
+main{position:relative}
+main>section{position:relative;z-index:1}
+
+/* hero: breaker panel */
+.hero{padding:64px 0 90px}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(50px,8.4vw,112px);margin:16px 0 20px}
+.hero h1 em{font-style:normal;color:var(--primary)}
+.hero p.lead{font-size:19px;max-width:48ch;color:var(--muted)}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.emerg{display:inline-flex;gap:10px;align-items:center;margin-top:22px;font:700 14px var(--display);text-transform:uppercase;letter-spacing:.08em}
+.emerg i{width:10px;height:10px;border-radius:50%;background:#e2382c;box-shadow:0 0 0 4px rgba(226,56,44,.18)}
+.panel{background:linear-gradient(#e6ebf0,#cfd7df);border-radius:10px;padding:18px;box-shadow:0 0 0 1px #b8c3cd,0 24px 50px -24px rgba(18,33,63,.45);position:relative}
+.panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font:800 12px var(--display);font-stretch:110%;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.panel-top b{font-family:var(--hand);font-size:22px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.bk{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;background:#2a3442;padding:14px;border-radius:6px}
+.bk button{appearance:none;border:0;cursor:pointer;display:flex;align-items:center;gap:10px;background:none;color:#fff;text-align:left;padding:2px 0}
+.bk button .lever{flex:none;width:44px;height:26px;border-radius:3px;background:#101820;position:relative;box-shadow:inset 0 0 0 2px #3c4858}
+.bk button .lever::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:20px;border-radius:2px;background:#8a96a5;transition:transform var(--dur-s) var(--ease),background var(--dur-s)}
+.bk button[aria-pressed=true] .lever::after{transform:translateX(20px);background:var(--accent)}
+.bk button .lbl{font:600 21px/1 var(--hand);background:#f7f3e6;color:#1d2a44;padding:4px 8px;border-radius:2px;flex:1;transform:rotate(-.6deg)}
+.bk button:nth-child(even) .lbl{transform:rotate(.5deg)}
+.bk button[aria-pressed=true] .lbl{background:var(--accent)}
+.readout{background:var(--surface);border-radius:6px;margin-top:12px;padding:16px 18px;min-height:150px}
+.readout h3{font-size:30px;text-transform:none;font-stretch:80%}
+.readout ul{list-style:none;margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.readout li{font:600 14px var(--display);background:var(--bg);padding:4px 10px;border-radius:20px}
+.readout p{margin-top:10px;font-size:15px;color:var(--muted)}
+.readout p a{color:var(--primary);font-weight:700}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr;gap:36px}.hero{padding:40px 0 70px}.bk button .lbl{font-size:18px}.bk button .lever{width:36px}.bk button[aria-pressed=true] .lever::after{transform:translateX(12px)}}
+@media(max-width:400px){.bk{grid-template-columns:1fr}}
+
+/* Ray: pinned timeline */
+.ray{background:var(--navy);color:#fff}
+.ray-pin{padding:100px 0}
+.ray .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ray .kick{color:var(--accent)}
+.ray h2{margin:14px 0 18px}
+.ray p{color:#d6def0;max-width:52ch}
+.frames{position:relative}
+.frame{padding:26px 0;border-top:1px solid rgba(255,255,255,.2)}
+.frame strong{display:block;font:850 clamp(70px,11vw,140px)/.9 var(--display);font-stretch:62%;color:var(--accent)}
+.frame span{font:700 15px var(--display);text-transform:uppercase;letter-spacing:.08em}
+.frame small{display:block;color:#c3cde4;font-size:15px;margin-top:6px;max-width:40ch}
+.ray-photo{margin-top:30px;border-radius:6px;overflow:hidden;aspect-ratio:16/9}
+.ray-photo img{width:100%;height:100%;object-fit:cover}
+.dots{display:flex;gap:8px;margin-top:20px}
+.dots i{width:28px;height:4px;background:rgba(255,255,255,.25);transition:background var(--dur-s)}
+.dots i.on{background:var(--accent)}
+html.js .ray{height:340vh}
+html.js .ray-pin{position:sticky;top:0;min-height:100vh;display:flex;align-items:center}
+html.js .frame{position:absolute;inset:0 0 auto;opacity:0;transform:translateY(30px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+html.js .frame.on{opacity:1;transform:none}
+html.js .frames{min-height:300px}
+@media(max-width:860px){.ray .grid{grid-template-columns:1fr;gap:20px}html.js .ray-pin{padding:60px 0}.ray-photo{display:none}html.js .frames{min-height:270px}}
+
+/* EV + generators: depth photo */
+.ev{padding:110px 0}
+.ev .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;align-items:stretch}
+.ev-photo{position:relative;overflow:hidden;min-height:520px;border-radius:6px 0 0 6px}
+.ev-photo img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;transform:translateY(calc((var(--p,.5) - .5) * -12%))}
+.ev-copy{background:var(--surface);padding:clamp(28px,5vw,64px);border-radius:0 6px 6px 0;display:flex;flex-direction:column;justify-content:center}
+.ev-copy h2{font-size:clamp(38px,5.4vw,70px);margin:12px 0 18px}
+.ev-copy ul{list-style:none;border-top:2px solid var(--ink);margin-top:10px}
+.ev-copy li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font:700 19px var(--display);font-stretch:85%}
+.ev-copy li a{color:var(--primary);font-size:14px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+@media(max-width:860px){.ev .grid{grid-template-columns:1fr}.ev-photo{min-height:360px;border-radius:6px 6px 0 0}.ev-copy{border-radius:0 0 6px 6px}}
+
+/* reputation quote */
+.rep{padding:40px 0 110px}
+.rep h2{font-size:clamp(36px,6vw,78px);max-width:18ch}
+.rep .line{display:block;overflow:hidden}
+.rep .line span{display:block}
+html.js .rep .line span{transform:translateY(105%);transition:transform var(--dur) var(--ease)}
+html.js .rep.in .line span{transform:none}
+html.js .rep.in .line:nth-child(2) span{transition-delay:.1s}
+html.js .rep.in .line:nth-child(3) span{transition-delay:.2s}
+.rep .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px;color:var(--muted)}
+.rep .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.rep .badges span{font:800 13px var(--display);font-stretch:110%;letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--ink);padding:8px 12px}
+@media(max-width:860px){.rep .cols{grid-template-columns:1fr;gap:16px}}
+
+/* service area: circuits */
+.area{background:var(--surface);padding:100px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.area .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.circuits{list-style:none;counter-reset:c}
+.circuits li{counter-increment:c;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.circuits li::before{content:counter(c,decimal-leading-zero);font:800 14px var(--display);color:var(--muted)}
+.circuits b{font:850 clamp(26px,3.6vw,40px)/1 var(--display);font-stretch:70%;text-transform:uppercase}
+.circuits small{display:block;font-size:14px;color:var(--muted);font-weight:400}
+.circuits .lamp{width:16px;height:16px;border-radius:50%;background:var(--steel);transition:background var(--dur-s),box-shadow var(--dur-s)}
+.circuits li.in .lamp{background:var(--accent);box-shadow:0 0 12px rgba(246,195,67,.9)}
+html.js .circuits li .lamp{transition-delay:calc(var(--i) * 120ms)}
+@media (prefers-reduced-motion:no-preference){html:not(.js) .circuits .lamp{background:var(--accent)}}
+@media(max-width:860px){.area .grid{grid-template-columns:1fr;gap:24px}}
+
+/* contact + hours lamp */
+.call{padding:110px 0 120px}
+.call .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:start}
+.call h2{font-size:clamp(44px,8vw,110px)}
+.call .phone{display:block;font:850 clamp(40px,7vw,80px)/1 var(--display);font-stretch:68%;color:var(--primary);text-decoration:none;margin:22px 0 6px}
+.call .mail{font-size:18px;color:var(--ink)}
+.status{background:var(--surface);border:2px solid var(--ink);border-radius:6px;padding:22px}
+.status .lampline{display:flex;align-items:center;gap:12px;font:850 24px var(--display);font-stretch:80%;text-transform:uppercase}
+.status .lampline i{width:16px;height:16px;border-radius:50%;background:#9aa6b4}
+.status.open .lampline i{background:#2bb35a;box-shadow:0 0 0 4px rgba(43,179,90,.2)}
+.status dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin-top:16px;font-size:16px}
+.status dt{font-weight:700}
+.status .em{margin-top:16px;background:var(--ink);color:#fff;padding:12px 14px;border-radius:4px;font-weight:700;display:flex;gap:10px;align-items:center}
+.status .em i{width:10px;height:10px;border-radius:50%;background:#e2382c;flex:none}
+.status address{font-style:normal;margin-top:16px;font-size:15px;color:var(--muted)}
+.status address a{color:var(--primary);font-weight:700}
+@media(max-width:860px){.call .grid{grid-template-columns:1fr;gap:28px}}
+
+footer{border-top:1px solid var(--line);padding:30px 0 110px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:none;justify-content:space-between;align-items:center;background:var(--accent);color:var(--ink);text-decoration:none;font:850 17px var(--display);font-stretch:85%;text-transform:uppercase;letter-spacing:.04em;padding:14px 18px;border-radius:6px;box-shadow:0 0 0 2px var(--ink)}
+@media(max-width:860px){.callbar{display:flex}}
+
+html.js .rise{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+html.js .rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html.js .rise,html.js .rep .line span{opacity:1;transform:none}
+  html.js .ray{height:auto}html.js .ray-pin{position:static;min-height:0}
+  html.js .frames{min-height:0}html.js .frame{position:static;opacity:1;transform:none}
+  .ev-photo img{transform:none}
+  .circuits .lamp{background:var(--accent)!important}
+  .wire .hot{display:none}.node{background:var(--accent)}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official South Sound Electric site. <a href="https://www.southsoundelectric.com/">See their real site</a></div>
+
+<header class="top">
+  <div class="wrap hdr">
+    <a href="#top"><img src="img/logo.jpg" alt="South Sound Electric, Inc." width="956" height="363"></a>
+    <nav aria-label="Main">
+      <a href="#panel">Services</a><a href="#ray">Since 2005</a><a href="#area">Service area</a><a href="#call">Contact</a>
+      <a class="btn" href="tel:+13608713881">(360) 871-3881</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<svg class="wire" aria-hidden="true"><path class="bed"/><path class="hot"/></svg>
+
+<section class="hero" id="panel">
+  <div class="wrap grid">
+    <div>
+      <p class="kick"><span class="node" data-node></span>&nbsp; Family-Owned &amp; Operated Electrical Services Since 2005</p>
+      <h1>A quality job, <em>quickly done,</em> costs less!</h1>
+      <p class="lead">Union electricians in Port Orchard, wiring homes and businesses across the Kitsap Peninsula and Puget Sound. Fully licensed, bonded and insured.</p>
+      <div class="row">
+        <a class="btn" href="tel:+13608713881">Call (360) 871-3881</a>
+        <a class="btn o" href="https://www.southsoundelectric.com/electrical-service-estimate">Request an estimate</a>
+      </div>
+      <p class="emerg"><i></i>24-hour emergency priority service</p>
+    </div>
+    <div class="panel" role="group" aria-labelledby="ptitle">
+      <div class="panel-top"><span id="ptitle">Panel directory · flip a breaker</span><b>Ray’s panel</b></div>
+      <div class="bk">
+        <button type="button" aria-pressed="true" data-k="0"><span class="lever"></span><span class="lbl">Outlets &amp; circuits</span></button>
+        <button type="button" aria-pressed="false" data-k="1"><span class="lever"></span><span class="lbl">Service panel</span></button>
+        <button type="button" aria-pressed="false" data-k="2"><span class="lever"></span><span class="lbl">Lighting &amp; fans</span></button>
+        <button type="button" aria-pressed="false" data-k="3"><span class="lever"></span><span class="lbl">Hot tub &amp; heater</span></button>
+        <button type="button" aria-pressed="false" data-k="4"><span class="lever"></span><span class="lbl">Generators</span></button>
+        <button type="button" aria-pressed="false" data-k="5"><span class="lever"></span><span class="lbl">EV chargers</span></button>
+        <button type="button" aria-pressed="false" data-k="6"><span class="lever"></span><span class="lbl">Code &amp; inspections</span></button>
+        <button type="button" aria-pressed="false" data-k="7"><span class="lever"></span><span class="lbl">Troubleshooting</span></button>
+        <button type="button" aria-pressed="false" data-k="8"><span class="lever"></span><span class="lbl">Insurance work</span></button>
+        <button type="button" aria-pressed="false" data-k="9"><span class="lever"></span><span class="lbl">Business &amp; office</span></button>
+      </div>
+      <div class="readout" aria-live="polite" id="readout">
+        <h3>Outlets &amp; circuits</h3>
+        <ul><li>Outlet &amp; Circuit Repairs</li><li>Wiring New Outlets</li><li>Dedicated Circuits</li><li>Appliance Circuits</li><li>Ground Fault Interrupt Circuits</li><li>Breakers &amp; Fuses</li></ul>
+        <p>Something tripping or dead? <a href="tel:+13608713881">Call (360) 871-3881</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ray" id="ray">
+  <div class="ray-pin">
+    <div class="wrap grid">
+      <div>
+        <p class="kick"><span class="node" data-node></span>&nbsp; Exceptional Electrical Repair &amp; Installation Since 2005</p>
+        <h2>Ray’s been wiring Kitsap a long time</h2>
+        <p>Our owner, Raymond Boink, is a Kitsap County native who has lived and worked in the area for over 50 years. He completed his electrical apprenticeship with the International Brotherhood of Electrical Workers and has held a Washington State Journeyman’s License for over four decades.</p>
+        <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+        <div class="ray-photo"><img src="img/panel.jpg" alt="Electrical control panel wiring by South Sound Electric" width="1185" height="790"></div>
+      </div>
+      <div class="frames">
+        <div class="frame on"><strong data-count="2005">2005</strong><span>South Sound Electric opens</span><small>Family-owned and operated in Port Orchard ever since.</small></div>
+        <div class="frame"><strong>Local 46</strong><span>IBEW apprenticeship</span><small>Union-trained, the long way: International Brotherhood of Electrical Workers Local 46.</small></div>
+        <div class="frame"><strong>40+</strong><span>Years licensed</span><small>Ray has held a Washington State Journeyman’s License for over four decades.</small></div>
+        <div class="frame"><strong>50+</strong><span>Years in Kitsap County</span><small>A Kitsap native who has lived and worked here for over 50 years.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ev" id="ev">
+  <div class="wrap grid">
+    <div class="ev-photo" data-p><img src="img/ev.jpg" alt="EV charging stations installed by South Sound Electric" width="640" height="853"></div>
+    <div class="ev-copy rise">
+      <p class="kick"><span class="node" data-node></span>&nbsp; Power for what’s next</p>
+      <h2>EV chargers, generators &amp; battery back-up</h2>
+      <p>From a single garage charger to a row of charging stations, plus generator sales and service so the lights stay on when the Peninsula loses power.</p>
+      <ul>
+        <li>EV Charger Station Installations <a href="https://www.southsoundelectric.com/electric-vehicle-chargers">Details</a></li>
+        <li>Generator Sales &amp; Services <a href="https://www.southsoundelectric.com/battery-back-up-technology">Details</a></li>
+        <li>Temporary Electrical Service Rental Program</li>
+        <li>Underground Fault Locating</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="rep" id="rep">
+  <div class="wrap">
+    <p class="kick"><span class="node" data-node></span>&nbsp; A Long History of Electrical Installation &amp; Repair Success</p>
+    <h2 style="margin-top:14px"><span class="line"><span>You don’t get to stay</span></span><span class="line"><span>in this business this long</span></span><span class="line"><span>without happy customers.</span></span></h2>
+    <div class="cols">
+      <p>Our reputation for honest pricing, accurate diagnosis, and attention to detail is well-known across the Kitsap Peninsula and Puget Sound area. A satisfied customer is the best form of advertising, and we work hard to make sure every client gets that level of service.</p>
+      <p>Installations, repairs, upgrades and maintenance, for homes and businesses, big jobs or small. We pride ourselves on attention to detail, quality workmanship, and commitment to safety.</p>
+    </div>
+    <div class="badges"><span>Licensed &amp; Insured</span><span>Bonded</span><span>Union Electricians</span><span>IBEW Local 46 trained</span></div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap grid">
+    <div class="rise">
+      <p class="kick"><span class="node" data-node></span>&nbsp; Service area</p>
+      <h2 style="margin-top:14px">Every circuit on the Peninsula</h2>
+      <p style="margin-top:16px;color:var(--muted)">Based in Port Orchard, serving the Kitsap Peninsula and Puget Sound.</p>
+    </div>
+    <ol class="circuits">
+      <li style="--i:0"><div><b>Kitsap County</b><small>Home base · Port Orchard</small></div><span></span><span class="lamp"></span></li>
+      <li style="--i:1"><div><b>Pierce County</b></div><span></span><span class="lamp"></span></li>
+      <li style="--i:2"><div><b>Mason County</b></div><span></span><span class="lamp"></span></li>
+      <li style="--i:3"><div><b>King County</b></div><span></span><span class="lamp"></span></li>
+      <li style="--i:4"><div><b>Jefferson County</b></div><span></span><span class="lamp"></span></li>
+      <li style="--i:5"><div><b>Clallam County</b></div><span></span><span class="lamp"></span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="call" id="call">
+  <div class="wrap grid">
+    <div class="rise">
+      <p class="kick"><span class="node" data-node></span>&nbsp; Call Today to Schedule a Service</p>
+      <h2 style="margin-top:14px">Talk to Ray</h2>
+      <a class="phone" href="tel:+13608713881">(360) 871-3881</a>
+      <a class="mail" href="mailto:ray@southsoundelectric.com">ray@southsoundelectric.com</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+        <a class="btn" href="https://www.southsoundelectric.com/electrical-service-estimate">Request an estimate</a>
+        <a class="btn o" href="https://maps.google.com/?q=6864+SE+King+Rd+Port+Orchard+WA+98367">Directions</a>
+      </div>
+    </div>
+    <div class="status rise" id="status">
+      <div class="lampline"><i></i><span id="openlbl">Office hours</span></div>
+      <dl><dt>Mon–Fri</dt><dd><span class="ph">8:00 am</span> – 4:30 pm</dd><dt>Sat–Sun</dt><dd>Closed</dd></dl>
+      <div class="em"><i></i>24-hour emergency priority service</div>
+      <address>6864 SE King Rd, Port Orchard, WA 98367<br>Mail: PO Box 937, Port Orchard, WA 98366<br><a href="https://maps.google.com/?q=6864+SE+King+Rd+Port+Orchard+WA+98367">Open in Maps →</a></address>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>South Sound Electric Inc. · Port Orchard, WA · Licensed &amp; Insured · Union Electricians</span>
+    <span>Concept redesign by Theo, not the official South Sound Electric site. <a href="https://www.southsoundelectric.com/">southsoundelectric.com</a> · Logo and photos from southsoundelectric.com.</span>
+  </div>
+</footer>
+<a class="callbar" href="tel:+13608713881">Call South Sound Electric <span>(360) 871-3881</span></a>
+
+<script>
+(()=>{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+/* breaker panel: their service list, grouped */
+const S=[["Outlets & circuits",["Outlet & Circuit Repairs","Wiring New Outlets","Dedicated Circuits","Appliance Circuits","Ground Fault Interrupt Circuits","Breakers & Fuses"],"Something tripping or dead?"],
+["Service panel",["Service Panel Upgrades","Surge Protector Installation","Transformers"],"Out of room in the box?"],
+["Lighting & fans",["Lighting Maintenance","Track & Accent Lighting","Security & Landscape Lighting","Ceiling Fan Installation","Exhaust Fans"],"Brighter rooms, safer driveways."],
+["Hot tub & heater",["Hot Tub Hook-Ups","Electric Water Heaters"],"New tub going in?"],
+["Generators",["Generator Sales & Services"],"Storm season on the Peninsula?"],
+["EV chargers",["EV Charger Station Installations"],"Home garage or a whole lot."],
+["Code & inspections",["Code Corrections","Electrical Home Inspections","Smoke Detectors"],"Selling, buying or failed an inspection?"],
+["Troubleshooting",["Troubleshooting","Underground Fault Locating"],"Can’t find the problem? We will."],
+["Insurance work",["Insurance Work"],"Damage after a storm or fire?"],
+["Business & office",["Office Remodel and Maintenance","Temporary Electrical Service Rental Program"],"Commercial electrical, start to finish."]];
+const ro=$('#readout'),esc=t=>t.replace(/&/g,'&amp;');
+$$('.bk button').forEach(b=>b.addEventListener('click',()=>{$$('.bk button').forEach(x=>x.setAttribute('aria-pressed',x===b));const s=S[b.dataset.k];
+ ro.innerHTML=`<h3>${esc(s[0])}</h3><ul>${s[1].map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p>${esc(s[2])} <a href="tel:+13608713881">Call (360) 871-3881</a></p>`;}));
+/* hours lamp (Pacific) */
+const pt=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+const g=t=>pt.find(p=>p.type===t).value,m=(+g('hour')%24)*60+ +g('minute'),open=!['Sat','Sun'].includes(g('weekday'))&&m>=480&&m<990;
+$('#status').classList.toggle('open',open);$('#openlbl').textContent=open?'Open now':'Office closed · emergencies 24/7';
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.25});
+$$('.rise,.rep,.circuits li').forEach(el=>io.observe(el));
+if(reduce)return;
+/* wire: path through every node, drawn with scroll */
+const svg=$('.wire'),bed=svg.querySelector('.bed'),hot=svg.querySelector('.hot'),main=$('main'),nodes=$$('[data-node]');let pts=[],len=0,cum=[];
+function build(){const mr=main.getBoundingClientRect(),W=main.clientWidth;svg.setAttribute('width',W);svg.setAttribute('height',main.scrollHeight);svg.setAttribute('viewBox',`0 0 ${W} ${main.scrollHeight}`);
+ pts=nodes.map(n=>{const r=n.getBoundingClientRect();return[r.left-mr.left+r.width/2,r.top-mr.top+r.height/2]});
+ let d='';const P=[];pts.forEach((p,i)=>{if(i){const q=pts[i-1],my=(q[1]+p[1])/2;P.push([q[0],my],[p[0],my])}P.push(p)});
+ cum=[0];for(let i=1;i<P.length;i++)cum.push(cum[i-1]+Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]));len=cum[cum.length-1];svg._P=P;
+ d=P.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');bed.setAttribute('d',d);hot.setAttribute('d',d);hot.style.strokeDasharray=len;}
+function lenAtY(y){const P=svg._P;if(!P)return 0;if(y<=P[0][1])return 0;for(let i=1;i<P.length;i++){if(P[i][1]>=y){const a=P[i-1],b=P[i];if(b[1]===a[1])return cum[i-1];return cum[i-1]+(cum[i]-cum[i-1])*(y-a[1])/(b[1]-a[1])}}return len}
+/* one scroll loop */
+const ps=$$('[data-p]'),ray=$('#ray'),frames=$$('.frame'),dots=$$('.dots i');let tick=false,last=-1;
+function frame(){tick=false;const vh=innerHeight,mt=main.getBoundingClientRect().top+scrollY,y=scrollY+vh*.62-mt;
+ const L=lenAtY(y);hot.style.strokeDashoffset=len-L;nodes.forEach((n,i)=>n.classList.toggle('live',pts[i]&&pts[i][1]<=y));
+ ps.forEach(s=>{const r=s.getBoundingClientRect();s.style.setProperty('--p',Math.min(1,Math.max(0,(vh-r.top)/(vh+r.height))).toFixed(3))});
+ const r=ray.getBoundingClientRect(),k=Math.min(.999,Math.max(0,-r.top/(r.height-vh))),i=Math.floor(k*4);
+ if(i!==last){last=i;frames.forEach((f,j)=>f.classList.toggle('on',j===i));dots.forEach((d,j)=>d.classList.toggle('on',j===i))}}
+addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+addEventListener('resize',()=>{build();frame()},{passive:true});
+addEventListener('load',()=>{build();frame()});
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{build();frame()});
+build();frame();
+})();
+</script>
+</body>
+</html>
