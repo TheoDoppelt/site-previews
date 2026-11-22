@@ -1,0 +1,10 @@
+{
+  "business": "Vaughn Mechanical, Inc.",
+  "direction": "Industrial South Sound HVAC/R shop: dark steel night bands, logo-red compass star, brass equipment nameplates, mono stamped type",
+  "palette": {"bg": "#ECEEEF", "surface": "#FFFFFF", "ink": "#161A1D", "muted": "#4E575E", "primary": "#C20000", "accent": "#D9A441", "on_primary": "#FFFFFF", "on_accent": "#161A1D"},
+  "fonts": "Big Shoulders Display, Source Sans 3, Red Hat Mono",
+  "hero_idea": "The four-point star from their logo as a working compass: tap Olympia/Shelton/Tacoma/Seattle and it swings to that city's bearing from the Tumwater shop with live distance",
+  "scroll_story": "A red route line draws down the page from the Tumwater shop while a small compass star spins along it",
+  "custom_ui": "Brass equipment nameplate picker (their 10 equipment pages); testimonial as a signed service ticket with a 'Job complete' stamp; sticky 24-hour call bar",
+  "date": "2026-11-22"
+}
