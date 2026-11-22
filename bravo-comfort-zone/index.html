@@ -99,13 +99,15 @@ h3.sec{font-family:"Climate Crisis",sans-serif;font-weight:400;font-size:clamp(3
 
 /* coverage */
 .cover .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.rings{position:relative;aspect-ratio:1;max-width:420px;width:100%;margin:0 auto}
-.rings i{position:absolute;inset:0;border:2px dashed var(--graphite);border-radius:50%}
-.rings i:nth-child(2){inset:18%;border-style:solid;opacity:.5}
-.rings i:nth-child(3){inset:36%;opacity:.5}
-.rings b{position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px;background:var(--stamp);border-radius:50%}
-.rings em{position:absolute;left:50%;top:50%;transform:translate(-50%,22px);font-style:normal;font-weight:800;font-size:14px;white-space:nowrap}
-.rings span{position:absolute;right:2%;top:12%;font-family:"Special Elite",monospace;color:var(--carbon);font-size:15px}
+.range{display:block;width:100%;max-width:380px;height:auto;margin:0 auto;overflow:visible}
+.range .r-in{fill:none;stroke:var(--graphite);stroke-width:1.5;opacity:.35}
+.range .r-out{fill:rgba(194,54,43,.06);stroke:var(--graphite);stroke-width:2.5;stroke-dasharray:7 6}
+.range .r-line,.range .r-tick line{stroke:var(--carbon);stroke-width:2.5}
+.range .r-lbl rect{fill:var(--manila)}
+.range .r-lbl text{font-family:"Special Elite",monospace;fill:var(--carbon);font-size:14px;text-anchor:middle}
+.range .r-dot{fill:var(--stamp)}
+.range .r-shop rect{fill:var(--paper);stroke:var(--graphite);stroke-width:2}
+.range .r-shop text{font-family:Figtree,sans-serif;font-weight:800;font-size:14px;fill:var(--graphite);text-anchor:middle}
 .cover p{max-width:52ch;margin-bottom:14px}
 .btn2{display:inline-block;border:2px solid var(--graphite);padding:11px 18px;font-weight:700;text-decoration:none;border-radius:6px;margin:6px 8px 0 0}
 .btn2:hover{background:var(--graphite);color:var(--paper)}
@@ -275,11 +277,24 @@ footer .note{font-weight:700;margin-top:8px}
 
 <section class="cover" id="area">
   <div class="wrap grid">
-    <div class="rings" aria-hidden="true"><i></i><i></i><i></i><b></b><em>Our shop, 98199</em><span>about 36 mi</span></div>
+    <svg class="range" viewBox="0 0 420 420" role="img" aria-label="Service range: about 36 miles out from the shop in 98199">
+      <circle cx="210" cy="210" r="64" class="r-in"/>
+      <circle cx="210" cy="210" r="128" class="r-in"/>
+      <circle cx="210" cy="210" r="192" class="r-out"/>
+      <line x1="210" y1="210" x2="402" y2="210" class="r-line"/>
+      <g class="r-tick"><line x1="274" y1="203" x2="274" y2="217"/><line x1="338" y1="203" x2="338" y2="217"/><line x1="402" y1="200" x2="402" y2="220"/></g>
+      <g class="r-lbl">
+        <rect x="252" y="222" width="44" height="22" rx="3"/><text x="274" y="238">12 mi</text>
+        <rect x="316" y="222" width="44" height="22" rx="3"/><text x="338" y="238">24 mi</text>
+        <rect x="356" y="222" width="52" height="22" rx="3"/><text x="382" y="238">36 mi</text>
+      </g>
+      <circle cx="210" cy="210" r="9" class="r-dot"/>
+      <g class="r-shop"><rect x="138" y="160" width="144" height="30" rx="15"/><text x="210" y="180">Our shop, 98199</text></g>
+    </svg>
     <div>
       <h3 class="sec">Where we go</h3>
       <p>We work out of 3252 28th Ave W in Magnolia and cover Seattle and the surrounding area, roughly 36 miles out from our 98199 zip code.</p>
-      <p>Not sure you're inside the circle? Call and ask. It takes a minute.</p>
+      <p>Not sure you're inside the dashed line? Call and ask. It takes a minute.</p>
       <a class="btn2" href="https://www.google.com/maps/search/?api=1&query=3252+28th+Ave+W+Seattle+WA+98199">Open in Maps</a>
       <a class="btn2" href="tel:2532765600">Call (253) 276-5600</a>
     </div>
