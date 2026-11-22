@@ -36,7 +36,7 @@ a{color:inherit}
 .wire path{fill:none;stroke-linecap:round}
 .wire .sheath{stroke:rgba(0,0,0,.12);stroke-width:7}
 .wire .core{stroke:var(--copper);stroke-width:3.5}
-@media (max-width:760px){.wire{display:none}}
+@media (max-width:1260px){.wire{display:none}}
 
 /* ---------- top bar ---------- */
 .bar{background:var(--plum-deep);color:var(--steel);font-size:.9rem}
@@ -109,11 +109,13 @@ body.era-fuse .breakers{pointer-events:none}
   .hero .wrap{grid-template-columns:1fr;gap:2.6rem;padding:3rem 0 3.5rem}
   .inner{min-height:300px}
 }
-@media (max-width:560px){
-  .fuse{width:72px;height:72px}.fuse span{width:44px;height:44px}
+@media (max-width:1180px){
   .breakers{grid-template-columns:1fr;gap:7px}
   .breakers::before{display:none}
   .brk,.brk:nth-child(even){flex-direction:row;text-align:left;height:38px;font-size:.85rem}
+}
+@media (max-width:560px){
+  .fuse{width:72px;height:72px}.fuse span{width:44px;height:44px}
   .inner{min-height:310px}
   .lever-labels{display:none}
   .lever{width:40px}
