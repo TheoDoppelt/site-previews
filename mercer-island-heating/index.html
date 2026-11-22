@@ -13,7 +13,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,800&family=Hanken+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* Palette: lake fog + paper (bg), Lake Washington teal (primary), furnace ember (accent).
    bg #F1EEE7 · surface #E4E9E7 · ink #13242B · muted #4A5A60 · primary #0E4A5A · accent #B3421B
@@ -24,8 +24,8 @@
   --fog:#E2E9E8; --dusk:#F2E2D4;
   --day:var(--bg);
   --ease:cubic-bezier(.22,.7,.2,1); --dur:.7s;
-  --display:"Fraunces",Georgia,"Times New Roman",serif;
-  --sans:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
   --mono:"DM Mono",ui-monospace,Menlo,monospace;
   --gut:clamp(16px,5vw,64px);
 }
@@ -145,7 +145,7 @@ legend{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;c
 .track{display:flex;gap:0;padding:0 var(--gut) clamp(56px,8vw,96px);flex-direction:column}
 .panel{flex:0 0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:28px 0;border-top:2px solid var(--ink)}
 .panel h3{font:800 clamp(38px,6vw,84px)/.95 var(--display);letter-spacing:-.03em}
-.panel .tag{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
+.panel .tag{font:500 13px var(--mono);letter-spacing:.06em;color:var(--muted);display:block;margin-top:10px}
 .panel p{font-size:18px;margin-top:12px;max-width:26em}
 .map{width:100%;height:auto;display:block}
 .map .w{fill:#BFD3D6}.map .l{fill:#D6D2C6}.map .lake{fill:#BFD3D6}
@@ -223,7 +223,6 @@ footer a{color:#fff}
 
 <section id="about" class="about">
   <div>
-    <span class="kicker">Based on the island</span>
     <h2 class="mh"><span class="ln"><span>Home base is</span></span><span class="ln"><span>Mercer Island.</span></span><span class="ln"><span>Service goes further.</span></span></h2>
   </div>
   <div>
@@ -241,7 +240,6 @@ footer a{color:#fff}
 
 <div class="svc-wrap" id="services" data-scroll="svc">
   <section class="svc-pin">
-    <span class="kicker">What they do</span>
     <h2 class="mh"><span class="ln"><span>Three kinds of visits.</span></span></h2>
     <div class="svc-list">
       <article class="svc on"><div class="n">01</div><div><h3>Installation</h3><p>New heating and cooling systems, sized and set up for the building, from a house on the island to a commercial space on the mainland.</p><ul><li>Heating systems</li><li>Air conditioning</li><li>Residential &amp; commercial</li></ul></div></article>
@@ -254,7 +252,6 @@ footer a{color:#fff}
 
 <section id="ticket" class="order">
   <div>
-    <span class="kicker">Request service</span>
     <h2 class="mh"><span class="ln"><span>Fill out the ticket,</span></span><span class="ln"><span>then call or text it in.</span></span></h2>
     <p class="lead">Three taps and you've got everything they'll ask first. Text it straight to the shop, or read it off when you call.</p>
     <form id="tform" onsubmit="return false">
@@ -297,13 +294,12 @@ footer a{color:#fff}
 <div class="area" id="area" data-scroll="area">
   <div class="area-in">
     <div class="area-head">
-      <span class="kicker">Where they work</span>
       <h2 class="mh"><span class="ln"><span>From the island, outward.</span></span></h2>
     </div>
     <div class="track" id="track">
-      <div class="panel" data-lit="isl"><div><span class="tag">Home base · 98040</span><h3>Mercer Island</h3><p>The shop's own island, in the middle of Lake Washington. The closest calls on the map.</p></div><div class="mapslot"></div></div>
-      <div class="panel" data-lit="king"><div><span class="tag">Across the bridge</span><h3>King County</h3><p>Over I-90 to Seattle and the Eastside, and on through the rest of King County.</p></div><div class="mapslot"></div></div>
-      <div class="panel" data-lit="kit"><div><span class="tag">Across the Sound</span><h3>Kitsap County</h3><p>West across Puget Sound, Kitsap County is on the list too. <span class="ph">Towns covered</span></p></div><div class="mapslot"></div></div>
+      <div class="panel" data-lit="isl"><div><h3>Mercer Island</h3><span class="tag">Home base · 98040</span><p>The shop's own island, in the middle of Lake Washington. The closest calls on the map.</p></div><div class="mapslot"></div></div>
+      <div class="panel" data-lit="king"><div><h3>King County</h3><span class="tag">Across the bridge</span><p>Over I-90 to Seattle and the Eastside, and on through the rest of King County.</p></div><div class="mapslot"></div></div>
+      <div class="panel" data-lit="kit"><div><h3>Kitsap County</h3><span class="tag">Across the Sound</span><p>West across Puget Sound, Kitsap County is on the list too. <span class="ph">Towns covered</span></p></div><div class="mapslot"></div></div>
     </div>
   </div>
 </div>
@@ -318,13 +314,11 @@ footer a{color:#fff}
 
 <section class="visit" id="hours">
   <div class="card">
-    <span class="kicker">Hours</span>
     <h3>When to call</h3>
     <p><span class="ph">Business hours, e.g. Mon–Fri</span></p>
     <p><span class="ph">After-hours / emergency policy</span></p>
   </div>
   <div class="card">
-    <span class="kicker">Location</span>
     <h3>Mercer Island, WA 98040</h3>
     <p>Service is at your home or business; call ahead before stopping by.</p>
     <p style="margin-top:18px"><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Mercer+Island+Heating+%26+Air+Conditioning+9115+Fortuna+Dr+Mercer+Island+WA">Open in Google Maps</a></p>
@@ -332,7 +326,6 @@ footer a{color:#fff}
 </section>
 
 <section class="contact" id="contact">
-  <span class="kicker">Contact</span>
   <h2 class="mh"><span class="ln"><span>Cold house? Hot house?</span></span><span class="ln"><span>Same number.</span></span></h2>
   <a class="big-tel" href="tel:+14254349085">(425) 434-9085</a>
   <p>Call or text about heating or cooling installation, repair and maintenance on Mercer Island and in King and Kitsap Counties.</p>
