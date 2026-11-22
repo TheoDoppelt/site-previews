@@ -217,14 +217,9 @@ footer .plate img{height:64px;width:auto}
 footer a{color:#fff}
 footer .note{width:100%;border-top:1px solid #34283f;padding-top:1.2rem;font:500 12.5px/1.6 var(--mono);color:#9a8ea8}
 
-/* scroll reveal for schedule rows */
-.ckt{opacity:1}
-.js .ckt{opacity:0;transform:translateX(-14px);transition:opacity .5s,transform .5s,background .25s}
-.js .ckt.in{opacity:1;transform:none}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .ckt{opacity:1;transform:none}
   .strip .run{animation:none}
 }
 </style>
@@ -421,7 +416,7 @@ const services=[
    img:W+'729ad6_d7881887c8fc428abfa40d9b227af5b6~mv2.png/v1/crop/x_0,y_560,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/ev.jpg',alt:'Wall-mounted EV charger with its cable coiled'},
   {no:'03',name:'Electrical Troubleshooting & Repair',short:'Troubleshooting',call:'a repair',tag:'Same-day available',
    desc:'Breakers that keep tripping, dead outlets, flickering lights. We track down the cause and fix it safely.',
-   img:W+'729ad6_a290298a8e8341679a9c0edd2c02cfac~mv2.png/v1/crop/x_0,y_380,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/trouble.jpg',alt:'Hands holding a multimeter in front of an open electrical panel'},
+   img:W+'729ad6_a290298a8e8341679a9c0edd2c02cfac~mv2.png/v1/crop/x_0,y_520,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/trouble.jpg',alt:'Hands holding a multimeter in front of an open electrical panel'},
   {no:'04',name:'Lighting Installation',short:'Lighting install',call:'new lighting',tag:'Kitchens & more',
    desc:'Recessed lights, pendants and fixtures installed and wired cleanly, so the room looks finished.',
    img:W+'729ad6_752ce870fa804e1b9410b052d246a03b~mv2.png/v1/crop/x_0,y_420,w_1320,h_1100/fill/w_640,h_520,al_c,q_80/lighting.jpg',alt:'Kitchen with pendant lights over an island and recessed ceiling lights'},
@@ -476,8 +471,6 @@ services.forEach(s=>{
   <div class="c-img"><img src="${s.img}" alt="${s.alt}" loading="lazy"></div>`;
   sched.appendChild(r);
 });
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.2});
-document.querySelectorAll('.ckt').forEach((r,i)=>{r.style.transitionDelay=(i%2)*80+'ms';io.observe(r);});
 
 /* service-area wire runs, drawn by scroll */
 const hub={x:300,y:250,name:'BELLEVUE'};
