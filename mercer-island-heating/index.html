@@ -51,28 +51,23 @@ nav a:hover{text-decoration:underline}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
 @media (max-width:820px){nav{display:none}}
 
-/* ---------- HERO: the heat/cool split ---------- */
-.hero{padding:8px var(--gut) 110px}
-.split{position:relative;height:clamp(260px,46vw,520px);border-radius:22px;overflow:hidden;--x:50%;user-select:none;touch-action:pan-y}
-.side{position:absolute;inset:0;display:flex;align-items:flex-end;padding:clamp(18px,3vw,36px)}
-.cool{background:var(--primary);color:var(--on-primary);justify-content:flex-end;text-align:right}
-.heat{background:var(--accent);color:var(--on-accent);clip-path:inset(0 calc(100% - var(--x)) 0 0)}
-.side strong{font:800 clamp(64px,17vw,230px)/.82 var(--display);letter-spacing:-.04em}
-.side small{position:absolute;top:clamp(18px,3vw,32px);font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;max-width:15em}
-.heat small{left:clamp(18px,3vw,36px)} .cool small{right:clamp(18px,3vw,36px)}
-.island{position:absolute;left:50%;top:50%;width:min(34%,220px);transform:translate(-50%,-55%);opacity:.22;pointer-events:none}
-.handle{position:absolute;top:0;bottom:0;left:var(--x);width:0;pointer-events:none}
-.handle::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:#fff}
-.handle i{position:absolute;top:50%;left:-26px;width:52px;height:52px;margin-top:-26px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font:600 18px var(--mono);font-style:normal;box-shadow:0 2px 0 rgba(0,0,0,.15)}
-.split input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-.split input:focus-visible ~ .handle i{outline:3px solid var(--ink);outline-offset:3px}
-.hero-copy{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(20px,4vw,64px);margin-top:clamp(24px,4vw,44px);align-items:end}
-.hero h1{font:600 clamp(34px,5.4vw,70px)/1.02 var(--display);letter-spacing:-.025em}
+/* ---------- HERO: pick what's wrong ---------- */
+.hero{padding:clamp(20px,4vw,48px) var(--gut) 110px}
+.hero-top{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,4vw,64px);align-items:end}
+.hero h1{font:600 clamp(40px,6.6vw,92px)/.98 var(--display);letter-spacing:-.03em}
 .hero h1 em{font-style:normal;color:var(--primary)}
-.today{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-#swap{font-size:20px;line-height:1.4;min-height:3em}
+.hero-top p{font-size:19px;line-height:1.45}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-@media (max-width:760px){.hero-copy{grid-template-columns:1fr}}
+.ask{font:500 14px var(--mono);color:var(--muted);margin:clamp(36px,6vw,64px) 0 10px}
+.pick{list-style:none;border-top:2px solid var(--ink)}
+.pick li{border-bottom:1px solid rgba(19,36,43,.3)}
+.pick button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 12px;font:600 clamp(26px,4.4vw,56px)/1.1 var(--display);letter-spacing:-.02em;transition:background-color .3s var(--ease),color .3s var(--ease),padding .3s var(--ease)}
+.pick button small{font:500 13px var(--mono);letter-spacing:.04em;color:var(--muted);transition:color .3s var(--ease);text-align:right}
+.pick .h:hover,.pick .h:focus-visible{background:var(--accent);color:var(--on-accent);padding-left:24px}
+.pick .c:hover,.pick .c:focus-visible{background:var(--primary);color:var(--on-primary);padding-left:24px}
+.pick button:hover small,.pick button:focus-visible small{color:inherit}
+.pick button:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+@media (max-width:760px){.hero-top{grid-template-columns:1fr}.pick button small{display:none}}
 
 /* ---------- masked headings ---------- */
 .mh{font:600 clamp(32px,5vw,64px)/1.04 var(--display);letter-spacing:-.025em}
@@ -140,7 +135,7 @@ legend{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;c
 @media (max-width:760px){.order{grid-template-columns:1fr}.ticket{transform:none}}
 
 /* ---------- service area: horizontal strip ---------- */
-.area{padding:0;overflow:hidden}
+.area{padding:0;overflow-x:clip}
 .area-head{padding:clamp(64px,10vw,110px) var(--gut) 24px}
 .track{display:flex;gap:0;padding:0 var(--gut) clamp(56px,8vw,96px);flex-direction:column}
 .panel{flex:0 0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:28px 0;border-top:2px solid var(--ink)}
@@ -173,12 +168,12 @@ legend{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;c
 .contact .ph{color:#13242B}
 @media (max-width:760px){.visit{grid-template-columns:1fr}}
 
-footer{background:var(--ink);color:#C9D3D6;padding:28px var(--gut) 110px;font-size:14px;border-top:1px solid rgba(255,255,255,.15)}
+footer{background:var(--ink);color:#C9D3D6;padding:28px var(--gut);font-size:14px;border-top:1px solid rgba(255,255,255,.15)}
 footer a{color:#fff}
 
 .callbar{position:fixed;left:12px;right:12px;bottom:12px;display:none;z-index:20;background:var(--ink);color:#fff;border-radius:999px;padding:6px 6px 6px 20px;align-items:center;justify-content:space-between;gap:10px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 .callbar a.btn{padding:12px 18px}
-@media (max-width:820px){.callbar{display:flex}}
+@media (max-width:820px){.callbar{display:flex}footer{padding-bottom:96px}}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -198,27 +193,21 @@ footer a{color:#fff}
 </header>
 
 <main id="top">
-<section class="hero" style="padding-top:8px">
-  <div class="split" id="split">
-    <div class="side cool"><small>Air conditioning · heat pumps</small><strong>Cool</strong></div>
-    <div class="side heat"><small>Furnaces · heating systems</small><strong>Heat</strong></div>
-    <svg class="island" viewBox="0 0 60 160" aria-hidden="true"><path fill="#fff" d="M30 2c9 4 14 14 13 26-1 10 6 16 8 28 3 17-4 26-2 40 2 16 7 26 1 40-5 12-15 22-24 22S13 150 12 138c-1-12 3-20 1-32-2-14-11-24-9-40 2-14 12-18 13-32C18 18 21 0 30 2z"/></svg>
-    <label for="mix" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Slide toward heat or cool</label>
-    <input id="mix" type="range" min="8" max="92" value="50" aria-valuetext="Even mix of heating and cooling">
-    <div class="handle" aria-hidden="true"><i>⇆</i></div>
-  </div>
-
-  <div class="hero-copy">
+<section class="hero">
+  <div class="hero-top">
     <h1>Heating &amp; air conditioning for <em>Mercer Island</em>, King and Kitsap Counties.</h1>
     <div>
-      <p class="today">Drag the line: what's wrong today?</p>
-      <p id="swap" aria-live="polite">Installation, repair and maintenance for both, in homes and businesses.</p>
-      <div class="cta">
-        <a class="btn" id="heroCall" href="tel:+14254349085">Call (425) 434-9085</a>
-        <a class="btn ghost" href="#ticket">Start a service ticket</a>
-      </div>
+      <p>Installation, repair and maintenance for homes and businesses, from a shop on the island.</p>
+      <div class="cta"><a class="btn" href="tel:+14254349085">Call (425) 434-9085</a></div>
     </div>
   </div>
+  <p class="ask" id="askq">What's going on at your place? Tap one to start a service ticket.</p>
+  <ul class="pick" aria-labelledby="askq">
+    <li><button class="h" data-sys="Heating" data-job="Repair">My heat&rsquo;s out <small>Heating · repair</small></button></li>
+    <li><button class="c" data-sys="Cooling" data-job="Repair">My AC won&rsquo;t cool <small>Cooling · repair</small></button></li>
+    <li><button class="h" data-sys="Both" data-job="Installation">I need a new system <small>Installation</small></button></li>
+    <li><button class="c" data-sys="Both" data-job="Maintenance">Time for a tune-up <small>Maintenance</small></button></li>
+  </ul>
 </section>
 
 <section id="about" class="about">
@@ -343,16 +332,6 @@ footer a{color:#fff}
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  /* hero split */
-  var split=document.getElementById('split'),mix=document.getElementById('mix'),swap=document.getElementById('swap'),call=document.getElementById('heroCall');
-  var msgs=[
-    ['Even mix of heating and cooling','Installation, repair and maintenance for both, in homes and businesses.','Call (425) 434-9085'],
-    ['Mostly heating','Furnace or heating system not keeping the house warm? Call and describe what it’s doing.','Call about heating'],
-    ['Mostly cooling','Rooms too warm, AC running but not cooling? That’s a call they take too.','Call about cooling']];
-  function setMix(v){split.style.setProperty('--x',v+'%');var m=v>60?msgs[1]:v<40?msgs[2]:msgs[0];
-    if(swap.textContent!==m[1]){swap.textContent=m[1];call.textContent=m[2];mix.setAttribute('aria-valuetext',m[0]);}}
-  mix.addEventListener('input',function(){setMix(+mix.value)});setMix(50);
-
   /* ticket */
   var f=document.getElementById('tform'),sms=document.getElementById('t-sms');
   function tk(){var s=f.sys.value,j=f.job.value,b=f.bld.value,w=f.where.value;
@@ -360,6 +339,10 @@ footer a{color:#fff}
     document.getElementById('t-bld').textContent=b;document.getElementById('t-where').textContent=w;
     sms.href='sms:+14254349085?&body='+encodeURIComponent('Hi, I’d like to request service: '+s+' '+j.toLowerCase()+', '+b.toLowerCase()+', '+w+'.');}
   f.addEventListener('change',tk);
+  document.querySelectorAll('.pick button').forEach(function(b){b.addEventListener('click',function(){
+    f.sys.value=b.dataset.sys;f.job.value=b.dataset.job;tk();
+    var t=document.getElementById('ticket');t.scrollIntoView({behavior:reduce?'auto':'smooth'});
+    setTimeout(function(){f.querySelector('input[name=bld]:checked').focus({preventScroll:true})},reduce?0:700);})});
 
   /* maps */
   var tpl=document.getElementById('maptpl');

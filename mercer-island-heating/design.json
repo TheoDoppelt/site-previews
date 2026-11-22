@@ -3,7 +3,7 @@
   "direction": "Island HVAC shop with no website: type-and-color only (no logo, no photos). Lake Washington teal against furnace ember on warm paper, editorial serif display.",
   "palette": {"bg": "#F1EEE7", "surface": "#E4E9E7", "ink": "#13242B", "muted": "#4A5A60", "primary": "#0E4A5A", "accent": "#B3421B", "on_primary": "#FFFFFF", "on_accent": "#FFFFFF"},
   "fonts": "Newsreader, Hanken Grotesk, DM Mono",
-  "hero_idea": "Heat | Cool split: drag (or arrow-key) the divider over an island silhouette; the headline copy and call button switch between heating and cooling trouble",
+  "hero_idea": "Oversized serif list of plain-language problems (heat out, AC won't cool, new system, tune-up); tapping one fills the service ticket and jumps to it",
   "scroll_story": "A day on the island: the page background drifts from morning lake fog to noon paper to evening dusk as you scroll",
   "custom_ui": ["Service ticket builder (system / job / building / where) that texts the ticket to the shop", "Service area strip: Mercer Island → King County → Kitsap County, each with a schematic map lighting that region"],
   "date": "2026-11-22"
