@@ -60,7 +60,7 @@ section{position:relative;z-index:1}
 .hero{padding:48px 0 96px}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
 .hero h1{font-size:clamp(44px,6.4vw,88px);letter-spacing:-.01em;margin:16px 0 20px}
-.hero h1 em{font-style:italic;color:var(--primary)}
+.hero h1 em{font-style:normal;color:var(--primary)}
 .hero p.lead{font-size:19px;max-width:34em;color:var(--muted);margin:0 0 28px}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .since{margin-top:28px;font-size:14px;color:var(--muted)}
@@ -70,7 +70,7 @@ section{position:relative;z-index:1}
 .stage .frame img.on{opacity:1;transform:none}
 .tag{position:absolute;left:-28px;bottom:36px;width:210px;background:var(--tag);color:var(--ink);padding:26px 18px 16px 26px;clip-path:polygon(18% 0,100% 0,100% 100%,18% 100%,0 50%);filter:drop-shadow(0 6px 10px rgba(34,30,26,.18));transform-origin:0 50%;transition:transform var(--dur) var(--ease)}
 .tag::before{content:"";position:absolute;left:12%;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--muted)}
-.tag .lbl{font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.tag .lbl{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
 .tag .nm{font:400 30px/1 var(--hand);margin:8px 0 6px}
 .tag .nt{font-size:12.5px;color:var(--muted);line-height:1.4}
 .tag.swing{transform:rotate(-4deg)}
@@ -149,8 +149,8 @@ html.js .in .mask:nth-child(2)>span{transition-delay:.12s}
 .gifts .head p{color:var(--muted);max-width:36em}
 .shelf{display:flex;gap:0;will-change:transform;padding-left:max(16px,calc((100vw - 1180px)/2));border-bottom:10px solid var(--ink)}
 .brand{flex:0 0 300px;padding:28px 26px 30px;border-left:1.5px solid var(--surface)}
-.brand .org{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
-.brand h3{font-size:36px;margin:12px 0 10px}
+.brand .org{margin-bottom:12px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.brand h3{font-size:36px;margin:0 0 8px}
 .brand p{margin:0;font-size:15px;color:var(--muted)}
 
 /* village */
@@ -245,14 +245,13 @@ footer p{margin:0 0 6px;max-width:36em}
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <div class="kicker">Consignment Furniture • Gifts • Accessories</div>
       <h1>High-end furniture, <em>gently used,</em> from Seattle homes.</h1>
       <p class="lead">Brand names and high-end custom pieces, mostly from individual homes, with new merchandise arriving almost daily. A broad range of styles, leaning contemporary-transitional, in the heart of Magnolia Village.</p>
       <div class="ctas">
         <a class="btn solid" href="tel:+12062879942">Call 206-287-9942</a>
         <a class="btn line" href="#consign">How to consign</a>
       </div>
-      <div class="since">3220 W. McGraw St. · Open 7 days · First opened on Western Avenue in 1995</div>
+      <div class="since"><b style="color:var(--ink)">Consignment Furniture • Gifts • Accessories</b><br>3220 W. McGraw St. · Open 7 days · First opened on Western Avenue in 1995</div>
     </div>
     <div class="stage" id="stage">
       <div class="frame">
@@ -280,7 +279,6 @@ footer p{margin:0 0 6px;max-width:36em}
   <div class="wrap">
     <div class="yrs"><span id="yrs" data-from="1995">31</span><small>years in Seattle</small></div>
     <div>
-      <div class="kicker">Who we are</div>
       <h2 class="rv"><span class="mask"><span>A consignment floor</span></span><span class="mask"><span>you'll want to revisit.</span></span></h2>
       <p>Modele's Home Furnishings first opened on Western Avenue in downtown Seattle in 1995. Today we're a high-end furniture consignment store in Magnolia Village, specializing in brand names and high-end custom furniture and accessories.</p>
       <p>The majority of our merchandise comes from individual homes where the furniture has been gently used. New pieces arrive almost daily, so you're sure to see something new each time you visit. Alongside the consigned pieces, we keep a wonderful collection of new retail accessories and gifts you can count on finding in stock.</p>
@@ -293,7 +291,6 @@ footer p{margin:0 0 6px;max-width:36em}
   <div class="wrap">
     <div class="head">
       <div>
-        <div class="kicker">On the floor</div>
         <h2 class="rv"><span class="mask"><span>Dining, seating, tables,</span></span><span class="mask"><span>bedroom and beyond.</span></span></h2>
       </div>
       <p>A few past finds from our floor. The store changes almost daily, so call or stop by to see what's in this week.</p>
@@ -314,8 +311,7 @@ footer p{margin:0 0 6px;max-width:36em}
     <div class="sticky">
       <div class="wrap">
         <div class="intro">
-          <div class="kicker">Interested in consignment?</div>
-          <h2>Here's how it works.</h2>
+          <h2>Interested in consignment? Here's how it works.</h2>
           <p>We preview items to see if they're a good match for the store. One good overall photo of each item is usually enough. Email it to <a href="mailto:deb@modelesfurniture.com">deb@modelesfurniture.com</a>.</p>
           <ol class="steps" id="steps">
             <li class="on" tabindex="0"><b>1</b>Send a photo and the details</li>
@@ -354,20 +350,19 @@ footer p{margin:0 0 6px;max-width:36em}
   <div class="track-wrap" id="hwrap" data-p>
     <div class="sticky">
       <div class="wrap head">
-        <div class="kicker">Retail accessories</div>
         <h2 class="rv"><span class="mask"><span>Always in stock,</span></span><span class="mask"><span>from Finland to Japan.</span></span></h2>
         <p>A curated set of new retail lines to go with the consigned accessories that are always changing in the store.</p>
       </div>
       <div class="shelf" id="shelf">
-        <div class="brand"><div class="org">Finland</div><h3>iittala</h3><p>Finnish dishware, glassware and serving pieces.</p></div>
-        <div class="brand"><div class="org">Austria</div><h3>David Fussenegger</h3><p>Washable throws, pet blankets and kiddie wraps.</p></div>
-        <div class="brand"><div class="org">France</div><h3>Le Jacquard Français</h3><p>Table linens: dishtowels, runners, tablecloths, napkins and more.</p></div>
-        <div class="brand"><div class="org">Japan</div><h3>Miya</h3><p>Japanese porcelain bowls and serving pieces.</p></div>
-        <div class="brand"><div class="org">Hand-crafted</div><h3>Edward S. Wohl</h3><p>Birdseye maple cutting and serving boards.</p></div>
-        <div class="brand"><div class="org">Placemats &amp; floor mats</div><h3>Chilewich</h3><p>Woven placemats and floor mats.</p></div>
-        <div class="brand"><div class="org">Provence</div><h3>Pré de Provence</h3><p>French quad-milled soap, bath gel and lotions.</p></div>
-        <div class="brand"><div class="org">Paper napkins</div><h3>Marimekko &amp; IHR</h3><p>Cocktail, luncheon and buffet/guest napkins.</p></div>
-        <div class="brand"><div class="org">Tables</div><h3>Yamazaki</h3><p>'Tower' side tables in white or black.</p></div>
+        <div class="brand"><h3>iittala</h3><div class="org">Finland</div><p>Finnish dishware, glassware and serving pieces.</p></div>
+        <div class="brand"><h3>David Fussenegger</h3><div class="org">Austria</div><p>Washable throws, pet blankets and kiddie wraps.</p></div>
+        <div class="brand"><h3>Le Jacquard Français</h3><div class="org">France</div><p>Table linens: dishtowels, runners, tablecloths, napkins and more.</p></div>
+        <div class="brand"><h3>Miya</h3><div class="org">Japan</div><p>Japanese porcelain bowls and serving pieces.</p></div>
+        <div class="brand"><h3>Edward S. Wohl</h3><div class="org">Hand-crafted</div><p>Birdseye maple cutting and serving boards.</p></div>
+        <div class="brand"><h3>Chilewich</h3><div class="org">Placemats &amp; floor mats</div><p>Woven placemats and floor mats.</p></div>
+        <div class="brand"><h3>Pré de Provence</h3><div class="org">Provence</div><p>French quad-milled soap, bath gel and lotions.</p></div>
+        <div class="brand"><h3>Marimekko &amp; IHR</h3><div class="org">Paper napkins</div><p>Cocktail, luncheon and buffet/guest napkins.</p></div>
+        <div class="brand"><h3>Yamazaki</h3><div class="org">Tables</div><p>'Tower' side tables in white or black.</p></div>
       </div>
     </div>
   </div>
@@ -377,7 +372,6 @@ footer p{margin:0 0 6px;max-width:36em}
   <div class="wrap">
     <img src="img/sandclay.jpg" alt="Sand &amp; Clay art walk display: white ceramic vases and porcelain birds" width="290" height="500">
     <div>
-      <div class="kicker">Part of the Village</div>
       <h2 class="rv"><span class="mask"><span>Your neighbors</span></span><span class="mask"><span>on McGraw Street.</span></span></h2>
       <p>Modele's joins in on the Magnolia Village events that bring the neighborhood out.</p>
       <ul>
@@ -403,7 +397,6 @@ footer p{margin:0 0 6px;max-width:36em}
       <small>Hours as listed on the current site. <span class="ph">Confirm holiday hours</span></small>
     </div>
     <div id="contact">
-      <div class="kicker">Visit &amp; contact</div>
       <h2>Come see what's new this week.</h2>
       <address>Magnolia Village<br>3220 W. McGraw St.<br>Seattle, WA 98199</address>
       <div class="lines">
