@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Jim's Cobbler Shoppe: Website Concept</title>
+<meta name="description" content="Jim's Cobbler Shoppe, shoe and leather repair on 32nd Ave W in Magnolia, Seattle. Open Tuesday to Saturday, 9 to 5:30.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Palette: "Autumn Harvest" from coolors.co
+   https://coolors.co/6f1d1b-bb9457-432818-99582a-ffe6a7
+   Design direction: Magnolia Village shoe-repair counter with an old-fashioned "Shoppe" sign.
+   Oxblood leather, saddle tan, waxed-thread cream; gold-leaf window lettering, saddle stitching
+   that sews itself down the page, numbered claim tickets for services, a live Open/Closed door sign. */
+:root{
+  --oxblood:#6f1d1b; --tan:#bb9457; --leather:#432818; --saddle:#99582a; --thread:#ffe6a7;
+  --ink:#2a170d; --paper:#fbf1d9; --worn:#8c6f5c;
+  --display:'Abril Fatface', Georgia, serif;
+  --body:'Libre Franklin', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+.preview{background:var(--leather);color:var(--thread);font:500 12px/1.4 var(--mono);text-align:center;padding:7px 16px;letter-spacing:.02em}
+
+/* ---------- header ---------- */
+header{background:var(--oxblood);color:var(--thread)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:1120px;margin:0 auto}
+.wordmark{font:22px/1 var(--display);text-decoration:none;letter-spacing:.01em}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.nav ul a{text-decoration:none;opacity:.85}
+.nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.nav .call{background:var(--thread);color:var(--oxblood);padding:9px 14px;border-radius:3px;font:600 13px var(--mono);text-decoration:none;white-space:nowrap}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--oxblood);color:var(--thread);position:relative;overflow:hidden;
+  background-image:radial-gradient(circle at 80% 30%, rgba(255,230,167,.08), transparent 55%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;padding:36px 20px 0;max-width:1120px;margin:0 auto}
+.window{position:relative}
+.kicker{font:600 13px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--tan);margin:0 0 10px}
+h1{font:400 clamp(60px,9.2vw,118px)/.88 var(--display);margin:0;letter-spacing:-.01em;
+  background:linear-gradient(170deg,#fff3cf 0%,var(--thread) 30%,var(--tan) 62%,#e9c98a 78%,var(--tan) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 0 rgba(42,23,13,.55))}
+h1 span{display:block}
+h1 .shoppe{font-style:italic;padding-left:.5em}
+.promise{font-size:clamp(18px,2vw,21px);max-width:30ch;margin:22px 0 26px;color:#fbe9c4}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px var(--mono);text-decoration:none;padding:14px 20px;border-radius:3px;border:2px solid var(--thread)}
+.btn-primary{background:var(--thread);color:var(--oxblood)}
+.btn-ghost{color:var(--thread)}
+.btn:focus-visible,.repair input:focus-visible,.sign:focus-visible{outline:3px solid var(--tan);outline-offset:3px}
+
+/* door sign */
+.sign{position:absolute;right:0;top:-6px;width:156px;transform-origin:50% 0;cursor:pointer;border:0;background:none;padding:0;color:inherit}
+.sign .cord{height:34px;width:100%;display:block}
+.sign .plate{display:block;background:var(--paper);color:var(--oxblood);border-radius:6px;padding:10px 12px 11px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.35);border:3px double var(--oxblood)}
+.sign .state{font:30px/1 var(--display);display:block}
+.sign .when{font:600 11px/1.35 var(--mono);display:block;margin-top:4px;color:var(--leather)}
+@media (max-width:900px){.sign{position:static;margin:0 0 18px auto}}
+
+/* bench + boot */
+.bench{position:relative;padding-bottom:0}
+.boot{width:100%;height:auto;overflow:visible}
+.benchtop{height:34px;margin:0 -20px;background:
+  repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 2px,transparent 2px 46px),
+  linear-gradient(var(--saddle),#7c461f);border-top:4px solid #c27a42}
+.repair{background:var(--leather);padding:16px 18px 18px;margin:0 -20px}
+.repair label{display:flex;justify-content:space-between;font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tan)}
+.repair input{width:100%;margin:12px 0 10px;accent-color:var(--thread);height:28px;cursor:grab}
+.stage{font:500 15px/1.4 var(--body);color:var(--thread);min-height:2.8em;margin:0}
+.stage b{font-family:var(--mono);font-weight:600;color:var(--tan);margin-right:6px}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;padding-top:24px}
+  .bench{margin-top:8px}
+}
+
+/* ---------- running stitch ---------- */
+main{position:relative}
+.thread{position:absolute;left:max(14px, calc(50% - 600px));top:0;bottom:0;width:6px;pointer-events:none;z-index:1}
+.thread svg{width:6px;height:100%}
+.thread line{stroke:var(--saddle);stroke-width:3;stroke-dasharray:12 9;stroke-linecap:round}
+@media (max-width:700px){.thread{left:6px}}
+
+section{padding:84px 0;position:relative}
+.label{font:600 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--saddle);margin:0 0 10px}
+h2{font:400 clamp(38px,5.4vw,64px)/1 var(--display);margin:0 0 18px;color:var(--oxblood)}
+.lede{font-size:19px;max-width:58ch}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.bench-note{background:#fff8e6;border:2px dashed var(--tan);padding:22px 24px;font:500 15px/1.6 var(--mono);color:var(--leather);transform:rotate(1.2deg)}
+.bench-note strong{display:block;font:22px var(--display);color:var(--oxblood);margin-bottom:8px;font-weight:400}
+.bench-note ul{margin:0;padding-left:18px}
+@media (max-width:800px){.about-grid{grid-template-columns:1fr;gap:28px}}
+
+/* claim tickets */
+.counter{background:var(--leather);color:var(--thread);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 2px,transparent 2px 9px)}
+.counter h2{color:var(--thread)}
+.counter .label{color:var(--tan)}
+.tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:38px;list-style:none;padding:0}
+.ticket{background:var(--paper);color:var(--ink);position:relative;padding:18px 18px 18px 64px;border-radius:4px;
+  --r:0deg;transform:rotate(var(--r));box-shadow:0 6px 14px rgba(0,0,0,.3)}
+.ticket:nth-child(3n+1){--r:-1.4deg}.ticket:nth-child(3n+2){--r:.8deg}.ticket:nth-child(3n){--r:-.4deg}
+.ticket::before{content:"";position:absolute;left:46px;top:10px;bottom:10px;border-left:2px dotted var(--tan)}
+.ticket .no{position:absolute;left:0;top:0;bottom:0;width:46px;display:flex;align-items:center;justify-content:center;
+  font:600 13px var(--mono);color:var(--paper);background:var(--oxblood);border-radius:4px 0 0 4px;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.15em}
+.ticket h3{font:400 23px/1.1 var(--display);margin:0 0 6px;color:var(--oxblood)}
+.ticket p{margin:0;font-size:15px;line-height:1.5}
+.counter .aside{margin-top:34px;font:500 14px var(--mono);color:var(--tan)}
+
+/* reviews placeholder */
+.ph{background:#fff1a8;outline:2px dashed #c9a227;color:var(--leather)}
+.pinboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:30px}
+.slip{padding:22px;border-radius:3px;font:500 15px/1.5 var(--mono);position:relative;transform:rotate(-1deg)}
+.slip:nth-child(2){transform:rotate(1.3deg)}
+.slip::before{content:"";position:absolute;top:-8px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--oxblood);box-shadow:0 2px 3px rgba(0,0,0,.3)}
+
+/* visit */
+.visit{background:var(--tan);color:var(--ink)}
+.visit h2{color:var(--leather)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.hours{background:var(--paper);border:3px double var(--leather);padding:22px 24px;font:500 16px var(--mono)}
+.hours h3{font:400 26px var(--display);margin:0 0 12px;color:var(--oxblood)}
+.hours dl{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;margin:0}
+.hours dt{font-weight:600}
+.hours dd{margin:0}
+.hours .today{color:var(--oxblood);font-weight:600}
+.addr{font-size:20px;line-height:1.5;margin:0 0 18px}
+.visit .btn{border-color:var(--leather)}
+.visit .btn-primary{background:var(--leather);color:var(--thread)}
+.visit .btn-ghost{color:var(--leather)}
+@media (max-width:800px){.visit-grid{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#e9d8b4;padding:40px 0 48px;font-size:14px}
+footer .wordmark{font-size:28px;color:var(--thread);display:inline-block;margin-bottom:8px}
+footer p{margin:6px 0}
+footer .note{margin-top:20px;font:500 12px var(--mono);color:var(--tan)}
+</style>
+</head>
+<body>
+
+<div class="preview">Preview concept for Jim's Cobbler Shoppe · not the live site yet</div>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="wordmark" href="#top">Jim's Cobbler Shoppe</a>
+    <ul>
+      <li><a href="#about">The bench</a></li>
+      <li><a href="#repairs">Repairs</a></li>
+      <li><a href="#visit">Hours</a></li>
+    </ul>
+    <a class="call" href="tel:+12062835036">(206) 283-5036</a>
+  </nav>
+</header>
+
+<section class="hero" id="top" style="padding:0">
+  <div class="hero-grid">
+    <div class="window">
+      <p class="kicker">Shoe &amp; leather repair · Magnolia, Seattle</p>
+      <h1 aria-label="Jim's Cobbler Shoppe"><span>Jim's</span><span>Cobbler</span><span class="shoppe">Shoppe</span></h1>
+      <p class="promise">Heels, soles, stitching and leather, fixed by hand on 32nd Ave W. Your favorite pair isn't done yet.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" id="heroCall" href="tel:+12062835036">Call (206) 283-5036</a>
+        <a class="btn btn-ghost" href="#visit">Hours &amp; directions</a>
+      </div>
+    </div>
+
+    <div class="bench">
+      <button class="sign" id="sign" type="button" aria-live="polite" title="Shop hours">
+        <svg class="cord" viewBox="0 0 156 34" aria-hidden="true"><path d="M30 34 L78 2 L126 34" fill="none" stroke="#ffe6a7" stroke-width="2"/><circle cx="78" cy="3" r="3" fill="#bb9457"/></svg>
+        <span class="plate"><span class="state" id="signState">Open</span><span class="when" id="signWhen">Tue–Sat · 9 to 5:30</span></span>
+      </button>
+
+      <svg class="boot" id="boot" viewBox="0 0 640 400" role="img" aria-labelledby="bootTitle">
+        <title id="bootTitle">A leather boot on the workbench, shown going from worn out to freshly repaired</title>
+        <!-- shaft + vamp -->
+        <path id="leather" d="M168 34 H318 L324 214 Q352 236 440 250 Q548 266 572 306 L574 330 H150 L156 222 Q160 120 168 34 Z" fill="#99582a" stroke="#2a170d" stroke-width="3"/>
+        <!-- tongue + collar -->
+        <path d="M168 34 H318 L316 52 H170 Z" fill="#432818"/>
+        <path d="M300 52 L318 52 L324 214 Q314 210 306 200 Z" fill="#432818" opacity=".55"/>
+        <!-- pull tab -->
+        <path d="M188 14 h22 v24 h-22 z" fill="#432818"/>
+        <!-- eyelets + laces -->
+        <g fill="#bb9457">
+          <circle cx="306" cy="70" r="4.5"/><circle cx="307" cy="100" r="4.5"/><circle cx="308" cy="130" r="4.5"/><circle cx="309" cy="160" r="4.5"/><circle cx="311" cy="190" r="4.5"/>
+        </g>
+        <path d="M306 70 L296 100 L307 100 M307 100 L297 130 L308 130 M308 130 L298 160 L309 160 M309 160 L300 190 L311 190" fill="none" stroke="#ffe6a7" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- shine (repaired) -->
+        <path id="shine" d="M470 262 Q530 270 556 296" fill="none" stroke="#ffe6a7" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+        <path id="shine2" d="M186 70 Q180 150 182 230" fill="none" stroke="#ffe6a7" stroke-width="5" stroke-linecap="round" opacity=".3"/>
+        <!-- scuffs (worn) -->
+        <g id="scuffs" fill="#d9c2a3" opacity="0">
+          <ellipse cx="528" cy="290" rx="26" ry="7" transform="rotate(20 528 290)"/>
+          <ellipse cx="470" cy="276" rx="16" ry="4" transform="rotate(10 470 276)"/>
+          <ellipse cx="208" cy="250" rx="12" ry="20"/>
+          <ellipse cx="250" cy="120" rx="8" ry="14"/>
+        </g>
+        <!-- seam stitch on shaft -->
+        <path id="seam" d="M182 52 Q176 150 178 320" fill="none" stroke="#ffe6a7" stroke-width="3" stroke-dasharray="9 7" stroke-linecap="round"/>
+        <!-- outsole -->
+        <path d="M140 330 H576 Q594 332 592 352 H140 Z" fill="#432818"/>
+        <!-- welt stitch -->
+        <path id="welt" d="M154 340 H580" fill="none" stroke="#ffe6a7" stroke-width="3" stroke-dasharray="9 7" stroke-linecap="round"/>
+        <!-- sole split (worn) -->
+        <path id="split" d="M380 331 l10 8 l-8 6 l12 7" fill="none" stroke="#fbf1d9" stroke-width="4" stroke-linejoin="round" opacity="0"/>
+        <!-- heel stack -->
+        <path d="M146 352 H258 V384 H150 Z" fill="#99582a"/>
+        <path d="M146 362 H258 M148 372 H258" stroke="#432818" stroke-width="2" opacity=".5"/>
+        <!-- heel cap -->
+        <rect id="cap" x="150" y="384" width="108" height="12" rx="2" fill="#2a170d"/>
+        <!-- worn wedge eaten out of the heel (worn) -->
+        <path id="wear" d="M144 366 L216 400 L144 400 Z" fill="#6f1d1b" opacity="0"/>
+        <!-- tacks -->
+        <g id="tacks" fill="#bb9457">
+          <circle cx="172" cy="390" r="2.6"/><circle cx="204" cy="390" r="2.6"/><circle cx="236" cy="390" r="2.6"/>
+        </g>
+        <!-- hammer -->
+        <g id="hammer" opacity="0">
+          <rect x="226" y="300" width="14" height="96" rx="4" fill="#bb9457" transform="rotate(-38 233 348)"/>
+          <rect x="250" y="262" width="56" height="22" rx="4" fill="#2a170d" transform="rotate(-38 233 348)"/>
+        </g>
+      </svg>
+      <div class="benchtop" aria-hidden="true"></div>
+      <div class="repair">
+        <label for="repairRange"><span>Worn out</span><span>Drag to repair</span><span>Like new</span></label>
+        <input id="repairRange" type="range" min="0" max="100" value="100" step="1" aria-describedby="stage">
+        <p class="stage" id="stage"><b>Done.</b>New heel cap, sole stitched, leather dyed and polished.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="thread" aria-hidden="true"><svg preserveAspectRatio="none" viewBox="0 0 6 100"><line id="threadLine" x1="3" y1="0" x2="3" y2="100" vector-effect="non-scaling-stroke"/></svg></div>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="label">At the bench</p>
+        <h2>One cobbler. Real tools. Shoes you already love.</h2>
+        <p class="lede">Jim's Cobbler Shoppe is Magnolia's neighborhood shoe repair, a few doors into the village on 32nd Ave W. Jim does the work himself at the bench: heel caps, soles, torn stitching, broken hardware, faded leather.</p>
+        <p class="lede">Bring in the boots you broke in years ago, the sandals you wore all summer, or the bag with a strap hanging by a thread. Fixing them almost always beats starting over.</p>
+      </div>
+      <div class="bench-note">
+        <strong>Good to know</strong>
+        <ul>
+          <li>Walk in, Tuesday through Saturday, 9 to 5:30.</li>
+          <li>Closed Sunday and Monday.</li>
+          <li>Not sure it can be saved? Call and ask Jim.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="counter" id="repairs">
+    <div class="wrap">
+      <p class="label">Repairs · claim ticket in hand</p>
+      <h2>What comes across the counter</h2>
+      <p class="lede">Every job gets a ticket. Here's what Jim fixes most.</p>
+      <ol class="tickets">
+        <li class="ticket"><span class="no">No. 001</span><h3>Heels &amp; heel caps</h3><p>Worn-down heels rebuilt and new caps put on, so you stop walking on the nails.</p></li>
+        <li class="ticket"><span class="no">No. 002</span><h3>Soles</h3><p>Sole repair and protectors to stretch the life of good shoes.</p></li>
+        <li class="ticket"><span class="no">No. 003</span><h3>Stitching</h3><p>Torn seams re-sewn, including hiking and work boots.</p></li>
+        <li class="ticket"><span class="no">No. 004</span><h3>Hardware</h3><p>Buckles, rivets and lace loops replaced when they give out.</p></li>
+        <li class="ticket"><span class="no">No. 005</span><h3>Leather touch-up</h3><p>Torn or scuffed leather glued down, dyed and brought back.</p></li>
+        <li class="ticket"><span class="no">No. 006</span><h3>Sandals</h3><p>Straps, footbeds and soles on summer favorites, Birkenstocks included.</p></li>
+        <li class="ticket"><span class="no">No. 007</span><h3>Bags, belts &amp; packs</h3><p>Straps, seams and stitching on purses, belts and backpacks.</p></li>
+      </ol>
+      <p class="aside">Something else? If it's leather or it goes on your feet, ask.</p>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <p class="label">From the neighborhood</p>
+      <h2>Pinned by the register</h2>
+      <div class="pinboard">
+        <div class="slip ph">Your Google reviews go here.</div>
+        <div class="slip ph">Pick 2–3 favorite customer reviews to feature.</div>
+        <div class="slip ph">Or a note about how long the shop has been on 32nd Ave W.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="label" style="color:var(--leather)">Come on in</p>
+        <h2>Find the shop</h2>
+        <p class="addr">2432 32nd Ave W<br>Seattle, WA 98199<br>Magnolia Village</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:+12062835036">Call (206) 283-5036</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Jim%27s+Cobbler+Shoppe+2432+32nd+Ave+W+Seattle+WA+98199" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <div class="hours" id="hours">
+        <h3>Shop hours</h3>
+        <dl>
+          <dt data-day="2">Tuesday</dt><dd data-day="2">9:00 – 5:30</dd>
+          <dt data-day="3">Wednesday</dt><dd data-day="3">9:00 – 5:30</dd>
+          <dt data-day="4">Thursday</dt><dd data-day="4">9:00 – 5:30</dd>
+          <dt data-day="5">Friday</dt><dd data-day="5">9:00 – 5:30</dd>
+          <dt data-day="6">Saturday</dt><dd data-day="6">9:00 – 5:30</dd>
+          <dt data-day="0">Sunday</dt><dd data-day="0">Closed</dd>
+          <dt data-day="1">Monday</dt><dd data-day="1">Closed</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="wordmark">Jim's Cobbler Shoppe</span>
+    <p>2432 32nd Ave W, Seattle, WA 98199 · <a href="tel:+12062835036">(206) 283-5036</a></p>
+    <p>Tuesday–Saturday 9:00–5:30 · Closed Sunday &amp; Monday</p>
+    <p class="note">Concept redesign by Theo, not the official site.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+<script>
+/* ---------- live open/closed sign + today's hours (works without GSAP) ---------- */
+(function(){
+  const parts = new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+  const get = t => parts.find(p=>p.type===t).value;
+  const dayIdx = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(get('weekday'));
+  const mins = (+get('hour') % 24) * 60 + (+get('minute'));
+  const openDay = dayIdx >= 2 && dayIdx <= 6;
+  const isOpen = openDay && mins >= 540 && mins < 1050;
+  const names = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  let when;
+  if (isOpen) when = 'Come on in · until 5:30';
+  else if (openDay && mins < 540) when = 'Opens today at 9';
+  else { let d = (dayIdx+1)%7; while (d<2) d++; when = 'Back ' + (d===(dayIdx+1)%7 ? 'tomorrow' : names[d]) + ' at 9'; }
+  document.getElementById('signState').textContent = isOpen ? 'Open' : 'Closed';
+  document.getElementById('signWhen').textContent = when;
+  document.querySelectorAll('#hours [data-day="'+dayIdx+'"]').forEach(el=>el.classList.add('today'));
+})();
+
+/* ---------- motion ---------- */
+if (window.gsap) {
+  gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+  const range = document.getElementById('repairRange');
+  const stage = document.getElementById('stage');
+  const heroCall = document.getElementById('heroCall');
+  const stages = [
+    [0,  'Before.', 'Heel worn to the nails, sole splitting, toe scuffed.'],
+    [34, 'Step 1.', 'Old heel off, new heel cap tacked on.'],
+    [67, 'Step 2.', 'Sole stitched back down along the welt.'],
+    [96, 'Done.',   'New heel cap, sole stitched, leather dyed and polished.']
+  ];
+  const setStage = v => {
+    const s = stages.filter(x => v >= x[0]).pop();
+    stage.innerHTML = '<b>'+s[1]+'</b>'+s[2];
+    heroCall.textContent = v >= 96 ? 'Bring yours in · (206) 283-5036' : 'Call (206) 283-5036';
+  };
+
+  // The repair, as one paused timeline scrubbed by the slider.
+  const repair = gsap.timeline({paused:true, defaults:{ease:'none'}})
+    .fromTo('#leather', {fill:'#8a7868'}, {fill:'#99582a', duration:1}, 0)
+    .fromTo('#wear',   {opacity:1}, {opacity:0, duration:.3}, 0)
+    .fromTo('#cap',    {scaleY:.15, transformOrigin:'50% 100%'}, {scaleY:1, duration:.3}, .05)
+    .fromTo('#tacks',  {opacity:0}, {opacity:1, duration:.1}, .28)
+    .fromTo('#split',  {opacity:1}, {opacity:0, duration:.2}, .34)
+    .fromTo('#welt',   {drawSVG:'0%'}, {drawSVG:'100%', duration:.32}, .34)
+    .fromTo('#seam',   {drawSVG:'0%'}, {drawSVG:'100%', duration:.3}, .5)
+    .fromTo('#scuffs', {opacity:1}, {opacity:0, duration:.25}, .67)
+    .fromTo(['#shine','#shine2'], {opacity:0}, {opacity:(i)=> i ? .3 : .55, duration:.25}, .75);
+
+  const mm = gsap.matchMedia();
+  mm.add({motion:'(prefers-reduced-motion: no-preference)', still:'(prefers-reduced-motion: reduce)'}, ctx => {
+    const {motion} = ctx.conditions;
+
+    range.addEventListener('input', () => {
+      const v = +range.value; setStage(v);
+      motion ? gsap.to(repair, {progress:v/100, duration:.45, ease:'power2.out', overwrite:true})
+             : repair.progress(v/100);
+    });
+
+    // ?repair=0..100 opens the page at that point on the slider (handy for screenshots).
+    const q = new URLSearchParams(location.search).get('repair');
+    if (!motion || q !== null) {
+      const v = q !== null ? Math.max(0, Math.min(100, +q || 0)) : 100;
+      repair.progress(v/100); range.value = v; setStage(v);
+      return;
+    }
+
+    // Showpiece on load: worn boot, hammer taps the heel, stitches sew in, then hand it to the visitor.
+    const proxy = {v:0};
+    repair.progress(0); range.value = 0; setStage(0);
+    gsap.timeline({delay:.35})
+      .from('h1 span', {yPercent:60, opacity:0, stagger:.12, duration:.8, ease:'power3.out'}, 0)
+      .from('#sign', {rotation:-24, duration:1.6, ease:'elastic.out(1,0.3)'}, .2)
+      .to('#hammer', {opacity:1, duration:.15}, .8)
+      .fromTo('#hammer', {rotation:-25, svgOrigin:'233 348'}, {rotation:6, duration:.16, repeat:5, yoyo:true, ease:'power2.in'}, .8)
+      .to(proxy, {v:100, duration:2.2, ease:'power1.inOut',
+          onUpdate(){ repair.progress(proxy.v/100); range.value = Math.round(proxy.v); setStage(proxy.v); }}, .95)
+      .to('#hammer', {opacity:0, duration:.3}, 1.9)
+      .to(proxy, {v:0, duration:.9, ease:'power2.inOut',
+          onUpdate(){ repair.progress(proxy.v/100); range.value = Math.round(proxy.v); setStage(proxy.v); }}, '+=.9')
+      .to(proxy, {v:34, duration:.6, ease:'power2.out',
+          onUpdate(){ repair.progress(proxy.v/100); range.value = Math.round(proxy.v); setStage(proxy.v); }});
+
+    // Door sign swings when tapped.
+    const sign = document.getElementById('sign');
+    sign.addEventListener('click', () => gsap.fromTo(sign, {rotation:14}, {rotation:0, duration:1.4, ease:'elastic.out(1,0.25)'}));
+
+    // A running stitch sews itself down the page as you scroll.
+    gsap.fromTo('#threadLine', {drawSVG:'0%'}, {drawSVG:'100%', ease:'none',
+      scrollTrigger:{trigger:'main', start:'top 70%', end:'bottom bottom', scrub:.6}});
+
+    // Claim tickets get dealt onto the counter.
+    gsap.from('.ticket', {y:70, rotation:(i)=> i%2 ? 9 : -9, opacity:0, duration:.7, ease:'back.out(1.4)', stagger:.08,
+      scrollTrigger:{trigger:'.tickets', start:'top 80%'}});
+
+    // The bench note gets "pinned" with a little drop.
+    gsap.from('.bench-note', {rotation:-8, y:-30, opacity:0, duration:.8, ease:'bounce.out',
+      scrollTrigger:{trigger:'.bench-note', start:'top 85%'}});
+  });
+}
+</script>
+</body>
+</html>
