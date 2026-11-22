@@ -54,7 +54,7 @@ a{color:inherit}
 .where i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 var(--acc);animation:ping 2.4s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 var(--acc-soft)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
 h1{font-family:var(--display);font-weight:780;font-size:clamp(3.1rem,8.2vw,7.4rem);line-height:.9;letter-spacing:-.035em;font-variation-settings:"wdth" 78,"opsz" 96}
-h1 .line{display:block;overflow:hidden}
+h1 .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
 h1 .line span{display:inline-block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
 h1 .line:nth-child(2) span{animation-delay:.08s}
 h1 .line:nth-child(3) span{animation-delay:.16s}
@@ -71,7 +71,7 @@ h1 .temp-word{color:var(--acc);transition:color .4s}
 
 /* thermostat */
 .stat{justify-self:center;width:min(420px,100%);text-align:center}
-.dial-wrap{position:relative;aspect-ratio:1;touch-action:none;cursor:grab;user-select:none}
+.dial-wrap{position:relative;border-radius:50%;aspect-ratio:1;touch-action:none;cursor:grab;user-select:none}
 .dial-wrap:active{cursor:grabbing}
 .dial{width:100%;height:100%;display:block;overflow:visible}
 .dial .face{fill:#0f2124;stroke:rgba(255,255,255,.08);stroke-width:1}
