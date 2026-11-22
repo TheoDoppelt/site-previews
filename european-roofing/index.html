@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>European Roofing & Sheet Metal · Copper, Zinc, Steel & Slate Roofs · Seattle</title>
+<meta name="description" content="Copper, zinc, steel and slate roofs and architectural sheet metal, soldered on site with traditional European techniques. Seattle, Shoreline, Bellevue and the islands. Free estimates.">
+<meta name="robots" content="noindex"><!-- preview only: remove when it goes live -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#110f0d;
+  --bg2:#181512;
+  --cream:#efe5d3;
+  --cream-dim:rgba(239,229,211,.66);
+  --cream-faint:rgba(239,229,211,.16);
+  --copper:#d48a5a;
+  --copper-deep:#a35a33;
+  --patina:#7fb9a2;
+  --line:rgba(239,229,211,.14);
+  --wide:"Archivo",system-ui,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--cream);font-family:var(--wide);font-stretch:100%;font-size:16px;line-height:1.55;overflow-x:hidden;
+  background-image:radial-gradient(1200px 700px at 70% 30%,rgba(212,138,90,.10),transparent 60%),radial-gradient(900px 600px at 10% 90%,rgba(127,185,162,.06),transparent 60%);background-attachment:fixed}
+a{color:inherit}
+img{display:block;max-width:100%}
+.ph{background:#fff4c2;border-bottom:1px dashed #d4b200;padding:0 4px;border-radius:3px;color:#3a3000!important}
+.preview{position:relative;z-index:30;background:#000;color:#bbb;font-size:13px;text-align:center;padding:8px 16px;line-height:1.4}.preview b{color:#fff}
+
+/* ---------- canvas + loader ---------- */
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;pointer-events:none}
+.nogl #gl{display:none}
+.loader{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;place-items:center;transition:opacity .9s ease,visibility .9s}
+.loader.done{opacity:0;visibility:hidden}
+.loader-in{width:min(320px,70vw);text-align:center}
+.loader-num{font-family:var(--wide);font-stretch:125%;font-weight:800;font-size:64px;letter-spacing:-.02em;color:var(--cream)}
+.loader-bar{height:1px;background:var(--cream-faint);margin:14px 0 12px;overflow:hidden}
+.loader-bar i{display:block;height:100%;width:0;background:var(--copper);transition:width .2s linear}
+.loader-cap{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-dim)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;left:0;right:0;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px var(--gut);transition:background .3s}
+.nav.scrolled{background:linear-gradient(rgba(17,15,13,.82),rgba(17,15,13,0))}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-stretch:125%;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;line-height:1.15}
+.brand-mark{width:26px;height:26px;flex:none;border:1.5px solid var(--copper);border-radius:3px;display:grid;place-items:center;background:repeating-linear-gradient(90deg,transparent 0 5px,rgba(212,138,90,.55) 5px 6.5px)}
+.brand small{display:block;font-weight:500;letter-spacing:.2em;color:var(--cream-dim);font-size:11px}
+.nav-links{display:none;gap:28px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+.nav-links a{text-decoration:none;color:var(--cream-dim);transition:color .2s}.nav-links a:hover{color:var(--cream)}
+.nav-right{display:flex;gap:8px;align-items:center}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(239,229,211,.32);background:rgba(239,229,211,.04);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:var(--wide);font-stretch:125%;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--cream);cursor:pointer;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.pill:hover{background:rgba(239,229,211,.12);border-color:var(--cream)}
+.pill.solid{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+.pill.solid:hover{background:#fff}
+.pill.copper{background:var(--copper);border-color:var(--copper);color:#1a0f08}
+.pill.copper:hover{background:#e6a073}
+.nav .tel-text{display:none}.nav .tel-short{display:inline}
+.brand span{white-space:nowrap}
+@media (max-width:719px){.nav .pill.solid{display:none}.nav .pill{min-height:38px;padding:0 14px}}
+@media (min-width:720px){.nav .tel-text{display:inline}.nav .tel-short{display:none}}
+@media (min-width:1080px){.nav-links{display:flex}}
+
+/* ---------- chapter rail ---------- */
+.rail{position:fixed;left:var(--gut);top:50%;transform:translateY(-50%);z-index:15;display:none;list-style:none;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.rail li a{display:flex;align-items:center;gap:12px;padding:6px 0;text-decoration:none;color:rgba(239,229,211,.5);transition:color .3s}
+.rail li a::before{content:"";width:14px;height:1px;background:currentColor;transition:width .35s}
+.rail li a span{opacity:0;transform:translateX(-4px);transition:opacity .3s,transform .3s}
+.rail li a.on{color:var(--cream)}
+.rail li a.on::before{width:34px}
+.rail li a.on span,.rail:hover li a span{opacity:1;transform:none}
+.rail.hide{opacity:0;pointer-events:none}
+.rail{transition:opacity .4s}
+@media (min-width:1100px){.rail{display:block}}
+
+/* ---------- shared type ---------- */
+main{position:relative;z-index:1}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--copper)}
+.wide{font-family:var(--wide);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.88}
+.lead{font-stretch:125%;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;line-height:1.35}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0}
+p.body{color:var(--cream-dim);font-size:15px;max-width:44ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chips span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--cream-dim)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;padding:120px var(--gut) 32px;display:flex;flex-direction:column;justify-content:space-between}
+.nogl .hero{background:linear-gradient(rgba(17,15,13,.55),rgba(17,15,13,.9)),url(img/20170809-101846.jpg) center/cover}
+.hero-caps{display:flex;justify-content:space-between;gap:24px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);line-height:1.6}
+.hero-caps div:last-child{text-align:right}
+.hero-caps div:first-child{max-width:24ch}
+.hero-title{text-align:center;margin:1vh 0 auto;pointer-events:none}
+.hero-title .k{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:18px}
+.hero-title h1{font-size:clamp(46px,9.4vw,170px);color:var(--cream);text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.hero-title h1 .it{display:block;font-size:.42em;line-height:1;margin-top:.14em;color:var(--cream);text-transform:none;text-shadow:0 2px 24px rgba(0,0,0,.8)}
+.hero-foot{display:grid;gap:22px;align-items:end}
+.picker{justify-self:start}
+.picker-lab{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:8px}
+.seg{display:inline-flex;padding:4px;border-radius:999px;border:1px solid rgba(239,229,211,.26);background:rgba(17,15,13,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.seg button{all:unset;cursor:pointer;padding:9px 13px;border-radius:999px;font-stretch:125%;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);display:flex;align-items:center;gap:7px;transition:background .25s,color .25s}
+.seg button i{width:9px;height:9px;border-radius:50%;display:block}
+.seg button[aria-pressed=true]{background:var(--cream);color:var(--bg)}
+.seg button:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+.estimate{justify-self:end;text-align:right}
+.estimate .kicker{display:block;margin-bottom:6px}
+.estimate .num{display:block;font-stretch:125%;font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.01em;text-decoration:none;line-height:1.05}
+.estimate .row{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.cue{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)}
+.cue::after{content:"";display:block;width:1px;height:34px;margin:10px auto 0;background:linear-gradient(var(--cream),transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:719px){
+  .hero{padding-top:96px}
+  .hero-caps div:first-child{display:none}
+  .hero-caps{justify-content:flex-end}
+  .hero-title{margin-top:30vh}
+  .hero-title .k{display:none}
+  .estimate,.picker{justify-self:stretch;text-align:left}
+  .estimate .row{justify-content:flex-start}
+  .seg{display:flex;width:100%}.seg button{flex:1;justify-content:center;padding:10px 6px;font-size:11px;letter-spacing:.08em}
+  .cue{display:none}
+}
+@media (min-width:720px){.hero-foot{grid-template-columns:1fr auto 1fr}.cue{align-self:end}}
+
+/* ---------- material chapters ---------- */
+.chapter{position:relative;min-height:150vh;padding:0 var(--gut)}
+.ch-sticky{position:sticky;top:0;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:110px 0 7vh}
+.ch-title{text-align:center;font-size:clamp(54px,14vw,230px);color:var(--cream);opacity:.94;pointer-events:none;text-shadow:0 4px 60px rgba(0,0,0,.4)}
+.ch-title .it{display:block;font-size:.3em;color:var(--cream-dim);margin-bottom:.2em}
+.ch-body{max-width:440px;padding:22px 0}
+.ch-body .kicker{margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.ch-body .kicker::before{content:"";width:26px;height:1px;background:currentColor}
+.ch-body .lead{margin-bottom:12px}
+.ch-body .pill{margin-top:20px}
+.ch-body p.body,.ch-body .lead{text-shadow:0 1px 14px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.6)}
+.chapter.right .ch-body{margin-left:auto}
+@media (min-width:1100px){.chapter{padding-left:calc(var(--gut) + 150px)}}
+blockquote.mini{margin-top:18px;padding-left:14px;border-left:1px solid var(--copper);font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.35;color:var(--cream)}
+blockquote.mini cite{display:block;margin-top:6px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+@media (max-width:719px){
+  .chapter{min-height:140vh}
+  .ch-sticky{padding:92px 0 24px}
+  .ch-body{margin:0 calc(var(--gut) * -1);padding:60px var(--gut) 8px;background:linear-gradient(rgba(17,15,13,0),rgba(17,15,13,.88) 70px)}
+  .chapter.right .ch-body{margin-left:calc(var(--gut) * -1)}
+}
+
+/* patina slider */
+.age{margin-top:20px;padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(17,15,13,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.age-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
+.age-top b{font-stretch:125%;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.age-top span{font-family:var(--mono);font-size:11px;color:var(--cream-dim)}
+.age input{width:100%;-webkit-appearance:none;appearance:none;height:26px;background:transparent;cursor:pointer}
+.age input::-webkit-slider-runnable-track{height:8px;border-radius:8px;background:linear-gradient(90deg,#d48a5a,#b0623c 12%,#7a4630 26%,#4d3a2e 42%,#4f7f6b 68%,#7fb9a2)}
+.age input::-moz-range-track{height:8px;border-radius:8px;background:linear-gradient(90deg,#d48a5a,#b0623c 12%,#7a4630 26%,#4d3a2e 42%,#4f7f6b 68%,#7fb9a2)}
+.age input::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-7px;border-radius:50%;background:var(--cream);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--cream)}
+.age input::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--cream);border:3px solid var(--bg)}
+.age-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim)}
+.age small{display:block;margin-top:8px;font-size:12px;color:rgba(239,229,211,.62)}
+
+/* ---------- craft ---------- */
+.craft .ch-sticky{justify-content:flex-start}
+.craft-grid{display:grid;gap:28px;margin-top:4vh}
+.craft-panel{max-width:520px;padding:24px;border:1px solid var(--line);border-radius:18px;background:rgba(17,15,13,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.craft-panel .lead{margin:12px 0}
+.timeline{list-style:none;margin-top:18px;border-top:1px solid var(--line)}
+.timeline li{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.timeline li b{font-family:var(--mono);font-weight:500;font-size:11px;color:var(--copper);padding-top:3px}
+.timeline li strong{display:block;font-stretch:125%;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.timeline li span{font-size:14px;color:var(--cream-dim)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.stats div{border-top:1px solid var(--copper);padding-top:8px}
+.stats b{display:block;font-stretch:125%;font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1}
+.stats span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim)}
+.craft .ch-title{text-align:left;font-size:clamp(42px,6.6vw,112px)}
+@media (min-width:720px){.craft .ch-title{max-width:60%}}
+
+/* ---------- solid sections ---------- */
+.block{position:relative;background:var(--bg);padding:clamp(72px,12vw,150px) var(--gut)}
+.block.alt{background:var(--bg2)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(36px,6vw,72px)}
+.sec-head h2{font-size:clamp(46px,10vw,150px)}
+.sec-head h2 .it{font-size:.36em;color:var(--copper);display:block;margin-top:.2em}
+
+/* structure: two numbered columns + tall overlapping image */
+.structure{position:relative;display:grid;gap:28px;padding:34px 0}
+.structure::before,.structure::after{content:"";position:absolute;left:calc(var(--gut) * -1);right:calc(var(--gut) * -1);height:1px;background:var(--line)}
+.structure::before{top:0}.structure::after{bottom:0}
+.col-num{font-family:var(--mono);font-size:11px;color:var(--copper);letter-spacing:.2em}
+.structure h3{font-stretch:125%;font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;margin:10px 0}
+.structure p{color:var(--cream-dim);font-size:15px}
+.tall{position:relative;z-index:2;border-radius:4px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.tall img{width:100%;height:100%;object-fit:cover;filter:sepia(.25) saturate(.9)}
+.tall figcaption,.shot figcaption{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(17,15,13,.75);padding:5px 8px;border-radius:3px}
+@media (min-width:900px){
+  .structure{grid-template-columns:1fr minmax(260px,340px) 1fr;gap:48px;align-items:center;padding:0}
+  .structure .col{padding:60px 0}
+  .tall{margin:-70px 0;aspect-ratio:619/1100}
+  .structure .col:last-child{text-align:right}
+  .structure .col:last-child p{margin-left:auto}
+  .structure p{max-width:34ch}
+}
+@media (max-width:899px){.tall{aspect-ratio:4/5}}
+
+.gallery{display:grid;gap:12px;margin-top:clamp(60px,10vw,130px);grid-template-columns:1fr}
+.shot{position:relative;overflow:hidden;border-radius:4px;background:#000}
+.shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.9)}
+.shot:hover img{transform:scale(1.04);filter:saturate(1.05)}
+@media (min-width:720px){
+  .gallery{grid-template-columns:repeat(6,1fr)}
+  .shot:nth-child(1){grid-column:span 4;grid-row:span 2}.shot:nth-child(1) img{aspect-ratio:auto}
+  .shot:nth-child(2),.shot:nth-child(3){grid-column:span 2}
+  .shot:nth-child(4),.shot:nth-child(5),.shot:nth-child(6){grid-column:span 2}
+}
+
+.projects{list-style:none;margin-top:clamp(50px,8vw,100px);border-top:1px solid var(--line)}
+.projects li{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);transition:padding .3s,color .3s}
+.projects li:hover{padding-left:10px;color:var(--copper)}
+.projects b{font-family:var(--mono);font-weight:500;font-size:11px;color:var(--cream-dim)}
+.projects span{font-stretch:125%;font-weight:700;font-size:clamp(15px,2.2vw,24px);text-transform:uppercase;letter-spacing:.02em;line-height:1.2}
+.projects em{font-family:var(--serif);font-size:clamp(17px,2vw,22px);color:var(--cream-dim);text-transform:none;letter-spacing:0;font-weight:400}
+@media (min-width:720px){.projects li{grid-template-columns:60px 1fr auto}.projects em{text-align:right}}
+@media (max-width:719px){.projects em{grid-column:2}}
+
+/* reviews */
+.quotes{display:grid;gap:14px}
+.q{padding:26px;border:1px solid var(--line);border-radius:18px;background:rgba(239,229,211,.025);display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.q p{font-family:var(--serif);font-size:clamp(21px,2.1vw,27px);line-height:1.25}
+.q p::before{content:"“";color:var(--copper)}.q p::after{content:"”";color:var(--copper)}
+.q cite{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim)}
+@media (min-width:720px){.quotes{grid-template-columns:repeat(2,1fr)}.q.big{grid-row:span 2}.q.big p{font-size:clamp(24px,2.6vw,34px)}}
+
+/* contact */
+.contact{text-align:center}
+.contact h2{font-size:clamp(50px,12vw,190px)}
+.contact h2 .it{display:block;font-size:.32em;color:var(--copper);margin-top:.15em}
+.contact .tel{display:inline-block;margin-top:34px;font-stretch:125%;font-weight:800;font-size:clamp(30px,6vw,72px);text-decoration:none;letter-spacing:-.01em;border-bottom:2px solid var(--copper);line-height:1.1}
+.contact .mail{display:block;margin-top:14px;font-family:var(--mono);font-size:14px;color:var(--cream-dim)}
+.contact .row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.facts{display:grid;gap:0;margin-top:clamp(50px,8vw,90px);border-top:1px solid var(--line);text-align:left}
+.facts div{padding:20px 0;border-bottom:1px solid var(--line)}
+.facts b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper);margin-bottom:6px}
+.facts span{color:var(--cream-dim);font-size:15px}
+@media (min-width:720px){.facts{grid-template-columns:repeat(3,1fr);gap:0 40px}}
+footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var(--line);padding:26px var(--gut) 40px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,229,211,.62)}
+</style>
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <div class="loader-num"><span id="ldn">0</span></div>
+    <div class="loader-bar"><i id="ldb"></i></div>
+    <div class="loader-cap">Forming the seams</div>
+  </div>
+</div>
+<script>
+(function(){
+  var n=0,ready=false,el=document.getElementById('ldn'),bar=document.getElementById('ldb'),L=document.getElementById('loader');
+  function finish(){if(L.classList.contains('done'))return;el.textContent=100;bar.style.width='100%';setTimeout(function(){L.classList.add('done')},250)}
+  var t=setInterval(function(){n+=ready?9:(n<80?3:(n<94?.4:0));if(n>=100){n=100;clearInterval(t);finish()}el.textContent=Math.floor(n);bar.style.width=n+'%'},30);
+  window.__ready=function(){ready=true};
+  window.__glFail=function(){document.documentElement.classList.add('nogl');ready=true};
+  setTimeout(function(){if(!ready)window.__glFail()},6000);
+})();
+</script>
+
+<div class="preview"><b>Website preview</b> — a concept built for European Roofing &amp; Sheet Metal. Highlighted items are placeholders to confirm with the owner.</div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="European Roofing and Sheet Metal, home"><span class="brand-mark"></span><span>European Roofing<small>&amp; Sheet Metal</small></span></a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#copper">Metals</a><a href="#craft">Craft</a><a href="#work">Work</a><a href="#reviews">Reviews</a>
+  </nav>
+  <div class="nav-right">
+    <a class="pill" href="tel:+12063972293" aria-label="Call (206) 397-2293"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="tel-text">(206) 397-2293</span><span class="tel-short">Call</span></a>
+    <a class="pill solid" href="#contact">Free estimate</a>
+  </div>
+</header>
+
+<ol class="rail" id="rail" aria-label="Chapters">
+  <li><a href="#copper" data-for="copper">01 <span>Copper</span></a></li>
+  <li><a href="#zinc" data-for="zinc">02 <span>Zinc</span></a></li>
+  <li><a href="#steel" data-for="steel">03 <span>Steel</span></a></li>
+  <li><a href="#slate" data-for="slate">04 <span>Slate &amp; tile</span></a></li>
+  <li><a href="#craft" data-for="craft">05 <span>The craft</span></a></li>
+  <li><a href="#interior" data-for="interior">06 <span>Interiors</span></a></li>
+</ol>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="top" data-cam="hero" data-mat="hero">
+    <div class="hero-caps">
+      <div>Trained with Les Compagnons du Devoir<br>France &amp; England</div>
+      <div>Licensed · insured · bonded<br>LIC# EUROPRM902PH</div>
+    </div>
+    <div class="hero-title">
+      <h1 class="wide">Roofs formed<br>by hand<span class="it">the European way, on Seattle homes</span></h1>
+    </div>
+    <div class="hero-foot">
+      <div class="picker">
+        <div class="picker-lab">Preview the roof in</div>
+        <div class="seg" role="group" aria-label="Roof material preview">
+          <button type="button" data-pick="copper" aria-pressed="true"><i style="background:#d48a5a"></i>Copper</button>
+          <button type="button" data-pick="zinc" aria-pressed="false"><i style="background:#9aa3a8"></i>Zinc</button>
+          <button type="button" data-pick="steel" aria-pressed="false"><i style="background:#3b4044;box-shadow:0 0 0 1px #777"></i>Steel</button>
+          <button type="button" data-pick="slate" aria-pressed="false"><i style="background:#4a5058"></i>Slate</button>
+        </div>
+      </div>
+      <div class="cue">Scroll through the metals</div>
+      <div class="estimate">
+        <span class="kicker">Free estimates</span>
+        <a class="num" href="tel:+12063972293">(206) 397-2293</a>
+        <div class="row"><a class="pill copper" href="tel:+12063972293">Call Philippe</a><a class="pill" href="#work">See the work</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 COPPER -->
+  <section class="chapter" id="copper" data-cam="copper" data-mat="copper">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter one</span>Copper</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">01 — Copper</div>
+        <p class="lead">Roofs, turrets, bay windows and gutters that get better with age.</p>
+        <p class="body">Copper goes on bright, darkens to brown, and over many years turns the deep green you see on old European domes. Recent copper work includes a roof on Orcas Island, fascia in Port Townsend and a curved bay window in Snohomish.</p>
+        <div class="age" id="age">
+          <div class="age-top"><b id="ageName">Fresh copper</b><span id="ageYrs">Day one</span></div>
+          <input type="range" id="ageRange" min="0" max="30" step="0.1" value="0" aria-label="Age the copper roof">
+          <div class="age-scale"><span>New</span><span>Brown</span><span>Patina</span></div>
+          <small>Drag to age the roof above. Illustrative: real timing depends on weather and exposure.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ZINC -->
+  <section class="chapter" id="zinc" data-cam="zinc" data-mat="zinc">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter two</span>Zinc</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">02 — Zinc</div>
+        <p class="lead">Roofs, siding and cladding in the Parisian tradition.</p>
+        <p class="body">Zinc covers the rooftops of Paris and weathers to a soft blue-grey. Philippe has clad a houseboat on Lake Union in zinc siding, wrapped a treehouse in Peachtree, Georgia, and built a zinc bar and shelves for Queen Anne Hall.</p>
+        <div class="chips"><span>Roofing</span><span>Siding</span><span>Cladding</span><span>Flat-lock panels</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 STEEL -->
+  <section class="chapter" id="steel" data-cam="steel" data-mat="steel">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter three</span>Steel</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">03 — Standing seam</div>
+        <p class="lead">Standing seam metal roofs, built to outlast the rain.</p>
+        <p class="body">Steel, stainless, galvanized and aluminum roofs with raised seams that shed Northwest weather. Recent work includes a standing seam roof in West Seattle.</p>
+        <blockquote class="mini">We had several companies come out… and were told that a metal roof wasn't an option for our home… Philippe delivered!<cite>Janette M.</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 SLATE -->
+  <section class="chapter" id="slate" data-cam="slate" data-mat="slate">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter four</span>Slate<br>&amp; tile</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">04 — Slate &amp; tile</div>
+        <p class="lead">Natural slate and European tile, laid course by course.</p>
+        <p class="body">From a copper turret and slate roof in Hunts Point to keeping a European tile roof in good repair year after year. Watch the slates go on, from the eave up, the way they're laid on site.</p>
+        <blockquote class="mini">Many roofers claim to know what they're doing, but few actually do. I rely on Philippe for, quite literally, maintaining the roof over our heads.<cite>Jacqueline B.</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CRAFT -->
+  <section class="chapter craft" id="craft" data-cam="craft" data-mat="copper">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter five · the craft</span>Soldered<br>on site</h2>
+      <div class="craft-grid">
+        <div class="craft-panel reveal">
+          <div class="kicker">05 — Philippe Pollien</div>
+          <p class="lead">The detail most roofers skip.</p>
+          <p class="body">Copper, zinc and stainless steel can all be soldered, and Philippe solders the joints on site wherever he can. Soldered connections stay waterproof longer and look cleaner than ones that are only folded or sealed. It's a skill that takes years to learn.</p>
+          <ol class="timeline">
+            <li><b>01</b><div><strong>Valence, France</strong><span>Where Philippe grew up and started roofing in the late 1980s.</span></div></li>
+            <li><b>02</b><div><strong>Les Compagnons du Devoir</strong><span>Seven years of training across France and England, moving to a new town every six months.</span></div></li>
+            <li><b>03</b><div><strong>London · Haiti</strong><span>Built a copper dome in London in 2000, then an ornamental dome in Haiti in 2003.</span></div></li>
+            <li><b>04</b><div><strong>Shoreline, WA</strong><span>Opened European Roofing &amp; Sheet Metal to bring those techniques to Seattle-area homes.</span></div></li>
+          </ol>
+          <div class="stats">
+            <div><b>20+</b><span>Years roofing</span></div>
+            <div><b>7</b><span>Years training</span></div>
+            <div><b>7 ft</b><span>Copper Space Needle he built</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 INTERIOR -->
+  <section class="chapter right" id="interior" data-cam="interior" data-mat="zinc">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter six</span>Metal<br>inside</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">06 — Interiors &amp; custom</div>
+        <p class="lead">Countertops, range hoods, mantels and more.</p>
+        <p class="body">Zinc and copper countertops, range hoods, fireplace faces and mantels, cabinets and wall panels, and even decorative and functional metal for boats. No job is too big or too small.</p>
+        <blockquote class="mini">We wanted copper counter-tops in our kitchen. We couldn't be happier with the service or results!<cite>EJ S.</cite></blockquote>
+        <a class="pill solid" href="#contact">Start a project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="block" id="work" data-cam="end" data-mat="copper">
+    <div class="sec-head reveal">
+      <div class="kicker">07 — Recent projects</div>
+      <h2 class="wide">The work<span class="it">from Orcas Island to West Seattle</span></h2>
+    </div>
+    <div class="structure">
+      <div class="col reveal">
+        <div class="col-num">01</div>
+        <h3>Roofs &amp; restoration</h3>
+        <p>New and replacement roofs for homes and commercial buildings, complex roof systems, and restoration work on historic monuments, in copper, zinc, steel, slate or tile.</p>
+      </div>
+      <figure class="tall reveal"><img src="img/20160204-140847.jpg" alt="Metal wall panels with a green patina under a cedar soffit" loading="lazy"><figcaption>Wall cladding detail</figcaption></figure>
+      <div class="col reveal">
+        <div class="col-num">02</div>
+        <h3>Architectural metal</h3>
+        <p>Siding and cladding, fascia, gutters, chimney caps, flashing and skylights, plus custom interior pieces. From fixing a leak to a full new roof.</p>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="shot reveal"><img src="img/20170809-101846.jpg" alt="Standing seam copper roof on a home in the trees, Orcas Island" loading="lazy"><figcaption>Copper roof · Orcas Island, WA</figcaption></figure>
+      <figure class="shot reveal"><img src="img/space-crab-treehouse-exterior-1.jpg" alt="Treehouse clad in zinc" loading="lazy"><figcaption>Zinc treehouse · Peachtree, GA</figcaption></figure>
+      <figure class="shot reveal"><img src="img/20170809-100501.jpg" alt="Copper roof over a long porch, Orcas Island" loading="lazy"><figcaption>Copper roof · Orcas Island</figcaption></figure>
+      <figure class="shot reveal"><img src="img/20160301-132018.jpg" alt="Patinated metal wall panels on a modern home" loading="lazy"><figcaption>Wall cladding</figcaption></figure>
+      <figure class="shot reveal"><img src="img/space-crab-treehouse-exterior-3.jpg" alt="Zinc-clad treehouse among trees" loading="lazy"><figcaption>Zinc treehouse · Peachtree, GA</figcaption></figure>
+      <figure class="shot reveal"><img src="img/20170809-101914.jpg" alt="Detail of the Orcas Island copper roof" loading="lazy"><figcaption>Copper roof · Orcas Island</figcaption></figure>
+    </div>
+    <ol class="projects">
+      <li class="reveal"><b>01</b><span>Copper turret &amp; slate roof</span><em>Hunts Point, WA</em></li>
+      <li class="reveal"><b>02</b><span>Copper roof</span><em>Orcas Island, WA</em></li>
+      <li class="reveal"><b>03</b><span>Zinc siding on a houseboat</span><em>Lake Union, Seattle</em></li>
+      <li class="reveal"><b>04</b><span>Standing seam metal roof</span><em>West Seattle</em></li>
+      <li class="reveal"><b>05</b><span>Copper bay window</span><em>Snohomish</em></li>
+      <li class="reveal"><b>06</b><span>Copper fascia</span><em>Port Townsend, WA</em></li>
+      <li class="reveal"><b>07</b><span>Zinc bar &amp; shelves</span><em>Queen Anne Hall</em></li>
+      <li class="reveal"><b>08</b><span>Zinc cladding on a treehouse</span><em>Peachtree, GA</em></li>
+    </ol>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="block alt" id="reviews">
+    <div class="sec-head reveal">
+      <div class="kicker">08 — Clients</div>
+      <h2 class="wide">In their<br>words</h2>
+    </div>
+    <div class="quotes">
+      <figure class="q big reveal"><p>Philippe's highly skilled craftsmanship is reflected in every detail of his work. We are elated about how Philippe was able to bring the plans to reality.</p><cite>Tina G. · copper siding, custom home</cite></figure>
+      <figure class="q reveal"><p>He is pleasant to work with, professional, punctual, and accommodating. An expert at his craft with a great deal of integrity.</p><cite>Jacqueline B. · European tile roof</cite></figure>
+      <figure class="q reveal"><p>We had our heart set on a durable, long-lasting metal roof and Philippe delivered! He is a craftsman of his trade.</p><cite>Janette M. · new metal roof</cite></figure>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block contact" id="contact">
+    <div class="kicker reveal">09 — Free estimate</div>
+    <h2 class="wide reveal" style="margin-top:18px">Let's talk<br>metal<span class="it">a leak, a new roof, or a copper countertop</span></h2>
+    <a class="tel reveal" href="tel:+12063972293">(206) 397-2293</a>
+    <a class="mail reveal" href="mailto:Philippe@euroofmetal.com">Philippe@euroofmetal.com</a>
+    <div class="row reveal"><a class="pill copper" href="tel:+12063972293">Call for a free estimate</a><a class="pill" href="mailto:Philippe@euroofmetal.com?subject=Free%20estimate">Email photos of your project</a></div>
+    <div class="facts">
+      <div class="reveal"><b>Service area</b><span>Seattle, Shoreline, Bellevue, Redmond, Kirkland, Issaquah, Mercer Island, Bainbridge and Vashon Islands, and everywhere in between.</span></div>
+      <div class="reveal"><b>Materials</b><span>Copper, brass, zinc, aluminum, stainless steel, galvanized steel and steel, plus natural slate and tile.</span></div>
+      <div class="reveal"><b>Licensed · insured · bonded</b><span>WA LIC# EUROPRM902PH<br>Hours: <span class="ph">Mon–Fri, 8am–5pm?</span></span></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <span>© European Roofing &amp; Sheet Metal LLC</span>
+  <span>Shoreline, WA · LIC# EUROPRM902PH</span>
+</footer>
+
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}
+</script>
+<script>
+/* ---------- page UI (works without WebGL) ---------- */
+(function(){
+  var nav=document.getElementById('nav'),banner=document.querySelector('.preview');
+  function onScroll(){var b=banner.offsetHeight;nav.style.top=Math.max(0,b-scrollY)+'px';nav.classList.toggle('scrolled',scrollY>b+20)}
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // chapter rail
+  var rail=document.getElementById('rail'),links=rail.querySelectorAll('a');
+  var secs=['copper','zinc','steel','slate','craft','interior'].map(function(id){return document.getElementById(id)});
+  function railUpdate(){
+    var mid=innerHeight*.5,cur=null;
+    secs.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)cur=s.id});
+    links.forEach(function(a){a.classList.toggle('on',a.dataset.for===cur)});
+    rail.classList.toggle('hide',!cur);
+  }
+  addEventListener('scroll',railUpdate,{passive:true});railUpdate();
+
+  // shared state the 3D scene reads
+  window.ROOF={pick:'copper',age:0};
+  document.querySelectorAll('[data-pick]').forEach(function(b){
+    b.addEventListener('click',function(){
+      window.ROOF.pick=b.dataset.pick;
+      document.querySelectorAll('[data-pick]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    });
+  });
+  var stages=[[0,'Fresh copper','Day one'],[2,'Bronzing','~1–2 years'],[6,'Russet brown','~5 years'],[11,'Deep brown','~10 years'],[18,'Patina begins','~15–20 years'],[25,'Verdigris','~25+ years']];
+  var range=document.getElementById('ageRange'),nm=document.getElementById('ageName'),yr=document.getElementById('ageYrs');
+  range.addEventListener('input',function(){
+    var v=+range.value;window.ROOF.age=v;var s=stages[0];
+    stages.forEach(function(x){if(v>=x[0])s=x});nm.textContent=s[1];yr.textContent=s[2];
+  });
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile = () => innerWidth < 720;
+const canvas = document.getElementById('gl');
+
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+} catch (e) { window.__glFail(); throw e; }
+renderer.setPixelRatio(Math.min(devicePixelRatio, mobile() ? 1.6 : 2));
+renderer.setSize(innerWidth, innerHeight, false);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.85;
+
+const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 120);
+
+/* lights */
+scene.add(new THREE.HemisphereLight(0xbfd0ff, 0x2a1a10, 0.35));
+const key = new THREE.DirectionalLight(0xffd8b4, 2.6); key.position.set(6, 10, 8); scene.add(key);
+const rim = new THREE.DirectionalLight(0x86a8ff, 1.8); rim.position.set(-8, 5, -7); scene.add(rim);
+const solderLight = new THREE.PointLight(0xff9a40, 0, 3, 2); scene.add(solderLight);
+
+/* ---------- materials ---------- */
+const metal = new THREE.MeshPhysicalMaterial({ color: 0xd48a5a, metalness: 1, roughness: 0.26, clearcoat: 0.25, clearcoatRoughness: 0.35, side: THREE.DoubleSide });
+const trim = new THREE.MeshPhysicalMaterial({ color: 0xd48a5a, metalness: 1, roughness: 0.26, clearcoat: 0.25, clearcoatRoughness: 0.35, side: THREE.DoubleSide });
+
+function boardTexture() {
+  const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d');
+  g.fillStyle = '#1d1a17'; g.fillRect(0, 0, 256, 256);
+  for (let x = 0; x < 256; x += 16) { g.fillStyle = '#262220'; g.fillRect(x, 0, 3, 256); g.fillStyle = 'rgba(0,0,0,.35)'; g.fillRect(x + 3, 0, 1, 256); }
+  for (let i = 0; i < 1400; i++) { g.fillStyle = `rgba(255,240,220,${Math.random() * 0.03})`; g.fillRect(Math.random() * 256, Math.random() * 256, 1, 6); }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t;
+}
+const boards = boardTexture(); boards.repeat.set(3, 1);
+const wallMat = new THREE.MeshStandardMaterial({ map: boards, roughness: 0.85, metalness: 0 });
+const darkMat = new THREE.MeshStandardMaterial({ color: 0x16130f, roughness: 0.9 });
+const stoneMat = new THREE.MeshStandardMaterial({ color: 0x2b2724, roughness: 0.95 });
+const glassMat = new THREE.MeshStandardMaterial({ color: 0x120c08, roughness: 0.15, metalness: 0.3, emissive: 0xffa25a, emissiveIntensity: 0.55 });
+const slateMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.7, metalness: 0.08 });
+
+/* ---------- house ---------- */
+const W = 4.2, D = 3.0, wallH = 1.7, A = 0.62, over = 0.3;
+const ridgeH = (D / 2) * Math.tan(A);
+const L = (D / 2 + over) / Math.cos(A);
+const Wr = W + 0.5;
+const house = new THREE.Group(); scene.add(house);
+
+const body = new THREE.Mesh(new THREE.BoxGeometry(W, wallH, D), wallMat); body.position.y = wallH / 2; house.add(body);
+const plinth = new THREE.Mesh(new THREE.BoxGeometry(W + 0.35, 0.16, D + 0.35), stoneMat); plinth.position.y = 0.02; house.add(plinth);
+
+// gable triangles
+const tri = new THREE.Shape(); tri.moveTo(-D / 2, 0); tri.lineTo(D / 2, 0); tri.lineTo(0, ridgeH); tri.closePath();
+const triGeo = new THREE.ShapeGeometry(tri);
+[-1, 1].forEach(s => { const m = new THREE.Mesh(triGeo, new THREE.MeshStandardMaterial({ map: boards, roughness: .85, side: THREE.DoubleSide })); m.rotation.y = Math.PI / 2; m.position.set(s * W / 2, wallH, 0); house.add(m); });
+
+// windows
+function windowAt(x, y, z, w, h, ry = 0) {
+  const g = new THREE.Group();
+  const frame = new THREE.Mesh(new THREE.BoxGeometry(w + 0.1, h + 0.1, 0.05), darkMat); g.add(frame);
+  const pane = new THREE.Mesh(new THREE.PlaneGeometry(w, h), glassMat); pane.position.z = 0.03; g.add(pane);
+  const bar = new THREE.Mesh(new THREE.BoxGeometry(0.03, h, 0.02), darkMat); bar.position.z = 0.045; g.add(bar);
+  const sill = new THREE.Mesh(new THREE.BoxGeometry(w + 0.22, 0.04, 0.12), trim); sill.position.set(0, -h / 2 - 0.07, 0.05); g.add(sill);
+  g.position.set(x, y, z); g.rotation.y = ry; house.add(g);
+}
+windowAt(-1.35, 0.95, D / 2 + 0.01, 0.55, 0.8);
+windowAt(-0.4, 0.95, D / 2 + 0.01, 0.55, 0.8);
+windowAt(0.55, 0.95, D / 2 + 0.01, 0.55, 0.8);
+windowAt(-W / 2 - 0.01, wallH + 0.38, 0, 0.45, 0.55, -Math.PI / 2);
+windowAt(-W / 2 - 0.01, 0.95, 0.6, 0.55, 0.8, -Math.PI / 2);
+windowAt(-W / 2 - 0.01, 0.95, -0.6, 0.55, 0.8, -Math.PI / 2);
+
+// roof sides
+const sides = [];
+function roofSide(back) {
+  const pivot = new THREE.Group(); pivot.position.set(0, wallH + ridgeH + 0.02, 0); if (back) pivot.rotation.y = Math.PI;
+  const tilt = new THREE.Group(); tilt.rotation.x = A; pivot.add(tilt);
+  const pan = new THREE.Mesh(new THREE.BoxGeometry(Wr, 0.04, L), metal); pan.position.set(0, 0, L / 2); tilt.add(pan);
+  const ribs = new THREE.Group(); const n = 16; const ribGeo = new THREE.BoxGeometry(0.032, 0.075, L);
+  for (let i = 0; i <= n; i++) { const r = new THREE.Mesh(ribGeo, metal); r.position.set(-Wr / 2 + i * Wr / n, 0.055, L / 2); ribs.add(r); }
+  tilt.add(ribs);
+  // slate tiles (instanced), laid from the eave up
+  const cw = 0.27, rs = 0.17;
+  const rows = Math.floor((L - 0.34) / rs) + 1;
+  const cols = Math.ceil(Wr / cw) + 1;
+  const geo = new THREE.BoxGeometry(cw - 0.012, 0.022, 0.34);
+  const mesh = new THREE.InstancedMesh(geo, slateMat, rows * cols);
+  const base = []; const col = new THREE.Color(); let i = 0;
+  for (let r = 0; r < rows; r++) {
+    const z = L - 0.17 - r * rs;
+    for (let c = 0; c < cols; c++) {
+      const x = -Wr / 2 + cw / 2 + c * cw - (r % 2 ? cw / 2 : 0);
+      if (x < -Wr / 2 + 0.05 || x > Wr / 2 - 0.05) continue;
+      base.push({ x, z, r, j: (Math.random() - 0.5) * 0.04, d: Math.random() * 0.6 });
+      const v = 0.22 + Math.random() * 0.08; col.setRGB(v * 0.92, v, v * 1.1).convertSRGBToLinear(); mesh.setColorAt(i, col); i++;
+    }
+  }
+  mesh.count = i; mesh.instanceColor.needsUpdate = true; mesh.frustumCulled = false;
+  tilt.add(mesh);
+  house.add(pivot);
+  const side = { pivot, tilt, ribs, mesh, base, rows };
+  sides.push(side); return side;
+}
+const front = roofSide(false); roofSide(true);
+const ridge = new THREE.Mesh(new THREE.BoxGeometry(Wr, 0.1, 0.16), trim); ridge.position.set(0, wallH + ridgeH + 0.07, 0); house.add(ridge);
+
+// gutters + downspouts
+const eaveZ = Math.cos(A) * L + 0.06, eaveY = wallH + ridgeH - Math.sin(A) * L - 0.06;
+[-1, 1].forEach(s => {
+  const gGeo = new THREE.CylinderGeometry(0.075, 0.075, Wr, 20, 1, true, Math.PI / 2, Math.PI);
+  const g = new THREE.Mesh(gGeo, trim); g.rotation.z = Math.PI / 2; g.position.set(0, eaveY, s * eaveZ); house.add(g);
+  const sp = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, eaveY, 12), trim); sp.position.set(-Wr / 2 + 0.2, eaveY / 2, s * eaveZ); house.add(sp);
+});
+
+// chimney
+const chim = new THREE.Mesh(new THREE.BoxGeometry(0.42, 1.7, 0.42), stoneMat); chim.position.set(-1.25, wallH + 1.05, -0.55); house.add(chim);
+const cap = new THREE.Mesh(new THREE.BoxGeometry(0.56, 0.07, 0.56), trim); cap.position.set(-1.25, wallH + 1.93, -0.55); house.add(cap);
+const capTop = new THREE.Mesh(new THREE.ConeGeometry(0.4, 0.22, 4), trim); capTop.rotation.y = Math.PI / 4; capTop.position.set(-1.25, wallH + 2.08, -0.55); house.add(capTop);
+
+// turret with conical standing-seam roof
+const TX = W / 2 + 0.05, TZ = D / 2 - 0.15, TR = 0.62, TH = wallH + 0.95;
+const turret = new THREE.Mesh(new THREE.CylinderGeometry(TR, TR, TH, 40), new THREE.MeshStandardMaterial({ map: boardTexture(), roughness: .85 }));
+turret.material.map.repeat.set(4, 1); turret.position.set(TX, TH / 2, TZ); house.add(turret);
+const tPlinth = new THREE.Mesh(new THREE.CylinderGeometry(TR + 0.12, TR + 0.12, 0.16, 40), stoneMat); tPlinth.position.set(TX, 0.02, TZ); house.add(tPlinth);
+const coneH = 1.7, coneR = 0.82;
+const cone = new THREE.Mesh(new THREE.ConeGeometry(coneR, coneH, 64, 1, true), trim); cone.position.set(TX, TH + coneH / 2, TZ); house.add(cone);
+const coneRibs = new THREE.Group(); coneRibs.position.copy(cone.position); house.add(coneRibs);
+const slant = Math.hypot(coneR, coneH), up = new THREE.Vector3(0, 1, 0);
+for (let i = 0; i < 20; i++) {
+  const a = (i / 20) * Math.PI * 2;
+  const b = new THREE.Vector3(Math.cos(a) * coneR, -coneH / 2, Math.sin(a) * coneR), apex = new THREE.Vector3(0, coneH / 2, 0);
+  const dir = apex.clone().sub(b).normalize();
+  const r = new THREE.Mesh(new THREE.BoxGeometry(0.03, slant, 0.05), trim);
+  r.position.copy(b.clone().add(apex).multiplyScalar(0.5)); r.position.x *= 1.03; r.position.z *= 1.03;
+  r.quaternion.setFromUnitVectors(up, dir); coneRibs.add(r);
+}
+const finial = new THREE.Mesh(new THREE.SphereGeometry(0.07, 20, 12), trim); finial.position.set(TX, TH + coneH + 0.08, TZ); house.add(finial);
+const spike = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.02, 0.45, 8), trim); spike.position.set(TX, TH + coneH + 0.3, TZ); house.add(spike);
+windowAt(0, 0, 0, 0.32, 0.55); const lastWin = house.children[house.children.length - 1]; house.remove(lastWin);
+lastWin.position.set(TX + Math.sin(0.5) * (TR + 0.01), 1.7, TZ + Math.cos(0.5) * (TR + 0.01)); lastWin.rotation.y = 0.5; house.add(lastWin);
+const band = new THREE.Mesh(new THREE.CylinderGeometry(TR + 0.04, TR + 0.04, 0.08, 40), trim); band.position.set(TX, TH - 0.02, TZ); house.add(band);
+
+house.position.set(-0.2, 0, 0);
+
+/* floor: soft shadow + thin copper rings */
+function radial(inner, outer) {
+  const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d');
+  const gr = g.createRadialGradient(128, 128, 0, 128, 128, 128); gr.addColorStop(0, inner); gr.addColorStop(1, outer);
+  g.fillStyle = gr; g.fillRect(0, 0, 256, 256); const t = new THREE.CanvasTexture(c); return t;
+}
+const shadow = new THREE.Mesh(new THREE.PlaneGeometry(9, 9), new THREE.MeshBasicMaterial({ map: radial('rgba(0,0,0,.75)', 'rgba(0,0,0,0)'), transparent: true, depthWrite: false }));
+shadow.rotation.x = -Math.PI / 2; shadow.position.y = -0.06; scene.add(shadow);
+const ringMat = new THREE.MeshBasicMaterial({ color: 0xd48a5a, transparent: true, opacity: 0.4, side: THREE.DoubleSide, depthWrite: false });
+const ring1 = new THREE.Mesh(new THREE.RingGeometry(4.3, 4.33, 160), ringMat); ring1.rotation.x = -Math.PI / 2; ring1.position.y = -0.05; scene.add(ring1);
+const ring2 = new THREE.Mesh(new THREE.RingGeometry(6.2, 6.215, 160), ringMat.clone()); ring2.material.opacity = 0.14; ring2.rotation.x = -Math.PI / 2; ring2.position.y = -0.05; scene.add(ring2);
+// tick marks on the inner ring
+const ticks = new THREE.Group(); scene.add(ticks);
+for (let i = 0; i < 72; i++) { const a = i / 72 * Math.PI * 2; const t = new THREE.Mesh(new THREE.PlaneGeometry(0.015, i % 6 ? 0.12 : 0.3), ringMat); t.rotation.x = -Math.PI / 2; t.rotation.z = -a; t.position.set(Math.sin(a) * 4.5, -0.05, Math.cos(a) * 4.5); ticks.add(t); }
+
+/* ---------- particles: drifting embers + solder sparks ---------- */
+function dot() {
+  const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d');
+  const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(.25, 'rgba(255,220,170,.8)'); gr.addColorStop(1, 'rgba(255,160,80,0)');
+  g.fillStyle = gr; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c);
+}
+const dotTex = dot();
+const EN = mobile() ? 220 : 420;
+const ePos = new Float32Array(EN * 3), eSpd = new Float32Array(EN);
+for (let i = 0; i < EN; i++) { ePos[i * 3] = (Math.random() - .5) * 26; ePos[i * 3 + 1] = Math.random() * 14 - 2; ePos[i * 3 + 2] = (Math.random() - .5) * 26; eSpd[i] = 0.05 + Math.random() * 0.18; }
+const eGeo = new THREE.BufferGeometry(); eGeo.setAttribute('position', new THREE.BufferAttribute(ePos, 3));
+const embers = new THREE.Points(eGeo, new THREE.PointsMaterial({ map: dotTex, color: 0xe9b48a, size: 0.07, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending }));
+scene.add(embers);
+
+const SN = 260;
+const sPos = new Float32Array(SN * 3).fill(-999), sCol = new Float32Array(SN * 3), sVel = new Float32Array(SN * 3), sLife = new Float32Array(SN);
+const sGeo = new THREE.BufferGeometry();
+sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3)); sGeo.setAttribute('color', new THREE.BufferAttribute(sCol, 3));
+const sparks = new THREE.Points(sGeo, new THREE.PointsMaterial({ map: dotTex, size: 0.06, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+sparks.frustumCulled = false; scene.add(sparks);
+scene.updateMatrixWorld(true);
+const solderPt = front.tilt.localToWorld(new THREE.Vector3(-Wr / 2 + 9 * Wr / 16, 0.1, L * 0.42));
+solderLight.position.copy(solderPt).add(new THREE.Vector3(0, 0.25, 0.25));
+let sIdx = 0;
+function emit(n) {
+  for (let k = 0; k < n; k++) {
+    const i = sIdx = (sIdx + 1) % SN;
+    sPos[i * 3] = solderPt.x; sPos[i * 3 + 1] = solderPt.y; sPos[i * 3 + 2] = solderPt.z;
+    const a = Math.random() * Math.PI * 2, sp = 0.8 + Math.random() * 2.2;
+    sVel[i * 3] = Math.cos(a) * sp * 0.7; sVel[i * 3 + 1] = 1 + Math.random() * 2.4; sVel[i * 3 + 2] = Math.sin(a) * sp * 0.7 + 0.6;
+    sLife[i] = 0.5 + Math.random() * 0.7;
+  }
+}
+
+/* ---------- material states ---------- */
+const MATS = {
+  copper: { c: '#d48a5a', m: 1, r: 0.26 },
+  zinc:   { c: '#9aa3a8', m: 1, r: 0.4 },
+  steel:  { c: '#3b4044', m: 0.8, r: 0.36 },
+  slate:  { c: '#24272a', m: 0.3, r: 0.8 },
+};
+const PATINA = [[0, '#d48a5a', .24, 1], [2, '#b5683f', .3, 1], [6, '#7c4831', .42, .9], [11, '#4e3a2e', .55, .7], [18, '#3d6253', .66, .4], [25, '#548a76', .74, .25], [30, '#5f9882', .78, .2]];
+const tc = new THREE.Color(), tc2 = new THREE.Color();
+function copperAt(age, out) {
+  let i = 0; while (i < PATINA.length - 2 && age > PATINA[i + 1][0]) i++;
+  const a = PATINA[i], b = PATINA[i + 1], t = THREE.MathUtils.clamp((age - a[0]) / (b[0] - a[0]), 0, 1);
+  out.c.set(a[1]).lerp(tc2.set(b[1]), t); out.r = a[2] + (b[2] - a[2]) * t; out.m = a[3] + (b[3] - a[3]) * t; return out;
+}
+const tgtRoof = { c: new THREE.Color(), m: 1, r: .3 }, tgtTrim = { c: new THREE.Color(), m: 1, r: .3 };
+function setTarget(out, name) {
+  if (name === 'copper') return copperAt(window.ROOF.age, out);
+  const s = MATS[name]; out.c.set(s.c); out.m = s.m; out.r = s.r; return out;
+}
+function approach(mat, tgt, k) { mat.color.lerp(tgt.c, k); mat.metalness += (tgt.m - mat.metalness) * k; mat.roughness += (tgt.r - mat.roughness) * k; }
+
+/* ---------- camera keyframes tied to sections ---------- */
+const KEYS = {
+  hero:     { az: 0.62, el: 0.22, dist: 14, tx: 0.2, ty: 2.0, tz: 0, sx: 0, sy: -0.2 },
+  copper:   { az: -0.42, el: 0.36, dist: 12.5, tx: 0.6, ty: 2.3, tz: 0, sx: 0.14, sy: 0.02 },
+  zinc:     { az: 1.5, el: 0.2, dist: 12, tx: 0.2, ty: 1.9, tz: 0, sx: 0.14, sy: 0.02 },
+  steel:    { az: 0.15, el: 0.9, dist: 11.5, tx: 0, ty: 1.6, tz: 0, sx: 0.14, sy: 0.0 },
+  slate:    { az: -1.15, el: 0.45, dist: 12, tx: 0, ty: 2.1, tz: 0, sx: 0.14, sy: 0.02 },
+  craft:    { az: 0.5, el: 0.5, dist: 6.2, tx: solderPt.x, ty: solderPt.y, tz: solderPt.z, sx: 0.24, sy: -0.02 },
+  interior: { az: 2.6, el: 0.24, dist: 14, tx: 0, ty: 1.9, tz: 0, sx: -0.2, sy: 0.02 },
+  end:      { az: 3.7, el: 0.16, dist: 22, tx: 0, ty: 1.8, tz: 0, sx: 0, sy: 0.05 },
+};
+const FIELDS = ['az', 'el', 'dist', 'tx', 'ty', 'tz', 'sx', 'sy'];
+const camSecs = [...document.querySelectorAll('[data-cam]')];
+const matSecs = [...document.querySelectorAll('[data-mat]')];
+let anchors = [];
+function measure() {
+  anchors = camSecs.map(el => {
+    const top = el.getBoundingClientRect().top + scrollY;
+    // chapters: hold the pose while the sticky content sits; others: aim at the top
+    const c = el.dataset.cam === 'hero' ? 0 : el.dataset.cam === 'end' ? top - innerHeight * 0.2 : top + Math.min(el.offsetHeight - innerHeight, innerHeight * 0.5) * 0.5;
+    return { y: c, k: KEYS[el.dataset.cam] };
+  });
+}
+const ease = t => t * t * (3 - 2 * t);
+const want = {}, cur = {};
+function poseAt(y) {
+  let a = anchors[0], b = anchors[0], t = 0;
+  if (y <= anchors[0].y) { a = b = anchors[0]; }
+  else if (y >= anchors[anchors.length - 1].y) { a = b = anchors[anchors.length - 1]; }
+  else for (let i = 0; i < anchors.length - 1; i++) if (y >= anchors[i].y && y < anchors[i + 1].y) { a = anchors[i]; b = anchors[i + 1]; t = ease((y - a.y) / (b.y - a.y)); break; }
+  for (const f of FIELDS) want[f] = a.k[f] + (b.k[f] - a.k[f]) * t;
+  if (mobile()) { want.dist *= want.dist < 7 ? 1.5 : 1.85; want.sx = 0; want.sy = 0.2 + Math.min(0, want.sy) * 1.4; }
+}
+function activeMat() {
+  const mid = innerHeight * 0.55;
+  for (const el of matSecs) { const r = el.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) { const m = el.dataset.mat; return m === 'hero' ? window.ROOF.pick : m; } }
+  return 'copper';
+}
+let craftOn = false;
+function craftActive() { const el = document.getElementById('craft'); const r = el.getBoundingClientRect(); return r.top < innerHeight * 0.5 && r.bottom > innerHeight * 0.5; }
+
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, mobile() ? 1.6 : 2));
+  renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); measure();
+}
+addEventListener('resize', resize);
+document.fonts && document.fonts.ready.then(measure);
+addEventListener('load', measure);
+measure(); poseAt(scrollY); Object.assign(cur, want);
+
+/* ---------- loop ---------- */
+const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), p = new THREE.Vector3(), sc = new THREE.Vector3();
+let tileP = 0, lastTileP = -1, ribS = 1, nextBurst = 1.2;
+const clock = new THREE.Clock();
+let first = true;
+function updateTiles() {
+  for (const s of sides) {
+    s.base.forEach((b, i) => {
+      let k = THREE.MathUtils.clamp(tileP * (s.rows + 4) - b.r - b.d, 0, 1); k = ease(k);
+      p.set(b.x, 0.045 + (1 - k) * 0.8, b.z - (1 - k) * 0.25);
+      e.set(-0.07 + (1 - k) * 0.7, 0, b.j); q.setFromEuler(e);
+      sc.setScalar(k < 0.002 ? 0.0001 : 0.6 + 0.4 * k);
+      m4.compose(p, q, sc); s.mesh.setMatrixAt(i, m4);
+    });
+    s.mesh.instanceMatrix.needsUpdate = true;
+  }
+}
+updateTiles();
+
+function frame() {
+  requestAnimationFrame(frame);
+  const dt = Math.min(clock.getDelta(), 0.05), time = clock.elapsedTime;
+  const endY = anchors.length ? anchors[anchors.length - 1].y : 0;
+  if (!first && (document.hidden || scrollY > endY + innerHeight * 1.4)) return;
+
+  poseAt(scrollY);
+  const k = first || reduce ? 1 : 1 - Math.exp(-dt * 3.2);
+  for (const f of FIELDS) cur[f] += (want[f] - cur[f]) * k;
+
+  const sway = reduce ? 0 : Math.sin(time * 0.25) * 0.06;
+  const az = cur.az + sway, el = cur.el;
+  camera.position.set(cur.tx + cur.dist * Math.cos(el) * Math.sin(az), cur.ty + cur.dist * Math.sin(el), cur.tz + cur.dist * Math.cos(el) * Math.cos(az));
+  camera.lookAt(cur.tx, cur.ty, cur.tz);
+  const w = innerWidth, h = innerHeight;
+  camera.setViewOffset(w, h, -cur.sx * w, cur.sy * h, w, h);
+
+  // materials
+  const name = activeMat();
+  setTarget(tgtRoof, name);
+  setTarget(tgtTrim, name === 'slate' ? 'copper' : name);
+  const mk = first ? 1 : 1 - Math.exp(-dt * 3);
+  approach(metal, tgtRoof, mk); approach(trim, tgtTrim, mk);
+  ribS += ((name === 'slate' ? 0 : 1) - ribS) * mk;
+  for (const s of sides) { s.ribs.scale.y = Math.max(ribS, 0.001); s.ribs.visible = ribS > 0.01; }
+  const tileTarget = name === 'slate' ? 1 : 0;
+  tileP += Math.sign(tileTarget - tileP) * Math.min(Math.abs(tileTarget - tileP), dt * (tileTarget ? 0.42 : 1.1));
+  if (reduce) tileP = tileTarget;
+  if (tileP !== lastTileP) { updateTiles(); lastTileP = tileP; }
+
+  // embers drift up
+  if (!reduce) {
+    for (let i = 0; i < EN; i++) { ePos[i * 3 + 1] += eSpd[i] * dt; ePos[i * 3] += Math.sin(time * 0.3 + i) * dt * 0.03; if (ePos[i * 3 + 1] > 12) ePos[i * 3 + 1] = -2; }
+    eGeo.attributes.position.needsUpdate = true;
+  }
+
+  // solder sparks: steady in the craft chapter, small bursts elsewhere
+  craftOn = craftActive();
+  let flare = 0;
+  if (!reduce) {
+    if (craftOn) { if (Math.random() < 0.7) emit(2); flare = 1; }
+    else if ((nextBurst -= dt) <= 0) { emit(24); nextBurst = 2.5 + Math.random() * 3; flare = 1; }
+    for (let i = 0; i < SN; i++) {
+      if (sLife[i] <= 0) { sPos[i * 3 + 1] = -999; continue; }
+      sLife[i] -= dt; sVel[i * 3 + 1] -= 6.5 * dt;
+      sPos[i * 3] += sVel[i * 3] * dt; sPos[i * 3 + 1] += sVel[i * 3 + 1] * dt; sPos[i * 3 + 2] += sVel[i * 3 + 2] * dt;
+      const l = Math.max(sLife[i], 0) * 1.4; sCol[i * 3] = l; sCol[i * 3 + 1] = l * 0.62; sCol[i * 3 + 2] = l * 0.25;
+    }
+    sGeo.attributes.position.needsUpdate = true; sGeo.attributes.color.needsUpdate = true;
+  }
+  const want_i = flare ? 1.6 + Math.random() * 1.6 : 0;
+  solderLight.intensity += (want_i - solderLight.intensity) * (flare ? 0.6 : 0.08);
+
+  ticks.rotation.y = time * 0.02;
+  renderer.render(scene, camera);
+  if (first) { first = false; window.__ready(); }
+}
+frame();
+</script>
+</body>
+</html>
