@@ -1,496 +1,493 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Magnolia's Bookstore: Website Concept</title>
-<meta name="description" content="Magnolia's Bookstore, an independent bookstore in Magnolia Village, Seattle, since 1992. 3206 W. McGraw St. Call (206) 283-1062.">
+<meta name="description" content="Magnolia's Bookstore: your book source in Magnolia since 1992. 3206 W. McGraw St., Seattle.">
+<!--
+  Palette: "Dusty Nomad" from coolors.co
+  https://coolors.co/5e0b15-90323d-d9cab3-bc8034-8c7a6b
+  Used: #90323D oxblood accent, #5E0B15 deep burgundy, #D9CAB3 linen, #BC8034 ochre, #8C7A6B taupe.
+  Added from Theo's moodboard: #EFE9DD paper ground, #1A1714 ink, #D9F23A chartreuse call-to-action.
+  Logo kept exactly as the store's own file (teal wordmark).
+-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;700&family=Caveat:wght@600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
 :root{
-  --teal:#0e3f4c;
-  --teal-2:#15586a;
-  --brass:#c9a24a;
-  --brass-hi:#e8c977;
-  --brick:#9a3d27;
-  --paper:#f7f5f0;
-  --ink:#141c1f;
-  --muted:#56625f;
-  --ease-drop:cubic-bezier(.34,1.45,.55,1);
+  --paper:#EFE9DD; --linen:#D9CAB3; --ink:#1A1714; --ox:#90323D; --burg:#5E0B15;
+  --ochre:#BC8034; --taupe:#8C7A6B; --lime:#D9F23A; --night:#2A221C;
+  --serif:'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --sans:'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--paper);overflow-x:hidden}
-img{max-width:100%;display:block}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+a:hover{color:var(--ox)}
+img{display:block;max-width:100%}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.eyebrow{margin:0;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.serif{font-family:var(--serif);font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:14px 24px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-lime:hover{color:var(--ink);background:#E6FA6A}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{color:var(--lime)}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:3px solid var(--ox);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:10px 14px;z-index:50}
+.skip:focus{left:8px}
 
-/* ================= header ================= */
-.bar{position:sticky;top:0;z-index:20;background:rgba(14,63,76,.95);backdrop-filter:blur(6px);color:#fff;border-bottom:1px solid rgba(201,162,74,.35)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
-.mark{font-family:"Gloock",serif;font-size:1.35rem;text-decoration:none;letter-spacing:.01em}
-.mark small{font-family:"Hanken Grotesk",sans-serif;font-size:.78rem;color:var(--brass-hi);margin-left:.5rem;letter-spacing:.02em}
-.bar nav{display:flex;gap:1.5rem;font-weight:500;font-size:.95rem}
-.bar nav a{text-decoration:none;opacity:.85}
-.bar nav a:hover{opacity:1;color:var(--brass-hi)}
-.call{background:var(--brass);color:var(--ink);text-decoration:none;font-weight:700;padding:.55rem 1rem;border-radius:999px;white-space:nowrap}
-.call:hover{background:var(--brass-hi)}
+/* ---------- ribbon menu ---------- */
+.ribbon{position:fixed;right:clamp(16px,4vw,56px);top:0;z-index:40;width:200px;background:var(--ox);color:var(--paper);
+  padding:22px 22px 58px;clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 28px),0 100%);
+  box-shadow:0 10px 30px rgba(26,23,20,.2);font-size:15px}
+.ribbon-toggle{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;width:100%;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;min-height:28px}
+.ribbon-toggle:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.ribbon-toggle .chev{transition:transform .3s}
+.ribbon.is-tucked .ribbon-toggle .chev{transform:rotate(180deg)}
+.ribbon ul{list-style:none;margin:10px 0 0;padding:0;overflow:hidden}
+.ribbon li a{display:block;padding:10px 0;color:var(--paper);text-decoration:none;border-bottom:1px solid rgba(239,233,221,.28);transition:padding-left .3s,color .3s}
+.ribbon li:last-child a{border-bottom:0}
+.ribbon li a:hover,.ribbon li a:focus-visible{color:var(--lime);padding-left:8px}
 
-/* ================= hero ================= */
-.hero{position:relative;background:var(--teal);color:#fff;padding:4.5rem 0 0;overflow:hidden}
-.hero::before{content:"";position:absolute;right:6%;top:-140px;width:640px;height:640px;border-radius:50%;
-  background:radial-gradient(circle,rgba(232,201,119,.30),rgba(232,201,119,0) 62%);pointer-events:none;animation:lamp 6s ease-in-out infinite alternate}
-@keyframes lamp{from{opacity:.7}to{opacity:1}}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:end}
-.title{font-family:"Gloock",serif;font-weight:400;font-size:clamp(3.4rem,9vw,8rem);line-height:.9;letter-spacing:-.02em}
-.title .line{display:block;overflow:hidden;padding-bottom:.08em}
-.title .line span{display:block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
-.title .line:nth-child(2) span{animation-delay:.12s;color:var(--brass-hi)}
-@keyframes rise{to{transform:none}}
-.hero-sub{margin:1.6rem 0 2rem;max-width:38ch;font-size:1.2rem;color:#d7e3e2;opacity:0;animation:fade .8s .5s forwards}
-@keyframes fade{to{opacity:1}}
-.cta{display:flex;flex-wrap:wrap;gap:.75rem;opacity:0;animation:fade .8s .7s forwards}
-.btn{display:inline-flex;align-items:center;font-weight:700;text-decoration:none;padding:.9rem 1.4rem;border-radius:999px;border:2px solid currentColor;transition:transform .2s,background .2s,color .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-brass{background:var(--brass);border-color:var(--brass);color:var(--ink)}
-.btn-brass:hover{background:var(--brass-hi);border-color:var(--brass-hi)}
-.btn-ghost{color:#fff}
-.btn-ghost:hover{background:#fff;color:var(--teal)}
-.btn-ink{color:var(--ink)}
-.btn-ink:hover{background:var(--ink);color:#fff}
-.btn-solid{background:var(--ink);color:#fff;border-color:var(--ink)}
-.btn-solid:hover{background:var(--teal);border-color:var(--teal)}
+/* ---------- header ---------- */
+.top{border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding-top:26px;padding-bottom:22px;padding-right:280px}
+.logo{display:block;width:clamp(230px,30vw,340px)}
+.logo img{width:100%;height:auto}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.open-dot{display:inline-flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:#2F7A3A;box-shadow:0 0 0 0 rgba(47,122,58,.6)}
+.dot.closed{background:var(--taupe)}
 
-/* the shelf that builds itself */
-.hero-shelf{position:relative;padding-top:2rem}
-.books{display:flex;align-items:flex-end;justify-content:center;gap:4px;height:330px;padding:0 .5rem}
-.bk{position:relative;flex:1 1 0;min-width:0;border-radius:3px 3px 0 0;transform:translateY(-160%);opacity:0;
-  animation:drop .8s var(--ease-drop) forwards;animation-delay:calc(.35s + var(--i) * .07s);
-  box-shadow:inset -5px 0 0 rgba(0,0,0,.18),inset 3px 0 0 rgba(255,255,255,.12)}
-.bk::before,.bk::after{content:"";position:absolute;left:14%;right:14%;height:2px;background:rgba(20,28,31,.25)}
-.bk::before{top:14px}.bk::after{bottom:16px}
-.bk.lean{transform-origin:bottom left;animation-name:droplean}
-@keyframes drop{0%{transform:translateY(-160%);opacity:1}100%{transform:none;opacity:1}}
-@keyframes droplean{0%{transform:translateY(-160%);opacity:1}70%{transform:none;opacity:1}100%{transform:rotate(10deg);opacity:1}}
-.plank{height:22px;background:linear-gradient(#a8753f,#7c5128);border-radius:2px;box-shadow:0 10px 0 #5c3b1c,0 30px 50px rgba(0,0,0,.35);position:relative;z-index:1}
-.est{position:absolute;right:.25rem;top:.2rem;font-family:"Caveat",cursive;font-size:1.8rem;color:var(--brass-hi);transform:rotate(-6deg);opacity:0;animation:fade .6s 1.7s forwards}
-.hero-foot{position:relative;margin-top:3.5rem;background:#0a2f39;border-top:1px solid rgba(201,162,74,.3)}
+/* ---------- hero ---------- */
+.hero .wrap{display:flex;flex-wrap:wrap;gap:48px;padding-top:56px;padding-bottom:88px}
+.hero-copy{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.hero h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(52px,7.3vw,112px);line-height:.93;letter-spacing:-.02em}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .line > span{display:block}
+.hero h1 em{color:var(--ox)}
+.hero-foot{border-top:1px solid var(--ink);padding-top:24px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.hero-foot p{margin:0;max-width:390px;font-size:18px}
+.hero-art{flex:1 1 440px;min-width:0;position:relative;min-height:600px}
+.photo{position:absolute;inset:0 0 64px 64px;overflow:hidden;background:var(--night)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:30% 50%;filter:sepia(.28) contrast(1.06) brightness(.97);transform-origin:50% 40%}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(144,50,61,0) 55%,rgba(94,11,21,.35));mix-blend-mode:multiply;pointer-events:none}
+.credit{position:absolute;right:12px;bottom:10px;margin:0;font-size:11px;letter-spacing:.06em;color:rgba(239,233,221,.85)}
+.hours-card{position:absolute;left:0;bottom:0;width:310px;max-width:calc(100% - 24px);background:var(--paper);border:1px solid var(--ink);padding:24px 26px;box-shadow:10px 10px 0 var(--ox)}
+.hours-card dl{margin:12px 0 0;display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:16px}
+.hours-card dd{margin:0;text-align:right}
+.hours-card .today{font-weight:600}
+.hours-card .addr{margin:14px 0 0;font-family:var(--serif);font-style:italic;font-size:19px}
 
-/* ticker */
-.ticker{overflow:hidden;white-space:nowrap;padding:.9rem 0;color:#d7e3e2;font-size:.98rem}
-.ticker-track{display:inline-flex;gap:3.5rem;animation:tick 55s linear infinite;padding-left:3.5rem}
-.ticker:hover .ticker-track{animation-play-state:paused}
-.ticker b{font-family:"Gloock",serif;font-weight:400;color:#fff;font-size:1.1rem}
-.ticker i{font-family:"Caveat",cursive;font-style:normal;color:var(--brass-hi);font-size:1.35rem}
-@keyframes tick{to{transform:translateX(-50%)}}
+/* ---------- staff picks ---------- */
+.picks{background:var(--night);color:var(--paper);overflow:hidden}
+.picks .wrap{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:110px;padding-bottom:120px}
+.picks-copy{flex:1 1 340px}
+.picks h2{margin:14px 0 18px;font-family:var(--serif);font-weight:400;font-size:clamp(48px,6vw,86px);line-height:1}
+.picks h2 em{color:var(--lime)}
+.picks-copy p{margin:0 0 24px;max-width:420px;color:#DCD3C2}
+.picks-copy a{color:var(--lime);font-weight:600}
+.fan{flex:1 1 600px;min-width:0;position:relative;height:500px}
+.slot{position:absolute;left:50%;top:60px;width:var(--bw);height:calc(var(--bw) * 1.53);margin-left:calc(var(--bw) / -2);
+  transform:translateX(var(--sx)) rotate(var(--sr))}
+.fan{--bw:190px}
+.slot:nth-child(1){--sx:-150px;--sr:-3deg}
+.slot:nth-child(2){--sx:-50px;--sr:-1deg}
+.slot:nth-child(3){--sx:50px;--sr:1deg}
+.slot:nth-child(4){--sx:150px;--sr:3deg}
+.book{position:relative;width:100%;height:100%}
+.cover{all:unset;position:absolute;inset:0;z-index:2;cursor:pointer;background:var(--linen);overflow:hidden;
+  box-shadow:0 22px 44px rgba(0,0,0,.5),inset 6px 0 0 rgba(0,0,0,.18);transition:box-shadow .35s,filter .35s}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover::after{content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-14deg);pointer-events:none}
+.cover:focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+.tag{position:absolute;left:10px;right:10px;bottom:0;z-index:1;background:var(--lime);color:var(--ink);padding:14px 14px 14px;
+  transform:translateY(0);visibility:hidden}
+.tag .t{margin:0;font-family:var(--serif);font-size:21px;line-height:1.05}
+.tag .a{margin:2px 0 8px;font-size:12px}
+.tag .n{margin:0;font-size:13.5px;line-height:1.35}
+.tag .who{margin:6px 0 0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.slot.is-picked .cover{box-shadow:0 0 0 4px var(--lime),0 34px 60px rgba(0,0,0,.6),inset 6px 0 0 rgba(0,0,0,.18)}
+.fan.has-pick .slot:not(.is-picked) .cover{filter:brightness(.45) saturate(.6)}
+.fan.has-pick .fan-hint{opacity:0}
+.fan-hint{transition:opacity .3s;position:absolute;left:0;right:0;bottom:0;margin:0;text-align:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9B99A}
+/* no-JS / reduced motion: picked tag shows below */
+.slot:focus-within .tag,.slot.is-picked .tag{visibility:visible}
 
-/* ================= section rhythm ================= */
-.sec{padding:6rem 0;scroll-margin-top:64px}
-.kicker{font-family:"Caveat",cursive;font-size:1.7rem;color:var(--brick);line-height:1;margin-bottom:.5rem}
-h2{font-family:"Gloock",serif;font-weight:400;font-size:clamp(2.3rem,5vw,3.8rem);line-height:1.02;letter-spacing:-.015em;margin-bottom:1.25rem}
-.lead{font-size:1.15rem;max-width:54ch;color:var(--muted)}
+/* ---------- services ---------- */
+.services{border-bottom:1px solid var(--ink);position:relative}
+.services .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.svc{padding:46px 28px;position:relative}
+.svc:first-child{padding-left:0}
+.svc + .svc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--ink);transform-origin:top}
+.svc h3{margin:0 0 8px;font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.05}
+.svc p{margin:0}
+.svc a{font-weight:600}
 
-/* ================= pull-a-book staff shelf ================= */
-.picks-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
-.picks-stage{display:grid;grid-template-columns:1.25fr 1fr;gap:3.5rem;align-items:end}
-.pshelf{display:flex;align-items:flex-end;gap:5px;height:360px;padding:0 .25rem;overflow-x:auto;scrollbar-width:none}
-.pshelf::-webkit-scrollbar{display:none}
-.spine{flex:1 0 50px;max-width:84px;border:0;cursor:pointer;color:#fff;border-radius:3px 3px 0 0;
-  writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;
-  font-family:"Gloock",serif;font-size:1.02rem;line-height:1.1;text-align:left;
-  box-shadow:inset -6px 0 0 rgba(0,0,0,.18),inset 3px 0 0 rgba(255,255,255,.12);
-  transition:transform .35s var(--ease-drop),filter .2s}
-.spine small{font-family:"Hanken Grotesk",sans-serif;font-size:.72rem;opacity:.8}
-.spine:hover{transform:rotate(180deg) translateY(10px)}
-.spine[aria-pressed="true"]{transform:rotate(180deg) translateY(36px);filter:brightness(1.15)}
-.pplank{height:22px;background:linear-gradient(#a8753f,#7c5128);box-shadow:0 10px 0 #5c3b1c}
-.hint{margin-top:1.6rem;color:var(--muted);font-size:.95rem}
-.open-book{perspective:1400px}
-.page{background:#fff;border:1px solid #e3ded3;box-shadow:0 30px 60px -25px rgba(20,28,31,.35);padding:2.4rem 2.2rem 2rem 2.6rem;position:relative;min-height:340px;transform-origin:left center}
-.page.flip{animation:flip .6s cubic-bezier(.2,.8,.2,1)}
-@keyframes flip{from{transform:rotateY(-75deg);opacity:0}to{transform:none;opacity:1}}
-.page::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;background:var(--c,#0e3f4c);transition:background .3s}
-.page .who{font-family:"Caveat",cursive;font-size:2.2rem;color:var(--brick);line-height:1}
-.page h3{font-family:"Gloock",serif;font-weight:400;font-size:clamp(2rem,3.4vw,2.6rem);line-height:1.02;margin:.7rem 0 .4rem}
-.page .by{color:var(--muted);font-size:1.05rem;margin-bottom:1.6rem}
-.page p{max-width:40ch}
-.page .tag{position:absolute;right:-12px;top:28px;background:var(--brass);color:var(--ink);font-weight:700;font-size:.82rem;padding:.35rem .8rem;transform:rotate(4deg)}
+/* ---------- events ---------- */
+.events{background:var(--ox);color:var(--paper)}
+.events .wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start;padding-top:96px;padding-bottom:96px}
+.events-head{flex:1 1 400px}
+.events h2{margin:16px 0 22px;font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,72px);line-height:1}
+.events-head p{margin:0 0 24px;max-width:440px}
+.events-head a{color:var(--lime);font-weight:600}
+.ev{flex:1 1 460px;list-style:none;margin:0;padding:0;border-top:1px solid rgba(239,233,221,.45)}
+.ev li{display:grid;grid-template-columns:110px 1fr;gap:22px;padding:20px 0;border-bottom:1px solid rgba(239,233,221,.45)}
+.ev .d{font-family:var(--serif);font-size:26px;line-height:1.05}
+.ev .d small{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-top:4px}
+.ev h3{margin:0 0 4px;font-size:18px;font-weight:600}
+.ev p{margin:0;color:#F1DCD9}
 
-/* ================= story ================= */
-.story{background:#fff}
-.story-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4.5rem;align-items:center}
-.photos{position:relative;min-height:560px}
-.ph-tall{position:absolute;left:0;top:0;width:64%;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
-.ph-tall img{width:100%;aspect-ratio:352/560;object-fit:cover}
-.ph-snap{position:absolute;right:0;bottom:0;width:60%;background:#fff;padding:12px 12px 46px;box-shadow:0 20px 40px -18px rgba(0,0,0,.45);transform:rotate(4deg)}
-.ph-snap figcaption{position:absolute;left:14px;bottom:8px;font-family:"Caveat",cursive;font-size:1.45rem;color:var(--ink)}
-.story .year{font-family:"Gloock",serif;font-size:clamp(6rem,14vw,11rem);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--teal);letter-spacing:-.03em;margin-bottom:1.4rem}
-.story .year span{color:var(--teal);-webkit-text-stroke:0}
-.story p{max-width:52ch;margin-bottom:1rem;font-size:1.1rem}
+/* ---------- visit ---------- */
+.visit .wrap{display:flex;flex-wrap:wrap;gap:56px;align-items:center;justify-content:space-between;padding-top:110px;padding-bottom:110px}
+.visit h2{flex:1 1 520px;margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(50px,6.4vw,92px);line-height:1}
+.visit h2 em{color:var(--ox)}
+.visit h2 .w{display:inline-block}
+.visit-side{flex:0 1 400px;display:flex;flex-direction:column;gap:16px}
+.storefront{border:1px solid var(--ink);padding:8px;background:var(--paper);box-shadow:8px 8px 0 var(--linen)}
+.storefront img{width:100%;height:auto}
+.storefront figcaption{font-size:12px;letter-spacing:.08em;padding-top:8px;color:#4A4038}
+.visit-side .lines{margin:0;font-size:17px}
+.visit-side .btns{display:flex;flex-direction:column;gap:10px}
+.visit-side .btns .btn{justify-content:center;white-space:nowrap}
 
-/* ================= card catalog ================= */
-.catalog{background:var(--teal);color:#fff;overflow:hidden}
-.catalog .kicker{color:var(--brass-hi)}
-.catalog .lead{color:#c9d8d6}
-.cat-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:4rem;align-items:center;margin-top:1rem}
+/* ---------- newsletter + footer ---------- */
+.letter{background:var(--linen)}
+.letter .wrap{display:flex;flex-wrap:wrap;gap:20px 48px;align-items:center;justify-content:space-between;padding-top:44px;padding-bottom:44px}
+.letter p{margin:0;font-family:var(--serif);font-size:clamp(28px,3vw,40px);line-height:1.1}
+footer{background:var(--ink);color:var(--paper)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;align-items:flex-start;padding-top:36px;padding-bottom:40px;font-size:14px}
+footer a{color:var(--paper)}
+footer a:hover{color:var(--lime)}
+footer .small{flex:1 1 100%;font-size:12px;color:#BDB3A3;border-top:1px solid rgba(239,233,221,.2);padding-top:16px}
 
-/* the index card that comes out of a drawer */
-.card-stage{position:relative;min-height:330px;perspective:1200px}
-.icard{position:relative;background:#fffdf6;color:var(--ink);font-family:"Courier Prime",ui-monospace,monospace;
-  border-radius:4px;padding:1.6rem 1.8rem 3.2rem;min-height:330px;box-shadow:0 30px 50px -22px rgba(0,0,0,.6),0 2px 0 rgba(0,0,0,.08);
-  background-image:linear-gradient(#fffdf6 0 3.2rem,transparent 3.2rem),repeating-linear-gradient(transparent 0 29px,#c9dce6 29px 30px);
-  background-position:0 0,0 3.4rem;transform:rotate(-1.5deg)}
-.icard::before{content:"";position:absolute;left:0;right:0;top:3.2rem;height:2px;background:#d77a6a}
-.icard::after{content:"";position:absolute;left:50%;bottom:1rem;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--teal);box-shadow:inset 0 2px 3px rgba(0,0,0,.5)}
-.icard .no{position:absolute;right:1.4rem;top:1.55rem;font-size:.85rem;color:#8a8576}
-.icard h3{font-family:"Courier Prime",monospace;font-weight:700;font-size:clamp(1.05rem,4.6vw,1.35rem);white-space:nowrap;line-height:1.2;margin-bottom:1.4rem;padding-right:4rem}
-.icard p{font-size:1.08rem;line-height:30px;max-width:40ch}
-.icard p a{color:var(--teal-2);font-weight:700}
-.icard .stamp{display:inline-block;margin-top:1rem;font-family:"Caveat",cursive;font-size:1.5rem;color:var(--brick);border:2px solid var(--brick);border-radius:6px;padding:0 .6rem;transform:rotate(-4deg);opacity:.85}
-.icard.pop{animation:cardpop .7s cubic-bezier(.2,.9,.25,1.15)}
-@keyframes cardpop{0%{transform:translateY(60px) rotate(4deg) scale(.92);opacity:0}60%{opacity:1}100%{transform:rotate(-1.5deg)}}
-.card-stage .ghost{position:absolute;inset:0;background:#efe9d9;border-radius:4px;transform:rotate(2.5deg) translate(10px,8px);box-shadow:0 10px 20px -12px rgba(0,0,0,.5)}
-
-/* the cabinet */
-.cabinet{position:relative;padding:22px 18px 18px;border-radius:10px 10px 4px 4px;
-  background:repeating-linear-gradient(92deg,rgba(0,0,0,.05) 0 2px,transparent 2px 9px),linear-gradient(#7b4b26,#5f3819);
-  box-shadow:inset 0 0 0 3px #4a2b12,0 40px 70px -35px rgba(0,0,0,.75)}
-.cabinet::before{content:"";position:absolute;left:-10px;right:-10px;top:-14px;height:18px;border-radius:6px;background:linear-gradient(#9a6334,#6e4220);box-shadow:0 4px 0 #4a2b12}
-.drawers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;perspective:900px}
-.drawer{--wood:#8f5c30;position:relative;border:0;cursor:pointer;color:var(--ink);font:inherit;height:132px;border-radius:3px;
-  background:repeating-linear-gradient(var(--grain,88deg),rgba(255,255,255,.04) 0 3px,rgba(0,0,0,.05) 3px 7px),linear-gradient(color-mix(in srgb,var(--wood) 100%,#fff 8%),var(--wood));
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.18),inset 0 -4px 0 rgba(0,0,0,.25),inset 0 0 0 1px rgba(0,0,0,.25);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-  transform-style:preserve-3d;transition:transform .45s cubic-bezier(.3,1.4,.5,1),box-shadow .3s,filter .3s}
-.drawer:hover{transform:translateY(-2px) translateZ(14px)}
-.drawer[aria-pressed="true"]{transform:translateY(-4px) translateZ(46px);filter:brightness(1.08);
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.22),inset 0 -4px 0 rgba(0,0,0,.25),0 18px 24px -10px rgba(0,0,0,.7)}
-/* brass label holder with a paper slip */
-.holder{position:relative;padding:5px 7px;border-radius:3px;background:linear-gradient(135deg,#f3dc97,#b88f36 55%,#e7c76f);
-  box-shadow:0 1px 0 rgba(255,255,255,.4),0 2px 3px rgba(0,0,0,.4);transform:rotate(var(--tilt,0deg))}
-.holder::before,.holder::after{content:"";position:absolute;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:#7a5a1c;box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
-.holder::before{left:-1px}.holder::after{right:-1px}
-.slip{display:block;white-space:nowrap;min-width:110px;padding:.3rem .7rem;background:var(--paper-c,#fbf6e6);font-family:"Courier Prime",monospace;font-weight:700;font-size:.95rem;letter-spacing:.01em;color:#2a2a26;box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
-.slip.hand{font-family:"Caveat",cursive;font-weight:600;font-size:1.35rem;line-height:1;padding:.25rem .7rem}
-/* cup pull */
-.cup{width:58px;height:20px;border-radius:0 0 40px 40px;background:linear-gradient(#e9c96f,#9c7526);box-shadow:inset 0 -5px 6px rgba(0,0,0,.35),0 3px 4px rgba(0,0,0,.35);transform-origin:top center;transition:transform .3s}
-.drawer.ring .cup{width:24px;height:24px;border-radius:50%;background:transparent;border:4px solid #d5b05a;box-shadow:0 2px 3px rgba(0,0,0,.4);transform-origin:50% 0}
-.drawer:hover .cup{transform:rotate(-8deg)}
-.drawer.ring:hover .cup{animation:jiggle .6s}
-@keyframes jiggle{25%{transform:rotate(14deg)}50%{transform:rotate(-10deg)}75%{transform:rotate(5deg)}}
-.drawer .tab{position:absolute;top:-8px;left:50%;width:70%;height:10px;margin-left:-35%;border-radius:3px 3px 0 0;
-  background:repeating-linear-gradient(90deg,#fffdf6 0 5px,#e9e2cf 5px 6px);opacity:0;transform:translateY(8px);transition:.35s .1s}
-.drawer[aria-pressed="true"] .tab{opacity:1;transform:none}
-/* drawers settle in when the section scrolls into view */
-.cabinet .drawer{opacity:0;transform:translateZ(60px) translateY(-8px)}
-.cabinet.in .drawer{animation:settle .7s cubic-bezier(.3,1.4,.5,1) forwards;animation-delay:calc(var(--d) * 90ms)}
-@keyframes settle{to{opacity:1;transform:none}}
-.cabinet.in .drawer[aria-pressed="true"]{animation:none;opacity:1;transform:translateY(-4px) translateZ(46px)}
-.cabinet.settled .drawer{animation:none;opacity:1}
-.cabinet.settled .drawer{transform:none}
-.cabinet.settled .drawer:hover{transform:translateY(-2px) translateZ(14px)}
-.cabinet.settled .drawer[aria-pressed="true"]{transform:translateY(-4px) translateZ(46px)}
-.cab-hint{margin-top:1.1rem;font-family:"Caveat",cursive;font-size:1.4rem;color:var(--brass-hi);text-align:center}
-/* ================= visit ================= */
-.visit-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4.5rem;align-items:center}
-.door{position:relative;background:var(--teal);border-radius:200px 200px 0 0;padding:130px 2.2rem 2.6rem;max-width:440px;box-shadow:inset 0 0 0 14px #0a2f39}
-.door::after{content:"";position:absolute;right:24px;bottom:9%;width:14px;height:14px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 4px #0a2f39}
-.strings{position:absolute;left:50%;top:44px;width:160px;height:86px;margin-left:-80px;background:linear-gradient(to top right,transparent calc(50% - 1px),#b7c3c3 50%,transparent calc(50% + 1px)) left/50% 100% no-repeat,linear-gradient(to top left,transparent calc(50% - 1px),#b7c3c3 50%,transparent calc(50% + 1px)) right/50% 100% no-repeat}
-.strings::before{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--brass)}
-.sign{position:relative;background:#fbf9f2;padding:1.6rem 1.6rem 1.3rem;transform-origin:50% -86px;border:2px solid var(--ink)}
-.sign.in{animation:swing 2.4s cubic-bezier(.3,.6,.3,1)}
-@keyframes swing{0%{transform:rotate(12deg)}25%{transform:rotate(-8deg)}50%{transform:rotate(4deg)}75%{transform:rotate(-2deg)}100%{transform:none}}
-.sign h3{font-family:"Gloock",serif;font-weight:400;font-size:1.8rem;text-align:center;margin-bottom:.8rem}
-.sign table{width:100%;border-collapse:collapse}
-.sign td{padding:.45rem 0;border-bottom:1px dashed #cfc9bc}
-.sign td:last-child{text-align:right;font-weight:700}
-.sign tr:last-child td{border:0}
-.status{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem;font-family:"Caveat",cursive;font-size:1.7rem}
-.dot{width:12px;height:12px;border-radius:50%;background:#aaa}
-.status.open{color:#2c7a4b}.status.closed{color:var(--brick)}
-.status.open .dot{background:#3fae6a;animation:pulse 2s infinite}
-.status.closed .dot{background:var(--brick)}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,174,106,.6)}70%{box-shadow:0 0 0 12px rgba(63,174,106,0)}100%{box-shadow:0 0 0 0 rgba(63,174,106,0)}}
-.addr{font-size:clamp(2.2rem,4.4vw,3.4rem)}
-.visit p.lead{margin-bottom:1.6rem}
-.btns{display:flex;flex-wrap:wrap;gap:.75rem}
-.contact-list{list-style:none;margin-top:2.4rem;border-top:1px solid #ddd6c8}
-.contact-list li{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid #ddd6c8;flex-wrap:wrap}
-.contact-list span{color:var(--muted)}
-.contact-list a{font-weight:700;text-decoration-color:var(--brass);text-underline-offset:4px}
-
-footer{background:var(--ink);color:#c8d0ce;padding:3rem 0;font-size:.92rem}
-footer .wrap{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-footer .big{font-family:"Gloock",serif;font-size:1.8rem;color:#fff;line-height:1.1;margin-bottom:.5rem}
-footer a{color:#fff}
-footer .note{max-width:56ch;opacity:.8}
-
-/* one reveal per section heading block */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
-.reveal.in{opacity:1;transform:none}
-
-/* ================= mobile ================= */
-@media (max-width:900px){
-  .bar nav{display:none}
-  .hero{padding-top:2.5rem}
-  .hero-grid,.picks-stage,.story-grid,.visit-grid{grid-template-columns:1fr}
-  .books{height:210px}
-  .hero::before{right:-40%;width:440px;height:440px}
-  .sec{padding:4.5rem 0}
-  .pshelf{height:290px}
-  .spine{flex:0 0 52px;max-height:250px}
-  .photos{min-height:430px;max-width:460px}
-  .cat-grid{grid-template-columns:1fr;gap:2.5rem}
-  .cat-grid>div:last-child{order:-1}
-  .drawers{grid-template-columns:1fr 1fr}
-  .drawer{height:118px}
-  .door{margin:0 auto;width:100%}
-  .btn{flex:1 1 auto;justify-content:center}
-}
-@media (max-width:520px){.holder{max-width:86%}.slip{min-width:0;white-space:normal;text-align:center;font-size:.82rem;line-height:1.25}.slip.hand{font-size:1.2rem}.mark small{display:none}.photos{min-height:380px}}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .title .line span,.bk,.hero-sub,.cta,.est{transform:none!important;opacity:1!important}
-  .bk.lean{transform:rotate(10deg)!important}
-  .reveal{opacity:1;transform:none}
-  .cabinet .drawer{opacity:1!important;transform:none!important}
-  html{scroll-behavior:auto}
+/* ---------- small screens ---------- */
+@media (max-width:760px){
+  .wrap{padding:0 20px}
+  .top .wrap{padding-right:150px;padding-top:18px;padding-bottom:16px}
+  .logo{width:min(200px,100%)}
+  .meta{font-size:11px;letter-spacing:.14em}
+  .ribbon{width:128px;padding:14px 14px 40px;right:10px}
+  .hero .wrap{padding-top:36px;padding-bottom:64px}
+  .hero-art{min-height:500px}
+  .photo{inset:0 0 120px 24px}
+  .fan{--bw:140px;height:420px}
+  .slot{top:50px}
+  .slot:nth-child(1){--sx:-96px}.slot:nth-child(2){--sx:-32px}.slot:nth-child(3){--sx:32px}.slot:nth-child(4){--sx:96px}
+  .svc,.svc:first-child{padding:28px 0}
+  .svc + .svc::before{left:0;right:0;top:0;bottom:auto;width:auto;height:1px}
+  .ev li{grid-template-columns:86px 1fr}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="bar">
+<nav class="ribbon" id="ribbon" aria-label="Main">
+  <button class="ribbon-toggle" id="ribbonToggle" aria-expanded="true" aria-controls="ribbonList">Contents <span class="chev" aria-hidden="true">▾</span></button>
+  <ul id="ribbonList">
+    <li><a href="#picks">Staff Picks</a></li>
+    <li><a href="#services">Special Orders</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#visit">Visit Us</a></li>
+    <li><a href="https://bookshop.org/shop/magnoliasbookstore">Shop Online</a></li>
+  </ul>
+</nav>
+
+<header class="top">
   <div class="wrap">
-    <a class="mark" href="#top">Magnolia's<small>Bookstore, since 1992</small></a>
-    <nav aria-label="Main">
-      <a href="#picks">Staff picks</a>
-      <a href="#story">Our story</a>
-      <a href="#catalog">Services</a>
-      <a href="#visit">Visit</a>
-    </nav>
-    <a class="call" href="tel:+12062831062">(206) 283-1062</a>
+    <a class="logo" href="#top" aria-label="Magnolia's Bookstore, back to top"><img src="img/logo.png" alt="Magnolia's Bookstore" width="755" height="68"></a>
+    <div class="meta">
+      <span>Est. 1992 · W. McGraw St.</span>
+      <span class="open-dot"><span class="dot" id="dot" aria-hidden="true"></span><span id="openText">Mon–Sat 9–6 · Sun 12–5</span></span>
+    </div>
   </div>
 </header>
 
-<main id="top">
-<section class="hero" aria-labelledby="h1">
-  <div class="wrap hero-grid">
-    <div>
-      <h1 class="title" id="h1"><span class="line"><span>Magnolia's</span></span><span class="line"><span>Bookstore</span></span></h1>
-      <p class="hero-sub">Magnolia Village's independent bookstore since 1992. A small shop with a deep selection, books for every age, and booksellers who love telling you what they're reading.</p>
-      <div class="cta">
-        <a class="btn btn-brass" href="tel:+12062831062">Call the store</a>
-        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Magnolia%27s+Bookstore+3206+W+McGraw+St+Seattle+WA+98199">Get directions</a>
-        <a class="btn btn-ghost" href="https://bookshop.org/shop/magnoliasbookstore">Shop online</a>
-      </div>
-    </div>
-    <div class="hero-shelf" aria-hidden="true">
-      <span class="est">est. 1992</span>
-      <div class="books" id="heroBooks"></div>
-      <div class="plank"></div>
-    </div>
-  </div>
-  <div class="hero-foot">
-    <div class="ticker" aria-label="Newest staff recommendations">
-      <div class="ticker-track" id="ticker"></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="picks" aria-labelledby="picks-h">
+<main id="main">
+<section class="hero" id="top">
   <div class="wrap">
-    <div class="picks-head reveal">
-      <div>
-        <p class="kicker">Straight from the shelf</p>
-        <h2 id="picks-h">Pull a book off the staff shelf</h2>
-        <p class="lead">Our booksellers post what they love right on the shelves. Tap a spine to see who picked it.</p>
+    <div class="hero-copy">
+      <h1 aria-label="Your Book Source in Magnolia Since 1992">
+        <span class="line" aria-hidden="true"><span>Your book source</span></span>
+        <span class="line" aria-hidden="true"><span>in Magnolia</span></span>
+        <span class="line" aria-hidden="true"><span><em>since 1992.</em></span></span>
+      </h1>
+      <div class="hero-foot">
+        <p>Your independent bookstore in the heart of Magnolia Village. Not on the shelf? We can check, hold it, and usually have it in a day or two.</p>
+        <a class="btn btn-lime" href="#picks">Browse staff picks <span aria-hidden="true">→</span></a>
       </div>
-      <a class="btn btn-ink" href="https://magnoliasbookstore.com/recommendations/">All staff recommendations</a>
     </div>
-    <div class="picks-stage">
-      <div>
-        <div class="pshelf" id="pshelf" role="group" aria-label="Staff picks"></div>
-        <div class="pplank"></div>
-        <p class="hint">Ask for any of these at the counter. If we're out, we'll order it in.</p>
+    <div class="hero-art">
+      <div class="photo" id="photo">
+        <img src="img/hero-shelves.jpg" alt="Inside Magnolia's Bookstore: the Mystery shelves under a hanging lamp" width="440" height="733">
+        <p class="credit">Photo: The MrMagnolia Team</p>
       </div>
-      <div class="open-book" aria-live="polite">
-        <article class="page" id="page"></article>
+      <div class="hours-card" id="hoursCard">
+        <p class="eyebrow">Store hours</p>
+        <dl id="hoursList">
+          <dt data-days="1,2,3,4,5">Mon – Fri</dt><dd data-days="1,2,3,4,5">9am – 6pm</dd>
+          <dt data-days="6">Saturday</dt><dd data-days="6">9am – 6pm</dd>
+          <dt data-days="0">Sunday</dt><dd data-days="0">Noon – 5pm</dd>
+        </dl>
+        <p class="addr">3206 W. McGraw St.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec story" id="story" aria-labelledby="story-h">
-  <div class="wrap story-grid">
-    <div class="photos">
-      <figure class="ph-tall"><img src="img/shelves.jpg" alt="Inside the store: the Mystery shelves, packed floor to ceiling, with handwritten staff notes tucked along the shelf edges and new titles stacked on a table."></figure>
-      <figure class="ph-snap"><img src="img/storefront.jpg" alt="The Magnolia's Bookstore storefront on W. McGraw St.: a brick arch with the store sign in the window, books on display and a flower box below."><figcaption>3206 W. McGraw St.</figcaption></figure>
-    </div>
-    <div class="reveal">
-      <p class="year" aria-hidden="true">19<span>92</span></p>
-      <p class="kicker">Our story</p>
-      <h2 id="story-h">The neighborhood's bookstore for over thirty years</h2>
-      <p>Magnolia's Bookstore is an independent general bookstore in the heart of Magnolia Village, serving the neighborhood since 1992.</p>
-      <p>The shop is small on purpose. Every shelf is chosen with care, so there's something good wherever you look without it ever feeling like too much. Our booksellers know the stock, read widely, and are happy to help you find the next one, whether it's a gift, a book club pick or something for a long weekend.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sec catalog" id="catalog" aria-labelledby="cat-h">
+<section class="picks" id="picks" aria-labelledby="picksTitle">
   <div class="wrap">
-    <div class="reveal">
-      <p class="kicker">Open a drawer</p>
-      <h2 id="cat-h">What we can do for you</h2>
-      <p class="lead">Everything you'd want from your neighborhood bookstore, filed the old-fashioned way.</p>
+    <div class="picks-copy reveal">
+      <p class="eyebrow" style="color:#C9B99A">Read by us first</p>
+      <h2 id="picksTitle">Staff picks, <em>fanned out.</em></h2>
+      <p>Georgiana, Yvette, Ruth and Sandi post their favorites in the store, each with a note. Hover the stack to spread it, then pick a book to pull it out.</p>
+      <a href="https://magnoliasbookstore.com/recommendations/">Every recommendation →</a>
     </div>
-    <div class="cat-grid">
-      <div class="card-stage" aria-live="polite">
-        <span class="ghost" aria-hidden="true"></span>
-        <article class="icard" id="icard"></article>
-      </div>
-      <div>
-        <div class="cabinet" id="cabinet">
-          <div class="drawers" id="drawers" role="group" aria-label="Store services"></div>
+    <div class="fan" id="fan">
+      <div class="slot">
+        <div class="book">
+          <div class="tag" aria-hidden="true">
+            <p class="t">Consider Yourself Kissed</p><p class="a">Jessica Stanley</p>
+            <p class="n">“Funny, moving, and smart–I loved it!”</p><p class="who">Georgiana</p>
+          </div>
+          <button class="cover" aria-label="Consider Yourself Kissed by Jessica Stanley. Georgiana says: Funny, moving, and smart, I loved it!"><img src="img/kissed.jpg" alt="" width="120" height="187"></button>
         </div>
-        <p class="cab-hint">Pick a drawer, any drawer</p>
+      </div>
+      <div class="slot">
+        <div class="book">
+          <div class="tag" aria-hidden="true">
+            <p class="t">Big Breath In</p><p class="a">John Straley</p>
+            <p class="n">“Courage and determination, not to mention joy and hilarity.”</p><p class="who">Ruth</p>
+          </div>
+          <button class="cover" aria-label="Big Breath In by John Straley. Ruth's pick: courage and determination, not to mention joy and hilarity."><img src="img/bigbreath.jpg" alt="" width="125" height="187"></button>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="book">
+          <div class="tag" aria-hidden="true">
+            <p class="t">Raising Hare</p><p class="a">Chloe Dalton</p>
+            <p class="n">“This is such a charming book! STAFF FAVORITE!”</p><p class="who">Yvette</p>
+          </div>
+          <button class="cover" aria-label="Raising Hare by Chloe Dalton. Yvette says: This is such a charming book! Staff favorite!"><img src="img/hare.jpg" alt="" width="122" height="187"></button>
+        </div>
+      </div>
+      <div class="slot">
+        <div class="book">
+          <div class="tag" aria-hidden="true">
+            <p class="t">A Walk in the Park</p><p class="a">Kevin Fedarko</p>
+            <p class="n">“I learned a lot and laughed as much.”</p><p class="who">Georgiana</p>
+          </div>
+          <button class="cover" aria-label="A Walk in the Park by Kevin Fedarko. Georgiana says: I learned a lot and laughed as much."><img src="img/walk.jpg" alt="" width="125" height="187"></button>
+        </div>
+      </div>
+      <p class="fan-hint" id="fanHint" aria-hidden="true">Hover the stack · pick a book</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services" aria-label="Store services">
+  <div class="wrap grid">
+    <div class="svc reveal"><h3>Special orders</h3><p>We'll check stock, hold it for you, and usually have it in a day or two. We ship, too.</p></div>
+    <div class="svc reveal"><h3>Wrapped free</h3><p>Free gift wrapping, plus gift certificates in any amount. Order one by phone.</p></div>
+    <div class="svc reveal"><h3>Rewards</h3><p>Frequent buyers get rewarded. Ask about it at the counter.</p></div>
+    <div class="svc reveal"><h3>Shop from home</h3><p>Order from <a href="https://bookshop.org/shop/magnoliasbookstore">our Bookshop.org page</a> and support the store.</p></div>
+  </div>
+</section>
+
+<section class="events" id="events" aria-labelledby="evTitle">
+  <div class="wrap">
+    <div class="events-head reveal">
+      <p class="eyebrow">Recently at the store</p>
+      <h2 id="evTitle">Author signings and Farmers Market Saturdays.</h2>
+      <p>Local authors sign right here on McGraw, often while the Magnolia Farmers Market is on outside.</p>
+      <a href="https://magnoliasbookstore.com/events/">See all events →</a>
+    </div>
+    <ul class="ev" id="evList">
+      <li><p class="d">Jul 25<small>Sat · 11–1</small></p><div><h3>Get Silly with Seth Standley</h3><p>A playful picture book written right here in Magnolia, with coloring pages and stickers.</p></div></li>
+      <li><p class="d">Jul 11<small>Sat · 1–2:30</small></p><div><h3>Mike Lawson signing</h3><p>A bonus signing for the D.C. mystery writer's latest.</p></div></li>
+      <li><p class="d">Jun 13<small>Sat · 11–1</small></p><div><h3>Farmers Market with Rachel Linden</h3><p>Signing <em>A Sprinkle of Sweet Serendipity</em>, set in Poulsbo.</p></div></li>
+      <li><p class="d">Apr 25<small>Sat</small></p><div><h3>Independent Bookstore Day</h3><p>Ten days, dozens of Seattle-area stores, and surprise gifts with purchase here.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="visitTitle">
+  <div class="wrap">
+    <h2 id="visitTitle"><span class="w">3206</span> <span class="w">W.</span> <span class="w">McGraw</span> <span class="w">St.</span> <em><span class="w">Leave</span> <span class="w">a</span> <span class="w">light</span> <span class="w">on.</span></em></h2>
+    <div class="visit-side reveal">
+      <figure class="storefront" style="margin:0">
+        <img src="img/storefront.jpg" alt="The front of Magnolia's Bookstore: an arched brick window full of books and an open door" width="428" height="290" loading="lazy">
+        <figcaption>Located in the heart of Magnolia Village</figcaption>
+      </figure>
+      <p class="lines">Mon – Sat 9am – 6pm · Sun noon – 5pm<br>3206 W. McGraw St., Seattle, WA 98199</p>
+      <div class="btns">
+        <a class="btn btn-ink" href="https://maps.google.com/?q=Magnolia%27s+Bookstore+3206+W+McGraw+St+Seattle+WA+98199">Get directions</a>
+        <a class="btn btn-line" href="tel:+12062831062">Call (206) 283-1062</a>
       </div>
     </div>
   </div>
 </section>
-<section class="sec" id="visit" aria-labelledby="visit-h">
-  <div class="wrap visit-grid">
-    <div class="door">
-      <span class="strings" aria-hidden="true"></span>
-      <div class="sign" id="sign">
-        <h3>Store hours</h3>
-        <table>
-          <tr><td>Monday to Friday</td><td>9am to 6pm</td></tr>
-          <tr><td>Saturday</td><td>9am to 6pm</td></tr>
-          <tr><td>Sunday</td><td>Noon to 5pm</td></tr>
-        </table>
-        <p class="status" id="status"><span class="dot"></span><span id="statusText"></span></p>
-      </div>
-    </div>
-    <div class="reveal">
-      <p class="kicker">Come visit</p>
-      <h2 id="visit-h" class="addr">3206 W. McGraw St.<br>Seattle, WA 98199</h2>
-      <p class="lead">In Magnolia Village. Look for the brick arch and the flower box out front.</p>
-      <div class="btns">
-        <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&query=Magnolia%27s+Bookstore+3206+W+McGraw+St+Seattle+WA+98199">Open in Maps</a>
-        <a class="btn btn-ink" href="tel:+12062831062">Call (206) 283-1062</a>
-      </div>
-      <ul class="contact-list">
-        <li><span>Phone</span><a href="tel:+12062831062">(206) 283-1062</a></li>
-        <li><span>Email</span><a href="mailto:info@magnoliasbookstore.com">info@magnoliasbookstore.com</a></li>
-        <li><span>Facebook</span><a href="https://www.facebook.com/Magnolias-Bookstore-534506929900550/">Magnolia's Bookstore</a></li>
-      </ul>
-    </div>
+
+<section class="letter" aria-label="Newsletter">
+  <div class="wrap">
+    <p>New picks and signings, in your inbox.</p>
+    <a class="btn btn-ink" href="https://magnoliasbookstore.com/">Sign up for the newsletter</a>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div>
-      <p class="big">Magnolia's Bookstore</p>
-      <p>3206 W. McGraw St., Seattle, WA 98199<br><a href="tel:+12062831062">(206) 283-1062</a> &nbsp; <a href="https://www.facebook.com/Magnolias-Bookstore-534506929900550/">Facebook</a></p>
-    </div>
-    <p class="note">Concept redesign by Theo, not the official site. Photos from Magnolia's Bookstore's own website (storefront photo credited there to mrmagnolia.com), used for this concept only.</p>
+    <div><strong class="serif" style="font-size:24px">Magnolia's Bookstore</strong><br>Your Book Source in Magnolia Since 1992</div>
+    <div>3206 W. McGraw St.<br>Seattle, WA 98199<br><a href="tel:+12062831062">(206) 283-1062</a></div>
+    <div><a href="https://magnoliasbookstore.com/contact-us/">Contact us</a><br><a href="https://www.facebook.com/Magnolias-Bookstore-534506929900550/">Facebook</a><br><a href="https://bookshop.org/shop/magnoliasbookstore">Bookshop.org</a></div>
+    <p class="small" style="margin:0">Concept redesign by Theo, not the official site. Photos, covers and staff notes from Magnolia's Bookstore's own website, used for this concept only. Interior photo by The MrMagnolia Team.</p>
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script>
 (function(){
-  var picks=[
-    {t:"Playground",a:"Richard Powers",w:"Georgiana",c:"#0e3f4c",h:300},
-    {t:"The Names",a:"Florence Knapp",w:"Yvette",c:"#9a3d27",h:262},
-    {t:"Raising Hare",a:"Chloe Dalton",w:"Yvette",c:"#3f5b3a",h:318},
-    {t:"Big Breath In",a:"John Straley",w:"Ruth",c:"#2f3f6b",h:276},
-    {t:"Black Woods Blue Sky",a:"Eowyn Ivey",w:"Yvette",c:"#15586a",h:322},
-    {t:"Dream State",a:"Eric Puchner",w:"Georgiana",c:"#5b3b5e",h:248},
-    {t:"A Walk in the Park",a:"Kevin Fedarko",w:"Georgiana",c:"#a0672a",h:296},
-    {t:"Amalfi Curse",a:"Sarah Penner",w:"Sandi",c:"#26393d",h:258},
-    {t:"Atavists",a:"Lydia Millet",w:"Georgiana",c:"#7a2f2f",h:304},
-    {t:"10 Marchfield Square",a:"Nicola Whyte",w:"Sandi",c:"#4e6b70",h:312},
-    {t:"Consider Yourself Kissed",a:"Jessica Stanley",w:"Georgiana",c:"#8a6d2b",h:330}
-  ];
+  /* ---- open today (Pacific time) ---- */
+  var hours={0:[12,17],1:[9,18],2:[9,18],3:[9,18],4:[9,18],5:[9,18],6:[9,18]};
+  try{
+    var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'}));
+    var d=now.getDay(),h=now.getHours()+now.getMinutes()/60,r=hours[d];
+    var fmt=function(x){return x===12?'noon':(x>12?(x-12)+'pm':x+'am')};
+    var t=document.getElementById('openText'),dot=document.getElementById('dot');
+    if(h>=r[0]&&h<r[1]){t.textContent='Open today until '+fmt(r[1]);}
+    else if(h<r[0]){t.textContent='Opens today at '+fmt(r[0]);dot.classList.add('closed');}
+    else{var n=hours[(d+1)%7];t.textContent='Closed now · opens '+fmt(n[0])+' tomorrow';dot.classList.add('closed');}
+    document.querySelectorAll('#hoursList [data-days]').forEach(function(el){
+      if(el.getAttribute('data-days').split(',').indexOf(String(d))>-1) el.classList.add('today');
+    });
+  }catch(e){}
 
-  // hero shelf drops into place, book by book
-  var hb=document.getElementById('heroBooks');
-  var cols=["#c9a24a","#9a3d27","#f7f5f0","#3f5b3a","#15586a","#e8c977","#7a2f2f","#2f3f6b","#c9a24a","#f7f5f0","#a0672a","#5b3b5e","#9a3d27","#e8c977","#4e6b70","#3f5b3a"];
-  var hts=[78,64,88,70,95,60,84,74,92,66,80,58,86,72,90,62];
-  cols.forEach(function(c,i){
-    var b=document.createElement('span');b.className='bk'+(i===cols.length-1?' lean':'');
-    b.style.cssText='--i:'+i+';background:'+c+';height:'+hts[i]+'%;max-width:'+(44+(i*7)%20)+'px';
-    hb.appendChild(b);
-  });
-
-  // ticker
-  var tk=document.getElementById('ticker'),html='';
-  picks.forEach(function(p){html+='<span><i>'+p.w+' recommends</i>&nbsp; <b>'+p.t+'</b> by '+p.a+'</span>';});
-  tk.innerHTML=html+html;
-
-  // pull-a-book shelf
-  var sh=document.getElementById('pshelf'),page=document.getElementById('page');
-  function show(i,anim){
-    var p=picks[i];
-    [].forEach.call(sh.children,function(s,j){s.setAttribute('aria-pressed',j===i?'true':'false');});
-    page.style.setProperty('--c',p.c);
-    page.innerHTML='<span class="tag">Staff pick</span><p class="who">'+p.w+'’s pick</p><h3>'+p.t+'</h3><p class="by">by '+p.a+'</p><p>Ask '+p.w+' about it next time you’re in, or call ahead and we’ll set a copy aside for you.</p>';
-    if(anim){page.classList.remove('flip');void page.offsetWidth;page.classList.add('flip');}
+  /* ---- ribbon toggle (works without GSAP) ---- */
+  var ribbon=document.getElementById('ribbon'),toggle=document.getElementById('ribbonToggle'),list=document.getElementById('ribbonList');
+  function setRibbon(open){
+    ribbon.classList.toggle('is-tucked',!open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+    if(window.gsap){gsap.to(list,{height:open?'auto':0,duration:.45,ease:'power3.inOut'});}
+    else{list.style.height=open?'':'0px';}
   }
-  picks.forEach(function(p,i){
-    var b=document.createElement('button');b.className='spine';b.type='button';
-    b.style.cssText='background:'+p.c+';height:'+p.h+'px';
-    b.innerHTML='<span>'+p.t+'</span><small>'+p.a.split(' ').pop()+'</small>';
-    b.setAttribute('aria-label',p.t+' by '+p.a+', '+p.w+'’s pick');
-    b.addEventListener('click',function(){show(i,true);});
-    sh.appendChild(b);
-  });
-  show(0,false);
+  toggle.addEventListener('click',function(){setRibbon(ribbon.classList.contains('is-tucked'));});
+  var small=window.matchMedia('(max-width:760px)').matches;
+  if(small) setRibbon(false);
+  list.addEventListener('click',function(e){ if(e.target.closest('a[href^="#"]') && window.innerWidth<=760) setRibbon(false); });
 
-  // card catalog
-  var services=[
-    {k:"Special orders",n:"SO 01",w:"#8f5c30",g:"88deg",t:"-1deg",p:"#fbf6e6",x:"Don't see it on the shelf? Call or email and we'll order it in, usually within a day or two. We can also hold a copy for you.",s:"Usually 1 to 2 days"},
-    {k:"Gift wrapping",n:"GW 02",w:"#7d4f28",g:"92deg",t:"1.2deg",p:"#f6efd0",hand:1,ring:1,x:"Free, on every book you buy here. It goes home wrapped and ready to give.",s:"Always free"},
-    {k:"Gift certificates",n:"GC 03",w:"#9a6638",g:"86deg",t:"-.4deg",p:"#fbf6e6",x:'Any amount you like. Buy one by phone at (206) 283-1062, or online through <a href="https://bookshop.org/shop/magnoliasbookstore">Bookshop.org</a>.',s:"Any amount"},
-    {k:"Buyer rewards",n:"BR 04",w:"#85552c",g:"91deg",t:".8deg",p:"#eef0e4",ring:1,x:"Regulars earn frequent buyer rewards as they read. Just ask about it at checkout.",s:"Ask at checkout"},
-    {k:"Shipping",n:"SH 05",w:"#93603a",g:"89deg",t:"-1.4deg",p:"#f6efd0",hand:1,x:"Sending a book to someone out of town? Ask us and we'll ship it.",s:"Out-of-town gifts"},
-    {k:"Order online",n:"OL 06",w:"#7a4b25",g:"87deg",t:".3deg",p:"#fbf6e6",x:'Browse and buy any time through our <a href="https://bookshop.org/shop/magnoliasbookstore">Bookshop.org shop</a>. Every order supports the store.',s:"Open 24/7"}
-  ];
-  var dr=document.getElementById('drawers'),ic=document.getElementById('icard'),cab=document.getElementById('cabinet');
-  function openDrawer(i,anim){
-    var s=services[i];
-    [].forEach.call(dr.children,function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false');});
-    ic.innerHTML='<span class="no">'+s.n+'</span><h3>'+s.k+'</h3><p>'+s.x+'</p><span class="stamp">'+s.s+'</span>';
-    if(anim){ic.classList.remove('pop');void ic.offsetWidth;ic.classList.add('pop');}
+  /* ---- staff picks: stack -> fan -> pick ---- */
+  var fan=document.getElementById('fan'),slots=[].slice.call(fan.querySelectorAll('.slot'));
+  var picked=-1,fanned=false;
+  function k(){return fan.clientWidth<520?0.62:Math.min(1,fan.clientWidth/640);}
+  var STACK=[[-150,-3],[-50,-1],[50,1],[150,3]],FAN=[[-330,-13],[-112,-4],[112,4],[330,13]];
+  function layout(instant){
+    var s=k();
+    slots.forEach(function(el,i){
+      var isPick=i===picked, base=(fanned||picked>-1)?FAN[i]:STACK[i];
+      var vars={x:base[0]*s,rotation:isPick?base[1]*0.25:base[1],y:isPick?-58:0,scale:isPick?1.12:1,zIndex:isPick?10:i+1,
+        duration:instant?0:(isPick?0.55:0.6),ease:isPick?'back.out(1.6)':'power3.out',overwrite:'auto'};
+      if(window.gsap){gsap.to(el,vars);}
+      else{el.style.transform='translateX('+vars.x+'px) translateY('+vars.y+'px) rotate('+vars.rotation+'deg) scale('+vars.scale+')';el.style.zIndex=vars.zIndex;}
+      el.classList.toggle('is-picked',isPick);
+      var tag=el.querySelector('.tag');
+      if(window.gsap){
+        if(isPick){gsap.set(tag,{visibility:'visible'});gsap.to(tag,{y:tag.offsetHeight-8,duration:.5,delay:.12,ease:'power3.out',overwrite:'auto'});}
+        else{gsap.to(tag,{y:0,duration:.3,ease:'power2.in',overwrite:'auto',onComplete:function(){if(!el.classList.contains('is-picked'))tag.style.visibility='hidden';}});}
+      }else{tag.style.transform=isPick?'translateY(calc(100% - 8px))':'';}
+    });
+    fan.classList.toggle('has-pick',picked>-1);
   }
-  services.forEach(function(s,i){
-    var b=document.createElement('button');b.type='button';b.className='drawer'+(s.ring?' ring':'');
-    b.style.cssText='--wood:'+s.w+';--grain:'+s.g+';--tilt:'+s.t+';--paper-c:'+s.p+';--d:'+i;
-    b.innerHTML='<span class="tab" aria-hidden="true"></span><span class="holder"><span class="slip'+(s.hand?' hand':'')+'">'+s.k+'</span></span><span class="cup" aria-hidden="true"></span>';
-    b.addEventListener('click',function(){cab.classList.add('settled');openDrawer(i,true);});
-    dr.appendChild(b);
+  function sheen(el){
+    if(!window.gsap||reduce) return;
+    var c=el.querySelector('.cover');
+    gsap.fromTo(c.querySelector('img'),{filter:'brightness(1.25)'},{filter:'brightness(1)',duration:.6,ease:'power2.out'});
+    c.classList.remove('shine');void c.offsetWidth;c.classList.add('shine');
+  }
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  fan.addEventListener('mouseenter',function(){fanned=true;layout();});
+  fan.addEventListener('mouseleave',function(){fanned=false;picked=-1;layout();});
+  slots.forEach(function(el,i){
+    var book=el.querySelector('.book'),cover=el.querySelector('.cover');
+    book.addEventListener('mouseenter',function(){if(picked!==i){picked=i;fanned=true;layout();sheen(el);}});
+    cover.addEventListener('focus',function(){picked=i;fanned=true;layout();sheen(el);});
+    cover.addEventListener('blur',function(){setTimeout(function(){if(!fan.contains(document.activeElement)){picked=-1;fanned=false;layout();}},0);});
+    cover.addEventListener('click',function(){picked=(picked===i?-1:i);fanned=true;layout();if(picked===i)sheen(el);});
   });
-  openDrawer(0,false);
-  cab.addEventListener('animationend',function(e){if(e.target===dr.lastChild)cab.classList.add('settled');});
-  // open or closed, by Seattle time
-  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'}));
-  var d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
-  var open=d===0?(h>=12&&h<17):(h>=9&&h<18);
-  document.getElementById('status').classList.add(open?'open':'closed');
-  document.getElementById('statusText').textContent=open?'Open now. Come on in.':'Closed right now. See you soon.';
+  if(window.matchMedia('(hover: none)').matches){document.getElementById('fanHint').textContent='Tap a book to pull it out';}
+  window.addEventListener('resize',function(){layout(true);});
+  layout(true);
 
-  // one-time reveals and the door sign swing
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2});
-    document.querySelectorAll('.reveal,#sign,#cabinet').forEach(function(el){io.observe(el);});
-  }else{document.querySelectorAll('.reveal,#cabinet').forEach(function(el){el.classList.add('in');});}
+  /* ---- GSAP motion (skipped entirely for reduced motion) ---- */
+  if(!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  var mm=gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)',function(){
+    // Load: ribbon drops, headline rises, photo unveils, hours card lands.
+    var tl=gsap.timeline({defaults:{ease:'power4.out'}});
+    tl.from('.hero h1 .line > span',{yPercent:110,duration:1.1,stagger:.13})
+      .from('#photo',{clipPath:'inset(0 0 100% 0)',duration:1.3,ease:'expo.inOut'},0.15)
+      .from('#photo img',{scale:1.18,duration:2.2,ease:'power2.out'},0.15)
+      .from('#hoursCard',{x:-24,y:24,autoAlpha:0,duration:.8},0.95)
+      .from('#ribbon',{yPercent:-105,duration:1,ease:'back.out(1.3)'},0.8)
+      .from('.hero-foot',{autoAlpha:0,y:16,duration:.7},1.0);
+    // Pulse the open dot
+    if(!document.getElementById('dot').classList.contains('closed')){
+      gsap.to('#dot',{boxShadow:'0 0 0 9px rgba(47,122,58,0)',duration:1.6,repeat:-1,ease:'power1.out'});
+    }
+    // Slow drift on the hero photo while it's on screen
+    gsap.to('#photo img',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+    // Ribbon tucks itself away once you're past the hero (desktop), comes back near the top
+    if(!small){
+      ScrollTrigger.create({trigger:'.hero',start:'bottom 30%',
+        onEnter:function(){setRibbon(false);},onLeaveBack:function(){setRibbon(true);}});
+    }
+    // Staff picks slide together into a stack as the section arrives
+    gsap.from(slots,{x:function(i){return [380,160,-160,-380][i]*k();},rotation:function(i){return [14,6,-6,-14][i];},autoAlpha:0,
+      ease:'power2.out',stagger:.06,scrollTrigger:{trigger:'#fan',start:'top 85%',end:'top 35%',scrub:.8}});
+    // Section copy
+    gsap.utils.toArray('.picks-copy, .events-head, .visit-side').forEach(function(el){
+      gsap.from(el,{y:40,autoAlpha:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}});
+    });
+    // Services: divider rules draw down, then copy
+    gsap.utils.toArray('.svc').forEach(function(el,i){
+      gsap.from(el.querySelectorAll('h3, p'),{y:24,autoAlpha:0,duration:.7,delay:i*.08,stagger:.08,ease:'power3.out',scrollTrigger:{trigger:'#services',start:'top 80%'}});
+    });
+    // Events: each row slides in from the left like a ledger entry
+    gsap.from('#evList li',{x:-40,autoAlpha:0,duration:.7,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:'#evList',start:'top 80%'}});
+    // Visit headline: words land one by one
+    gsap.from('.visit h2 .w',{yPercent:60,autoAlpha:0,duration:.7,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:'.visit h2',start:'top 82%'}});
+  });
+
+  // Smooth scroll for in-page links with an offset-free glide (CSS handles the fallback)
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href'); if(id.length<2) return;
+      var target=document.querySelector(id); if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      history.replaceState(null,'',id);
+      if(id==='#main'||id==='#top') return;
+      target.setAttribute('tabindex','-1'); target.focus({preventScroll:true});
+    });
+  });
 })();
 </script>
+<style>
+@media (prefers-reduced-motion: no-preference){
+  .cover.shine::after{animation:sheen .9s ease-out}
+  @keyframes sheen{from{left:-70%}to{left:130%}}
+}
+</style>
 </body>
 </html>
