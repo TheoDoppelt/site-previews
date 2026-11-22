@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interbay Heating and Air Conditioning: Website Concept</title>
+<meta name="description" content="Heating and air conditioning repair and replacement from 3514 W Government Way, Seattle. Residential and light commercial, all makes and models.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#13282b;        /* Salmon Bay at night */
+  --ink-2:#1d3a3e;
+  --steel:#e6eae6;      /* galvanized duct */
+  --steel-2:#d3d9d4;
+  --paper:#f4f6f3;
+  --ember:#ff5b2e;
+  --glacier:#2fc6d0;
+  --acc:#ff5b2e;        /* set live by the thermostat */
+  --acc-soft:rgba(255,91,46,.16);
+  --text:#16272a;
+  --mute:#566a6c;
+  --display:"Bricolage Grotesque", "Arial Narrow", sans-serif;
+  --body:"Instrument Sans", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);background:var(--paper);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+
+/* ---------- top bar ---------- */
+.bar{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:.9rem clamp(1.25rem,3vw,2.5rem);color:#fff;transition:background .3s, color .3s, box-shadow .3s}
+.bar.solid{background:rgba(19,40,43,.92);backdrop-filter:saturate(1.4) blur(8px)}
+.brand{display:flex;gap:.65rem;align-items:center;text-decoration:none;font-family:var(--display);font-weight:750;font-variation-settings:"wdth" 85;font-size:1.15rem;letter-spacing:-.01em;line-height:1}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:.72rem;letter-spacing:.02em;opacity:.7;margin-top:.2rem}
+.mark{width:34px;height:34px;flex:none}
+.bar nav{display:flex;gap:1.6rem;align-items:center;font-weight:500;font-size:.95rem}
+.bar nav a{text-decoration:none;opacity:.85}
+.bar nav a:hover{opacity:1}
+.bar .call{background:var(--acc);color:var(--ink);padding:.55rem 1rem;border-radius:999px;font-weight:600;opacity:1;transition:background .4s}
+.bar .call{white-space:nowrap}.bar .short{display:none}
+@media (max-width:760px){.bar nav a:not(.call){display:none}}
+@media (max-width:480px){.bar .long{display:none}.bar .short{display:inline}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;background:var(--ink);color:#eef3f1;overflow:hidden;display:grid;align-items:center;padding:7rem 0 4rem}
+#air{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to top,var(--ink),transparent);pointer-events:none}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.where{font-weight:500;color:#a9bcb8;margin-bottom:1.4rem;display:flex;gap:.6rem;align-items:center}
+.where i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 var(--acc);animation:ping 2.4s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 var(--acc-soft)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-family:var(--display);font-weight:780;font-size:clamp(3.1rem,8.2vw,7.4rem);line-height:.9;letter-spacing:-.035em;font-variation-settings:"wdth" 78,"opsz" 96}
+h1 .line{display:block;overflow:hidden}
+h1 .line span{display:inline-block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .line:nth-child(2) span{animation-delay:.08s}
+h1 .line:nth-child(3) span{animation-delay:.16s}
+@keyframes rise{to{transform:none}}
+h1 .temp-word{color:var(--acc);transition:color .4s}
+.lede{max-width:34ch;font-size:1.2rem;color:#c7d6d2;margin:1.6rem 0 2.2rem}
+.ctas{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:1.05rem;transition:transform .2s, background .4s, color .4s}
+.btn:active{transform:scale(.97)}
+.btn-hot{background:var(--acc);color:var(--ink)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* thermostat */
+.stat{justify-self:center;width:min(420px,100%);text-align:center}
+.dial-wrap{position:relative;aspect-ratio:1;touch-action:none;cursor:grab;user-select:none}
+.dial-wrap:active{cursor:grabbing}
+.dial{width:100%;height:100%;display:block;overflow:visible}
+.dial .face{fill:#0f2124;stroke:rgba(255,255,255,.08);stroke-width:1}
+.dial .track{fill:none;stroke:rgba(255,255,255,.1);stroke-width:14;stroke-linecap:round}
+.dial .arc{fill:none;stroke:var(--acc);stroke-width:14;stroke-linecap:round;transition:stroke .3s;filter:drop-shadow(0 0 14px var(--acc))}
+.dial .tick{stroke:rgba(255,255,255,.22);stroke-width:2}
+.dial .tick.major{stroke:rgba(255,255,255,.5)}
+.dial .knob{fill:#fff;stroke:var(--acc);stroke-width:5;transition:stroke .3s}
+.readout{position:absolute;inset:0;display:grid;place-content:center;pointer-events:none}
+.readout .deg{font-family:var(--display);font-weight:700;font-size:clamp(4.5rem,11vw,7rem);line-height:.9;letter-spacing:-.05em;font-variant-numeric:tabular-nums;font-variation-settings:"wdth" 80}
+.readout .deg sup{font-size:.35em;vertical-align:.95em;margin-left:.05em;font-weight:500}
+.readout .mode{font-weight:600;color:var(--acc);transition:color .3s;margin-top:.35rem;font-size:1rem}
+.stat p{color:#a9bcb8;font-size:.95rem;margin-top:1rem}
+.stat p b{color:#fff;font-weight:600}
+
+/* ---------- symptom ticker ---------- */
+.ticker{background:var(--acc);color:var(--ink);overflow:hidden;transition:background .4s;border-block:2px solid var(--ink)}
+.ticker-track{display:flex;gap:3rem;width:max-content;padding:1rem 0;animation:slide 38s linear infinite;font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.75rem);letter-spacing:-.01em;font-variation-settings:"wdth" 85;white-space:nowrap}
+.ticker-track span{display:inline-flex;align-items:center;gap:3rem}
+.ticker-track span::after{content:"";width:.6em;height:.6em;border:3px solid currentColor;border-radius:50%}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- section heads ---------- */
+section{position:relative}
+.sec{padding:clamp(5rem,10vw,8.5rem) 0}
+h2{font-family:var(--display);font-weight:760;font-size:clamp(2.4rem,5.4vw,4.4rem);line-height:.95;letter-spacing:-.03em;font-variation-settings:"wdth" 82,"opsz" 72;max-width:15ch}
+.sub{max-width:52ch;color:var(--mute);font-size:1.15rem;margin-top:1.2rem}
+
+/* ---------- duct run (services) ---------- */
+.run{background:var(--steel);overflow:hidden}
+.run::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 119px,rgba(19,40,43,.05) 119px 120px);pointer-events:none}
+.run-grid{position:relative;margin-top:4rem;display:grid;grid-template-columns:120px 1fr;gap:0 2rem}
+.duct{position:relative;grid-row:1 / span 6}
+.duct svg{position:sticky;top:0;width:100%;height:100%}
+.duct-path{position:absolute;left:50%;top:0;bottom:0;width:56px;transform:translateX(-50%);background:linear-gradient(90deg,#b7c0ba,#eef1ee 35%,#cdd4cf 60%,#a8b2ac);border-radius:6px;box-shadow:inset 0 0 0 1px rgba(19,40,43,.12)}
+.duct-path::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 78px,rgba(19,40,43,.18) 78px 80px)}
+.duct-fill{position:absolute;left:50%;top:0;width:56px;transform:translateX(-50%);height:0;border-radius:6px;background:linear-gradient(180deg,var(--acc),color-mix(in srgb,var(--acc) 55%,#fff));opacity:.85;transition:background .4s;mix-blend-mode:multiply}
+.stop{position:relative;display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start;padding:2.2rem 0;border-top:1.5px solid rgba(19,40,43,.12)}
+.stop:first-of-type{border-top:0}
+.grille{width:86px;height:58px;border-radius:6px;background:var(--ink);position:relative;margin-left:-82px;box-shadow:0 6px 0 -2px rgba(19,40,43,.25);transition:background .4s}
+.grille::before{content:"";position:absolute;inset:9px 10px;background:repeating-linear-gradient(0deg,#3b5a5e 0 3px,transparent 3px 8px);border-radius:2px}
+.stop.on .grille{background:var(--acc)}
+.stop.on .grille::before{background:repeating-linear-gradient(0deg,rgba(19,40,43,.55) 0 3px,transparent 3px 8px)}
+.stop h3{font-family:var(--display);font-weight:720;font-size:clamp(1.5rem,2.8vw,2.1rem);letter-spacing:-.02em;line-height:1.05;font-variation-settings:"wdth" 88}
+.stop p{color:var(--mute);max-width:54ch;margin-top:.5rem}
+@media (max-width:700px){
+  .run-grid{grid-template-columns:44px 1fr;gap:0 1rem}
+  .duct-path,.duct-fill{width:26px}
+  .grille{width:56px;height:40px;margin-left:-50px}
+  .grille::before{inset:7px}
+  .stop{gap:1rem}
+}
+
+/* ---------- years band ---------- */
+.years{background:var(--ink);color:#eef3f1;overflow:hidden}
+.years-grid{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,6vw,6rem);align-items:end}
+.big15{font-family:var(--display);font-weight:800;font-size:clamp(9rem,26vw,22rem);line-height:.78;letter-spacing:-.07em;font-variation-settings:"wdth" 75,"opsz" 96;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.35);position:relative}
+.big15 .fillnum{position:absolute;inset:0;color:var(--acc);-webkit-text-stroke:0;clip-path:inset(var(--clip,100%) 0 0 0);transition:color .4s}
+.big15 em{font-style:normal;font-size:.3em;vertical-align:top;-webkit-text-stroke:0;color:var(--acc)}
+.years h2{color:#fff}
+.years p{color:#b8c9c5;max-width:46ch;margin-top:1.2rem;font-size:1.12rem}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.facts span{border:1.5px solid rgba(255,255,255,.2);padding:.45rem .9rem;border-radius:999px;font-size:.92rem;font-weight:500}
+@media (max-width:760px){.years-grid{grid-template-columns:1fr}}
+
+/* ---------- visit ---------- */
+.visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;margin-top:3.5rem;align-items:stretch}
+.tag{position:relative;background:#fff;border:2px solid var(--ink);border-radius:18px;padding:2.4rem 2.2rem 2.2rem;box-shadow:10px 10px 0 var(--ink)}
+.tag::before{content:"";position:absolute;top:1.4rem;right:1.4rem;width:20px;height:20px;border-radius:50%;border:2px solid var(--ink);background:var(--paper)}
+.tag dl{display:grid;gap:1.6rem}
+.tag dt{font-weight:600;color:var(--mute);font-size:.9rem}
+.tag dd{font-family:var(--display);font-weight:680;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.15;letter-spacing:-.015em;font-variation-settings:"wdth" 90}
+.tag dd a{text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--acc)}
+.tag .small{font-family:var(--body);font-size:1rem;font-weight:400;color:var(--mute);letter-spacing:0;display:block;margin-top:.3rem}
+.mapcard{position:relative;border-radius:18px;overflow:hidden;background:var(--ink);color:#fff;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;text-decoration:none}
+.mapcard svg{position:absolute;inset:0;width:100%;height:100%}
+.mapcard b{position:relative;font-family:var(--display);font-size:1.6rem;font-weight:700;letter-spacing:-.01em}
+.mapcard span{position:relative;color:#b8c9c5}
+.mapcard:hover .pin{transform:translateY(-6px)}
+.pin{transition:transform .25s}
+.reviews{margin-top:2.5rem;border:2px dashed var(--steel-2);border-radius:18px;padding:1.6rem 2rem;color:var(--mute);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+.reviews b{color:var(--text)}
+@media (max-width:860px){.visit-grid{grid-template-columns:1fr}.hero-grid{grid-template-columns:1fr}.stat{order:-1;width:min(300px,80%)}.hero{padding-top:5.5rem}}
+
+/* ---------- big call ---------- */
+.final{background:var(--acc);color:var(--ink);transition:background .4s;text-align:left}
+.final a.phone{display:block;font-family:var(--display);font-weight:800;font-size:clamp(3rem,11vw,9.5rem);line-height:.9;letter-spacing:-.05em;text-decoration:none;font-variation-settings:"wdth" 76;margin-top:1rem;font-variant-numeric:tabular-nums}
+.final a.phone:hover{text-decoration:underline;text-decoration-thickness:6px;text-underline-offset:10px}
+.final p{font-size:1.2rem;font-weight:500;max-width:40ch}
+
+footer{background:var(--ink);color:#93a8a4;padding:2.5rem 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer b{color:#fff;font-weight:600}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s, transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  h1 .line span{transform:none}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <a class="brand" href="#top" aria-label="Interbay Heating and Air Conditioning, home">
+    <svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 5a12 12 0 0 1 0 24" fill="none" stroke="var(--ember)" stroke-width="4" stroke-linecap="round"/><path d="M17 29A12 12 0 0 1 17 5" fill="none" stroke="var(--glacier)" stroke-width="4" stroke-linecap="round"/></svg>
+    <span>Interbay Heating &amp; Air<small>Government Way, Seattle</small></span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#visit">Find us</a>
+    <a class="call" href="tel:+12064721009"><span class="long">(206) 472-1009</span><span class="short">Call</span></a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <canvas id="air" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="where"><i></i>3514 W Government Way, Interbay</p>
+      <h1 id="h1"><span class="line"><span>Too cold?</span></span><span class="line"><span>Too hot?</span></span><span class="line"><span>We fix <span class="temp-word" id="fixword">the heat.</span></span></span></h1>
+      <p class="lede">Repair and replacement for the furnace, heat pump or AC you already have. Homes and light commercial, any make, any model.</p>
+      <div class="ctas">
+        <a class="btn btn-hot" id="cta" href="tel:+12064721009"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span id="ctatext">Call about your heating</span></a>
+        <a class="btn btn-ghost" href="#services">What we work on</a>
+      </div>
+    </div>
+
+    <div class="stat">
+      <div class="dial-wrap" id="dialwrap" role="slider" tabindex="0" aria-label="How does your place feel right now? Drag to set the temperature" aria-valuemin="55" aria-valuemax="85" aria-valuenow="61" aria-valuetext="61 degrees, too cold">
+        <svg class="dial" viewBox="0 0 300 300" aria-hidden="true">
+          <circle class="face" cx="150" cy="150" r="128"/>
+          <g id="ticks"></g>
+          <path class="track" id="track"/>
+          <path class="arc" id="arc"/>
+          <circle class="knob" id="knob" r="13"/>
+        </svg>
+        <div class="readout"><div class="deg"><span id="deg">61</span><sup>°</sup></div><div class="mode" id="mode">Running cold</div></div>
+      </div>
+      <p><b>How does it feel inside?</b> Drag the dial and we'll point you to the right call.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Common problems we fix">
+  <div class="ticker-track">
+    <span>Furnace won't fire</span><span>AC blowing warm</span><span>Heat pump short-cycling</span><span>One room always freezing</span><span>New rattle from the unit</span><span>System older than your car</span>
+    <span aria-hidden="true">Furnace won't fire</span><span aria-hidden="true">AC blowing warm</span><span aria-hidden="true">Heat pump short-cycling</span><span aria-hidden="true">One room always freezing</span><span aria-hidden="true">New rattle from the unit</span><span aria-hidden="true">System older than your car</span>
+  </div>
+</div>
+
+<section class="run sec" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <h2 id="svc-h" class="reveal">Follow the duct. That's the job.</h2>
+    <p class="sub reveal">We work on the equipment that's already in your building, from the first strange noise to a full swap-out.</p>
+    <div class="run-grid" id="rungrid">
+      <div class="duct" aria-hidden="true"><div class="duct-path"></div><div class="duct-fill" id="ductfill"></div></div>
+      <article class="stop"><div class="grille" aria-hidden="true"></div><div><h3>Repair</h3><p>No heat, no cooling, weird smells or noises. We track down what's wrong with your existing system and fix it, so you're not pushed into a new one you don't need.</p></div></article>
+      <article class="stop"><div class="grille" aria-hidden="true"></div><div><h3>Replacement</h3><p>When an old unit isn't worth saving, we pull it and put in a new one sized for your space.</p></div></article>
+      <article class="stop"><div class="grille" aria-hidden="true"></div><div><h3>Heating systems</h3><p>Furnaces, heat pumps and the other gear that gets you through a gray Seattle winter. We sell them and install them.</p></div></article>
+      <article class="stop"><div class="grille" aria-hidden="true"></div><div><h3>Cooling systems</h3><p>For the August weeks when the house turns into an oven. We sell air conditioning systems and keep them running.</p></div></article>
+      <article class="stop"><div class="grille" aria-hidden="true"></div><div><h3>Any make, any model</h3><p>Whatever brand is in your basement, closet or rooftop, we service it.</p></div></article>
+      <article class="stop"><div class="grille" aria-hidden="true"></div><div><h3>Homes and light commercial</h3><p>Houses, apartments, shops and small offices. If it heats or cools a room, we can probably help.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="years sec" id="about" aria-labelledby="about-h">
+  <div class="wrap years-grid">
+    <div class="big15" id="big15" aria-hidden="true">15<em>+</em><span class="fillnum">15</span></div>
+    <div class="reveal">
+      <h2 id="about-h">Fifteen-plus years on the same stretch of Interbay.</h2>
+      <p>We're a local HVAC contractor on West Government Way, between the rail yard and Salmon Bay. For more than fifteen years we've kept homes and small businesses around Interbay warm in winter and cool in summer.</p>
+      <div class="facts"><span>Residential</span><span>Light commercial</span><span>Repair</span><span>Replacement</span><span>All makes and models</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <h2 id="visit-h" class="reveal">Call first. We're just off Government Way.</h2>
+    <div class="visit-grid">
+      <div class="tag reveal">
+        <dl>
+          <div><dt>Phone</dt><dd><a href="tel:+12064721009">(206) 472-1009</a><span class="small">Tap to call and set up a visit.</span></dd></div>
+          <div><dt>Shop</dt><dd>3514 West Government Way<br>Seattle, WA 98199</dd></div>
+          <div><dt>Hours</dt><dd>Call for availability<span class="small">Your business hours go here.</span></dd></div>
+        </dl>
+      </div>
+      <a class="mapcard reveal" href="https://www.google.com/maps/search/?api=1&query=3514+W+Government+Way+Seattle+WA+98199" target="_blank" rel="noopener">
+        <svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="340" fill="#13282b"/>
+          <path d="M0 250 C90 230 140 270 230 245 S360 220 400 230 V340 H0Z" fill="#1d4a50"/>
+          <g stroke="#2b4a4e" stroke-width="2" fill="none">
+            <path d="M0 60 H400 M0 120 H400 M0 180 H400 M80 0 V340 M170 0 V340 M260 0 V340 M340 0 V340"/>
+          </g>
+          <g stroke="#3d6266" stroke-width="1.5" stroke-dasharray="4 6"><path d="M300 0 V250 M312 0 V250 M324 0 V250"/></g>
+          <path d="M0 150 C120 150 180 170 400 140" stroke="#e6eae6" stroke-width="7" fill="none" opacity=".9"/>
+          <g class="pin" transform="translate(200 148)"><circle r="34" fill="var(--acc)" opacity=".18"/><path d="M0-40c-14 0-24 10-24 23 0 17 24 37 24 37s24-20 24-37c0-13-10-23-24-23z" fill="var(--acc)"/><circle cy="-17" r="8" fill="#13282b"/></g>
+        </svg>
+        <b>Get directions</b><span>Opens Google Maps</span>
+      </a>
+    </div>
+    <div class="reviews reveal"><span><b>Your Google reviews go here.</b> A few real words from neighbors do more than anything we could write.</span></div>
+  </div>
+</section>
+
+<section class="final sec" aria-labelledby="final-h">
+  <div class="wrap">
+    <p id="final-h">Heat's out, AC's dead, or something just sounds wrong? Call the shop.</p>
+    <a class="phone" href="tel:+12064721009">206&#8209;472&#8209;1009</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Interbay Heating and Air Conditioning</b>, 3514 W Government Way, Seattle, WA 98199</span>
+    <span>Concept redesign by Theo, not the official site.</span>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  const bar = document.getElementById('bar');
+  addEventListener('scroll', () => bar.classList.toggle('solid', scrollY > 40), {passive:true});
+
+  /* ---------- thermostat ---------- */
+  const MIN=55, MAX=85, CX=150, CY=150, R=112, A0=135, SWEEP=270;
+  const rad = a => (a-90)*Math.PI/180;
+  const pt = a => [CX+R*Math.cos(rad(a)), CY+R*Math.sin(rad(a))];
+  const arcPath = (a1,a2) => { const [x1,y1]=pt(a1),[x2,y2]=pt(a2); const large=(a2-a1)>180?1:0; return `M${x1} ${y1} A${R} ${R} 0 ${large} 1 ${x2} ${y2}`; };
+  const startA = A0+90; // dial runs from 225deg (bottom-left) clockwise 270deg
+  document.getElementById('track').setAttribute('d', arcPath(startA, startA+SWEEP-0.01));
+  const ticks = document.getElementById('ticks');
+  for (let t=MIN; t<=MAX; t++){
+    const a = startA + (t-MIN)/(MAX-MIN)*SWEEP, major = t%5===0;
+    const r1=128-4, r2 = major?128-18:128-11;
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',CX+r1*Math.cos(rad(a))); l.setAttribute('y1',CY+r1*Math.sin(rad(a)));
+    l.setAttribute('x2',CX+r2*Math.cos(rad(a))); l.setAttribute('y2',CY+r2*Math.sin(rad(a)));
+    l.setAttribute('class','tick'+(major?' major':'')); ticks.appendChild(l);
+  }
+  const arc=document.getElementById('arc'), knob=document.getElementById('knob');
+  const degEl=document.getElementById('deg'), modeEl=document.getElementById('mode');
+  const ctaText=document.getElementById('ctatext'), fixWord=document.getElementById('fixword');
+  const wrap=document.getElementById('dialwrap');
+  const hex = h => [1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+  const EMBER=hex('#ff5b2e'), GLACIER=hex('#2fc6d0'), MILD=hex('#c9d8cf');
+  const mix=(a,b,k)=>a.map((v,i)=>Math.round(v+(b[i]-v)*k));
+  let temp = 70, warmth = 1; // warmth: 1 = heat mode, 0 = cool mode (drives airflow)
+
+  function setTemp(t){
+    temp = Math.max(MIN, Math.min(MAX, t));
+    const a = startA + (temp-MIN)/(MAX-MIN)*SWEEP;
+    arc.setAttribute('d', arcPath(startA, Math.max(startA+0.5,a)));
+    const [kx,ky]=pt(a); knob.setAttribute('cx',kx); knob.setAttribute('cy',ky);
+    const r = Math.round(temp); degEl.textContent = r;
+    let col, mode, cta, word, vt;
+    if (temp < 67){ const k=Math.min(1,(67-temp)/8); col=mix(MILD,EMBER,.35+.65*k); mode='Running cold'; cta='Call about your heating'; word='the heat.'; vt='too cold'; warmth=1; }
+    else if (temp > 73){ const k=Math.min(1,(temp-73)/8); col=mix(MILD,GLACIER,.35+.65*k); mode='Running hot'; cta='Call about your AC'; word='the cooling.'; vt='too hot'; warmth=0; }
+    else { col=MILD; mode='Feels right'; cta='Call Interbay'; word='both.'; vt='comfortable'; warmth=.5; }
+    const c=`rgb(${col})`; root.style.setProperty('--acc', c); root.style.setProperty('--acc-soft', `rgba(${col},.35)`);
+    modeEl.textContent=mode; ctaText.textContent=cta; fixWord.textContent=word;
+    wrap.setAttribute('aria-valuenow', r); wrap.setAttribute('aria-valuetext', `${r} degrees, ${vt}`);
+  }
+  function fromPointer(e){
+    const b = wrap.getBoundingClientRect();
+    const x = (e.clientX-b.left)/b.width*300-CX, y=(e.clientY-b.top)/b.height*300-CY;
+    let a = Math.atan2(y,x)*180/Math.PI+90; if (a<0) a+=360;
+    let rel = a - startA; if (rel<0) rel+=360;
+    if (rel>SWEEP){ rel = rel-SWEEP < (360-SWEEP)/2 ? SWEEP : 0; }
+    setTemp(MIN + rel/SWEEP*(MAX-MIN));
+  }
+  let dragging=false;
+  wrap.addEventListener('pointerdown', e=>{dragging=true; wrap.setPointerCapture(e.pointerId); fromPointer(e);});
+  wrap.addEventListener('pointermove', e=>{ if(dragging) fromPointer(e); });
+  wrap.addEventListener('pointerup', ()=>{dragging=false; setTemp(Math.round(temp));});
+  wrap.addEventListener('keydown', e=>{
+    const step = {ArrowUp:1,ArrowRight:1,ArrowDown:-1,ArrowLeft:-1,PageUp:5,PageDown:-5}[e.key];
+    if (step){ e.preventDefault(); setTemp(Math.round(temp)+step); }
+    if (e.key==='Home'){ e.preventDefault(); setTemp(MIN); } if (e.key==='End'){ e.preventDefault(); setTemp(MAX); }
+  });
+  wrap.addEventListener('wheel', e=>{ e.preventDefault(); setTemp(Math.round(temp) + (e.deltaY<0?1:-1)); }, {passive:false});
+
+  // opening move: the dial settles from 70 down to a November 61
+  if (reduce) setTemp(61);
+  else { setTemp(70); const t0=performance.now()+500; const go=now=>{ const k=Math.min(1,Math.max(0,(now-t0)/1400)); const e=1-Math.pow(1-k,3); setTemp(70-9*e); if(k<1) requestAnimationFrame(go); else setTemp(61); }; requestAnimationFrame(go); }
+
+  /* ---------- airflow canvas ---------- */
+  const cv=document.getElementById('air'), ctx=cv.getContext('2d');
+  let W,H,lines=[];
+  function size(){ const d=Math.min(2,devicePixelRatio||1); W=cv.clientWidth; H=cv.clientHeight; cv.width=W*d; cv.height=H*d; ctx.setTransform(d,0,0,d,0,0);
+    lines = Array.from({length: Math.round(H/26)}, (_,i)=>({y:(i+.5)*H/Math.round(H/26), ph:Math.random()*6.28, sp:.4+Math.random()*.6, amp:6+Math.random()*16})); }
+  size(); addEventListener('resize', size);
+  let t=0, smoothW=1;
+  function draw(){
+    smoothW += (warmth-smoothW)*.04;
+    ctx.clearRect(0,0,W,H);
+    const col = getComputedStyle(root).getPropertyValue('--acc').trim();
+    ctx.strokeStyle = col; ctx.lineWidth=1.2;
+    lines.forEach((l,i)=>{
+      ctx.globalAlpha = .12 + .35*Math.abs(Math.sin(l.ph + t*.3));
+      ctx.beginPath();
+      // warm air rises (lines drift up and wave more), cool air sinks and flattens
+      const drift = (smoothW-.5) * -40 * Math.sin(t*.2 + i);
+      for (let x=0; x<=W; x+=14){
+        const y = l.y + drift + Math.sin(x*.008 + t*l.sp + l.ph)*l.amp*(.4+smoothW) + Math.sin(x*.02 - t*1.3)*2;
+        x? ctx.lineTo(x,y) : ctx.moveTo(x,y);
+      }
+      ctx.stroke();
+    });
+    ctx.globalAlpha=1; t+=.016;
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  draw();
+
+  /* ---------- duct fill + vents + 15 fill on scroll ---------- */
+  const grid=document.getElementById('rungrid'), fill=document.getElementById('ductfill');
+  const stops=[...document.querySelectorAll('.stop')];
+  const big=document.getElementById('big15');
+  function onScroll(){
+    const b=grid.getBoundingClientRect(), mid=innerHeight*.62;
+    const p=Math.max(0,Math.min(1,(mid-b.top)/b.height));
+    fill.style.height=(p*100)+'%';
+    stops.forEach(s=>{ const r=s.getBoundingClientRect(); s.classList.toggle('on', r.top+30 < mid); });
+    const bb=big.getBoundingClientRect(); const q=Math.max(0,Math.min(1,(innerHeight*.9-bb.top)/(bb.height+innerHeight*.35)));
+    big.style.setProperty('--clip', (100-q*100)+'%');
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
