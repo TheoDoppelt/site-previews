@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Washington Mechanical: Website Concept</title>
+<meta name="description" content="Furnace repair, air conditioning, heat pumps and hot water tanks. NATE certified, insured and bonded, 24/7 emergency service. Call 425-499-1932 for a free estimate.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Washington Mechanical: Website Concept">
+<meta property="og:description" content="A concept redesign for Washington Mechanical Heating & Air Conditioning: furnace, A/C, heat pump and hot water, 24/7.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/washington-mechanical/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..150,100..900;1,50..150,100..900&family=Fraunces:ital,opsz,wght@1,9..144,300..600&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Palette: graphite night + furnace-flame orange + supply-air blue
+   bg #0c0f13 · surface #151a21 · ink #eceae3 · muted #a3a9b1 · primary #f26b2a · accent #74c4ec */
+:root{
+  --bg:#0c0f13;--surface:#151a21;--ink:#eceae3;--muted:#a3a9b1;
+  --primary:#f26b2a;--accent:#74c4ec;--on-primary:#160903;--on-accent:#04121a;
+  --line:rgba(236,234,227,.14);--faint:rgba(236,234,227,.06);
+  --wide:"Anybody","Arial Black",system-ui,sans-serif;
+  --serif:"Fraunces",Georgia,serif;
+  --mono:"Martian Mono",ui-monospace,Menlo,monospace;
+  --gut:clamp(16px,4vw,48px);
+  --ease:cubic-bezier(.2,.7,.2,1);--dur:.9s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--wide);font-stretch:100%;font-size:16px;line-height:1.55;overflow-x:hidden;
+  background-image:radial-gradient(1100px 700px at 75% 25%,rgba(242,107,42,.09),transparent 60%),radial-gradient(900px 600px at 10% 85%,rgba(116,196,236,.07),transparent 60%);background-attachment:fixed}
+a{color:inherit}
+img{display:block;max-width:100%}
+.ph{background:#fff4c2;border-bottom:1px dashed #d4b200;padding:0 4px;border-radius:3px;color:#3a3000!important}
+.preview{position:relative;z-index:30;background:#000;color:#c9c9c9;font-size:13px;text-align:center;padding:8px 16px;line-height:1.4}
+.preview a{color:#fff}
+
+/* canvas + loader */
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block;pointer-events:none}
+.nogl #gl{display:none}
+.loader{display:none}
+html.js .loader{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;place-items:center;transition:opacity var(--dur) ease,visibility var(--dur)}
+.loader.done{opacity:0;visibility:hidden}
+.loader-in{width:min(320px,70vw);text-align:center}
+.loader-num{font-stretch:150%;font-weight:800;font-size:64px;line-height:1}
+.loader-num small{font-size:.45em;color:var(--primary);vertical-align:top}
+.loader-bar{height:1px;background:var(--line);margin:14px 0 12px;overflow:hidden}
+.loader-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--primary))}
+.loader-cap{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+.nav{position:fixed;left:0;right:0;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px var(--gut);transition:background .3s}
+.nav.scrolled{background:linear-gradient(rgba(12,15,19,.9),rgba(12,15,19,0))}
+.brand img{height:22px;width:auto}
+@media (min-width:720px){.brand img{height:28px}}
+.nav-links{display:none;gap:26px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}.nav-links a:hover{color:var(--ink)}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;border:1px solid rgba(236,234,227,.3);background:rgba(12,15,19,.4);font-family:var(--wide);font-stretch:130%;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s;white-space:nowrap}
+.pill:hover{border-color:var(--ink);background:rgba(236,234,227,.1)}
+.pill.hot{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.pill.hot:hover{background:#ff8550}
+.pill:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (min-width:1080px){.nav-links{display:flex}}
+@media (max-width:719px){.nav .pill{min-height:38px;padding:0 14px}}
+
+/* rail */
+.rail{position:fixed;left:var(--gut);top:50%;transform:translateY(-50%);z-index:15;display:none;list-style:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;transition:opacity .4s}
+.rail a{display:flex;align-items:center;gap:12px;padding:6px 0;text-decoration:none;color:rgba(236,234,227,.5)}
+.rail a::before{content:"";width:14px;height:2px;background:currentColor;transition:width .35s var(--ease)}
+.rail a.on{color:var(--ink)}.rail a.on::before{width:34px;background:var(--primary)}
+.rail.hide{opacity:0;pointer-events:none}
+@media (min-width:1100px){.rail{display:block}}
+
+/* type */
+main{position:relative;z-index:1}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+.wide{font-stretch:150%;font-weight:850;text-transform:uppercase;letter-spacing:-.02em;line-height:.86}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0}
+.lead{font-stretch:125%;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase;line-height:1.35}
+p.body{color:var(--muted);font-size:15px;max-width:46ch}
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+html.js .reveal.in{opacity:1;transform:none}
+/* headings revealed line by line behind a mask */
+.mask{display:block;overflow:hidden;padding-bottom:.04em}
+.mask>span{display:block}
+html.js .lines .mask>span{transform:translateY(105%);transition:transform var(--dur) var(--ease)}
+html.js .lines.in .mask>span{transform:none}
+html.js .lines .mask:nth-child(2)>span{transition-delay:.08s}
+html.js .lines .mask:nth-child(3)>span{transition-delay:.16s}
+
+/* hero */
+.hero{position:relative;min-height:100svh;padding:110px var(--gut) 32px;display:grid;grid-template-rows:auto 1fr auto;gap:24px}
+.nogl .hero{background:linear-gradient(rgba(12,15,19,.6),rgba(12,15,19,.92)),url(img/condenser2.jpg) center/cover}
+.hero-caps{display:flex;justify-content:space-between;gap:20px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+.hero-caps div:last-child{text-align:right}
+.hero h1{align-self:center;font-size:clamp(50px,10.5vw,184px);text-shadow:0 4px 50px rgba(0,0,0,.5);pointer-events:none}
+.hero h1 .it{display:block;font-size:.3em;line-height:1.1;margin-top:.25em;color:var(--ink)}
+.hero-foot{display:grid;gap:24px;align-items:end}
+.callbox .kicker{display:block;margin-bottom:6px}
+.callbox .num{display:block;font-stretch:140%;font-weight:850;font-size:clamp(30px,4vw,48px);text-decoration:none;line-height:1.05;letter-spacing:-.01em}
+.callbox .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+/* thermostat dial */
+.stat{justify-self:end;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:14px 18px 14px 14px;border:1px solid var(--line);border-radius:28px;background:rgba(12,15,19,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.dial{width:150px;height:150px;touch-action:none;cursor:grab;border-radius:50%}
+.dial:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.dial .trk{fill:none;stroke:rgba(236,234,227,.14);stroke-width:10;stroke-linecap:round}
+.dial .val{fill:none;stroke:var(--mc,var(--primary));stroke-width:10;stroke-linecap:round;transition:stroke .4s}
+.dial .face{fill:#10141a;stroke:rgba(236,234,227,.12)}
+.dial .knob{fill:var(--ink);stroke:var(--bg);stroke-width:3}
+.dial text{fill:var(--ink);font-family:var(--wide);font-stretch:130%;font-weight:800;text-anchor:middle}
+.dial .sm{font-family:var(--mono);font-weight:400;font-size:9px;letter-spacing:.14em;fill:var(--muted)}
+.stat-read{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);line-height:1.9;min-width:150px}
+.stat-read b{display:block;font-family:var(--wide);font-stretch:130%;font-size:20px;letter-spacing:.02em;color:var(--mc,var(--primary));transition:color .4s}
+.stat-read small{display:block;font-size:11px;text-transform:none;letter-spacing:0;color:var(--muted);line-height:1.4;margin-top:4px}
+@media (max-width:719px){
+  .hero{padding:92px var(--gut) 96px}
+  .hero-caps div:first-child{display:none}.hero-caps{justify-content:flex-end}
+  .hero h1{margin-top:22vh;font-size:clamp(44px,13vw,80px)}
+  .stat{justify-self:stretch;grid-template-columns:auto 1fr}
+  .dial{width:120px;height:120px}
+  .stat-read{min-width:0}
+}
+@media (min-width:900px){.hero-foot{grid-template-columns:1fr auto}}
+
+/* chapters */
+.chapter{position:relative;min-height:155vh;padding:0 var(--gut)}
+.ch-sticky{position:sticky;top:0;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:110px 0 7vh}
+.ch-title{font-size:clamp(52px,12.5vw,220px);text-shadow:0 4px 60px rgba(0,0,0,.45);pointer-events:none}
+.ch-title .it{display:block;font-size:.26em;color:var(--muted);margin-bottom:.25em}
+.chapter.right .ch-title{text-align:right}
+.ch-body{max-width:450px;padding:22px 0}
+.chapter.right .ch-body{margin-left:auto}
+.ch-body .kicker{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ch-body .kicker::before{content:"";width:26px;height:2px;background:currentColor}
+.ch-body .lead{margin-bottom:12px}
+.ch-body .lead,.ch-body p.body{text-shadow:0 1px 14px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.6)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chips span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:rgba(12,15,19,.5)}
+blockquote.mini{margin-top:18px;padding-left:14px;border-left:2px solid var(--primary);font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.35}
+blockquote.mini cite{display:block;margin-top:6px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+@media (min-width:1100px){.chapter{padding-left:calc(var(--gut) + 150px)}}
+@media (max-width:719px){
+  .chapter{min-height:140vh}
+  .ch-sticky{padding:90px 0 80px}
+  .chapter.right .ch-title{text-align:left}
+  .ch-body,.chapter.right .ch-body{margin:0 calc(var(--gut) * -1);padding:60px var(--gut) 8px;background:linear-gradient(rgba(12,15,19,0),rgba(12,15,19,.9) 70px)}
+}
+/* heat pump switch */
+.seg{display:inline-flex;margin-top:18px;padding:4px;border-radius:999px;border:1px solid var(--line);background:rgba(12,15,19,.6)}
+.seg button{all:unset;cursor:pointer;padding:10px 18px;border-radius:999px;font-stretch:130%;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:background .3s,color .3s}
+.seg button[aria-pressed=true][data-pump=heat]{background:var(--primary);color:var(--on-primary)}
+.seg button[aria-pressed=true][data-pump=cool]{background:var(--accent);color:var(--on-accent)}
+.seg-note{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+/* on-call clock */
+.oncall{margin-top:20px;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(12,15,19,.7)}
+.oncall .t{font-stretch:140%;font-weight:850;font-size:clamp(34px,4vw,48px);line-height:1}
+.oncall .t small{font-size:.4em;margin-left:6px;color:var(--muted)}
+.oncall p{margin-top:8px;font-size:14px;color:var(--muted)}
+.oncall p b{color:var(--ink)}
+.oncall .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5fd38a;margin-right:8px;box-shadow:0 0 0 4px rgba(95,211,138,.18)}
+
+/* solid sections */
+.block{position:relative;background:var(--bg);padding:clamp(72px,11vw,140px) var(--gut)}
+.block.alt{background:var(--surface)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(36px,6vw,70px)}
+.sec-head h2{font-size:clamp(44px,9vw,140px)}
+.sec-head h2 .it{display:block;font-size:.34em;color:var(--primary);margin-top:.2em}
+
+/* about split */
+.about{display:grid;gap:clamp(28px,5vw,70px);align-items:center}
+.about .big{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3.4vw,46px);line-height:1.15}
+.about .big em{font-style:normal;font-family:var(--wide);font-stretch:140%;font-weight:800;font-size:.7em;text-transform:uppercase;color:var(--primary)}
+.about p.body{margin-top:18px}
+.about figure{position:relative;overflow:hidden;border-radius:6px}
+.about figure img{width:100%;aspect-ratio:5/4;object-fit:cover;transform:translateY(calc((var(--p,.5) - .5) * -40px)) scale(1.08)}
+figcaption{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(12,15,19,.8);padding:5px 8px;border-radius:3px}
+.creds{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:26px;border-top:1px solid var(--line)}
+.creds div{padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.creds b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+@media (min-width:900px){.about{grid-template-columns:1.1fr .9fr}}
+
+/* services as a work order */
+.svc{list-style:none;border-top:2px solid var(--ink);counter-reset:s}
+.svc li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);counter-increment:s}
+.svc li::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--primary);padding-top:4px}
+.svc h3{font-stretch:135%;font-weight:800;font-size:clamp(18px,2.4vw,28px);text-transform:uppercase;letter-spacing:-.005em;line-height:1.1}
+.svc p{color:var(--muted);font-size:15px;max-width:60ch;margin-top:4px}
+@media (min-width:900px){.svc li{grid-template-columns:80px minmax(0,1fr) minmax(0,1.1fr);align-items:baseline}.svc p{margin-top:0}}
+
+/* gallery with gentle depth */
+.gallery{display:grid;gap:12px;margin-top:clamp(50px,8vw,100px)}
+.shot{position:relative;overflow:hidden;border-radius:6px;background:#000}
+.shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transform:translateY(calc((var(--p,.5) - .5) * var(--d,30px))) scale(1.1)}
+@media (min-width:720px){
+  .gallery{grid-template-columns:repeat(12,1fr)}
+  .shot:nth-child(1){grid-column:span 7}.shot:nth-child(2){grid-column:span 5;margin-top:60px;--d:-40px}
+  .shot:nth-child(3){grid-column:span 4;--d:50px}.shot:nth-child(4){grid-column:span 4;margin-top:-40px}.shot:nth-child(5){grid-column:span 4;--d:-30px}
+  .shot:nth-child(6){grid-column:span 5}.shot:nth-child(7){grid-column:span 7;margin-top:-30px;--d:40px}
+}
+
+/* brand nameplate */
+.plate-wrap{display:grid;gap:28px;align-items:start}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands button{all:unset;cursor:pointer;padding:10px 14px;border:1px solid var(--line);border-radius:6px;font-stretch:120%;font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--muted);transition:border-color .25s,color .25s,background .25s}
+.brands button:hover{color:var(--ink);border-color:rgba(236,234,227,.4)}
+.brands button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.plate{position:relative;max-width:520px;padding:28px 30px;border-radius:8px;color:#15181c;background-color:#c9ced3;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 1px,rgba(0,0,0,.03) 1px 3px),linear-gradient(160deg,#dfe3e7,#b9c0c6 55%,#d3d8dc);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -2px 0 rgba(0,0,0,.18),0 30px 70px rgba(0,0,0,.5)}
+.plate::before,.plate::after{content:"";position:absolute;top:12px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#7d858c 70%);box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.plate::before{left:12px}.plate::after{right:12px}
+.plate .hd{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid #15181c;padding:0 8px 10px}
+.plate dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;padding:16px 8px 6px;font-family:var(--mono);font-size:12.5px}
+.plate dt{letter-spacing:.12em;text-transform:uppercase;color:#3b4249}
+.plate dd{font-weight:500}
+.plate .mk{font-family:var(--wide);font-stretch:140%;font-weight:850;font-size:clamp(22px,3vw,32px);text-transform:uppercase;line-height:1}
+.plate .stamp{display:inline-block;margin-top:2px;padding:4px 8px;border:2px solid #7f2905;color:#7f2905;border-radius:4px;font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;transform:rotate(-2deg)}
+@media (min-width:900px){.plate-wrap{grid-template-columns:1fr 1fr}}
+
+/* testimonials as service tickets */
+.tickets{display:grid;gap:22px}
+.ticket{position:relative;background:#efe9dc;color:#1d1a16;border-radius:4px;padding:26px 24px 24px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.ticket::before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:radial-gradient(circle at 6px 0,transparent 5px,#efe9dc 5.5px) 0 0/12px 12px repeat-x}
+.ticket .th{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px dashed #8d8577;padding-bottom:10px;margin-bottom:14px;color:#4a443b}
+.ticket .th b{color:#1d1a16}
+.ticket blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.9vw,23px);line-height:1.38}
+.ticket .tf{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin-top:18px;padding-top:12px;border-top:1px dashed #8d8577;font-family:var(--mono);font-size:11.5px}
+.ticket .tf dt{text-transform:uppercase;letter-spacing:.12em;color:#5a5348}
+.ticket .done{position:absolute;right:18px;bottom:18px;padding:5px 10px;border:2px solid #b3400f;color:#b3400f;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transform:rotate(-7deg);border-radius:4px}
+@media (min-width:900px){.tickets{grid-template-columns:1fr 1fr;align-items:start}.ticket:nth-child(1){transform:rotate(-1.2deg)}.ticket:nth-child(2){transform:rotate(1deg);margin-top:50px}}
+
+/* areas strip driven by scroll */
+.areas{overflow:hidden;padding:clamp(50px,8vw,90px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
+.areas .kicker{padding:0 var(--gut);margin-bottom:18px;display:block}
+.strip{display:flex;gap:.6em;white-space:nowrap;font-stretch:150%;font-weight:850;font-size:clamp(40px,8vw,120px);text-transform:uppercase;line-height:1;padding-left:var(--gut);transform:translateX(calc(var(--p,0) * -45%))}
+.strip span:nth-child(even){font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;color:var(--primary);font-size:.7em;align-self:center}
+
+/* contact */
+.contact{display:grid;gap:40px}
+.contact h2{font-size:clamp(48px,10vw,160px)}
+.contact h2 .it{display:block;font-size:.3em;color:var(--primary);margin-top:.2em}
+.contact .tel{display:inline-block;margin-top:24px;font-stretch:140%;font-weight:850;font-size:clamp(34px,6vw,76px);text-decoration:none;border-bottom:3px solid var(--primary);line-height:1.1}
+.contact .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.facts{display:grid;border-top:1px solid var(--line)}
+.facts div{padding:18px 0;border-bottom:1px solid var(--line)}
+.facts b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);margin-bottom:6px}
+.facts span,.facts a{color:var(--muted);font-size:15px}
+@media (min-width:900px){.contact{grid-template-columns:1.2fr 1fr;align-items:end}}
+.hiring{margin-top:clamp(50px,7vw,80px);padding:20px 22px;border:1px dashed rgba(236,234,227,.3);border-radius:10px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline;font-size:15px;color:var(--muted)}
+.hiring b{font-stretch:130%;text-transform:uppercase;letter-spacing:.06em;color:var(--ink)}
+footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var(--line);padding:26px var(--gut) 40px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#9aa0a8;line-height:1.7}
+footer a{color:var(--ink)}
+
+/* phone call bar */
+.callbar{display:none}
+@media (max-width:719px){
+  .callbar{position:fixed;left:10px;right:10px;bottom:10px;z-index:25;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 16px;border-radius:999px;background:rgba(21,26,33,.94);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .callbar span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .callbar span b{color:#5fd38a;font-weight:500}
+  footer{padding-bottom:90px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.js .reveal,html.js .lines .mask>span{opacity:1;transform:none;transition:none}
+  html.js .loader{display:none}
+  .chapter{min-height:0}.ch-sticky{position:static;min-height:0;padding:80px 0 40px}
+  .shot img,.about figure img{transform:none}
+  .strip{transform:none;flex-wrap:wrap;white-space:normal;padding-right:var(--gut)}
+}
+</style>
+</head>
+<body>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <div class="loader-num"><span id="ldn">58</span><small>°F</small></div>
+    <div class="loader-bar"><i id="ldb"></i></div>
+    <div class="loader-cap">Lighting the pilot</div>
+  </div>
+</div>
+<script>
+(function(){
+  var L=document.getElementById('loader');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){window.__ready=function(){};window.__glFail=function(){document.documentElement.classList.add('nogl')};return}
+  var n=0,ready=false,el=document.getElementById('ldn'),bar=document.getElementById('ldb');
+  function finish(){el.textContent=70;bar.style.width='100%';setTimeout(function(){L.classList.add('done')},250)}
+  var t=setInterval(function(){n+=ready?9:(n<80?3:(n<94?.4:0));if(n>=100){n=100;clearInterval(t);finish();return}el.textContent=Math.round(58+n*.12);bar.style.width=n+'%'},30);
+  window.__ready=function(){ready=true};
+  window.__glFail=function(){document.documentElement.classList.add('nogl');ready=true};
+  setTimeout(function(){if(!ready)window.__glFail()},6000);
+})();
+</script>
+
+<div class="preview">Concept redesign by Theo, not the official Washington Mechanical site. <a href="https://washington-mechanical.com/" rel="noopener">See their real site</a>. Highlighted items are placeholders to confirm.</div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Washington Mechanical Heating and Air Conditioning, home"><img src="img/logo.png" alt="Washington Mechanical Heating &amp; Air Conditioning" width="396" height="49"></a>
+  <nav class="nav-links" aria-label="Sections"><a href="#heat">Heating</a><a href="#cool">Cooling</a><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+  <a class="pill hot" href="tel:+14254991932">Call 24/7</a>
+</header>
+
+<ol class="rail" id="rail" aria-label="Chapters">
+  <li><a href="#heat" data-for="heat">01 Heat</a></li>
+  <li><a href="#cool" data-for="cool">02 Cool</a></li>
+  <li><a href="#pump" data-for="pump">03 Heat pump</a></li>
+  <li><a href="#water" data-for="water">04 Hot water</a></li>
+  <li><a href="#night" data-for="night">05 24/7</a></li>
+</ol>
+
+<main>
+  <section class="hero" id="top" data-cam="hero" data-mode="hero">
+    <div class="hero-caps">
+      <div>NATE certified technicians<br>Insured · bonded</div>
+      <div>Residential &amp; commercial<br>24/7 emergency service</div>
+    </div>
+    <h1 class="wide">Your<br>first call<span class="it">for furnace repair and A/C that quit, any make or model, day or night</span></h1>
+    <div class="hero-foot">
+      <div class="callbox">
+        <span class="kicker">Free estimate · 24/7 emergency</span>
+        <a class="num" href="tel:+14254991932">425-499-1932</a>
+        <div class="row"><a class="pill hot" href="tel:+14254991932">Call now</a><a class="pill" href="#services">What we fix</a></div>
+      </div>
+      <div class="stat" id="stat">
+        <svg class="dial" id="dial" viewBox="0 0 220 220" role="slider" tabindex="0" aria-label="Set the thermostat" aria-valuemin="60" aria-valuemax="80" aria-valuenow="70" aria-valuetext="70 degrees">
+          <circle class="face" cx="110" cy="110" r="70"/>
+          <path class="trk" d="M47.8 172.2 A88 88 0 1 1 172.2 172.2" pathLength="100"/>
+          <path class="val" id="dval" d="M47.8 172.2 A88 88 0 1 1 172.2 172.2" pathLength="100" stroke-dasharray="50 100"/>
+          <circle class="knob" id="dknob" cx="110" cy="22" r="11"/>
+          <text x="110" y="122" font-size="44" id="dset">70°</text>
+          <text x="110" y="146" class="sm">SET</text>
+        </svg>
+        <div class="stat-read" aria-live="polite">
+          Inside <span id="sin">64°</span>
+          <b id="smode">Heating</b>
+          <small>Turn the dial (or use arrow keys). The house below follows.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="heat" data-cam="heat" data-mode="heat">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter one · the basement</span>Heat</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">01 Furnace repair &amp; maintenance</div>
+        <p class="lead">Furnace not working? We fix any make or model.</p>
+        <p class="body">All of our trained technicians are able to handle furnace repair and maintenance on any make or model. Whatever type or size of heating system you have, we fix the problem and get you up and running again in no time. Gas furnaces, repairs, upgrades and full replacements.</p>
+        <blockquote class="mini">He recently helped us with a new furnace and A/C unit and gave us a great price.<cite>Rose J.</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="cool" data-cam="cool" data-mode="cool">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter two · out back</span>Cool</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">02 Air conditioning</div>
+        <p class="lead">Air conditioner not working? Washington Mechanical should be your first call.</p>
+        <p class="body">A/C repair, maintenance and new installs, from a filter change to a full system. Watch the condenser: when the house cools, the heat goes out the top.</p>
+        <div class="chips"><span>A/C repair</span><span>New A/C units</span><span>Maintenance</span><span>Filters</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter right" id="pump" data-cam="pump" data-mode="pump">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter three · both ways</span>Heat<br>pump</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">03 Heat pumps &amp; ductless</div>
+        <p class="lead">One system, heat and A/C.</p>
+        <p class="body">Washington Mechanical is a American Standard &amp; Mitsubishi Electric Diamond Contractor. A heat pump moves heat in during winter and out during summer, through a line set to a quiet head on the wall.</p>
+        <div class="seg" role="group" aria-label="Heat pump mode">
+          <button type="button" data-pump="heat" aria-pressed="true">Winter: heat</button>
+          <button type="button" data-pump="cool" aria-pressed="false">Summer: cool</button>
+        </div>
+        <span class="seg-note">Flip it and watch which way the heat goes.</span>
+        <blockquote class="mini">With our consistently hot summers we broke down and decided to purchase a Heat Pump (AC &amp; Heat) for our home.<cite>Gabriel O. · Mill Creek, WA</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="water" data-cam="water" data-mode="water">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter four · next to the furnace</span>Hot<br>water</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">04 Hot water tanks</div>
+        <p class="lead">Hot water tank installs.</p>
+        <p class="body">When the tank gives out, the morning shower goes with it. We install hot water tanks alongside the furnace and A/C work, so one call covers the whole basement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter right" id="night" data-cam="night" data-mode="night">
+    <div class="ch-sticky">
+      <h2 class="ch-title wide reveal"><span class="it">Chapter five · any hour</span>24/7</h2>
+      <div class="ch-body reveal">
+        <div class="kicker">05 Emergency service</div>
+        <p class="lead">24/7 emergency service available!</p>
+        <p class="body">Furnace not working? Call us anytime, 24 hours a day, 7 days a week for Emergency Service. We have on call technicians and customer service reps available to help you.</p>
+        <div class="oncall">
+          <div class="t" id="clock">--:--<small>Seattle</small></div>
+          <p><span class="dot"></span><b>Someone's on call right now.</b> For Emergency Service Call: <a href="tel:+14254991932">425-499-1932</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about" data-cam="end" data-mode="end">
+    <div class="about">
+      <div>
+        <div class="kicker reveal">About Washington Mechanical</div>
+        <p class="big reveal" style="margin-top:16px">Every service call we take or installation that we perform is <em>more than a number to us.</em> It's an opportunity to build a long-term relationship with you.</p>
+        <p class="body reveal">Family-owned and serving homes and businesses across Seattle and the Eastside. Maintaining that relationship means anticipating problems and providing proactive solutions. Customer satisfaction is our #1 priority, and we make your needs our own.</p>
+        <div class="creds reveal">
+          <div><b>NATE certified</b>Repair technicians</div>
+          <div><b>Factory authorized</b>American Standard, York, Payne, Mitsubishi, LG</div>
+          <div><b>Diamond Contractor</b>American Standard &amp; Mitsubishi Electric</div>
+          <div><b>Insured &amp; bonded</b>License # <span class="ph">WA contractor #</span></div>
+        </div>
+      </div>
+      <figure class="reveal" data-p><img src="img/tech.jpg" alt="Washington Mechanical technician servicing an outdoor unit" width="1000" height="795"><figcaption>On a service call</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block alt" id="services">
+    <div class="sec-head">
+      <div class="kicker">Services · work order</div>
+      <h2 class="wide lines reveal"><span class="mask"><span>What we</span></span><span class="mask"><span>fix &amp; install</span></span><span class="it">heating, air conditioning, maintenance and sales</span></h2>
+    </div>
+    <ol class="svc">
+      <li class="reveal"><h3>Furnace repair</h3><p>Gas furnace repair and maintenance on any make or model, with on-call technicians for no-heat nights.</p></li>
+      <li class="reveal"><h3>Air conditioning</h3><p>A/C repair, tune-ups and new units for homes that can't take another hot summer.</p></li>
+      <li class="reveal"><h3>Heat pumps &amp; ductless</h3><p>Heat and A/C in one system. American Standard &amp; Mitsubishi Electric Diamond Contractor.</p></li>
+      <li class="reveal"><h3>New systems &amp; upgrades</h3><p>Replacing and upgrading furnaces and air conditioners to make your home as comfortable, efficient and healthy as possible.</p></li>
+      <li class="reveal"><h3>Hot water tanks</h3><p>Hot water tank installs, handled by the same crew that knows your furnace.</p></li>
+      <li class="reveal"><h3>Commercial HVAC</h3><p>Servicing, upgrades and repairs for small homes or large commercial spaces.</p></li>
+    </ol>
+    <div class="gallery">
+      <figure class="shot reveal" data-p><img src="img/basement.jpg" alt="New furnace and water heater installed in a basement" width="800" height="600"><figcaption>Furnace + water heater</figcaption></figure>
+      <figure class="shot reveal" data-p><img src="img/condenser.jpg" alt="Outdoor A/C condenser beside a house" width="1200" height="1600"><figcaption>Outdoor unit</figcaption></figure>
+      <figure class="shot reveal" data-p><img src="img/attic.jpg" alt="Air handler and ductwork installed in an attic" width="700" height="525"><figcaption>Attic install</figcaption></figure>
+      <figure class="shot reveal" data-p><img src="img/lineset.jpg" alt="Line set cover running up a home's siding" width="1600" height="1200"><figcaption>Line set cover</figcaption></figure>
+      <figure class="shot reveal" data-p><img src="img/crew.jpg" alt="Installer working on a job site" width="960" height="720"><figcaption>On the job</figcaption></figure>
+      <figure class="shot reveal" data-p><img src="img/condenser2.jpg" alt="A/C condenser on a pad next to a brick wall" width="1280" height="960"><figcaption>Condenser on its pad</figcaption></figure>
+      <figure class="shot reveal" data-p><img src="img/tech.jpg" alt="Technician checking refrigerant on a unit" width="1000" height="795"><figcaption>NATE certified tech</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block" id="brands">
+    <div class="sec-head">
+      <div class="kicker">Brands</div>
+      <h2 class="wide lines reveal"><span class="mask"><span>Do you work</span></span><span class="mask"><span>on mine?</span></span><span class="it">tap the name on your furnace or A/C</span></h2>
+    </div>
+    <div class="plate-wrap">
+      <div class="brands" role="group" aria-label="Pick your equipment brand" id="brandBtns"></div>
+      <div class="plate reveal" aria-live="polite">
+        <div class="hd"><span>Washington Mechanical</span><span>Service plate</span></div>
+        <dl>
+          <dt>Make</dt><dd class="mk" id="pMake">American Standard</dd>
+          <dt>Service</dt><dd id="pSvc">Yes. Repair, maintenance and installs.</dd>
+          <dt>Status</dt><dd id="pStat"><span class="stamp">Factory authorized dealer</span></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="reviews">
+    <div class="sec-head">
+      <div class="kicker">Reviews</div>
+      <h2 class="wide lines reveal"><span class="mask"><span>Two thumbs</span></span><span class="mask"><span>up</span></span></h2>
+    </div>
+    <div class="tickets">
+      <article class="ticket reveal">
+        <div class="th"><span>Service ticket</span><b>New furnace + A/C</b></div>
+        <blockquote>Wyatt is absolutely amazing to work with and does an incredible job! He's quick to respond, super easy to talk with, he's honest, reliable, reasonably priced, and knowledgeable. He recently helped us with a new furnace and A/C unit and gave us a great price. I would highly recommend him to anyone who needs help with their heating/cooling systems. Thanks, Wyatt… two thumbs-up!!</blockquote>
+        <dl class="tf"><dt>Customer</dt><dd>Rose J.</dd><dt>Job</dt><dd>New furnace &amp; A/C unit</dd></dl>
+        <span class="done">Job complete</span>
+      </article>
+      <article class="ticket reveal">
+        <div class="th"><span>Service ticket</span><b>Heat pump install</b></div>
+        <blockquote>With our consistently hot summers we broke down and decided to purchase a Heat Pump (AC &amp; Heat) for our home. After much research we decided Washington Mechanical was the right company for the job. They did an amazing job and can't be happier with the installation. These guys are true professionals. Highly recommended.</blockquote>
+        <dl class="tf"><dt>Customer</dt><dd>Gabriel O.</dd><dt>Location</dt><dd>Mill Creek, WA</dd></dl>
+        <span class="done">Job complete</span>
+      </article>
+    </div>
+  </section>
+
+  <div class="areas" id="areas" data-p>
+    <span class="kicker">You'll often see our vehicles in</span>
+    <div class="strip" aria-label="Mountlake Terrace, Redmond, Bellevue, Kirkland, Woodinville, Edmonds and Seattle">
+      <span>Mountlake Terrace</span><span>&amp;</span><span>Redmond</span><span>&amp;</span><span>Bellevue</span><span>&amp;</span><span>Kirkland</span><span>&amp;</span><span>Woodinville</span><span>&amp;</span><span>Edmonds</span><span>&amp;</span><span>Seattle</span>
+    </div>
+  </div>
+
+  <section class="block" id="contact">
+    <div class="contact">
+      <div>
+        <div class="kicker reveal">Contact · hours · location</div>
+        <h2 class="wide lines reveal" style="margin-top:16px"><span class="mask"><span>Call today</span></span><span class="it">for a free estimate</span></h2>
+        <a class="tel reveal" href="tel:+14254991932">425-499-1932</a>
+        <div class="row reveal"><a class="pill hot" href="tel:+14254991932">Call for a free estimate</a><a class="pill" href="https://www.facebook.com/Washington-Mechanical-Heating-and-AC-102634886746873/" rel="noopener">Facebook</a></div>
+      </div>
+      <div class="facts">
+        <div class="reveal"><b>Emergency service</b><span>24 hours a day, 7 days a week. Office hours: <span class="ph">Mon–Fri ?</span></span></div>
+        <div class="reveal"><b>Address</b><a href="https://www.google.com/maps/search/?api=1&amp;query=44537+SE+148th+Street+North+Bend+WA+98045" rel="noopener">44537 SE 148th Street, North Bend WA 98045 · open in Maps</a></div>
+        <div class="reveal"><b>Email</b><span><span class="ph">email for estimates</span></span></div>
+      </div>
+    </div>
+    <div class="hiring reveal"><b>Now hiring</b> Sales Consultants and Installers (Full-Time) in the Seattle area. Inquire at <a href="tel:+14252138642">425-213-8642</a> or <a href="mailto:wyattwithabow@gmail.com">wyattwithabow@gmail.com</a>.</div>
+  </section>
+</main>
+<footer>
+  <span>© 2026 Washington Mechanical - Heating &amp; Air Conditioning · 44537 SE 148th Street, North Bend WA 98045</span>
+  <span>Concept redesign by Theo, not the official Washington Mechanical site (<a href="https://washington-mechanical.com/" rel="noopener">real site</a>). Photos from washington-mechanical.com.</span>
+</footer>
+<div class="callbar"><span><b>●</b> On call 24/7</span><a class="pill hot" href="tel:+14254991932">Call 425-499-1932</a></div>
+
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}
+</script>
+<script>
+/* page UI (works without WebGL) */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav=document.getElementById('nav'),banner=document.querySelector('.preview');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // one shared scroll loop: nav, rail, and --p (0..1) per [data-p]
+  var rail=document.getElementById('rail'),links=rail.querySelectorAll('a');
+  var secs=['heat','cool','pump','water','night'].map(function(id){return document.getElementById(id)});
+  var ps=[].slice.call(document.querySelectorAll('[data-p]')),ticking=false;
+  function tick(){
+    ticking=false;var b=banner.offsetHeight,h=innerHeight;
+    nav.style.top=Math.max(0,b-scrollY)+'px';nav.classList.toggle('scrolled',scrollY>b+20);
+    var cur=null;secs.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=h*.5&&r.bottom>h*.5)cur=s.id});
+    links.forEach(function(a){a.classList.toggle('on',a.dataset.for===cur)});rail.classList.toggle('hide',!cur);
+    if(!reduce)ps.forEach(function(el){var r=el.getBoundingClientRect();if(r.bottom<0||r.top>h)return;el.style.setProperty('--p',Math.min(1,Math.max(0,(h-r.top)/(h+r.height))).toFixed(3))});
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(tick)}}
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);tick();
+
+  // thermostat dial
+  window.WM={mode:'heat',pump:'heat'};
+  var set=70,inside=64,dial=document.getElementById('dial'),knob=document.getElementById('dknob'),val=document.getElementById('dval'),
+      tSet=document.getElementById('dset'),tIn=document.getElementById('sin'),tMode=document.getElementById('smode'),stat=document.getElementById('stat');
+  function render(){
+    var a=(-135+(set-60)/20*270)*Math.PI/180;
+    knob.setAttribute('cx',(110+88*Math.sin(a)).toFixed(1));knob.setAttribute('cy',(110-88*Math.cos(a)).toFixed(1));
+    val.setAttribute('stroke-dasharray',((set-60)/20*100).toFixed(1)+' 100');
+    tSet.textContent=set+'°';tIn.textContent=Math.round(inside)+'°';
+    dial.setAttribute('aria-valuenow',set);dial.setAttribute('aria-valuetext',set+' degrees');
+    var m=set>inside+.4?'heat':set<inside-.4?'cool':'idle';WM.mode=m;
+    tMode.textContent=m==='heat'?'Heating':m==='cool'?'Cooling':'Holding '+set+'°';
+    stat.style.setProperty('--mc',m==='cool'?'var(--accent)':m==='heat'?'var(--primary)':'var(--ink)');
+  }
+  function fromPointer(e){var r=dial.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+    var a=Math.atan2(dx,-dy)*180/Math.PI;a=Math.max(-135,Math.min(135,a));set=Math.round(60+(a+135)/270*20);render()}
+  dial.addEventListener('pointerdown',function(e){dial.setPointerCapture(e.pointerId);fromPointer(e)});
+  dial.addEventListener('pointermove',function(e){if(dial.hasPointerCapture(e.pointerId))fromPointer(e)});
+  dial.addEventListener('keydown',function(e){var k=e.key;if(k==='ArrowUp'||k==='ArrowRight')set=Math.min(80,set+1);else if(k==='ArrowDown'||k==='ArrowLeft')set=Math.max(60,set-1);else return;e.preventDefault();render()});
+  setInterval(function(){if(document.hidden)return;if(Math.abs(set-inside)>.3){inside+=set>inside?.5:-.5;render()}},700);
+  render();
+
+  // heat pump switch
+  document.querySelectorAll('[data-pump]').forEach(function(b){b.addEventListener('click',function(){WM.pump=b.dataset.pump;
+    document.querySelectorAll('[data-pump]').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
+
+  // on-call clock (Seattle time)
+  var clock=document.getElementById('clock');
+  function clk(){clock.firstChild.nodeValue=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/Los_Angeles'})}
+  clk();setInterval(clk,15000);
+
+  // brand nameplate
+  var AUTH=['American Standard','York','Payne','Mitsubishi Electric','LG'],DIAMOND=['American Standard','Mitsubishi Electric'];
+  var LIST=['American Standard','Mitsubishi Electric','Carrier','Trane','Lennox','Rheem','Bryant','York','Payne','LG','Tempstar','Honeywell','Navien','Something else'];
+  var wrap=document.getElementById('brandBtns'),pm=document.getElementById('pMake'),psv=document.getElementById('pSvc'),pst=document.getElementById('pStat');
+  LIST.forEach(function(n,i){var b=document.createElement('button');b.type='button';b.textContent=n;b.setAttribute('aria-pressed',i===0);
+    b.addEventListener('click',function(){wrap.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});pick(n)});wrap.appendChild(b)});
+  function pick(n){
+    pm.textContent=n==='Something else'?'Any make or model':n;
+    psv.textContent=n==='Something else'?'All of our trained technicians are able to handle furnace repair and maintenance on any make or model.':'Yes. Repair, maintenance and installs.';
+    var s=[];if(AUTH.indexOf(n)>-1)s.push('Factory authorized dealer');if(DIAMOND.indexOf(n)>-1)s.push('Diamond Contractor');
+    pst.innerHTML=s.length?s.map(function(x){return '<span class="stamp">'+x+'</span>'}).join(' '):'<span class="stamp">We service it</span>';
+  }
+  pick('American Standard');
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+function glOk() { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } }
+if (glOk()) start(); else window.__glFail();
+function start() {
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const mobile = () => innerWidth < 720;
+const canvas = document.getElementById('gl');
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+catch (e) { window.__glFail(); return; }
+renderer.setPixelRatio(Math.min(devicePixelRatio, mobile() ? 1.6 : 2));
+renderer.setSize(innerWidth, innerHeight, false);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.7;
+const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 140);
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+
+/* lights */
+const hemi = new THREE.HemisphereLight(0xbfd6ff, 0x1a120c, 0.45); scene.add(hemi);
+const key = new THREE.DirectionalLight(0xfff0dc, 2.4); key.position.set(6, 10, 8); scene.add(key);
+const rim = new THREE.DirectionalLight(0x7fb8ff, 1.5); rim.position.set(-8, 5, -7); scene.add(rim);
+const fireLight = new THREE.PointLight(0xff7a30, 0, 4, 2); fireLight.position.set(-1.9, -1.5, -0.6); scene.add(fireLight);
+const lamp = new THREE.PointLight(0xffc27a, 0, 7, 1.6); lamp.position.set(-0.8, 1.9, 0.2); scene.add(lamp);
+const tankLight = new THREE.PointLight(0xff5a20, 0, 2.5, 2); tankLight.position.set(-0.5, -1.2, -0.9); scene.add(tankLight);
+
+/* materials */
+function stripes(base, line, step, vertical) {
+  const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d');
+  g.fillStyle = base; g.fillRect(0, 0, 128, 128); g.fillStyle = line;
+  for (let i = 0; i < 128; i += step) vertical ? g.fillRect(i, 0, 1.5, 128) : g.fillRect(0, i, 128, 1.5);
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const wallMat = new THREE.MeshStandardMaterial({ color: 0x262c34, roughness: 0.92 });
+const concrete = new THREE.MeshStandardMaterial({ color: 0x1c1f23, roughness: 0.95 });
+const earth = new THREE.MeshStandardMaterial({ color: 0x17120e, roughness: 1 });
+const floorTex = stripes('#3a2c20', 'rgba(0,0,0,.35)', 16, true); floorTex.repeat.set(3, 1);
+const floorMat = new THREE.MeshStandardMaterial({ map: floorTex, roughness: 0.7 });
+const sidingTex = stripes('#2d343c', 'rgba(0,0,0,.4)', 12, false); sidingTex.repeat.set(1, 3);
+const siding = new THREE.MeshStandardMaterial({ map: sidingTex, roughness: 0.85 });
+const duct = new THREE.MeshPhysicalMaterial({ color: 0xb8c0c7, metalness: 1, roughness: 0.36 });
+const enamel = new THREE.MeshStandardMaterial({ color: 0xd8d5cd, roughness: 0.45, metalness: 0.15 });
+const louverTex = stripes('#cfccc4', 'rgba(20,20,20,.55)', 6, false); louverTex.repeat.set(1, 2);
+const louver = new THREE.MeshStandardMaterial({ map: louverTex, roughness: 0.5, metalness: 0.2 });
+const dark = new THREE.MeshStandardMaterial({ color: 0x0e1114, roughness: 0.7 });
+const copper = new THREE.MeshPhysicalMaterial({ color: 0xc7814f, metalness: 1, roughness: 0.3 });
+const white = new THREE.MeshStandardMaterial({ color: 0xefeee9, roughness: 0.35 });
+const flame = new THREE.MeshStandardMaterial({ color: 0x220a02, emissive: 0xff6a1a, emissiveIntensity: 0 });
+const pane = new THREE.MeshStandardMaterial({ color: 0x0b0f14, emissive: 0x9ec9e6, emissiveIntensity: 0.45, roughness: 0.2 });
+const screen = new THREE.MeshStandardMaterial({ color: 0x050505, emissive: 0xf26b2a, emissiveIntensity: 1.2 });
+const tankBand = new THREE.MeshStandardMaterial({ color: 0x301008, emissive: 0xff5a20, emissiveIntensity: 0 });
+const sofaMat = new THREE.MeshStandardMaterial({ color: 0x3c4a57, roughness: 0.9 });
+
+/* ---------- the house section ---------- */
+const H = 2.4, B = 2.0, X0 = -3, X1 = 3, Z0 = -2, Z1 = 2;
+const house = new THREE.Group(); scene.add(house);
+const box = (w, h, d, m, x, y, z) => { const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); o.position.set(x, y, z); house.add(o); return o; };
+box(6.2, 0.2, 4.2, floorMat, 0, -0.1, 0);                    // main floor
+box(6.2, 0.15, 4.2, concrete, 0, -B - 0.075, 0);             // basement slab
+box(6.2, H + B, 0.2, wallMat, 0, (H - B) / 2, Z0 - 0.1);     // back wall
+box(0.2, H + B, 4.2, wallMat, X0 - 0.1, (H - B) / 2, 0);     // left wall
+box(6.2, B, 0.02, concrete, 0, -B / 2, Z0 + 0.01);           // basement wall skin
+box(0.2, H, 4.2, siding, X1 + 0.1, H / 2, 0);                // right wall (room)
+box(0.2, B, 4.2, concrete, X1 + 0.1, -B / 2, 0);             // right wall (basement)
+box(2.6, B, 4.2, earth, X1 + 1.5, -B / 2, 0);                // soil outside
+box(2.6, 0.06, 4.2, new THREE.MeshStandardMaterial({ color: 0x1f2a1c, roughness: 1 }), X1 + 1.5, 0.03, 0); // lawn
+box(6.4, 0.08, 0.3, dark, 0, H + 0.04, Z0 - 0.1); box(0.3, 0.08, 4.4, dark, X0 - 0.1, H + 0.04, 0); box(0.3, 0.08, 4.4, dark, X1 + 0.1, H + 0.04, 0);
+// window + thermostat + sofa
+box(1.1, 1.1, 0.06, dark, -1.7, 1.45, Z0 + 0.02); box(0.98, 0.98, 0.02, pane, -1.7, 1.45, Z0 + 0.06); box(0.04, 0.98, 0.03, dark, -1.7, 1.45, Z0 + 0.08);
+box(0.24, 0.32, 0.05, white, 0.4, 1.4, Z0 + 0.03); box(0.16, 0.12, 0.01, screen, 0.4, 1.45, Z0 + 0.06);
+box(1.8, 0.42, 0.8, sofaMat, -0.9, 0.21, -1.4); box(1.8, 0.5, 0.18, sofaMat, -0.9, 0.55, -1.72);
+box(2.2, 0.01, 1.4, new THREE.MeshStandardMaterial({ color: 0x5a3a2a, roughness: 1 }), -0.6, 0.006, -0.3);
+// floor register
+box(0.5, 0.01, 0.26, dark, 0.95, 0.006, -1.3);
+for (let i = 0; i < 6; i++) box(0.48, 0.015, 0.015, duct, 0.95, 0.012, -1.41 + i * 0.044);
+
+// basement: furnace
+box(0.8, 1.4, 0.75, enamel, -1.9, -B + 0.7, -1.3);
+box(0.82, 0.02, 0.77, dark, -1.9, -B + 0.9, -1.3);
+box(0.32, 0.14, 0.02, flame, -1.9, -B + 0.45, -0.92);
+box(0.5, 0.03, 0.01, dark, -1.9, -B + 1.1, -0.92); box(0.5, 0.03, 0.01, dark, -1.9, -B + 1.2, -0.92);
+box(0.86, 0.36, 0.8, duct, -1.9, -0.42, -1.3);                // plenum
+box(2.9, 0.3, 0.46, duct, -0.5, -0.42, -1.3);                 // trunk
+box(0.46, 0.4, 0.3, duct, 0.95, -0.2, -1.3);                  // riser to register
+for (let i = 0; i < 5; i++) box(0.02, 0.32, 0.48, dark, -1.5 + i * 0.6, -0.42, -1.3); // duct joints
+// return drop
+box(0.5, 1.5, 0.4, duct, -2.6, -0.95, -1.3);
+// water heater
+const tank = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 1.3, 40), white); tank.position.set(-0.5, -B + 0.65, -1.45); house.add(tank);
+const band = new THREE.Mesh(new THREE.CylinderGeometry(0.325, 0.325, 0.06, 40), tankBand); band.position.set(-0.5, -B + 0.22, -1.45); house.add(band);
+const tTop = new THREE.Mesh(new THREE.CylinderGeometry(0.33, 0.33, 0.04, 40), duct); tTop.position.set(-0.5, -B + 1.32, -1.45); house.add(tTop);
+const flue = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.4, 16), duct); flue.position.set(-0.5, -B + 1.52, -1.45); house.add(flue);
+
+// outside: condenser on its pad
+const CX = 4.4, CZ = 0.4;
+box(1.3, 0.1, 1.3, concrete, CX, 0.11, CZ);
+box(0.95, 0.85, 0.95, louver, CX, 0.585, CZ);
+box(1.0, 0.06, 1.0, enamel, CX, 1.04, CZ);
+const fan = new THREE.Group(); fan.position.set(CX, 1.08, CZ); house.add(fan);
+for (let i = 0; i < 3; i++) { const bl = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.015, 0.12), dark); bl.position.x = 0.2; const arm = new THREE.Group(); arm.rotation.y = i * Math.PI * 2 / 3; bl.rotation.x = 0.35; arm.add(bl); fan.add(arm); }
+const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.05, 20), dark); hub.position.set(CX, 1.1, CZ); house.add(hub);
+for (let r = 0.12; r < 0.46; r += 0.08) { const ring = new THREE.Mesh(new THREE.TorusGeometry(r, 0.006, 6, 60), dark); ring.rotation.x = Math.PI / 2; ring.position.set(CX, 1.13, CZ); house.add(ring); }
+// line set: copper from the condenser into a cover up the siding, through to the wall head
+[-0.05, 0.05].forEach(o => {
+  const curve = new THREE.CatmullRomCurve3([V(CX - 0.48, 0.35, CZ + o), V(3.6, 0.35, CZ + o), V(3.32, 0.4, CZ + o)]);
+  house.add(new THREE.Mesh(new THREE.TubeGeometry(curve, 20, 0.025, 8), copper));
+});
+box(0.14, 1.65, 0.2, enamel, X1 + 0.27, 1.2, CZ); box(0.2, 0.18, 0.24, enamel, X1 + 0.27, 2.0, CZ);
+// ductless wall head (inside, right wall)
+const head = box(0.26, 0.32, 1.15, white, X1 - 0.13, 1.95, CZ);
+box(0.04, 0.04, 1.05, white, X1 - 0.27, 1.78, CZ).rotation.z = 0.5;
+const led = box(0.01, 0.025, 0.05, screen, X1 - 0.265, 1.9, CZ + 0.45);
+
+/* floor shadow + rings */
+function radial(a, b) { const c = document.createElement('canvas'); c.width = c.height = 256; const g = c.getContext('2d'); const gr = g.createRadialGradient(128, 128, 0, 128, 128, 128); gr.addColorStop(0, a); gr.addColorStop(1, b); g.fillStyle = gr; g.fillRect(0, 0, 256, 256); return new THREE.CanvasTexture(c); }
+const shadow = new THREE.Mesh(new THREE.PlaneGeometry(13, 13), new THREE.MeshBasicMaterial({ map: radial('rgba(0,0,0,.8)', 'rgba(0,0,0,0)'), transparent: true, depthWrite: false }));
+shadow.rotation.x = -Math.PI / 2; shadow.position.set(0.6, -B - 0.2, 0); scene.add(shadow);
+const ringMat = new THREE.MeshBasicMaterial({ color: 0xf26b2a, transparent: true, opacity: 0.35, side: THREE.DoubleSide, depthWrite: false });
+const ring1 = new THREE.Mesh(new THREE.RingGeometry(5.6, 5.63, 160), ringMat); ring1.rotation.x = -Math.PI / 2; ring1.position.set(0.6, -B - 0.18, 0); scene.add(ring1);
+const ticks = new THREE.Group(); ticks.position.set(0.6, -B - 0.18, 0); scene.add(ticks);
+for (let i = 0; i < 60; i++) { const a = i / 60 * Math.PI * 2; const t = new THREE.Mesh(new THREE.PlaneGeometry(0.016, i % 5 ? 0.12 : 0.32), ringMat); t.rotation.x = -Math.PI / 2; t.rotation.z = -a; t.position.set(Math.sin(a) * 5.85, 0, Math.cos(a) * 5.85); ticks.add(t); }
+house.position.x = -0.6;
+
+/* ---------- airflow: supply air from the register, the wall head, and the condenser ---------- */
+const off = V(-0.6, 0, 0);
+const curves = [
+  [V(0.95, 0.02, -1.3), V(0.95, 0.8, -1.15), V(0.4, 1.6, -0.5), V(-0.6, 2.0, 0.3), V(-1.9, 1.5, 1.1)],
+  [V(2.74, 1.8, CZ), V(2.0, 1.45, CZ + 0.05), V(0.9, 1.05, CZ + 0.3), V(-0.4, 0.75, CZ + 0.7)],
+  [V(CX, 1.15, CZ), V(CX, 1.9, CZ), V(CX + 0.15, 2.9, CZ - 0.1), V(CX + 0.4, 3.9, CZ - 0.3)],
+].map(pts => new THREE.CatmullRomCurve3(pts.map(p => p.add(off))));
+function dotTex() { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, 'rgba(255,255,255,1)'); gr.addColorStop(.3, 'rgba(255,255,255,.55)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); }
+const PN = mobile() ? 330 : 600;
+const aPos = new Float32Array(PN * 3), aCol = new Float32Array(PN * 3), pc = new Uint8Array(PN), pt = new Float32Array(PN), psp = new Float32Array(PN), pj = new Float32Array(PN * 3);
+for (let i = 0; i < PN; i++) { pc[i] = i % 3; pt[i] = Math.random(); psp[i] = 0.12 + Math.random() * 0.14; pj[i * 3] = Math.random() * 2 - 1; pj[i * 3 + 1] = Math.random() * 2 - 1; pj[i * 3 + 2] = Math.random() * 2 - 1; }
+const aGeo = new THREE.BufferGeometry(); aGeo.setAttribute('position', new THREE.BufferAttribute(aPos, 3)); aGeo.setAttribute('color', new THREE.BufferAttribute(aCol, 3));
+const air = new THREE.Points(aGeo, new THREE.PointsMaterial({ map: dotTex(), size: 0.11, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+air.frustumCulled = false; scene.add(air);
+
+/* ---------- chapter states ---------- */
+const HOT = new THREE.Color(0xff7a3d), COLD = new THREE.Color(0x6cc6ff), NEU = new THREE.Color(0xbfc6cc);
+function stateFor(name) {
+  const s = { act: [0, 0, 0], col: [HOT, COLD, HOT], flame: 0, fan: 0, tank: 0, night: 0 };
+  let m = name;
+  if (name === 'hero') m = window.WM.mode === 'heat' ? 'heat' : window.WM.mode === 'cool' ? 'cool' : 'idle';
+  if (m === 'heat') { s.act = [1, 0, 0]; s.flame = 1; }
+  if (m === 'cool') { s.act = [0, 1, 1]; s.fan = 1; }
+  if (m === 'idle') { s.act = [0.15, 0, 0]; s.col = [NEU, NEU, NEU]; }
+  if (m === 'pump') { s.act = [0, 1, 1]; s.fan = 1; s.col = window.WM.pump === 'heat' ? [HOT, HOT, COLD] : [HOT, COLD, HOT]; }
+  if (m === 'water') { s.act = [0.2, 0, 0]; s.tank = 1; s.flame = 0.4; }
+  if (m === 'night') { s.act = [1, 0, 0]; s.flame = 1; s.night = 1; }
+  if (m === 'end') { s.act = [0.5, 0.4, 0.4]; s.fan = 0.5; s.flame = 0.5; s.col = [HOT, COLD, HOT]; }
+  return s;
+}
+const cur = { act: [0, 0, 0], col: [HOT.clone(), COLD.clone(), HOT.clone()], flame: 0, fan: 0, tank: 0, night: 0 };
+
+/* ---------- camera poses per section ---------- */
+const P = (x, y, z) => ({ tx: x - 0.6, ty: y, tz: z });
+const KEYS = {
+  hero:  { az: 0.5, el: 0.2, dist: 19, ...P(0.8, 0.0, 0), sx: 0, sy: -0.14 },
+  heat:  { az: 0.32, el: 0.18, dist: 8.5, ...P(-1.3, -1.0, -1.2), sx: 0.16, sy: 0.02 },
+  cool:  { az: 1.05, el: 0.32, dist: 8, ...P(4.2, 0.8, 0.4), sx: 0.16, sy: 0.02 },
+  pump:  { az: -0.55, el: 0.16, dist: 9, ...P(2.3, 1.5, 0.4), sx: -0.16, sy: 0.02 },
+  water: { az: 0.05, el: 0.1, dist: 7, ...P(-0.6, -1.2, -1.3), sx: 0.16, sy: 0.02 },
+  night: { az: -0.3, el: 0.3, dist: 17, ...P(0.8, 0.2, 0), sx: -0.17, sy: 0.02 },
+  end:   { az: 0.95, el: 0.5, dist: 27, ...P(0.8, 0, 0), sx: 0, sy: 0.05 },
+};
+const FIELDS = ['az', 'el', 'dist', 'tx', 'ty', 'tz', 'sx', 'sy'];
+const camSecs = [...document.querySelectorAll('[data-cam]')];
+const modeSecs = [...document.querySelectorAll('[data-mode]')];
+let anchors = [];
+function measure() {
+  anchors = camSecs.map(el => {
+    const top = el.getBoundingClientRect().top + scrollY;
+    const y = el.dataset.cam === 'hero' ? 0 : el.dataset.cam === 'end' ? top - innerHeight * 0.2 : top + Math.min(el.offsetHeight - innerHeight, innerHeight * 0.5) * 0.5;
+    return { y, k: KEYS[el.dataset.cam] };
+  });
+}
+const ease = t => t * t * (3 - 2 * t);
+const want = {}, cam = {};
+function poseAt(y) {
+  let a = anchors[0], b = anchors[0], t = 0;
+  if (y >= anchors[anchors.length - 1].y) a = b = anchors[anchors.length - 1];
+  else if (y > anchors[0].y) for (let i = 0; i < anchors.length - 1; i++) if (y >= anchors[i].y && y < anchors[i + 1].y) { a = anchors[i]; b = anchors[i + 1]; t = ease((y - a.y) / (b.y - a.y)); break; }
+  for (const f of FIELDS) want[f] = a.k[f] + (b.k[f] - a.k[f]) * t;
+  if (mobile()) { want.dist *= want.dist < 10 ? 1.55 : 1.6; want.sx = 0; want.sy = 0.2 + Math.min(0, want.sy) * 1.4; }
+}
+function activeMode() {
+  const mid = innerHeight * 0.55;
+  for (const el of modeSecs) { const r = el.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) return el.dataset.mode; }
+  return scrollY > 100 ? 'end' : 'hero';
+}
+function resize() { renderer.setPixelRatio(Math.min(devicePixelRatio, mobile() ? 1.6 : 2)); renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); measure(); }
+addEventListener('resize', resize);
+document.fonts && document.fonts.ready.then(measure);
+addEventListener('load', measure);
+measure(); poseAt(scrollY); Object.assign(cam, want);
+
+/* ---------- loop ---------- */
+const clock = new THREE.Clock(), tmp = new THREE.Vector3(), skyDay = new THREE.Color(0x9ec9e6), skyNight = new THREE.Color(0x14244a), scrHeat = new THREE.Color(0xf26b2a), scrCool = new THREE.Color(0x74c4ec);
+let first = true;
+function frame() {
+  requestAnimationFrame(frame);
+  const dt = Math.min(clock.getDelta(), 0.05), time = clock.elapsedTime;
+  const endY = anchors.length ? anchors[anchors.length - 1].y : 0;
+  if (!first && (document.hidden || scrollY > endY + innerHeight * 1.6)) return;
+
+  poseAt(scrollY);
+  const k = first || reduce ? 1 : 1 - Math.exp(-dt * 3.2);
+  for (const f of FIELDS) cam[f] += (want[f] - cam[f]) * k;
+  const az = cam.az + (reduce ? 0 : Math.sin(time * 0.22) * 0.05), el = cam.el;
+  camera.position.set(cam.tx + cam.dist * Math.cos(el) * Math.sin(az), cam.ty + cam.dist * Math.sin(el), cam.tz + cam.dist * Math.cos(el) * Math.cos(az));
+  camera.lookAt(cam.tx, cam.ty, cam.tz);
+  camera.setViewOffset(innerWidth, innerHeight, -cam.sx * innerWidth, cam.sy * innerHeight, innerWidth, innerHeight);
+
+  const s = stateFor(activeMode()), mk = first || reduce ? 1 : 1 - Math.exp(-dt * 2.6);
+  for (let c = 0; c < 3; c++) { cur.act[c] += (s.act[c] - cur.act[c]) * mk; cur.col[c].lerp(s.col[c], mk); }
+  for (const f of ['flame', 'fan', 'tank', 'night']) cur[f] += (s[f] - cur[f]) * mk;
+
+  const flick = reduce ? 1 : 0.85 + Math.sin(time * 17) * 0.08 + Math.sin(time * 7.3) * 0.07;
+  flame.emissiveIntensity = cur.flame * 3 * flick; fireLight.intensity = cur.flame * 2.4 * flick;
+  tankBand.emissiveIntensity = cur.tank * 2.2; tankLight.intensity = cur.tank * 1.6;
+  if (!reduce) fan.rotation.y += dt * (0.4 + cur.fan * 13);
+  const n = cur.night;
+  key.intensity = 2.4 * (1 - 0.78 * n); hemi.intensity = 0.45 * (1 - 0.6 * n); rim.intensity = 1.5 * (1 - 0.3 * n);
+  scene.environmentIntensity = 0.7 * (1 - 0.6 * n);
+  pane.emissive.copy(skyDay).lerp(skyNight, n); lamp.intensity = n * 3.2;
+  screen.emissive.copy(window.WM.mode === 'cool' ? scrCool : scrHeat);
+
+  for (let i = 0; i < PN; i++) {
+    const c = pc[i], a = cur.act[c];
+    if (!reduce) { pt[i] += dt * psp[i] * (0.3 + a); if (pt[i] > 1) pt[i] -= 1; }
+    curves[c].getPointAt(pt[i], tmp);
+    const sp = 0.05 + pt[i] * (c === 2 ? 0.7 : 0.55);
+    aPos[i * 3] = tmp.x + pj[i * 3] * sp; aPos[i * 3 + 1] = tmp.y + pj[i * 3 + 1] * sp; aPos[i * 3 + 2] = tmp.z + pj[i * 3 + 2] * sp;
+    const f = a * Math.sin(Math.PI * pt[i]) * 0.9, col = cur.col[c];
+    aCol[i * 3] = col.r * f; aCol[i * 3 + 1] = col.g * f; aCol[i * 3 + 2] = col.b * f;
+  }
+  aGeo.attributes.position.needsUpdate = true; aGeo.attributes.color.needsUpdate = true;
+
+  if (!reduce) ticks.rotation.y = time * 0.02;
+  renderer.render(scene, camera);
+  if (first) { first = false; window.__ready(); }
+}
+frame();
+}
+</script>
+</body>
+</html>

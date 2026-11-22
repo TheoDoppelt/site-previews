@@ -1,0 +1,10 @@
+{
+  "business": "Washington Mechanical - Heating & Air Conditioning",
+  "direction": "3D (european-roofing style): code-built cutaway house section with basement furnace, ducts, water heater, outdoor condenser and ductless head; graphite night + flame orange + supply-air blue",
+  "palette": {"bg": "#0c0f13", "surface": "#151a21", "ink": "#eceae3", "muted": "#a3a9b1", "primary": "#f26b2a", "accent": "#74c4ec", "on_primary": "#160903", "on_accent": "#04121a"},
+  "fonts": "Anybody (variable width), Fraunces italic, Martian Mono",
+  "hero_idea": "Working thermostat dial: set a temp and the 3D house heats (orange air from the floor register) or cools (blue air from the wall head, heat out the condenser)",
+  "scroll_story": "The camera follows the air path through the house: basement furnace, outdoor condenser, heat pump head, water heater, then the house goes dark for 24/7",
+  "custom_ui": "Thermostat dial; heat pump winter/summer switch; live Seattle on-call clock; brand service nameplate; reviews as service tickets; areas strip driven by scroll",
+  "date": "2026-11-22"
+}
