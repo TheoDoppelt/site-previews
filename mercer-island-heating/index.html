@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercer Island Heating &amp; Air Conditioning: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Heating and air conditioning installation, repair and maintenance on Mercer Island and across King and Kitsap Counties.">
+<meta property="og:title" content="Mercer Island Heating &amp; Air Conditioning: Website Concept">
+<meta property="og:description" content="Heating and cooling installation, repair and maintenance for homes and businesses on Mercer Island, King County and Kitsap County.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/mercer-island-heating/">
+<meta property="og:type" content="website">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Palette: lake fog + paper (bg), Lake Washington teal (primary), furnace ember (accent).
+   bg #F1EEE7 · surface #E4E9E7 · ink #13242B · muted #4A5A60 · primary #0E4A5A · accent #B3421B
+   The page background drifts through a day on the island: morning fog → noon paper → evening dusk. */
+:root{
+  --bg:#F1EEE7; --surface:#E4E9E7; --ink:#13242B; --muted:#4A5A60;
+  --primary:#0E4A5A; --accent:#B3421B; --on-primary:#FFFFFF; --on-accent:#FFFFFF;
+  --fog:#E2E9E8; --dusk:#F2E2D4;
+  --day:var(--bg);
+  --ease:cubic-bezier(.22,.7,.2,1); --dur:.7s;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --gut:clamp(16px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--day);color:var(--ink);font:17px/1.6 var(--sans);overflow-x:clip;transition:background-color .4s linear}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ph{background:#FFE58A;color:#13242B;padding:0 .25em;border-radius:3px}
+
+.preview{background:var(--ink);color:#fff;font-size:14px;padding:8px var(--gut);text-align:center}
+.preview a{color:#FFD9C7}
+
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px var(--gut)}
+.mark{text-decoration:none;line-height:1.05}
+.mark b{display:block;font:800 22px/1 var(--display);letter-spacing:-.01em}
+.mark span{font:500 11px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+nav{display:flex;gap:22px;font-weight:500;font-size:15px}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline}
+.btn{display:inline-flex;align-items:center;gap:.5em;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;padding:14px 22px;border-radius:999px;border:0;font-size:16px;cursor:pointer}
+.btn.alt{background:var(--primary);color:var(--on-primary)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+@media (max-width:820px){nav{display:none}}
+
+/* ---------- HERO: the heat/cool split ---------- */
+.hero{padding:8px var(--gut) 110px}
+.split{position:relative;height:clamp(260px,46vw,520px);border-radius:22px;overflow:hidden;--x:50%;user-select:none;touch-action:pan-y}
+.side{position:absolute;inset:0;display:flex;align-items:flex-end;padding:clamp(18px,3vw,36px)}
+.cool{background:var(--primary);color:var(--on-primary);justify-content:flex-end;text-align:right}
+.heat{background:var(--accent);color:var(--on-accent);clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.side strong{font:800 clamp(64px,17vw,230px)/.82 var(--display);letter-spacing:-.04em}
+.side small{position:absolute;top:clamp(18px,3vw,32px);font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;max-width:15em}
+.heat small{left:clamp(18px,3vw,36px)} .cool small{right:clamp(18px,3vw,36px)}
+.island{position:absolute;left:50%;top:50%;width:min(34%,220px);transform:translate(-50%,-55%);opacity:.22;pointer-events:none}
+.handle{position:absolute;top:0;bottom:0;left:var(--x);width:0;pointer-events:none}
+.handle::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:#fff}
+.handle i{position:absolute;top:50%;left:-26px;width:52px;height:52px;margin-top:-26px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font:600 18px var(--mono);font-style:normal;box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.split input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.split input:focus-visible ~ .handle i{outline:3px solid var(--ink);outline-offset:3px}
+.hero-copy{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(20px,4vw,64px);margin-top:clamp(24px,4vw,44px);align-items:end}
+.hero h1{font:600 clamp(34px,5.4vw,70px)/1.02 var(--display);letter-spacing:-.025em}
+.hero h1 em{font-style:normal;color:var(--primary)}
+.today{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+#swap{font-size:20px;line-height:1.4;min-height:3em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+@media (max-width:760px){.hero-copy{grid-template-columns:1fr}}
+
+/* ---------- masked headings ---------- */
+.mh{font:600 clamp(32px,5vw,64px)/1.04 var(--display);letter-spacing:-.025em}
+.mh .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.mh .ln>span{display:block}
+html.js .mh .ln>span{transform:translateY(105%);transition:transform var(--dur) var(--ease)}
+html.js .mh .ln:nth-child(2)>span{transition-delay:.09s}
+html.js .mh .ln:nth-child(3)>span{transition-delay:.18s}
+html.js .mh.in .ln>span{transform:none}
+.kicker{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
+
+section{padding:clamp(64px,10vw,128px) var(--gut)}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,6vw,96px);align-items:start}
+.about p{font-size:19px;max-width:34em}
+.about p+p{margin-top:1em}
+.facts{list-style:none;margin-top:28px;border-top:2px solid var(--ink)}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(19,36,43,.25);font-size:16px}
+.facts li span:first-child{font:500 12px/2 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.facts li span:last-child{text-align:right}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+
+/* ---------- services: pinned, swaps as you scroll ---------- */
+.svc-wrap{padding:0}
+.svc-pin{padding:clamp(64px,10vw,110px) var(--gut)}
+.svc-list{display:grid;gap:40px;margin-top:36px}
+.svc{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,4vw,48px);align-items:start;border-top:2px solid var(--ink);padding-top:20px}
+.svc .n{font:800 clamp(72px,14vw,190px)/.8 var(--display);color:var(--primary);letter-spacing:-.05em}
+.svc h3{font:600 clamp(28px,4vw,48px)/1.05 var(--display);margin-bottom:10px}
+.svc p{max-width:30em;font-size:18px}
+.svc ul{margin-top:14px;padding-left:1.1em;color:var(--muted)}
+.dots{display:none}
+@media (prefers-reduced-motion:no-preference){
+  html.js .svc-wrap{height:320vh}
+  html.js .svc-pin{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+  html.js .svc-list{display:block;position:relative;min-height:min(420px,56vh)}
+  html.js .svc{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(24px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+  html.js .svc.on{opacity:1;transform:none}
+  html.js .dots{display:flex;gap:8px;margin-top:20px}
+  .dots b{width:34px;height:4px;border-radius:2px;background:rgba(19,36,43,.2);transition:background-color var(--dur) var(--ease)}
+  .dots b.on{background:var(--accent)}
+}
+
+/* ---------- work order ticket ---------- */
+.order{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:start}
+.order p.lead{font-size:18px;margin:16px 0 26px;max-width:30em}
+fieldset{border:0;margin-bottom:20px}
+legend{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;inset:0}
+.opts span{display:inline-block;padding:10px 16px;border-radius:999px;box-shadow:inset 0 0 0 2px var(--ink);font-weight:500;cursor:pointer;transition:background-color .2s,color .2s}
+.opts input:checked+span{background:var(--ink);color:#fff}
+.opts input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.ticket{background:#FFFDF8;color:var(--ink);border-radius:14px;padding:26px 24px 22px;position:relative;font-family:var(--mono);font-size:15px;box-shadow:0 1px 0 rgba(0,0,0,.08);transform:rotate(-1.2deg)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:96px;width:26px;height:26px;border-radius:50%;background:var(--day)}
+.ticket::before{left:-13px}.ticket::after{right:-13px}
+.ticket h3{font:800 24px/1.05 var(--display);border-bottom:2px dashed rgba(19,36,43,.4);padding-bottom:16px;margin-bottom:16px}
+.ticket h3 small{display:block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px}
+.ticket dt{color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.1em;padding-top:2px}
+.ticket dd{font-weight:500}
+.ticket .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;font-family:var(--sans)}
+@media (max-width:760px){.order{grid-template-columns:1fr}.ticket{transform:none}}
+
+/* ---------- service area: horizontal strip ---------- */
+.area{padding:0;overflow:hidden}
+.area-head{padding:clamp(64px,10vw,110px) var(--gut) 24px}
+.track{display:flex;gap:0;padding:0 var(--gut) clamp(56px,8vw,96px);flex-direction:column}
+.panel{flex:0 0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;padding:28px 0;border-top:2px solid var(--ink)}
+.panel h3{font:800 clamp(38px,6vw,84px)/.95 var(--display);letter-spacing:-.03em}
+.panel .tag{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:10px}
+.panel p{font-size:18px;margin-top:12px;max-width:26em}
+.map{width:100%;height:auto;display:block}
+.map .w{fill:#BFD3D6}.map .l{fill:#D6D2C6}.map .lake{fill:#BFD3D6}
+.map .lit{fill:var(--primary)}.map .isl.lit{fill:var(--accent)}
+.map text{font:500 9px var(--mono);fill:var(--ink);letter-spacing:.08em}
+@media (max-width:700px){.panel{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){
+  html.js .area{height:300vh}
+  html.js .area-in{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+  html.js .area-head{padding-top:24px}
+  html.js .track{flex-direction:row;width:max-content;gap:6vw;padding-bottom:24px;will-change:transform}
+  html.js .panel{width:min(84vw,980px)}
+}
+
+/* ---------- hours + contact ---------- */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px)}
+.card{background:var(--surface);border-radius:18px;padding:clamp(22px,3vw,36px)}
+.card h3{font:600 28px/1.1 var(--display);margin-bottom:14px}
+.card p{margin-top:8px}
+.big-tel{display:block;font:800 clamp(40px,7vw,96px)/.95 var(--display);letter-spacing:-.03em;text-decoration:none;color:var(--primary);margin:14px 0 18px;overflow-wrap:anywhere}
+.contact{background:var(--ink);color:#fff;border-radius:0}
+.contact .kicker{color:#FFB596}
+.contact .big-tel{color:#fff}
+.contact p{max-width:34em;color:#D7E0E2}
+.contact .ph{color:#13242B}
+@media (max-width:760px){.visit{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#C9D3D6;padding:28px var(--gut) 110px;font-size:14px;border-top:1px solid rgba(255,255,255,.15)}
+footer a{color:#fff}
+
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;display:none;z-index:20;background:var(--ink);color:#fff;border-radius:999px;padding:6px 6px 6px 20px;align-items:center;justify-content:space-between;gap:10px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.callbar a.btn{padding:12px 18px}
+@media (max-width:820px){.callbar{display:flex}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html.js .mh .ln>span{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="preview">Concept redesign by Theo, not the official Mercer Island Heating &amp; Air Conditioning site. They don't have a website yet: <a href="https://www.google.com/maps/search/?api=1&query=Mercer+Island+Heating+%26+Air+Conditioning+9115+Fortuna+Dr+Mercer+Island+WA">see their Google listing</a>.</div>
+
+<header>
+  <a class="mark" href="#top"><b>Mercer Island</b><span>Heating &amp; Air Conditioning</span></a>
+  <nav aria-label="Sections"><a href="#services">Services</a><a href="#ticket">Request service</a><a href="#area">Area</a><a href="#contact">Contact</a></nav>
+  <a class="btn" href="tel:+14254349085">Call</a>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-top:8px">
+  <div class="split" id="split">
+    <div class="side cool"><small>Air conditioning · heat pumps</small><strong>Cool</strong></div>
+    <div class="side heat"><small>Furnaces · heating systems</small><strong>Heat</strong></div>
+    <svg class="island" viewBox="0 0 60 160" aria-hidden="true"><path fill="#fff" d="M30 2c9 4 14 14 13 26-1 10 6 16 8 28 3 17-4 26-2 40 2 16 7 26 1 40-5 12-15 22-24 22S13 150 12 138c-1-12 3-20 1-32-2-14-11-24-9-40 2-14 12-18 13-32C18 18 21 0 30 2z"/></svg>
+    <label for="mix" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Slide toward heat or cool</label>
+    <input id="mix" type="range" min="8" max="92" value="50" aria-valuetext="Even mix of heating and cooling">
+    <div class="handle" aria-hidden="true"><i>⇆</i></div>
+  </div>
+
+  <div class="hero-copy">
+    <h1>Heating &amp; air conditioning for <em>Mercer Island</em>, King and Kitsap Counties.</h1>
+    <div>
+      <p class="today">Drag the line: what's wrong today?</p>
+      <p id="swap" aria-live="polite">Installation, repair and maintenance for both, in homes and businesses.</p>
+      <div class="cta">
+        <a class="btn" id="heroCall" href="tel:+14254349085">Call (425) 434-9085</a>
+        <a class="btn ghost" href="#ticket">Start a service ticket</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div>
+    <span class="kicker">Based on the island</span>
+    <h2 class="mh"><span class="ln"><span>Home base is</span></span><span class="ln"><span>Mercer Island.</span></span><span class="ln"><span>Service goes further.</span></span></h2>
+  </div>
+  <div>
+    <p>Mercer Island Heating &amp; Air Conditioning installs, repairs and maintains heating and cooling systems for houses and commercial buildings. The shop is on the island, and the work reaches across King County and over the water into Kitsap County.</p>
+    <p>One number to call, whether the furnace quit on a cold morning or the upstairs bedrooms won't cool down in August.</p>
+    <ul class="facts">
+      <li><span>Based</span><span>Mercer Island, WA 98040</span></li>
+      <li><span>Serves</span><span>Mercer Island · King County · Kitsap County</span></li>
+      <li><span>Work</span><span>Residential &amp; commercial</span></li>
+      <li><span>Google</span><span><span class="ph">4.6 stars, 11 reviews</span></span></li>
+      <li><span>License</span><span><span class="ph">WA contractor license #</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="svc-wrap" id="services" data-scroll="svc">
+  <section class="svc-pin">
+    <span class="kicker">What they do</span>
+    <h2 class="mh"><span class="ln"><span>Three kinds of visits.</span></span></h2>
+    <div class="svc-list">
+      <article class="svc on"><div class="n">01</div><div><h3>Installation</h3><p>New heating and cooling systems, sized and set up for the building, from a house on the island to a commercial space on the mainland.</p><ul><li>Heating systems</li><li>Air conditioning</li><li>Residential &amp; commercial</li></ul></div></article>
+      <article class="svc"><div class="n">02</div><div><h3>Repair</h3><p>When the heat won't come on or the AC runs and nothing cools, call and describe what it's doing. They'll take it from there.</p><ul><li>No heat, weak heat</li><li>No cooling, short cycling</li><li>Odd noises and smells</li></ul></div></article>
+      <article class="svc"><div class="n">03</div><div><h3>Maintenance</h3><p>Regular service keeps a system running the way it should through wet winters and the few hot weeks of summer.</p><ul><li>Seasonal check-ups</li><li>Heating &amp; cooling systems</li><li><span class="ph">Maintenance plan details</span></li></ul></div></article>
+    </div>
+    <div class="dots" aria-hidden="true"><b class="on"></b><b></b><b></b></div>
+  </section>
+</div>
+
+<section id="ticket" class="order">
+  <div>
+    <span class="kicker">Request service</span>
+    <h2 class="mh"><span class="ln"><span>Fill out the ticket,</span></span><span class="ln"><span>then call or text it in.</span></span></h2>
+    <p class="lead">Three taps and you've got everything they'll ask first. Text it straight to the shop, or read it off when you call.</p>
+    <form id="tform" onsubmit="return false">
+      <fieldset><legend>System</legend><div class="opts">
+        <label><input type="radio" name="sys" value="Heating" checked><span>Heating</span></label>
+        <label><input type="radio" name="sys" value="Cooling"><span>Cooling</span></label>
+        <label><input type="radio" name="sys" value="Both"><span>Both</span></label>
+      </div></fieldset>
+      <fieldset><legend>Job</legend><div class="opts">
+        <label><input type="radio" name="job" value="Repair" checked><span>Repair</span></label>
+        <label><input type="radio" name="job" value="Installation"><span>Installation</span></label>
+        <label><input type="radio" name="job" value="Maintenance"><span>Maintenance</span></label>
+      </div></fieldset>
+      <fieldset><legend>Building</legend><div class="opts">
+        <label><input type="radio" name="bld" value="Home" checked><span>Home</span></label>
+        <label><input type="radio" name="bld" value="Business"><span>Business</span></label>
+      </div></fieldset>
+      <fieldset><legend>Where</legend><div class="opts">
+        <label><input type="radio" name="where" value="Mercer Island" checked><span>Mercer Island</span></label>
+        <label><input type="radio" name="where" value="King County"><span>King County</span></label>
+        <label><input type="radio" name="where" value="Kitsap County"><span>Kitsap County</span></label>
+      </div></fieldset>
+    </form>
+  </div>
+  <div class="ticket" aria-live="polite">
+    <h3><small>Service ticket</small>Mercer Island Heating &amp; Air</h3>
+    <dl>
+      <dt>System</dt><dd id="t-sys">Heating</dd>
+      <dt>Job</dt><dd id="t-job">Repair</dd>
+      <dt>Building</dt><dd id="t-bld">Home</dd>
+      <dt>Where</dt><dd id="t-where">Mercer Island</dd>
+    </dl>
+    <div class="row">
+      <a class="btn" href="tel:+14254349085">Call it in</a>
+      <a class="btn alt" id="t-sms" href="sms:+14254349085?&amp;body=Hi%2C%20I%27d%20like%20to%20request%20service%3A%20Heating%20repair%2C%20home%2C%20Mercer%20Island.">Text it in</a>
+    </div>
+  </div>
+</section>
+
+<div class="area" id="area" data-scroll="area">
+  <div class="area-in">
+    <div class="area-head">
+      <span class="kicker">Where they work</span>
+      <h2 class="mh"><span class="ln"><span>From the island, outward.</span></span></h2>
+    </div>
+    <div class="track" id="track">
+      <div class="panel" data-lit="isl"><div><span class="tag">Home base · 98040</span><h3>Mercer Island</h3><p>The shop's own island, in the middle of Lake Washington. The closest calls on the map.</p></div><div class="mapslot"></div></div>
+      <div class="panel" data-lit="king"><div><span class="tag">Across the bridge</span><h3>King County</h3><p>Over I-90 to Seattle and the Eastside, and on through the rest of King County.</p></div><div class="mapslot"></div></div>
+      <div class="panel" data-lit="kit"><div><span class="tag">Across the Sound</span><h3>Kitsap County</h3><p>West across Puget Sound, Kitsap County is on the list too. <span class="ph">Towns covered</span></p></div><div class="mapslot"></div></div>
+    </div>
+  </div>
+</div>
+<template id="maptpl"><svg class="map" viewBox="0 0 300 200" role="img" aria-label="Schematic map: Kitsap County, Puget Sound, King County, Lake Washington and Mercer Island">
+  <rect class="w" width="300" height="200"/>
+  <path class="l kit" d="M0 14 70 6 96 52 82 108 104 194 0 200Z"/>
+  <path class="l king" d="M152 0H300V200H140L156 138 144 78Z"/>
+  <ellipse class="lake" cx="214" cy="100" rx="15" ry="64"/>
+  <ellipse class="l isl" cx="214" cy="116" rx="6" ry="19"/>
+  <text x="16" y="186">KITSAP</text><text x="104" y="24">SOUND</text><text x="246" y="186">KING</text><text x="226" y="120">MI</text>
+</svg></template>
+
+<section class="visit" id="hours">
+  <div class="card">
+    <span class="kicker">Hours</span>
+    <h3>When to call</h3>
+    <p><span class="ph">Business hours, e.g. Mon–Fri</span></p>
+    <p><span class="ph">After-hours / emergency policy</span></p>
+  </div>
+  <div class="card">
+    <span class="kicker">Location</span>
+    <h3>Mercer Island, WA 98040</h3>
+    <p>Service is at your home or business; call ahead before stopping by.</p>
+    <p style="margin-top:18px"><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Mercer+Island+Heating+%26+Air+Conditioning+9115+Fortuna+Dr+Mercer+Island+WA">Open in Google Maps</a></p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <span class="kicker">Contact</span>
+  <h2 class="mh"><span class="ln"><span>Cold house? Hot house?</span></span><span class="ln"><span>Same number.</span></span></h2>
+  <a class="big-tel" href="tel:+14254349085">(425) 434-9085</a>
+  <p>Call or text about heating or cooling installation, repair and maintenance on Mercer Island and in King and Kitsap Counties.</p>
+  <p style="margin-top:10px">Email: <span class="ph">email address</span> · Facebook / Instagram: <span class="ph">social links</span></p>
+</section>
+</main>
+
+<footer>
+  <p><strong style="color:#fff">Mercer Island Heating &amp; Air Conditioning</strong> · Mercer Island, WA 98040 · <a href="tel:+14254349085">(425) 434-9085</a></p>
+  <p style="margin-top:8px">Concept redesign by Theo, not the official Mercer Island Heating &amp; Air Conditioning site. Details come from their public Google listing; highlighted items are still to be confirmed.</p>
+</footer>
+
+<div class="callbar"><span>Heat or AC trouble?</span><a class="btn" href="tel:+14254349085">Call now</a></div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* hero split */
+  var split=document.getElementById('split'),mix=document.getElementById('mix'),swap=document.getElementById('swap'),call=document.getElementById('heroCall');
+  var msgs=[
+    ['Even mix of heating and cooling','Installation, repair and maintenance for both, in homes and businesses.','Call (425) 434-9085'],
+    ['Mostly heating','Furnace or heating system not keeping the house warm? Call and describe what it’s doing.','Call about heating'],
+    ['Mostly cooling','Rooms too warm, AC running but not cooling? That’s a call they take too.','Call about cooling']];
+  function setMix(v){split.style.setProperty('--x',v+'%');var m=v>60?msgs[1]:v<40?msgs[2]:msgs[0];
+    if(swap.textContent!==m[1]){swap.textContent=m[1];call.textContent=m[2];mix.setAttribute('aria-valuetext',m[0]);}}
+  mix.addEventListener('input',function(){setMix(+mix.value)});setMix(50);
+
+  /* ticket */
+  var f=document.getElementById('tform'),sms=document.getElementById('t-sms');
+  function tk(){var s=f.sys.value,j=f.job.value,b=f.bld.value,w=f.where.value;
+    document.getElementById('t-sys').textContent=s;document.getElementById('t-job').textContent=j;
+    document.getElementById('t-bld').textContent=b;document.getElementById('t-where').textContent=w;
+    sms.href='sms:+14254349085?&body='+encodeURIComponent('Hi, I’d like to request service: '+s+' '+j.toLowerCase()+', '+b.toLowerCase()+', '+w+'.');}
+  f.addEventListener('change',tk);
+
+  /* maps */
+  var tpl=document.getElementById('maptpl');
+  document.querySelectorAll('.panel').forEach(function(p){var c=tpl.content.cloneNode(true);var k=p.dataset.lit;
+    c.querySelectorAll('.'+k).forEach(function(e){e.classList.add('lit')});
+    if(k==='king'){c.querySelectorAll('.isl').forEach(function(e){e.classList.add('lit')})}
+    p.querySelector('.mapslot').appendChild(c)});
+
+  /* masked headings */
+  var heads=document.querySelectorAll('.mh');
+  if(reduce||!('IntersectionObserver' in window)){heads.forEach(function(h){h.classList.add('in')})}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -12% 0px'});heads.forEach(function(h){io.observe(h)})}
+
+  if(reduce)return;
+  /* one shared scroll loop */
+  var svcWrap=document.querySelector('[data-scroll=svc]'),svcs=svcWrap.querySelectorAll('.svc'),dots=svcWrap.querySelectorAll('.dots b');
+  var area=document.querySelector('[data-scroll=area]'),track=document.getElementById('track');
+  var stops=[[226,233,232],[241,238,231],[242,226,212]],ticking=false,lastStep=-1;
+  function prog(el){var r=el.getBoundingClientRect(),d=r.height-innerHeight;return d>0?Math.min(1,Math.max(0,-r.top/d)):0}
+  function mixc(t){var i=t<.5?0:1,u=t<.5?t*2:(t-.5)*2,a=stops[i],b=stops[i+1];return 'rgb('+a.map(function(v,k){return Math.round(v+(b[k]-v)*u)}).join(',')+')'}
+  function frame(){ticking=false;
+    var doc=document.documentElement,max=doc.scrollHeight-innerHeight,t=max>0?scrollY/max:0;
+    doc.style.setProperty('--day',mixc(Math.min(1,Math.max(0,t))));
+    var step=Math.min(2,Math.floor(prog(svcWrap)*3));
+    if(step!==lastStep){lastStep=step;svcs.forEach(function(s,i){s.classList.toggle('on',i===step)});dots.forEach(function(d,i){d.classList.toggle('on',i===step)})}
+    var over=track.scrollWidth-innerWidth;if(over>0)track.style.transform='translateX('+(-prog(area)*over)+'px)';
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
+})();
+</script>
+</body>
+</html>
