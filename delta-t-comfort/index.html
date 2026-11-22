@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delta T Comfort: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Concept redesign for Delta T Comfort, a licensed, locally owned HVAC company in Bremerton serving Kitsap County.">
+<meta property="og:title" content="Delta T Comfort: Website Concept">
+<meta property="og:description" content="A concept redesign for Delta T Comfort, Bremerton HVAC. Heat pumps, furnaces, mini splits, AC, 24/7 urgent appointments.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/delta-t-comfort/">
+<script>
+document.documentElement.classList.add('js');
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('rm');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Palette — Delta T Comfort
+   --bg #F4F2EE warm paper   --surface #FFFFFF   --ink #1C1530   --muted #5B5470
+   --primary #4A2B7E logo purple (triangle)   --accent #C21F3A logo red (bar)
+   --cold #2C43C9 logo blue (bar end)
+   on_primary #FFFFFF   on_accent #FFFFFF */
+:root{
+  --bg:#F4F2EE;--surface:#FFFFFF;--ink:#1C1530;--muted:#5B5470;
+  --primary:#4A2B7E;--accent:#C21F3A;--cold:#2C43C9;
+  --on-primary:#FFFFFF;--on-accent:#FFFFFF;
+  --line:#DDD8E4;
+  --grad:linear-gradient(90deg,var(--accent),#7B2C9E 55%,var(--cold));
+  --ease:cubic-bezier(.22,.8,.24,1);--dur:.7s;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.02em;margin:0}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+.ph{background:#FFE36E;color:#1C1530;padding:0 .25em;border-radius:3px}
+.mono{font-family:var(--mono)}
+.eyebrow{font:500 .78rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* preview banner */
+.preview{background:var(--ink);color:#fff;font-size:.85rem;text-align:center;padding:8px 16px}
+.preview a{color:#FFD3DA}
+
+/* header */
+header.top{background:var(--surface);border-bottom:1px solid var(--line);position:relative;z-index:5}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0}
+.brand img{height:64px;width:auto;object-fit:cover;object-position:center}
+nav.main{display:flex;gap:22px;font-weight:500;font-size:.95rem}
+nav.main a{text-decoration:none;color:var(--muted)}
+nav.main a:hover{color:var(--primary)}
+.callbtn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:var(--on-primary);text-decoration:none;font-weight:600;padding:11px 18px;border-radius:999px;white-space:nowrap}
+.callbtn.alt{background:transparent;color:var(--primary);box-shadow:inset 0 0 0 2px var(--primary)}
+@media (max-width:860px){nav.main{display:none}.brand img{height:52px}header.top .callbtn{padding:9px 14px;font-size:.9rem}}
+
+/* thread: temperature rail */
+.rail{position:fixed;left:10px;top:18vh;height:64vh;width:5px;border-radius:5px;background:var(--line);z-index:4;pointer-events:none}
+.rail i{position:absolute;inset:0;border-radius:5px;background:linear-gradient(180deg,var(--cold),#7B2C9E 50%,var(--accent));transform-origin:top;transform:scaleY(var(--p,0))}
+.rail b{position:absolute;left:12px;top:calc(var(--p,0) * 100%);transform:translateY(-50%);font:700 .75rem/1 var(--mono);background:var(--ink);color:#fff;padding:5px 7px;border-radius:4px;white-space:nowrap}
+@media (max-width:860px){.rail{left:3px;width:3px}.rail b{display:none}}
+
+/* hero */
+.hero{padding:56px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,7vw,5.6rem);font-weight:800}
+.hero h1 sup{font-size:.3em;vertical-align:top;position:relative;top:.5em}
+.hero .lede{font-size:1.15rem;max-width:34ch;color:var(--muted);margin:22px 0 28px}
+.hero .lede strong{color:var(--ink)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.badges{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font:500 .8rem/1.3 var(--mono);color:var(--muted)}
+.badges span::before{content:"";display:inline-block;width:8px;height:8px;margin-right:7px;background:var(--primary);clip-path:polygon(50% 0,100% 100%,0 100%)}
+
+/* signature: ΔT gauge */
+.gauge{background:var(--ink);color:#fff;border-radius:18px;padding:26px 26px 22px;position:relative;overflow:hidden}
+.gauge::after{content:"";position:absolute;right:-60px;bottom:-70px;width:240px;height:220px;border:22px solid rgba(255,255,255,.06);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.gauge .row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.gauge .lbl{font:500 .72rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#C9C2DA}
+.gauge .t{font:700 2.2rem/1 var(--mono)}
+.gauge .delta{text-align:center;margin:18px 0 6px}
+.gauge .delta .big{font:800 clamp(4.2rem,11vw,6.4rem)/.9 var(--display);letter-spacing:-.04em}
+.gauge .delta .big small{font-size:.38em;vertical-align:top;margin-left:2px}
+.bar{position:relative;height:12px;border-radius:6px;background:var(--grad);margin:20px 0 8px}
+.bar .m{position:absolute;top:50%;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--ink);transform:translate(-50%,-50%);left:var(--x,30%);transition:left .25s var(--ease)}
+.bar .set{position:absolute;top:-8px;bottom:-8px;width:2px;background:#fff;left:var(--sx,70%)}
+.gauge input[type=range]{width:100%;accent-color:#fff;margin:10px 0 2px;height:28px}
+.gauge .mode{min-height:3.2em;font-size:.98rem;color:#E6E1F0;margin:10px 0 0}
+.gauge .mode b{color:#fff}
+.gauge .scale{display:flex;justify-content:space-between;font:500 .7rem var(--mono);color:#A9A1BD}
+@media (max-width:860px){.hero{padding:34px 0 110px}.hero .wrap{grid-template-columns:1fr;gap:34px}}
+
+/* line-mask headings */
+.ln{display:block;overflow:hidden;padding-bottom:.06em}
+.ln>span{display:block}
+html.js:not(.rm) .reveal .ln>span{transform:translateY(105%);transition:transform var(--dur) var(--ease)}
+html.js:not(.rm) .reveal .ln:nth-child(2)>span{transition-delay:.1s}
+html.js:not(.rm) .reveal .ln:nth-child(3)>span{transition-delay:.2s}
+html.js:not(.rm) .reveal.in .ln>span{transform:none}
+
+/* about */
+.about{background:var(--surface);padding:96px 0;position:relative;overflow:hidden}
+.about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;position:relative}
+.about h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+.about .bigdelta{position:absolute;right:-4%;top:-40px;font:800 clamp(16rem,40vw,30rem)/1 var(--display);color:var(--primary);opacity:.06;pointer-events:none;transform:translateY(calc(var(--d,0) * -60px))}
+.about p{margin:0 0 16px;max-width:56ch}
+.about .who{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
+.about .who ul{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.about .who li{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:.92rem}
+@media (max-width:860px){.about{padding:68px 0}.about .wrap{grid-template-columns:1fr;gap:20px}}
+
+/* services: work order builder */
+.services{padding:96px 0}
+.services header{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.services h2{font-size:clamp(2.2rem,5vw,3.8rem);max-width:13ch}
+.services header p{max-width:40ch;color:var(--muted);margin:0}
+.wo{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+fieldset{border:0;margin:0 0 26px;padding:0}
+legend{font:500 .78rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative;cursor:pointer}
+.opts input{position:absolute;opacity:0;width:1px;height:1px}
+.opts span{display:block;padding:9px 14px;border:1.5px solid var(--line);background:var(--surface);border-radius:8px;font-weight:500;font-size:.95rem;transition:background .2s,border-color .2s,color .2s}
+.opts input:checked+span{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.opts input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.ticket{background:var(--surface);border:1.5px solid var(--ink);border-radius:4px;padding:22px 22px 18px;position:sticky;top:20px;font-family:var(--mono);font-size:.86rem}
+.ticket::before{content:"";display:block;height:6px;background:var(--grad);margin:-22px -22px 18px}
+.ticket h3{font:700 1rem var(--mono);letter-spacing:.06em}
+.ticket .meta{display:flex;justify-content:space-between;color:var(--muted);border-bottom:1px dashed var(--ink);padding-bottom:10px;margin:6px 0 12px;gap:8px}
+.ticket dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+.ticket dt{color:var(--muted)}
+.ticket dd{margin:0;font-weight:700}
+.ticket ol{margin:4px 0 0;padding-left:18px}
+.ticket .empty{color:var(--muted);font-weight:500}
+.ticket .act{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;border-top:1px dashed var(--ink);padding-top:16px;font-family:var(--body)}
+.ticket small{display:block;margin-top:10px;color:var(--muted);font-family:var(--body)}
+@media (max-width:860px){.services{padding:68px 0}.wo{grid-template-columns:1fr}.ticket{position:static}}
+
+/* systems: pinned swap */
+.systems{background:var(--ink);color:#fff;position:relative}
+html.js:not(.rm) .systems{height:420vh}
+.sys-pin{position:relative;padding:88px 0}
+html.js:not(.rm) .sys-pin{position:sticky;top:0;height:100vh;padding:0;display:flex;align-items:center;overflow:hidden}
+.sys-pin .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.sys-pin .eyebrow{color:#C9C2DA}
+.stage{position:relative;min-height:12rem}
+.stage .n{font:700 .95rem var(--mono);color:#FF8597;letter-spacing:.06em}
+.stage h2{font-size:clamp(3rem,9vw,7rem);font-weight:800;margin-top:10px}
+.stage p{color:#D9D3E6;max-width:36ch}
+html.js:not(.rm) .stage .s{position:absolute;inset:0;opacity:0;transform:translateY(24px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+html.js:not(.rm) .stage .s.on{opacity:1;transform:none}
+html.js:not(.rm) .stage{min-height:22rem}
+.rm .stage .s,html:not(.js) .stage .s{margin-bottom:36px}
+.syslist{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.2)}
+.syslist li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2);font:600 1.15rem var(--display);color:#9E96B4;transition:color .3s}
+.syslist li.on{color:#fff}
+.syslist li.on::after{content:"";width:12px;height:12px;align-self:center;background:var(--accent);clip-path:polygon(50% 0,100% 100%,0 100%)}
+@media (max-width:860px){.sys-pin .wrap{grid-template-columns:1fr}.syslist{display:none}html.js:not(.rm) .stage{min-height:20rem}}
+
+/* areas: horizontal strip */
+.areas{position:relative;background:var(--bg)}
+html.js:not(.rm) .areas{height:260vh}
+.areas-pin{padding:80px 0;overflow:hidden}
+html.js:not(.rm) .areas-pin{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0}
+.areas .head{margin-bottom:28px}
+.areas h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+.strip{display:flex;gap:56px;padding-left:max(20px,(100vw - 1160px)/2);white-space:nowrap;will-change:transform}
+html.js:not(.rm) .strip{transform:translateX(calc(var(--a,0) * -1px))}
+.strip .town{font:800 clamp(3.4rem,10vw,8.5rem)/1 var(--display);letter-spacing:-.04em}
+.strip .town:nth-child(even){color:transparent;-webkit-text-stroke:2px var(--primary)}
+.strip .town small{display:block;font:500 .8rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);-webkit-text-stroke:0;margin-top:8px}
+.rm .strip,html:not(.js) .strip{flex-wrap:wrap;white-space:normal;gap:10px 36px;padding-inline:20px}
+
+/* testimonial: service log */
+.log{padding:96px 0;background:var(--surface)}
+.log .wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px}
+.log h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+.entry{border-left:5px solid;border-image:linear-gradient(180deg,var(--accent),var(--cold)) 1;padding:4px 0 4px 26px}
+.entry .stamp{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 .78rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.entry blockquote{margin:0;font-size:1.12rem}
+.entry blockquote p{margin:0 0 14px}
+.entry cite{font-style:normal;font-weight:600}
+@media (max-width:860px){.log{padding:68px 0}.log .wrap{grid-template-columns:1fr;gap:20px}}
+
+/* hours: thermostat */
+.hours{padding:96px 0}
+.hours .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hours h2{font-size:clamp(2rem,4.6vw,3.4rem);margin-bottom:16px}
+.tstat{background:#EDEAF3;border-radius:28px;padding:22px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.screen{background:#121022;color:#fff;border-radius:16px;padding:22px;font-family:var(--mono)}
+.screen .now{display:flex;justify-content:space-between;color:#B7AFCB;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.screen .state{font:800 clamp(1.9rem,5vw,2.6rem)/1.05 var(--display);margin:14px 0 6px;letter-spacing:-.02em}
+.screen .state.open{color:#8CF0B4}
+.screen .state.closed{color:#FFB3C0}
+.screen .sub{color:#D9D3E6;font-size:.85rem;margin:0}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:16px}
+.week div{text-align:center;font:500 .7rem var(--mono);padding:8px 0;border-radius:6px;background:var(--surface);color:var(--muted)}
+.week div.wd{background:var(--primary);color:#fff}
+.week div.today{outline:2px solid var(--accent);outline-offset:1px}
+.hours dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:18px 0 0}
+.hours dt{color:var(--muted)}
+.hours dd{margin:0;font-weight:600}
+@media (max-width:860px){.hours{padding:68px 0}.hours .wrap{grid-template-columns:1fr;gap:28px}}
+
+/* contact */
+.contact{background:var(--primary);color:var(--on-primary);padding:96px 0}
+.contact .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px}
+.contact h2{font-size:clamp(2.4rem,6vw,4.6rem)}
+.contact .phone{display:inline-block;font:800 clamp(2rem,6vw,3.4rem)/1 var(--display);color:#fff;margin:22px 0 10px;text-decoration:none;border-bottom:4px solid var(--accent)}
+.contact p{margin:0 0 10px}
+.contact ul{list-style:none;padding:0;margin:0}
+.contact li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+.contact li a{color:#fff}
+.contact .lbl{display:block;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#D8CCEE}
+.contact .callbtn{background:#fff;color:var(--primary)}
+.contact .callbtn.alt{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+@media (max-width:860px){.contact{padding:68px 0}.contact .wrap{grid-template-columns:1fr;gap:30px}}
+
+footer{background:var(--ink);color:#C9C2DA;padding:34px 0 96px;font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:#fff}
+
+/* sticky call bar (phones) */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;background:var(--ink);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px}
+.callbar a{flex:1;text-align:center;text-decoration:none;font-weight:600;padding:12px;border-radius:10px}
+.callbar .c{background:var(--accent);color:var(--on-accent)}
+.callbar .s{background:#fff;color:var(--ink)}
+.callbar::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--grad)}
+@media (max-width:860px){.callbar{display:flex}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .rail{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="preview">Concept redesign by Theo, not the official Delta T Comfort site. <a href="https://www.deltatcomfort.net/">Visit the real site</a></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Delta T Comfort home"><img src="img/logo.jpg" alt="Delta T Comfort logo: Your Comfort Is In Our Name" width="96" height="64" style="width:96px"></a>
+    <nav class="main" aria-label="Main">
+      <a href="#services">Services</a><a href="#systems">Systems</a><a href="#areas">Areas</a><a href="#hours">Hours</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="callbtn" href="tel:+13608213114">360-821-3114</a>
+  </div>
+</header>
+
+<div class="rail" aria-hidden="true"><i></i><b id="railT">34°F</b></div>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Bremerton · Kitsap County · 24/7 emergency service</p>
+      <h1>Your comfort is in our name<sup>®</sup></h1>
+      <p class="lede"><strong>Delta T</strong> is the difference between the temperature outside and the one you want inside. Closing that gap, honestly and reliably, is what we do for homes across Kitsap County.</p>
+      <div class="ctas">
+        <a class="callbtn" href="tel:+13608213114">Call 360-821-3114</a>
+        <a class="callbtn alt" href="https://www.deltatcomfort.net/book-an-appointment">Schedule now</a>
+      </div>
+      <div class="badges"><span>Licensed</span><span>Locally owned</span><span>Top Quality Guaranteed</span><span>Financing</span></div>
+    </div>
+
+    <div class="gauge" id="gauge" aria-label="Delta T calculator">
+      <div class="row">
+        <div><div class="lbl">Outside</div><div class="t mono" id="gOut">34°</div></div>
+        <div style="text-align:right"><div class="lbl">Inside</div><div class="t mono">70°</div></div>
+      </div>
+      <div class="delta"><div class="lbl">Your Delta T</div><div class="big" id="gD">36<small>°F</small></div></div>
+      <div class="bar" id="gBar"><span class="set"></span><span class="m"></span></div>
+      <div class="scale"><span>95° hot</span><span>line = 70° inside</span><span>cold 10°</span></div>
+      <label class="lbl" for="outT" style="display:block;margin-top:14px">Drag to set today's outdoor temperature</label>
+      <input type="range" id="outT" min="10" max="95" value="34">
+      <p class="mode" id="gMode" aria-live="polite"><b>Heating.</b> Your furnace or heat pump is holding back 36° of cold.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="bigdelta" aria-hidden="true">Δ</div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">About us</p>
+      <h2 class="reveal"><span class="ln"><span>Licensed.</span></span><span class="ln"><span>Locally owned.</span></span><span class="ln"><span>Kitsap through and through.</span></span></h2>
+    </div>
+    <div>
+      <p>Delta T Comfort is a licensed, locally owned HVAC company proudly serving Kitsap County, including Bremerton, Bainbridge Island, Port Orchard, Silverdale, and surrounding areas.</p>
+      <p>We specialize in heat pump repair and installation, gas furnace service, mini splits, air conditioning, and annual maintenance — delivering honest, reliable service every time.</p>
+      <div class="who">
+        <p class="eyebrow">Who we work with</p>
+        <ul>
+          <li>Homeowners</li><li>Property Management</li><li>Real Estate Agents</li><li>Select Home Warranty Companies</li><li>American Home Shield</li><li>Liberty Home Guard</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <header>
+      <h2 class="reveal"><span class="ln"><span>Start your</span></span><span class="ln"><span>work order.</span></span></h2>
+      <p>Pick what you need and what system you have. Read it to us on the phone, or take it to online booking.</p>
+    </header>
+    <div class="wo">
+      <form id="woForm" onsubmit="return false">
+        <fieldset>
+          <legend>What do you need?</legend>
+          <div class="opts">
+            <label><input type="checkbox" name="svc" value="Annual HVAC maintenance" checked><span>Annual HVAC maintenance</span></label>
+            <label><input type="checkbox" name="svc" value="For-sale of home HVAC inspection"><span>For-sale of home HVAC inspection</span></label>
+            <label><input type="checkbox" name="svc" value="HVAC diagnostics"><span>HVAC diagnostics</span></label>
+            <label><input type="checkbox" name="svc" value="HVAC repairs"><span>HVAC repairs</span></label>
+            <label><input type="checkbox" name="svc" value="Emergency Diagnostics"><span>Emergency Diagnostics</span></label>
+            <label><input type="checkbox" name="svc" value="Filter Changes"><span>Filter Changes</span></label>
+            <label><input type="checkbox" name="svc" value="Second Opinions"><span>Second Opinions</span></label>
+            <label><input type="checkbox" name="svc" value="Mini Split Estimates"><span>Mini Split Estimates</span></label>
+            <label><input type="checkbox" name="svc" value="Mini Split Installations"><span>Mini Split Installations</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Your system</legend>
+          <div class="opts">
+            <label><input type="radio" name="sys" value="Gas Furnace"><span>Gas Furnace</span></label>
+            <label><input type="radio" name="sys" value="Electric Furnace"><span>Electric Furnace</span></label>
+            <label><input type="radio" name="sys" value="Air Conditioner"><span>Air Conditioner</span></label>
+            <label><input type="radio" name="sys" value="Heat Pump" checked><span>Heat Pump</span></label>
+            <label><input type="radio" name="sys" value="Boiler"><span>Boiler</span></label>
+            <label><input type="radio" name="sys" value="Oil"><span>Oil</span></label>
+            <label><input type="radio" name="sys" value="Not sure"><span>Not sure</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>You are</legend>
+          <div class="opts">
+            <label><input type="radio" name="who" value="Homeowner" checked><span>Homeowner</span></label>
+            <label><input type="radio" name="who" value="Property Management"><span>Property Management</span></label>
+            <label><input type="radio" name="who" value="Real Estate Agent"><span>Real Estate Agent</span></label>
+            <label><input type="radio" name="who" value="Home warranty customer"><span>Home warranty customer</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <aside class="ticket" aria-live="polite">
+        <h3>WORK ORDER</h3>
+        <div class="meta"><span>Delta T Comfort</span><span id="woDate"></span></div>
+        <dl>
+          <dt>Customer</dt><dd id="woWho">Homeowner</dd>
+          <dt>System</dt><dd id="woSys">Heat Pump</dd>
+          <dt>Requested</dt><dd><ol id="woList"><li>Annual HVAC maintenance</li></ol></dd>
+        </dl>
+        <div class="act">
+          <a class="callbtn" href="tel:+13608213114">Call it in</a>
+          <a class="callbtn alt" href="https://www.deltatcomfort.net/book-an-appointment">Book online</a>
+        </div>
+        <small>Need to spread out the cost of a new system? <a href="https://www.deltatcomfort.net/financing">See financing</a>.</small>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="systems" id="systems">
+  <div class="sys-pin">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Systems we work on</p>
+        <div class="stage" id="stage">
+          <div class="s on"><div class="n">01 / 06</div><h2>Heat Pump</h2><p>Repair and installation are a specialty here, along with annual maintenance to keep it efficient through a Kitsap winter.</p></div>
+          <div class="s"><div class="n">02 / 06</div><h2>Gas Furnace</h2><p>Gas furnace service, diagnostics and repairs.</p></div>
+          <div class="s"><div class="n">03 / 06</div><h2>Electric Furnace</h2><p>Diagnostics, repairs and maintenance for electric furnaces.</p></div>
+          <div class="s"><div class="n">04 / 06</div><h2>Air Conditioner</h2><p>Air conditioning service for the warm weeks, plus mini split estimates and installations.</p></div>
+          <div class="s"><div class="n">05 / 06</div><h2>Boiler</h2><p>Boiler diagnostics, repairs and maintenance.</p></div>
+          <div class="s"><div class="n">06 / 06</div><h2>Oil</h2><p>Oil-fired heat is still on our list. Call and ask.</p></div>
+        </div>
+      </div>
+      <ul class="syslist" id="syslist" aria-hidden="true">
+        <li class="on">Heat Pump</li><li>Gas Furnace</li><li>Electric Furnace</li><li>Air Conditioner</li><li>Boiler</li><li>Oil</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="areas-pin">
+    <div class="wrap head">
+      <p class="eyebrow">Where we work</p>
+      <h2 class="reveal"><span class="ln"><span>Proudly serving Kitsap County.</span></span></h2>
+    </div>
+    <div class="strip" id="strip">
+      <div class="town">Bremerton<small>Home base · 400 Warren Ave</small></div>
+      <div class="town">Bainbridge Island<small>Kitsap County</small></div>
+      <div class="town">Port Orchard<small>Kitsap County</small></div>
+      <div class="town">Silverdale<small>Kitsap County</small></div>
+      <div class="town">&amp; nearby<small>Surrounding areas: call to check</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="log" id="reviews">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Service log</p>
+      <h2 class="reveal"><span class="ln"><span>From a</span></span><span class="ln"><span>customer.</span></span></h2>
+    </div>
+    <div class="entry">
+      <div class="stamp"><span>System: heat pump</span><span>Tech: Toby</span><span>Kitsap County</span></div>
+      <blockquote>
+        <p>“I recently had the pleasure of working with Toby from Delta T Comfort to service my heat pump, and I couldn't be more pleased with the experience. From the moment he arrived, Toby was professional, courteous, and knowledgeable. He took the time to explain the issues with my system and answered all my questions patiently.</p>
+        <p>The service was prompt and efficient, and I appreciated how he went the extra mile to ensure everything was running smoothly.</p>
+        <p>I highly recommend Toby and Delta T Comfort to anyone in need of HVAC services. Their commitment to customer satisfaction and expertise truly set them apart. Thank you for the fantastic service!"</p>
+        <cite>Ray S., Kitsap County</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Office hours</p>
+      <h2 class="reveal"><span class="ln"><span>Office closes at 4.</span></span><span class="ln"><span>Urgent calls don't.</span></span></h2>
+      <dl>
+        <dt>Monday – Friday</dt><dd>8:30am – 4pm</dd>
+        <dt>Urgent appointments</dt><dd>Open 24/7</dd>
+      </dl>
+    </div>
+    <div class="tstat" aria-live="polite">
+      <div class="screen">
+        <div class="now"><span id="hDay">Bremerton</span><span id="hTime">Pacific time</span></div>
+        <div class="state" id="hState">Office: Mon–Fri 8:30–4</div>
+        <p class="sub" id="hSub">Open for urgent appointments 24/7: 360-821-3114</p>
+      </div>
+      <div class="week" id="week">
+        <div>Sun</div><div class="wd">Mon</div><div class="wd">Tue</div><div class="wd">Wed</div><div class="wd">Thu</div><div class="wd">Fri</div><div>Sat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:#D8CCEE">Contact</p>
+      <h2>Too hot, too cold, or just due?</h2>
+      <a class="phone" href="tel:+13608213114">360-821-3114</a>
+      <p>Top Quality Guaranteed. Financing available.</p>
+      <div class="ctas" style="margin-top:22px">
+        <a class="callbtn" href="https://www.deltatcomfort.net/book-an-appointment">Schedule services</a>
+        <a class="callbtn alt" href="mailto:info@deltatcomfort.net">Email us</a>
+      </div>
+    </div>
+    <ul>
+      <li><span class="lbl">Office</span><a href="https://www.google.com/maps/search/?api=1&query=400+Warren+Ave+%23450+Bremerton+WA+98337">400 Warren Ave, #450, Bremerton, WA 98337</a></li>
+      <li><span class="lbl">Email</span><a href="mailto:info@deltatcomfort.net">info@deltatcomfort.net</a></li>
+      <li><span class="lbl">Contractor Registration</span>DELTATC761LL</li>
+      <li><span class="lbl">Electrical Registration</span>DELTATC762LS</li>
+      <li><span class="lbl">Find us</span><a href="https://www.facebook.com/profile.php?id=61562614992208">Facebook</a> · <a href="https://www.yelp.com/biz/delta-t-comfort-bremerton">Yelp</a> · <a href="https://www.linkedin.com/company/delta-t-comfort/">LinkedIn</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Delta T Comfort, LLC · Bremerton, WA</span>
+    <span>Concept redesign by Theo, not the official Delta T Comfort site. Logo and text from <a href="https://www.deltatcomfort.net/">deltatcomfort.net</a>.</span>
+  </div>
+</footer>
+
+<div class="callbar"><a class="c" href="tel:+13608213114">Call 360-821-3114</a><a class="s" href="https://www.deltatcomfort.net/book-an-appointment">Schedule</a></div>
+
+<script>
+(function(){
+  var root=document.documentElement, rm=root.classList.contains('rm');
+  // ΔT gauge (signature hero)
+  var r=document.getElementById('outT'),gO=document.getElementById('gOut'),gD=document.getElementById('gD'),bar=document.getElementById('gBar'),gM=document.getElementById('gMode');
+  bar.style.setProperty('--sx',(100-(70-10)/85*100)+'%');
+  function gauge(){
+    var o=+r.value,d=Math.abs(70-o);
+    gO.textContent=o+'°';gD.innerHTML=d+'<small>°F</small>';
+    bar.style.setProperty('--x',(100-(o-10)/85*100)+'%');
+    gM.innerHTML=o<66?'<b>Heating.</b> Your furnace or heat pump is holding back '+d+'° of cold.':o>74?'<b>Cooling.</b> Your AC or heat pump is pulling out '+d+'° of heat.':'<b>Barely a gap.</b> A good week to book annual maintenance.';
+  }
+  r.addEventListener('input',gauge);gauge();
+
+  // work order
+  var f=document.getElementById('woForm');
+  document.getElementById('woDate').textContent=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  function wo(){
+    var s=[].slice.call(f.querySelectorAll('[name=svc]:checked')).map(function(i){return i.value});
+    document.getElementById('woList').innerHTML=s.length?s.map(function(v){return '<li>'+v+'</li>'}).join(''):'<li class="empty">Pick a service</li>';
+    document.getElementById('woSys').textContent=(f.querySelector('[name=sys]:checked')||{}).value||'—';
+    document.getElementById('woWho').textContent=(f.querySelector('[name=who]:checked')||{}).value||'—';
+  }
+  f.addEventListener('change',wo);wo();
+
+  // hours thermostat (Pacific time)
+  function hours(){
+    var p=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),day=p.getDay(),m=p.getHours()*60+p.getMinutes();
+    var open=day>0&&day<6&&m>=510&&m<960,st=document.getElementById('hState');
+    document.getElementById('hDay').textContent=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][day];
+    document.getElementById('hTime').textContent=p.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})+' PT';
+    st.textContent=open?'Office open now':'Office closed now';st.className='state '+(open?'open':'closed');
+    document.getElementById('hSub').textContent=open?'Until 4pm today. Call 360-821-3114.':'Urgent appointments are open 24/7: 360-821-3114';
+    var w=document.getElementById('week').children;for(var i=0;i<7;i++)w[i].classList.toggle('today',i===day);
+  }
+  hours();setInterval(hours,60000);
+
+  // headline line reveals
+  var rv=document.querySelectorAll('.reveal');
+  if(rm||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in')})}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.4});rv.forEach(function(e){io.observe(e)})}
+
+  if(rm)return;
+  // one shared scroll loop: rail thread, about depth, pinned systems, areas strip
+  var rail=document.querySelector('.rail'),railT=document.getElementById('railT'),about=document.querySelector('.about'),sys=document.getElementById('systems'),
+      ss=document.querySelectorAll('#stage .s'),sl=document.querySelectorAll('#syslist li'),areas=document.getElementById('areas'),strip=document.getElementById('strip'),cur=-1,tick=false;
+  function prog(el){var b=el.getBoundingClientRect(),h=b.height-innerHeight;return h>0?Math.min(1,Math.max(0,-b.top/h)):0}
+  function frame(){
+    tick=false;
+    var max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0;
+    rail.style.setProperty('--p',p.toFixed(4));railT.textContent=Math.round(34+p*36)+'°F';
+    var ab=about.getBoundingClientRect();about.style.setProperty('--d',Math.max(-1,Math.min(1,(innerHeight/2-ab.top)/innerHeight)).toFixed(3));
+    var i=Math.min(ss.length-1,Math.floor(prog(sys)*ss.length));
+    if(i!==cur){ss.forEach(function(e,k){e.classList.toggle('on',k===i)});sl.forEach(function(e,k){e.classList.toggle('on',k===i)});cur=i}
+    var dist=Math.max(0,strip.scrollWidth-innerWidth+40);strip.style.setProperty('--a',(prog(areas)*dist).toFixed(1));
+  }
+  function onScroll(){if(!tick){tick=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);frame();
+})();
+</script>
+</body>
+</html>

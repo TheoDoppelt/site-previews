@@ -1,0 +1,10 @@
+{
+  "business": "Delta T Comfort",
+  "direction": "Thermal-difference brand: warm paper + logo purple, red-to-blue temperature gradient from their logo bar, mono readouts like a thermostat",
+  "palette": {"bg": "#F4F2EE", "surface": "#FFFFFF", "ink": "#1C1530", "muted": "#5B5470", "primary": "#4A2B7E", "accent": "#C21F3A", "on_primary": "#FFFFFF", "on_accent": "#FFFFFF"},
+  "fonts": "Bricolage Grotesque, Figtree, JetBrains Mono",
+  "hero_idea": "Their slogan 'Your comfort is in our name' next to a live Delta T gauge: drag outdoor temp, see the gap to 70 and heating/cooling mode",
+  "scroll_story": "A temperature rail fills cold-blue to warm-red down the page while a readout climbs from 34F outside to 70F inside",
+  "custom_ui": "Work-order builder from their service/system lists; thermostat-screen office hours with live open/closed; pinned systems swap; horizontal Kitsap towns strip",
+  "date": "2026-11-22"
+}
