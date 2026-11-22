@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Air Flow Pros: Website Concept</title>
+<meta name="description" content="Furnace, air duct and dryer vent cleaning in Bremerton, WA with Bob Davies and the truck-mounted Hornet Power Vac. Concept redesign by Theo.">
+<meta property="og:title" content="Air Flow Pros: Website Concept">
+<meta property="og:description" content="A concept redesign for Air Flow Pros by Theo.">
+<meta property="og:image" content="https://theodoppelt.github.io/site-previews/air-flow-pros/og.png">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/air-flow-pros/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;900&family=Public+Sans:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Palette "Business card" (from Bob's card: red wordmark on cream; yellow from the Hornet Power Vac)
+   --bg      #F6F1E7  cream card stock
+   --surface #FFFDF8
+   --ink     #231F1E  14.50:1 on bg, 16.06:1 on surface
+   --primary #B8232A  card red; white on it 6.34:1; on bg 5.63:1
+   --accent  #F2C230  Hornet yellow; ink on it 9.75:1 (used sparingly: highlights, rating stamp)
+   --muted   #635A52  5.99:1 on bg
+   --pen     #1F3F8F  ballpoint blue for handwritten notes; 8.6:1 on #FBF3D5 note paper */
+:root{--bg:#F6F1E7;--surface:#FFFDF8;--ink:#231F1E;--primary:#B8232A;--accent:#F2C230;--muted:#635A52;--line:#E3D9C8;--pen:#1F3F8F;--note:#FBF3D5;
+--display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;--body:"Public Sans","Helvetica Neue",Arial,sans-serif;--hand:"Kalam","Marker Felt","Comic Sans MS",cursive;
+--pad:clamp(16px,4vw,48px);--max:1320px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);overflow-x:hidden}
+a{color:inherit}img{max-width:100%}
+:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.ph{background:#FFE58A;outline:1px dashed #9a7700;padding:0 4px;border-radius:2px;color:#231F1E}
+
+.concept{background:var(--ink);color:#F6F1E7;font-size:13px;line-height:1.4;text-align:center;padding:8px 16px}
+.concept a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:rgba(246,241,231,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:12px;padding-bottom:12px}
+.word{font:900 22px/1 var(--display);color:var(--primary);letter-spacing:-.02em;text-decoration:none}
+.top nav{display:flex;gap:22px;font-weight:600;font-size:15px}.top nav a{text-decoration:none}.top nav a:hover{color:var(--primary)}
+.callbtn{background:var(--primary);color:#fff;text-decoration:none;font:700 15px var(--display);padding:10px 16px;border-radius:6px;white-space:nowrap}
+@media(max-width:820px){.top nav{display:none}}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,64px);align-items:center;padding-top:clamp(28px,5vw,64px);padding-bottom:clamp(48px,6vw,88px)}
+.kicker{font:700 13px var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+.cardwrap{perspective:1600px;container-type:inline-size}
+.bizcard{position:relative;aspect-ratio:1.75/1;width:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform:rotate(-2.5deg)}
+.bizcard.flipped{transform:rotate(-2.5deg) rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#FBF7EE;border-radius:10px;box-shadow:0 1px 0 #fff inset,0 18px 40px -18px rgba(60,30,10,.45),0 2px 6px rgba(60,30,10,.15);padding:6% 6.5%;display:flex;flex-direction:column}
+.face.back{transform:rotateY(180deg);background:var(--primary);color:#fff;justify-content:center;gap:5%}
+.face h1{white-space:nowrap;font:900 12.2cqw/.95 var(--display);color:var(--primary);margin:0;letter-spacing:-.035em}
+.face .svc{font:500 3.7cqw/1.25 var(--display);margin:4% 0 0}
+.face .who{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;font:500 3cqw/1.3 var(--display)}
+.face .who b{color:var(--primary);font-weight:700;font-size:1.25em;display:block}
+.flip{font:600 13px var(--body);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.back .flip{color:#fff;background:transparent;border-color:rgba(255,255,255,.5);align-self:flex-start}
+.back .small{font:700 2.6cqw var(--display);letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin:0}
+.back .big{font:900 9cqw/1 var(--display);letter-spacing:-.02em;color:#fff;text-decoration:none}
+.back .row{display:flex;gap:10px;flex-wrap:wrap}
+.back .row a{background:#fff;color:var(--primary);text-decoration:none;font:700 15px var(--display);padding:10px 14px;border-radius:6px}
+.slogan{font:700 clamp(24px,2.7vw,36px)/1.15 var(--display);margin:38px 0 10px;letter-spacing:-.01em}
+.slogan em{font-style:normal;background:linear-gradient(transparent 60%,var(--accent) 60%)}
+.lede{color:var(--muted);max-width:48ch;margin:0 0 24px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 17px var(--display);padding:14px 20px;border-radius:8px;text-decoration:none}
+.btn.red{background:var(--primary);color:#fff}.btn.ghost{border:2px solid var(--ink)}
+.btn.red:hover{background:#9d1d23}
+.proof{position:relative}
+.proof figure{margin:0;background:var(--surface);padding:12px 12px 14px;border-radius:6px;box-shadow:0 20px 40px -24px rgba(60,30,10,.5);transform:rotate(1.5deg)}
+.proof img{display:block;width:100%;height:auto;border-radius:3px}
+.proof figcaption{display:flex;justify-content:space-between;gap:10px;font:700 14px var(--display);padding:10px 4px 0}
+.proof figcaption span:first-child{color:var(--primary)}
+.stamp{position:absolute;left:-18px;bottom:-24px;background:var(--accent);color:var(--ink);font:900 15px/1.1 var(--display);border-radius:50%;width:124px;height:124px;display:grid;place-items:center;text-align:center;transform:rotate(-10deg);box-shadow:0 8px 20px -10px rgba(0,0,0,.4);text-decoration:none;padding:12px}
+.stamp .n{font-size:30px;display:block;letter-spacing:-.02em}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.proof figcaption{padding-right:112px;flex-wrap:wrap;font-size:13px}.proof figcaption span:last-child{display:none}.stamp{left:auto;right:4px;bottom:-30px;width:108px;height:108px;font-size:13px}.stamp .n{font-size:26px}}
+
+/* TICKER */
+.ticker{background:var(--primary);color:#fff;overflow:hidden;padding:14px 0;border-block:3px solid var(--ink)}
+.ticker .line{font:900 clamp(22px,3vw,34px)/1 var(--display);letter-spacing:-.01em;white-space:nowrap;text-transform:uppercase}
+.ticker .line span{color:var(--accent)}
+.ticker-static{padding:0 var(--pad);white-space:normal!important}
+.parallax{position:relative;overflow:hidden}
+.scroller{display:flex;white-space:nowrap}
+.scroller > span{flex-shrink:0;padding-right:.5em}
+
+/* SERVICES */
+section{scroll-margin-top:70px}
+.sec{padding-top:clamp(52px,7vw,96px);padding-bottom:clamp(52px,7vw,96px)}
+h2{font:900 clamp(34px,4.6vw,60px)/1 var(--display);letter-spacing:-.03em;margin:0 0 10px}
+.sec-lede{color:var(--muted);margin:0 0 34px;max-width:60ch}
+.svcgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px}
+.svcgrid article{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px;display:flex;flex-direction:column}
+.svcgrid article.big{grid-row:span 2;padding:0;overflow:hidden}
+.svcgrid article.big img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.svcgrid article.big div{padding:26px}
+.svcgrid h3{font:700 25px/1.1 var(--display);margin:0 0 10px;color:var(--primary)}
+.svcgrid p{margin:0}
+.svcgrid ul{margin:14px 0 0;padding-left:20px}
+.svcgrid .tag{margin-top:auto;padding-top:16px;font:700 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.svcgrid article.dark{background:var(--ink);color:#F6F1E7;border:0}
+.svcgrid article.dark h3{color:var(--accent)}.svcgrid article.dark .tag{color:#CFC6B8}
+@media(max-width:900px){.svcgrid{grid-template-columns:1fr}.svcgrid article.big{grid-row:auto}}
+
+/* SHOP VAC vs HORNET */
+.versus{background:var(--surface);border-block:1px solid var(--line)}
+.versus .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+.cmp{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-radius:10px;overflow:hidden;margin-top:26px}
+.cmp div{padding:18px}
+.cmp h3{font:900 18px var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 8px}
+.cmp ul{margin:0;padding-left:18px}
+.cmp .them{background:#EFE8DA;color:var(--muted)}
+.cmp .us{background:var(--ink);color:#F6F1E7}.cmp .us h3{color:var(--accent)}
+.vent{margin:0;position:relative}
+.vent img{width:100%;border-radius:8px;display:block;aspect-ratio:1/1;object-fit:cover;object-position:50% 62%}
+.vent figcaption{position:absolute;left:14px;right:14px;bottom:14px;background:var(--note);font:700 22px/1.2 var(--hand);color:var(--pen);padding:12px 16px;border-radius:4px;transform:rotate(-1.5deg);box-shadow:0 8px 20px -12px rgba(0,0,0,.5)}
+.vent figcaption small{display:block;font:600 12px var(--body);color:var(--muted);margin-top:4px}
+@media(max-width:900px){.versus .wrap{grid-template-columns:1fr}.vent img{aspect-ratio:4/3}}
+@media(max-width:480px){.cmp{grid-template-columns:1fr}}
+
+/* WHAT PEOPLE KEEP WRITING DOWN */
+.notes-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.notes-head p{margin:0;font:700 14px var(--body);color:var(--muted)}
+.notes-head a{color:var(--primary)}
+.notes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.notes li{background:var(--note);padding:22px 22px 18px;font:400 23px/1.3 var(--hand);color:var(--pen);border-left:5px solid var(--primary);box-shadow:0 10px 24px -18px rgba(60,30,10,.6);
+  background-image:repeating-linear-gradient(transparent 0 29px,rgba(31,63,143,.12) 29px 30px)}
+.notes li:nth-child(3n+1){transform:rotate(-.8deg)}.notes li:nth-child(3n+2){transform:rotate(.6deg)}.notes li:nth-child(3n){transform:rotate(-.3deg)}
+.notes li span{display:block;font:700 12px/1.4 var(--body);letter-spacing:.06em;color:var(--muted);margin-top:12px;text-transform:uppercase}
+@media(max-width:900px){.notes{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.notes{grid-template-columns:1fr}}
+
+/* HOURS + AREA */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px}
+.panel h3{font:900 26px var(--display);margin:0 0 14px;letter-spacing:-.01em}
+.panel dl{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;margin:0}
+.panel dt{font-weight:700}.panel dd{margin:0}
+.towns{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.towns li{border:1.5px solid var(--ink);border-radius:30px;padding:5px 12px;font:600 15px var(--body)}
+.towns li.home{background:var(--primary);border-color:var(--primary);color:#fff}
+@media(max-width:800px){.visit{grid-template-columns:1fr}}
+
+/* CONTACT: back of the card */
+.contact{background:var(--primary);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,4vw,64px);align-items:center;padding-top:clamp(52px,7vw,96px);padding-bottom:clamp(52px,7vw,96px)}
+.contact h2{color:#fff}
+.contact .phone{font:900 clamp(44px,7vw,96px)/1 var(--display);letter-spacing:-.03em;color:#fff;text-decoration:none;display:inline-block;margin:10px 0 22px}
+.contact .row{display:flex;gap:12px;flex-wrap:wrap}
+.contact .row a{background:#fff;color:var(--primary);font:700 17px var(--display);padding:14px 20px;border-radius:8px;text-decoration:none}
+.contact .row a.out{background:transparent;color:#fff;border:2px solid #fff}
+.contact address{font-style:normal;background:#FBF7EE;color:var(--ink);border-radius:10px;padding:26px;transform:rotate(1.5deg);box-shadow:0 20px 40px -20px rgba(0,0,0,.5);font:500 18px/1.5 var(--display)}
+.contact address b{color:var(--primary);font:900 26px var(--display);display:block;margin-bottom:6px}
+.contact address a{color:var(--primary)}
+@media(max-width:800px){.contact .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#D9D1C3;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:34px;padding-bottom:34px}
+footer .word{color:#F6F1E7;font-size:20px}
+footer p{margin:6px 0}
+footer a{color:#F6F1E7}
+</style>
+<script type="importmap">
+{"imports":{
+  "react":"https://esm.sh/react@18.3.1",
+  "react/jsx-runtime":"https://esm.sh/react@18.3.1/jsx-runtime",
+  "react-dom/client":"https://esm.sh/react-dom@18.3.1/client?external=react",
+  "motion/react":"https://esm.sh/motion@11.18.2/react?external=react,react-dom",
+  "react-dom":"https://esm.sh/react-dom@18.3.1?external=react",
+  "htm":"https://esm.sh/htm@3.1.1"
+}}
+</script>
+</head>
+<body>
+<div class="concept">Concept redesign by Theo, not the official Air Flow Pros site. Their current page: <a href="https://www.facebook.com/airflowpro1/">Facebook</a></div>
+<header class="top"><div class="wrap">
+  <a class="word" href="#top">Air Flow Pros</a>
+  <nav aria-label="Sections"><a href="#services">Services</a><a href="#hornet">The Hornet</a><a href="#reviews">Reviews</a><a href="#area">Hours &amp; area</a><a href="#contact">Contact</a></nav>
+  <a class="callbtn" href="tel:+13604795099">Call 360-479-5099</a>
+</div></header>
+
+<main id="top">
+<section class="hero wrap" aria-label="Air Flow Pros">
+  <div>
+    <p class="kicker">Bremerton · Furnace, duct &amp; dryer vent cleaning</p>
+    <div class="cardwrap">
+      <div class="bizcard" id="card">
+        <div class="face front" id="card-front">
+          <h1>Air Flow Pros</h1>
+          <p class="svc">Furnace and Air Duct Cleaning Service<br>Dryer Vent Cleaning</p>
+          <div class="who"><span><b>Bob Davies</b>Bremerton, WA 98312<br><a href="tel:+13604795099" style="text-decoration:none">360-479-5099</a></span><button class="flip" type="button" aria-expanded="false" aria-controls="card-back">Flip the card ↻</button></div>
+        </div>
+        <div class="face back" id="card-back" aria-hidden="true">
+          <p class="small">Free estimates · Work guaranteed</p>
+          <a class="big" href="tel:+13604795099" tabindex="-1">360-479-5099</a>
+          <div class="row"><a href="tel:+13604795099" tabindex="-1">Call Bob</a><a href="sms:+13604795099" tabindex="-1">Text</a><a href="mailto:bobbigolf@aol.com" tabindex="-1">Email</a></div>
+          <button class="flip" type="button" tabindex="-1">↺ Flip back</button>
+        </div>
+      </div>
+    </div>
+    <p class="slogan">It takes more than <em>a shop vac.</em></p>
+    <p class="lede">Bob parks the Hornet Power Vac outside and pulls years of dust, pet hair and lint out of your furnace and ductwork, then clears the dryer vent while he's there. Locally owned and operated. Honest, reliable, and the work is guaranteed.</p>
+    <div class="ctas"><a class="btn red" href="tel:+13604795099">Call for a free estimate</a><a class="btn ghost" href="#services">What's included</a></div>
+  </div>
+  <div class="proof">
+    <figure>
+      <img src="img/filters.jpg" alt="A furnace filter caked gray with dust and torn, next to a clean new white filter" width="1440" height="810" fetchpriority="high">
+      <figcaption><span>Before</span><span>Dirty filter vs. clean filter</span><span>After</span></figcaption>
+    </figure>
+    <a class="stamp" href="https://www.homeadvisor.com/rated.airflowpros.158941863.html" aria-label="5.0 stars from 24 reviews on HomeAdvisor"><span>5.0 ★<span class="n" id="count">24</span>reviews on HomeAdvisor</span></a>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Furnaces, air ducts, returns and registers, dryer vents, commercial, free estimates">
+  <div id="ticker" aria-hidden="true"><p class="line ticker-static" style="margin:0">Furnaces <span>✦</span> Air ducts <span>✦</span> Dryer vents <span>✦</span> Commercial <span>✦</span> Free estimates</p></div>
+</div>
+
+<section class="sec wrap" id="services">
+  <h2>What Bob cleans</h2>
+  <p class="sec-lede">Homes and commercial spaces. Estimates are free, and reviewers keep pointing out that the price he quotes on the phone is the price on the bill.</p>
+  <div class="svcgrid">
+    <article class="big">
+      <img src="img/power-vac.jpg" alt="Air Flow Pros' yellow Hornet power vacuum with its striped hose, set up on a lawn" width="605" height="450" loading="lazy">
+      <div><h3>Furnace &amp; air duct cleaning</h3><p>The whole system, not just the grilles you can reach:</p>
+        <ul><li>Supply and return ducts</li><li>Registers and return grilles</li><li>The furnace itself</li></ul></div>
+    </article>
+    <article class="dark"><h3>Dryer vent cleaning</h3><p>Lint packed into the line makes the dryer run longer and is a fire risk. Bob clears it from the dryer to the outside flap.</p><span class="tag">Easy to add on the same visit</span></article>
+    <article><h3>Commercial ducts &amp; vents</h3><p>Offices, shops and rentals. Call to set a time that works around your business hours.</p><span class="tag">Emergency service offered</span></article>
+  </div>
+</section>
+
+<section class="versus sec" id="hornet">
+  <div class="wrap">
+    <div>
+      <h2>Why it takes more than a shop vac</h2>
+      <p class="sec-lede" style="margin-bottom:0">A hand-held vacuum reaches the first foot of a duct. The Hornet is a truck-mounted power vac: it puts the whole system under suction, and the dust goes out a hose to the machine instead of back into your hallway.</p>
+      <div class="cmp">
+        <div class="them"><h3>A shop vac</h3><ul><li>Reaches what you can see</li><li>Small hose, small motor</li><li>Dust can blow back in</li></ul></div>
+        <div class="us"><h3>The Hornet</h3><ul><li>Pulls the whole system</li><li>Truck-mounted suction</li><li>Dust leaves the house</li></ul></div>
+      </div>
+    </div>
+    <figure class="vent">
+      <img src="img/dryer-vent-lint.jpg" alt="Gray dryer lint piled on the ground below a row of outside dryer vent flaps" width="900" height="1200" loading="lazy">
+      <figcaption>"Dryer vent maintenance is essential."<small>Bob, on the Air Flow Pros Facebook page</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec wrap" id="reviews">
+  <div class="notes-head">
+    <div><h2>What people keep writing down</h2></div>
+    <p>5.0 from 24 reviews on HomeAdvisor. Summarized in our own words; <a href="https://www.homeadvisor.com/rated.airflowpros.158941863.html">read the originals</a>.</p>
+  </div>
+  <ul class="notes">
+    <li>He took his shoes off every single time he came inside. We'd just put in new floors.<span>Chris D. · HomeAdvisor · 2019 (paraphrased)</span></li>
+    <li>Fit us in within a week, when other companies were a month or more out. The old dog smell in the ducts is gone.<span>Britney G. · HomeAdvisor · 2018 (paraphrased)</span></li>
+    <li>Charged exactly what he quoted on the phone. Nothing added at the door.<span>Michele L. · HomeAdvisor · 2016 (paraphrased)</span></li>
+    <li>Came out after normal hours because we needed it done fast.<span>Kandy T. · HomeAdvisor · 2017 (paraphrased)</span></li>
+    <li>Found a duct that was never hooked up right, and came back after it was fixed at no extra charge.<span>Joan R. · HomeAdvisor · 2018 (paraphrased)</span></li>
+    <li>Not a 30-minutes-with-a-shop-vac outfit. Seriously professional equipment.<span>Marlyce A. · HomeAdvisor · 2017 (paraphrased)</span></li>
+  </ul>
+</section>
+
+<section class="sec wrap" id="area" style="padding-top:0">
+  <div class="visit">
+    <div class="panel">
+      <h3>Hours</h3>
+      <dl>
+        <dt>Mon–Fri</dt><dd><span class="ph">hours</span></dd>
+        <dt>Saturday</dt><dd><span class="ph">hours</span></dd>
+        <dt>After hours</dt><dd>Emergency service offered. Call and ask.</dd>
+      </dl>
+    </div>
+    <div class="panel">
+      <h3>Where Bob works</h3>
+      <p style="margin:0">Based in Bremerton and serving the Kitsap Peninsula.</p>
+      <ul class="towns"><li class="home">Bremerton</li><li><span class="ph">Port Orchard</span></li><li><span class="ph">Silverdale</span></li><li><span class="ph">Gig Harbor</span></li><li><span class="ph">Poulsbo</span></li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Get on Bob's schedule</h2>
+      <a class="phone" href="tel:+13604795099">360-479-5099</a>
+      <div class="row"><a href="tel:+13604795099">Call</a><a href="sms:+13604795099">Text</a><a class="out" href="mailto:bobbigolf@aol.com">Email</a><a class="out" href="https://www.facebook.com/airflowpro1/">Facebook</a></div>
+    </div>
+    <address>
+      <b>Air Flow Pros</b>
+      Bob Davies, owner<br>
+      <a href="https://maps.google.com/?q=3128+Greenmont+Lane+NW,+Bremerton,+WA+98312">3128 Greenmont Lane NW<br>Bremerton, WA 98312</a><br>
+      <a href="tel:+13604795099">360-479-5099</a><br>
+      <a href="mailto:bobbigolf@aol.com">bobbigolf@aol.com</a>
+    </address>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <div><a class="word" href="#top">Air Flow Pros</a><p>Furnace, air duct &amp; dryer vent cleaning · Bremerton, WA</p><p><a href="tel:+13604795099">360-479-5099</a> · <a href="https://www.facebook.com/airflowpro1/">Facebook</a></p></div>
+  <div style="max-width:46ch"><p>Concept redesign by Theo, not the official site.</p><p>Photos from Air Flow Pros' own Facebook page, used for this concept only. Review summaries paraphrased from HomeAdvisor.</p></div>
+</div></footer>
+
+<script>
+// Card flip (plain JS; works without React)
+(function(){
+  const card=document.getElementById('card'),front=document.getElementById('card-front'),back=document.getElementById('card-back');
+  const fb=front.querySelector('.flip');
+  function set(f){card.classList.toggle('flipped',f);fb.setAttribute('aria-expanded',f);
+    back.setAttribute('aria-hidden',!f);front.setAttribute('aria-hidden',f);
+    back.querySelectorAll('a,button').forEach(el=>el.tabIndex=f?0:-1);front.querySelectorAll('a,button').forEach(el=>el.tabIndex=f?-1:0);
+    (f?back.querySelector('.big'):fb).focus({preventScroll:true})}
+  card.querySelectorAll('.flip').forEach(b=>b.addEventListener('click',()=>set(!card.classList.contains('flipped'))));
+  card.addEventListener('click',e=>{if(e.target.closest('a,button'))return;set(!card.classList.contains('flipped'))});
+})();
+</script>
+<script type="module">
+// React islands: CountUp + ScrollVelocity (React Bits), mounted only when motion is allowed.
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const [{ default: React, useRef, useEffect, useState, useLayoutEffect, useCallback }, { createRoot }, m, { default: htm }] = await Promise.all([
+    import('react'), import('react-dom/client'), import('motion/react'), import('htm')]);
+  const { motion, useInView, useMotionValue, useSpring, useScroll, useVelocity, useTransform, useAnimationFrame } = m;
+  const html = htm.bind(React.createElement);
+
+  /* CountUp, from React Bits (reactbits.dev, by David Haz), JS + CSS variant, converted to htm */
+  function CountUp({ to, from = 0, direction = 'up', delay = 0, duration = 2, className = '', startWhen = true, separator = '' }) {
+    const ref = useRef(null);
+    const motionValue = useMotionValue(direction === 'down' ? to : from);
+    const damping = 20 + 40 * (1 / duration);
+    const stiffness = 100 * (1 / duration);
+    const springValue = useSpring(motionValue, { damping, stiffness });
+    const isInView = useInView(ref, { once: true, margin: '0px' });
+    useEffect(() => { if (ref.current) ref.current.textContent = String(direction === 'down' ? to : from); }, [from, to, direction]);
+    useEffect(() => {
+      if (isInView && startWhen) {
+        const t = setTimeout(() => motionValue.set(direction === 'down' ? from : to), delay * 1000);
+        return () => clearTimeout(t);
+      }
+    }, [isInView, startWhen, motionValue, direction, from, to, delay]);
+    useEffect(() => {
+      const unsub = springValue.on('change', latest => {
+        if (ref.current) {
+          const formatted = Intl.NumberFormat('en-US', { useGrouping: !!separator, minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(Number(latest.toFixed(0)));
+          ref.current.textContent = separator ? formatted.replace(/,/g, separator) : formatted;
+        }
+      });
+      return () => unsub();
+    }, [springValue, separator]);
+    return html`<span className=${className} ref=${ref} />`;
+  }
+
+  /* ScrollVelocity, from React Bits (reactbits.dev, by David Haz), JS + CSS variant, converted to htm */
+  function useElementWidth(ref) {
+    const [width, setWidth] = useState(0);
+    useLayoutEffect(() => {
+      function update() { if (ref.current) setWidth(ref.current.offsetWidth); }
+      update(); addEventListener('resize', update); document.fonts && document.fonts.ready.then(update);
+      return () => removeEventListener('resize', update);
+    }, [ref]);
+    return width;
+  }
+  function VelocityText({ children, baseVelocity = 60, damping = 50, stiffness = 400, numCopies = 6, velocityMapping = { input: [0, 1000], output: [0, 5] } }) {
+    const baseX = useMotionValue(0);
+    const { scrollY } = useScroll();
+    const scrollVelocity = useVelocity(scrollY);
+    const smoothVelocity = useSpring(scrollVelocity, { damping, stiffness });
+    const velocityFactor = useTransform(smoothVelocity, velocityMapping.input, velocityMapping.output, { clamp: false });
+    const copyRef = useRef(null);
+    const copyWidth = useElementWidth(copyRef);
+    function wrap(min, max, v) { const range = max - min; const mod = (((v - min) % range) + range) % range; return mod + min; }
+    const x = useTransform(baseX, v => (copyWidth === 0 ? '0px' : `${wrap(-copyWidth, 0, v)}px`));
+    const directionFactor = useRef(1);
+    useAnimationFrame((t, delta) => {
+      let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+      if (velocityFactor.get() < 0) directionFactor.current = -1; else if (velocityFactor.get() > 0) directionFactor.current = 1;
+      moveBy += directionFactor.current * moveBy * velocityFactor.get();
+      baseX.set(baseX.get() + moveBy);
+    });
+    const spans = [];
+    for (let i = 0; i < numCopies; i++) spans.push(html`<span className="line" key=${i} ref=${i === 0 ? copyRef : null}>${children}</span>`);
+    return html`<div className="parallax"><${motion.div} className="scroller" style=${{ x }}>${spans}<//></div>`;
+  }
+
+  const items = ['Furnaces', 'Air ducts', 'Returns & registers', 'Dryer vents', 'Commercial', 'Free estimates', 'Work guaranteed'];
+  const tickerText = html`${items.map((t, i) => html`<${React.Fragment} key=${i}>${t} <span>✦</span> <//>`)}`;
+  createRoot(document.getElementById('ticker')).render(html`<${VelocityText} baseVelocity=${-55}>${tickerText}<//>`);
+  createRoot(document.getElementById('count')).render(html`<${CountUp} from=${0} to=${24} duration=${1.6} delay=${0.3} />`);
+}
+</script>
+</body>
+</html>
