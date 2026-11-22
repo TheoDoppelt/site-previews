@@ -66,25 +66,48 @@ main,footer{position:relative;z-index:1}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
 .hero .meta{margin-top:30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff}
 
-/* finish picker inside an arch */
+/* finish picker inside an arch: a fan of nail tips, a brush that paints them, light that follows you */
 .arch{border-radius:999px 999px 24px 24px;overflow:hidden}
-.picker{background:var(--surface);color:var(--ink);padding:56px 26px 28px;text-align:center}
-.picker h2{font-size:26px;color:var(--gold);margin-top:6px}
-.picker .tip{margin:6px auto 18px;color:var(--muted);font-size:14px;max-width:26ch}
-.nails{display:flex;align-items:flex-end;justify-content:center;gap:clamp(8px,2vw,14px);height:150px;margin-bottom:20px}
-.nail{position:relative;width:clamp(34px,7vw,48px);border-radius:48% 48% 22% 22%/58% 58% 18% 18%;background:#EFD9D6;overflow:hidden;box-shadow:inset 0 -8px 14px rgba(59,48,28,.12)}
-.nail:nth-child(1){height:58%}.nail:nth-child(2){height:88%}.nail:nth-child(3){height:100%}.nail:nth-child(4){height:86%}.nail:nth-child(5){height:66%;transform:rotate(14deg) translateY(8px)}
-.nail::before{content:"";position:absolute;inset:0;background:var(--f,#C2316F)}
-.nail::after{content:"";position:absolute;left:18%;top:10%;width:20%;height:46%;border-radius:50%;background:linear-gradient(#fff9,#fff0)}
-.nails.paint .nail::before{animation:coat .7s var(--ease) both}
-.nails.paint .nail:nth-child(2)::before{animation-delay:.06s}.nails.paint .nail:nth-child(3)::before{animation-delay:.12s}.nails.paint .nail:nth-child(4)::before{animation-delay:.18s}.nails.paint .nail:nth-child(5)::before{animation-delay:.24s}
-@keyframes coat{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
-.finishes{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
-.finishes button{font:400 14px var(--sans);padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
-.finishes button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:#fff}
-.finishes button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.readout{margin:16px 0 0;font-size:14px;color:var(--muted);min-height:24px}
-.readout b{color:var(--ink);font-weight:500}
+.picker{background:var(--surface);color:var(--ink);padding:52px 22px 30px;text-align:center;position:relative}
+.picker h2{font-size:26px;color:var(--gold);margin-top:4px}
+.picker .tip{margin:6px auto 0;color:var(--muted);font-size:14px;max-width:30ch}
+.stage{position:relative;height:250px;max-width:340px;margin:0 auto 6px;perspective:800px;touch-action:pan-y}
+.glow{position:absolute;left:50%;top:60%;width:300px;height:220px;transform:translate(-50%,-50%);background:var(--glowc,#C2316F);opacity:.28;-webkit-mask:radial-gradient(closest-side,#000,transparent);mask:radial-gradient(closest-side,#000,transparent);transition:background-color 1s var(--ease)}
+.fan{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .6s var(--ease);transform:rotateX(calc((var(--my,.5) - .5) * -16deg)) rotateY(calc((var(--mx,.5) - .5) * 20deg))}
+.nail{position:absolute;left:50%;bottom:26px;width:52px;height:var(--h);margin-left:-26px;transform-origin:50% 240%;transform:rotate(var(--a));border-radius:50% 50% 42% 42%/64% 64% 36% 36%;overflow:hidden;background:#EFD9D6;box-shadow:0 16px 24px -14px rgba(59,48,28,.55),inset 0 -6px 10px rgba(59,48,28,.16)}
+.nail i{position:absolute;inset:0}
+.nail .old{background:var(--fo);background-size:var(--so,100% 100%)}
+.nail .new{background:var(--fn);background-size:var(--sn,100% 100%)}
+.nail .old,.nail .new{background-position:calc(var(--mx,.5) * 100%) 50%;transition:background-position .3s linear}
+.nail .gloss{background:radial-gradient(ellipse 28% 40% at calc(22% + var(--mx,.5) * 50%) calc(16% + var(--my,.5) * 26%),rgba(255,255,255,.85),rgba(255,255,255,0) 70%);mix-blend-mode:screen}
+.nail .rim{box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),inset 0 4px 0 -2px rgba(255,255,255,.35);border-radius:inherit}
+.brush{position:absolute;left:0;top:0;width:24px;height:100px;opacity:0;pointer-events:none;transform-origin:50% 100%;z-index:3;filter:drop-shadow(0 6px 6px rgba(59,48,28,.3))}
+.brush .bristle{fill:var(--tip,#B8285F);transition:fill .3s}
+.spark{position:absolute;left:var(--x);top:var(--y);width:var(--s,14px);height:var(--s,14px);background:#D9BD74;clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);opacity:0;z-index:4}
+.spark.w{background:#fff}
+.swatches{display:flex;justify-content:center;gap:clamp(4px,2vw,12px);margin-top:4px}
+.swatches button{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;cursor:pointer;font:400 13px var(--sans);color:var(--muted);padding:4px 2px;min-width:54px}
+.swatches .dot{width:40px;height:40px;border-radius:50%;background:var(--sw);background-size:var(--ss,100% 100%);background-position:30% 50%;box-shadow:inset 0 -5px 9px rgba(0,0,0,.2),inset 0 4px 6px rgba(255,255,255,.55);outline:1px solid var(--line);outline-offset:3px;transition:transform .45s var(--ease),outline-color .3s}
+.swatches button:hover .dot{transform:translateY(-3px)}
+.swatches button[aria-pressed="true"]{color:var(--ink);font-weight:500}
+.swatches button[aria-pressed="true"] .dot{outline:2px solid var(--primary);transform:scale(1.1)}
+.swatches button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+.readout{margin:18px 0 0;min-height:54px}
+.readout .nm{display:block;font-family:var(--display);text-transform:uppercase;font-size:21px;letter-spacing:.02em;color:var(--ink)}
+.readout .pr{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+@media (prefers-reduced-motion:no-preference){
+  html.js .stage:not(.ready) .nail .new{clip-path:inset(100% 0 0 0)}
+  .stage.paint .nail .new{animation:coat .55s var(--ease) both;animation-delay:calc(var(--i) * .13s + .18s)}
+  .stage.paint .brush{animation:sweep 1.05s cubic-bezier(.45,.05,.4,1) both}
+  .stage.paint .spark{animation:pop .9s var(--ease) both;animation-delay:calc(.8s + var(--d))}
+  .stage.paint .nail{animation:dip .5s var(--ease) both;animation-delay:calc(var(--i) * .13s + .12s)}
+  .readout.swap{animation:fadeup .6s var(--ease)}
+}
+@keyframes coat{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes dip{0%,100%{transform:rotate(var(--a))}45%{transform:rotate(var(--a)) translateY(5px) scale(.97)}}
+@keyframes sweep{0%{opacity:0;transform:translate(30px,110px) rotate(-38deg)}12%{opacity:1}25%{transform:translate(78px,60px) rotate(-22deg)}50%{transform:translate(158px,30px) rotate(0deg)}75%{transform:translate(238px,60px) rotate(22deg)}88%{opacity:1}100%{opacity:0;transform:translate(286px,110px) rotate(38deg)}}
+@keyframes pop{0%{opacity:0;transform:scale(0) rotate(0)}35%{opacity:1;transform:scale(1.15) rotate(40deg)}100%{opacity:0;transform:scale(.2) rotate(110deg)}}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (max-width:860px){.hero{padding:60px 0 170px}.hero .wrap{grid-template-columns:1fr;gap:44px}.picker{max-width:380px;margin-inline:auto;width:100%}}
 
 /* the cream sheet that rises over the hero */
@@ -261,16 +284,21 @@ footer img{height:56px;width:auto}
     <div class="picker arch lift d2" id="picker" aria-labelledby="pickTitle">
       <svg class="orn" viewBox="0 0 54 26" aria-hidden="true"><path d="M27 1 L30 10 L39 13 L30 16 L27 25 L24 16 L15 13 L24 10 Z" fill="currentColor"/><path d="M0 13 H12 M42 13 H54" stroke="currentColor" stroke-width="1"/></svg>
       <h2 id="pickTitle">Try a finish</h2>
-      <p class="tip">Tap a finish from the nail art menu to paint the set.</p>
-      <div class="nails" id="nails" aria-hidden="true"><span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span><span class="nail"></span></div>
-      <div class="finishes" role="group" aria-label="Nail finishes">
-        <button type="button" data-f="classic" aria-pressed="true">Classic</button>
-        <button type="button" data-f="french">French Tip</button>
-        <button type="button" data-f="ombre">Ombre</button>
-        <button type="button" data-f="chrome">Chrome</button>
-        <button type="button" data-f="cateye">Cat Eye</button>
+      <p class="tip">Pick a polish from the nail art menu. Move over the set to catch the light.</p>
+      <div class="stage" id="stage" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="fan" id="fan"><span class="nail" style="--a:-32deg;--h:112px;--i:0"><i class="old"></i><i class="new"></i><i class="gloss"></i><i class="rim"></i></span><span class="nail" style="--a:-16deg;--h:146px;--i:1"><i class="old"></i><i class="new"></i><i class="gloss"></i><i class="rim"></i></span><span class="nail" style="--a:0deg;--h:166px;--i:2"><i class="old"></i><i class="new"></i><i class="gloss"></i><i class="rim"></i></span><span class="nail" style="--a:16deg;--h:148px;--i:3"><i class="old"></i><i class="new"></i><i class="gloss"></i><i class="rim"></i></span><span class="nail" style="--a:32deg;--h:118px;--i:4"><i class="old"></i><i class="new"></i><i class="gloss"></i><i class="rim"></i></span></div>
+        <svg class="brush" viewBox="0 0 24 100"><rect x="5" y="0" width="14" height="46" rx="4" fill="#2B2216"/><rect x="6.5" y="3" width="3" height="38" rx="1.5" fill="#fff" opacity=".18"/><rect x="4" y="46" width="16" height="12" rx="2" fill="#C9A85C"/><path class="bristle" d="M5 58 H19 C19 74 16 90 12 100 C8 90 5 74 5 58 Z"/></svg>
+        <span class="spark" style="--x:14%;--y:30%;--d:0s;--s:14px"></span><span class="spark w" style="--x:30%;--y:8%;--d:.08s;--s:10px"></span><span class="spark" style="--x:50%;--y:0%;--d:.16s;--s:16px"></span><span class="spark w" style="--x:70%;--y:10%;--d:.05s;--s:10px"></span><span class="spark" style="--x:86%;--y:32%;--d:.12s;--s:13px"></span><span class="spark w" style="--x:46%;--y:40%;--d:.2s;--s:8px"></span>
       </div>
-      <p class="readout" id="readout" aria-live="polite">Classic Manicure · <b>$27</b> · Gel/Shellac +$15</p>
+      <div class="swatches" role="group" aria-label="Nail finishes">
+        <button type="button" data-f="classic" aria-pressed="true"><span class="dot"></span>Classic</button>
+        <button type="button" data-f="french" aria-pressed="false"><span class="dot"></span>French</button>
+        <button type="button" data-f="ombre" aria-pressed="false"><span class="dot"></span>Ombre</button>
+        <button type="button" data-f="chrome" aria-pressed="false"><span class="dot"></span>Chrome</button>
+        <button type="button" data-f="cateye" aria-pressed="false"><span class="dot"></span>Cat Eye</button>
+      </div>
+      <div class="readout" id="readout" aria-live="polite"><span class="nm">Classic Manicure</span><span class="pr">$27 · Gel/Shellac +$15</span></div>
     </div>
   </div>
 </section>
@@ -489,22 +517,36 @@ footer img{height:56px;width:auto}
   });
 
   /* finish picker */
+  var NUDE='linear-gradient(#F3DFDA,#EBCFCA)';
   var F={
-    classic:['linear-gradient(#C2316F,#9A1F4E)','Classic Manicure · <b>$27</b> · Gel/Shellac +$15'],
-    french:['linear-gradient(#FFFFFF 0 28%,#EFD9D6 28%)','French Tip · <b>$10++</b> added to any manicure'],
-    ombre:['linear-gradient(#E58FB5,#F3E3DF 85%)','Ombre · <b>$15</b> added to any manicure'],
-    chrome:['linear-gradient(135deg,#E8E4DA,#9C907A 38%,#F7F4EE 55%,#A79B83 76%,#E2DCCD)','Chrome · <b>$15</b> added to any manicure'],
-    cateye:['linear-gradient(100deg,#3B301C 28%,#D9BD74 48%,#3B301C 68%)','Cat Eye · <b>$12</b> added to any manicure']
+    classic:{n:'Classic Manicure',p:'$27 · Gel/Shellac +$15',bg:'linear-gradient(165deg,#DA4A86,#B8285F 55%,#7E1A44)',tip:'#B8285F',glow:'#C2316F'},
+    french:{n:'French Tip',p:'$10++ added to any manicure',bg:'linear-gradient(#FFFDF9 0 30%,#F6E4DF 30%,#EED4CF)',tip:'#FFFFFF',glow:'#E2BDB6'},
+    ombre:{n:'Ombre',p:'$15 added to any manicure',bg:'linear-gradient(#EC5C9C,#F6B8D1 55%,#F7E8E3)',tip:'#EC5C9C',glow:'#F07AB0'},
+    chrome:{n:'Chrome',p:'$15 added to any manicure',bg:'linear-gradient(110deg,#F4F1EA 0%,#9C907A 16%,#FFFFFF 28%,#7F745F 44%,#ECE7DC 58%,#A2967F 74%,#FFFFFF 86%,#8A7F6A 100%)',sz:'320% 100%',tip:'#C9C1B0',glow:'#B9AE95'},
+    cateye:{n:'Cat Eye',p:'$12 added to any manicure',bg:'linear-gradient(100deg,#21142A 0%,#3A2142 40%,#C9A35B 47%,#FFF1C9 50%,#C9A35B 53%,#3A2142 60%,#21142A 100%)',sz:'340% 100%',tip:'#3A2142',glow:'#8A6A3A'}
   };
-  var nails=document.getElementById('nails'),out=document.getElementById('readout');
-  document.querySelectorAll('.finishes button').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('.finishes button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-      var f=F[b.dataset.f];nails.style.setProperty('--f',f[0]);out.innerHTML=f[1];
-      nails.classList.remove('paint');void nails.offsetWidth;nails.classList.add('paint');
-    });
-  });
-  nails.style.setProperty('--f',F.classic[0]);
+  var stage=document.getElementById('stage'),fan=document.getElementById('fan'),out=document.getElementById('readout'),btns=[].slice.call(document.querySelectorAll('.swatches button')),cur=null,tw=null,hover=false;
+  btns.forEach(function(b){var f=F[b.dataset.f],d=b.querySelector('.dot');d.style.setProperty('--sw',f.bg);if(f.sz)d.style.setProperty('--ss',f.sz)});
+  function mx(x,y){stage.style.setProperty('--mx',x.toFixed(3));stage.style.setProperty('--my',y.toFixed(3))}
+  function sweepLight(){if(reduce||hover)return;var t0=null;cancelAnimationFrame(tw);(function step(ts){if(!t0)t0=ts;var t=Math.min(1,(ts-t0)/1800),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;mx(.08+.84*e,.35+.3*Math.sin(e*Math.PI));if(t<1)tw=requestAnimationFrame(step);else{var b0=null;(function back(ts2){if(!b0)b0=ts2;var u=Math.min(1,(ts2-b0)/900);mx(.92-.42*u,.35+.15*u);if(u<1&&!hover)tw=requestAnimationFrame(back)})(performance.now())}})(performance.now())}
+  function paint(k){
+    if(k===cur)return;var o=cur?F[cur]:{bg:NUDE},n=F[k];
+    fan.style.setProperty('--fo',o.bg);fan.style.setProperty('--so',o.sz||'100% 100%');
+    fan.style.setProperty('--fn',n.bg);fan.style.setProperty('--sn',n.sz||'100% 100%');
+    stage.style.setProperty('--tip',n.tip);stage.style.setProperty('--glowc',n.glow);
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.f===k)});
+    out.innerHTML='<span class="nm">'+n.n+'</span><span class="pr">'+n.p+'</span>';
+    out.classList.remove('swap');stage.classList.remove('paint');void stage.offsetWidth;
+    stage.classList.add('ready','paint');out.classList.add('swap');cur=k;
+    if(k==='chrome'||k==='cateye')setTimeout(sweepLight,700);
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){paint(b.dataset.f)})});
+  if(!reduce){
+    stage.addEventListener('pointermove',function(e){hover=true;cancelAnimationFrame(tw);var r=stage.getBoundingClientRect();mx(Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)),Math.min(1,Math.max(0,(e.clientY-r.top)/r.height)))});
+    stage.addEventListener('pointerleave',function(){hover=false;mx(.5,.5)});
+  }
+  if(reduce||!('IntersectionObserver' in window)){stage.classList.add('ready');fan.style.setProperty('--fo',F.classic.bg);fan.style.setProperty('--fn',F.classic.bg);cur='classic'}
+  else{fan.style.setProperty('--fo',NUDE);fan.style.setProperty('--fn',F.classic.bg);var po=new IntersectionObserver(function(es){if(es[0].isIntersecting){po.disconnect();setTimeout(function(){cur=null;paint('classic')},650)}},{threshold:.5});po.observe(stage)}
 
   /* menu tabs */
   var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
