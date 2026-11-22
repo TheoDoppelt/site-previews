@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bravo Comfort Zone HVAC Service: Website Concept</title>
+<meta name="description" content="Concept redesign for Bravo Comfort Zone HVAC Service, Magnolia, Seattle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Figtree:wght@400;500;700;800&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --manila:#EADBB4; --paper:#F6EED8; --carbon:#2340A0; --stamp:#C2362B;
+  --graphite:#23211C; --duct:#8C8574; --warm:#E9A23B; --cool:#5E8FD6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--graphite);background:var(--manila);line-height:1.55;font-size:17px;
+  background-image:radial-gradient(rgba(35,33,28,.05) 1px,transparent 1px);background-size:5px 5px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--carbon);outline-offset:3px}
+.typed{font-family:"Special Elite",ui-monospace,monospace;color:var(--carbon)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 22px;max-width:1180px;margin:0 auto}
+.bar .lic{font-size:14px;font-weight:500}
+.bar a.tel{font-weight:800;text-decoration:none;background:var(--graphite);color:var(--paper);padding:9px 16px;border-radius:999px;font-size:15px;white-space:nowrap}
+
+/* hero */
+.hero{padding:10px 0 60px}
+.name{font-family:"Climate Crisis",Figtree,sans-serif;font-weight:400;line-height:.86;letter-spacing:-.01em;
+  font-size:clamp(46px,9.6vw,138px);color:var(--graphite)}
+.name small{display:block;font-family:Figtree,sans-serif;font-weight:700;font-size:clamp(16px,1.8vw,22px);letter-spacing:0;margin-top:14px;max-width:34ch;line-height:1.3}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:34px;align-items:start;margin-top:30px}
+.house-box{position:relative}
+.house-box p.hint{font-size:15px;margin-top:8px;color:#4b473d}
+svg.house{width:100%;height:auto;display:block;overflow:visible}
+.zone{cursor:pointer;outline:none}
+.zone .fill{fill:var(--paper);stroke:var(--graphite);stroke-width:3;transition:fill .45s ease}
+.zone:hover .fill{fill:#fff7e2}
+.zone[aria-checked="true"] .fill{fill:var(--zc)}
+.zone:focus-visible .fill{stroke:var(--carbon);stroke-width:6}
+.zone .lbl{font-family:Figtree,sans-serif;font-weight:800;font-size:20px;fill:var(--graphite);pointer-events:none}
+.zone[aria-checked="true"] .lbl{fill:var(--paper)}
+.zone.test .fill{fill:var(--zc)}
+.duct-line{fill:none;stroke:var(--duct);stroke-width:12;stroke-linecap:round;stroke-linejoin:round}
+.air{fill:none;stroke:var(--paper);stroke-width:3;stroke-dasharray:8 16;stroke-linecap:round;animation:flow 1.6s linear infinite;opacity:.9}
+@keyframes flow{to{stroke-dashoffset:-48}}
+.ground{stroke:var(--graphite);stroke-width:3}
+
+/* the service tag */
+.tag{position:relative;background:var(--paper);border:2px solid var(--graphite);padding:46px 26px 26px;
+  clip-path:polygon(16% 0,84% 0,100% 9%,100% 100%,0 100%,0 9%);box-shadow:none;min-height:420px}
+.tag::before{content:"";position:absolute;top:14px;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50%;
+  background:var(--manila);border:2px solid var(--graphite)}
+.tag .row{display:flex;justify-content:space-between;border-bottom:1.5px solid rgba(35,33,28,.35);padding:8px 0;gap:12px;font-size:14px}
+.tag .row b{font-weight:700}
+.tag h2{font-family:"Climate Crisis",sans-serif;font-weight:400;font-size:30px;line-height:1;margin:14px 0 6px}
+.tag .sym{list-style:none;margin:10px 0 14px}
+.tag .sym li{padding:4px 0 4px 26px;position:relative;font-size:16px}
+.tag .sym li::before{content:"";position:absolute;left:2px;top:9px;width:13px;height:13px;border:2px solid var(--graphite)}
+.tag .sym li.on::before{background:var(--stamp);border-color:var(--stamp)}
+.tag .we{font-size:15px;margin-bottom:18px}
+.call{display:block;text-align:center;background:var(--stamp);color:var(--paper);text-decoration:none;font-weight:800;
+  padding:15px 14px;border-radius:6px;font-size:18px}
+.call:hover{background:#a92b22}
+.tag-swap{transition:opacity .25s}
+.tag-swap.out{opacity:0}
+
+/* sections */
+section{padding:70px 0}
+h3.sec{font-family:"Climate Crisis",sans-serif;font-weight:400;font-size:clamp(30px,4.4vw,52px);line-height:1;margin-bottom:18px}
+.about{background:var(--graphite);color:var(--paper)}
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about p{max-width:56ch;margin-bottom:14px}
+.creds{list-style:none;display:grid;gap:12px}
+.creds li{border:2px solid var(--paper);padding:14px 18px;font-weight:700;font-size:19px;display:flex;gap:14px;align-items:center}
+.creds li span{font-family:"Special Elite",monospace;color:var(--warm);font-weight:400;font-size:15px;margin-left:auto}
+
+/* work order */
+.order{position:relative;background:var(--paper);border:2px solid var(--graphite);padding:34px clamp(18px,4vw,46px);max-width:1000px}
+.order header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:3px double var(--graphite);padding-bottom:14px;margin-bottom:10px}
+.order header strong{font-size:20px}
+.order .cols{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 40px}
+.order h4{font-size:15px;font-weight:800;margin:22px 0 6px;padding-bottom:4px;border-bottom:1.5px solid var(--graphite);display:flex;justify-content:space-between}
+.order h4 a{font-weight:500;font-size:14px;color:var(--carbon)}
+.order ul{list-style:none}
+.order li{padding:5px 0;border-bottom:1px dashed rgba(35,33,28,.3);display:flex;justify-content:space-between;gap:10px}
+.order li i{font-style:normal;font-family:"Special Elite",monospace;color:var(--carbon);font-size:14px}
+.stampmark{position:absolute;right:clamp(14px,5vw,60px);bottom:26px;border:4px solid var(--stamp);color:var(--stamp);
+  font-family:"Climate Crisis",sans-serif;font-size:clamp(18px,2.6vw,28px);padding:8px 14px;line-height:1;transform:rotate(-9deg) scale(1);opacity:.85;
+  mix-blend-mode:multiply;pointer-events:none;text-align:center}
+.stampmark small{display:block;font-family:Figtree;font-weight:800;font-size:12px;margin-top:4px}
+.js .stampmark{opacity:0;transform:rotate(-9deg) scale(2.2)}
+.js .stampmark.hit{animation:thunk .38s cubic-bezier(.2,.9,.3,1.3) forwards}
+@keyframes thunk{to{opacity:.85;transform:rotate(-9deg) scale(1)}}
+
+/* coverage */
+.cover .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.rings{position:relative;aspect-ratio:1;max-width:420px;width:100%;margin:0 auto}
+.rings i{position:absolute;inset:0;border:2px dashed var(--graphite);border-radius:50%}
+.rings i:nth-child(2){inset:18%;border-style:solid;opacity:.5}
+.rings i:nth-child(3){inset:36%;opacity:.5}
+.rings b{position:absolute;left:50%;top:50%;width:18px;height:18px;margin:-9px;background:var(--stamp);border-radius:50%}
+.rings em{position:absolute;left:50%;top:50%;transform:translate(-50%,22px);font-style:normal;font-weight:800;font-size:14px;white-space:nowrap}
+.rings span{position:absolute;right:2%;top:12%;font-family:"Special Elite",monospace;color:var(--carbon);font-size:15px}
+.cover p{max-width:52ch;margin-bottom:14px}
+.btn2{display:inline-block;border:2px solid var(--graphite);padding:11px 18px;font-weight:700;text-decoration:none;border-radius:6px;margin:6px 8px 0 0}
+.btn2:hover{background:var(--graphite);color:var(--paper)}
+
+/* contact */
+.contact{background:var(--stamp);color:var(--paper)}
+.contact .big{font-family:"Climate Crisis",sans-serif;font-size:clamp(34px,7.5vw,96px);line-height:.95;text-decoration:none;display:inline-block;margin:6px 0 18px}
+.contact .big:hover{text-decoration:underline;text-decoration-thickness:4px}
+.contact p{max-width:56ch;font-size:18px}
+.contact .btn2{border-color:var(--paper)}
+.contact .btn2:hover{background:var(--paper);color:var(--stamp)}
+footer{padding:30px 0 40px;font-size:14px}
+footer .note{font-weight:700;margin-top:8px}
+
+@media (max-width:860px){
+  .hero-grid,.about .grid,.cover .grid{grid-template-columns:1fr}
+  .order .cols{grid-template-columns:1fr}
+  .tag{min-height:0}
+  .bar .lic{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .air{animation:none}
+  .js .stampmark{opacity:.85;transform:rotate(-9deg)}
+  .js .stampmark.hit{animation:none}
+  .zone .fill,.tag-swap{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.className='js'</script>
+
+<div class="bar">
+  <span class="lic">Licensed &amp; insured. NATE-certified technicians. Family-owned.</span>
+  <a class="tel" href="tel:2532765600">Call (253) 276-5600</a>
+</div>
+
+<header class="hero wrap">
+  <h1 class="name">Bravo Comfort Zone
+    <small>Heating and cooling repair from our shop on 28th Ave W in Magnolia, for Seattle homes and businesses.</small>
+  </h1>
+
+  <div class="hero-grid">
+    <div class="house-box">
+      <svg class="house" viewBox="0 0 640 560" role="radiogroup" aria-label="Pick the part of your home that's giving you trouble">
+        <!-- attic -->
+        <g class="zone" id="z-attic" role="radio" tabindex="-1" aria-checked="false" data-zone="attic" style="--zc:#8C8574" aria-label="Attic and ducts">
+          <polygon class="fill" points="60,180 260,40 460,180"/>
+          <text class="lbl" x="208" y="150">Attic &amp; ducts</text>
+        </g>
+        <!-- rooms -->
+        <g class="zone" id="z-rooms" role="radio" tabindex="-1" aria-checked="false" data-zone="rooms" style="--zc:#2340A0" aria-label="Living spaces">
+          <rect class="fill" x="80" y="180" width="360" height="200"/>
+          <text class="lbl" x="104" y="216">Living spaces</text>
+          <!-- thermostat -->
+          <rect x="340" y="250" width="34" height="46" rx="5" fill="none" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <circle cx="357" cy="268" r="9" fill="none" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <!-- window -->
+          <rect x="120" y="250" width="90" height="80" fill="none" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <line x1="165" y1="250" x2="165" y2="330" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+        </g>
+        <!-- basement -->
+        <g class="zone" id="z-base" role="radio" tabindex="-1" aria-checked="false" data-zone="basement" style="--zc:#C2362B" aria-label="Basement furnace and air handler">
+          <rect class="fill" x="80" y="400" width="360" height="130"/>
+          <text class="lbl" x="104" y="436">Basement</text>
+          <!-- furnace -->
+          <rect x="300" y="420" width="90" height="96" fill="none" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <line x1="312" y1="490" x2="378" y2="490" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <line x1="312" y1="500" x2="378" y2="500" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+        </g>
+        <!-- outside -->
+        <g class="zone" id="z-out" role="radio" tabindex="-1" aria-checked="false" data-zone="outside" style="--zc:#5E8FD6" aria-label="Outside AC and heat pump">
+          <rect class="fill" x="480" y="300" width="130" height="80" rx="4"/>
+          <circle cx="545" cy="340" r="26" fill="none" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <line x1="545" y1="314" x2="545" y2="366" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <line x1="519" y1="340" x2="571" y2="340" stroke="#23211C" stroke-width="3" pointer-events="none"/>
+          <text class="lbl" x="482" y="290" style="fill:#23211C">Outside unit</text>
+        </g>
+        <!-- ground line -->
+        <line class="ground" x1="20" y1="390" x2="630" y2="390"/>
+        <!-- duct run: furnace up the wall into the attic -->
+        <path class="duct-line" d="M345 420 V400 M430 400 V190 H260 M430 300 H392" pointer-events="none"/>
+        <path class="air" d="M430 400 V190 H260" pointer-events="none"/>
+        <path class="duct-line" d="M440 340 H480" pointer-events="none"/>
+      </svg>
+      <p class="hint">Tap the part of the house that's acting up. You can also use the arrow keys.</p>
+    </div>
+
+    <aside class="tag" aria-live="polite">
+      <div class="tag-swap" id="tagBody">
+        <div class="row"><b>Service tag</b><span class="typed" id="tZone">Basement</span></div>
+        <div class="row"><b>Shop</b><span>3252 28th Ave W</span></div>
+        <h2 id="tTitle">Furnace &amp; air handler</h2>
+        <ul class="sym" id="tSym"></ul>
+        <p class="we" id="tWe"></p>
+        <a class="call" id="tCall" href="tel:2532765600">Call about your furnace</a>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap grid">
+    <div>
+      <h3 class="sec">A family shop, a few blocks from you</h3>
+      <p>Bravo Comfort Zone is a family-owned heating and cooling company based in Magnolia. We fix what's broken, install what's needed, and keep the systems in Seattle houses running through wet winters and the odd heat wave.</p>
+      <p>When something quits, ask about same-day service. If your AC gives out in the middle of the night, emergency AC service runs 24 hours.</p>
+    </div>
+    <ul class="creds">
+      <li>Licensed &amp; insured</li>
+      <li>NATE-certified technicians</li>
+      <li>Same-day service</li>
+      <li>24-hour emergency AC service</li>
+    </ul>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h3 class="sec">What we work on</h3>
+    <div class="order" id="order">
+      <div class="stampmark" id="stamp" aria-hidden="true">Same day<small>service call</small></div>
+      <header><strong>Work order</strong><span class="typed">Bravo Comfort Zone HVAC Service</span></header>
+      <div class="cols">
+        <div>
+          <h4>Basement <a href="#top" data-go="basement">show on house</a></h4>
+          <ul>
+            <li>Furnace &amp; heating repair <i>repair</i></li>
+            <li>Air handler service <i>repair · maint.</i></li>
+            <li>Seasonal inspections <i>pre-season</i></li>
+          </ul>
+          <h4>Outside unit <a href="#top" data-go="outside">show on house</a></h4>
+          <ul>
+            <li>AC repair <i>leaks, noise, weak air</i></li>
+            <li>New AC installation <i>install</i></li>
+            <li>AC system replacement <i>replace</i></li>
+            <li>Heat pump service <i>install · repair</i></li>
+            <li>Refrigerant recharge <i>top-up</i></li>
+            <li>AC tune-ups &amp; maintenance <i>yearly</i></li>
+            <li>24-hour emergency AC <i>any hour</i></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Living spaces <a href="#top" data-go="rooms">show on house</a></h4>
+          <ul>
+            <li>Thermostat install &amp; repair <i>install · repair</i></li>
+            <li>Smart thermostat upgrades <i>upgrade</i></li>
+            <li>Zoning systems <i>room by room</i></li>
+            <li>Energy efficiency audits <i>assessment</i></li>
+          </ul>
+          <h4>Attic &amp; ducts <a href="#top" data-go="attic">show on house</a></h4>
+          <ul>
+            <li>Air duct cleaning <i>clean</i></li>
+            <li>Duct installation &amp; repair <i>install · repair</i></li>
+            <li>Ventilation <i>airflow</i></li>
+            <li>Indoor air quality <i>assessment</i></li>
+            <li>Air filtration systems <i>install</i></li>
+            <li>UV air sanitizers <i>install</i></li>
+          </ul>
+          <h4>Businesses</h4>
+          <ul><li>Commercial HVAC service <i>on site</i></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cover" id="area">
+  <div class="wrap grid">
+    <div class="rings" aria-hidden="true"><i></i><i></i><i></i><b></b><em>Our shop, 98199</em><span>about 36 mi</span></div>
+    <div>
+      <h3 class="sec">Where we go</h3>
+      <p>We work out of 3252 28th Ave W in Magnolia and cover Seattle and the surrounding area, roughly 36 miles out from our 98199 zip code.</p>
+      <p>Not sure you're inside the circle? Call and ask. It takes a minute.</p>
+      <a class="btn2" href="https://www.google.com/maps/search/?api=1&query=3252+28th+Ave+W+Seattle+WA+98199">Open in Maps</a>
+      <a class="btn2" href="tel:2532765600">Call (253) 276-5600</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h3 class="sec">Something not working?</h3>
+    <a class="big" href="tel:2532765600">(253) 276-5600</a>
+    <p>Call to book a repair, get a quote on a new system, or reach someone after hours for an AC emergency. Prefer to write? Send us a message and we'll get back to you.</p>
+    <a class="btn2" href="https://seattlehvac.homes/contact-us/">Send a message</a>
+    <a class="btn2" href="https://www.google.com/maps/search/?api=1&query=3252+28th+Ave+W+Seattle+WA+98199">3252 28th Ave W, Seattle, WA 98199</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>Bravo Comfort Zone HVAC Service, 3252 28th Ave W, Seattle, WA 98199, <a href="tel:2532765600">(253) 276-5600</a></p>
+  <p class="note">Concept redesign by Theo, not the official site.</p>
+</footer>
+
+<script>
+(function(){
+  var Z={
+    attic:{tag:"Attic & ducts",title:"Ducts & air quality",
+      sym:["Some rooms never get warm","Dust comes back right after cleaning","Stuffy air, musty smell"],
+      we:"We clean and repair ductwork, install new runs, and add filtration, ventilation or UV sanitizers.",
+      call:"Call about your ducts or air"},
+    rooms:{tag:"Living spaces",title:"Thermostats & zoning",
+      sym:["Thermostat is blank or unresponsive","Upstairs hot, downstairs cold","Bills climbing for no clear reason"],
+      we:"We install and repair thermostats, set up smart ones, put in zoning systems and run energy audits.",
+      call:"Call about your thermostat"},
+    basement:{tag:"Basement",title:"Furnace & air handler",
+      sym:["Furnace won't kick on","Burning or dusty smell at startup","Blower runs but the air is cold"],
+      we:"We repair furnaces and air handlers, and do pre-season inspections before the cold sets in.",
+      call:"Call about your furnace"},
+    outside:{tag:"Outside unit",title:"AC & heat pump",
+      sym:["AC runs but the air isn't cold","Outside unit is loud or iced over","Heat pump short-cycles"],
+      we:"We repair, tune up, recharge and replace AC systems and heat pumps, with 24-hour emergency AC service.",
+      call:"Call about your AC or heat pump"}
+  };
+  var order=["attic","rooms","basement","outside"];
+  var els={}; order.forEach(function(k){els[k]=document.querySelector('[data-zone="'+k+'"]')});
+  var body=document.getElementById('tagBody');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur=null;
+  function fill(k){
+    var d=Z[k];
+    document.getElementById('tZone').textContent=d.tag;
+    document.getElementById('tTitle').textContent=d.title;
+    document.getElementById('tSym').innerHTML=d.sym.map(function(s){return '<li>'+s+'</li>'}).join('');
+    document.getElementById('tWe').textContent=d.we;
+    document.getElementById('tCall').textContent=d.call;
+    // tick boxes one by one
+    var lis=[].slice.call(document.querySelectorAll('#tSym li'));
+    lis.forEach(function(li,i){ if(reduce){li.classList.add('on')} else setTimeout(function(){li.classList.add('on')},180+i*160)});
+  }
+  function select(k,focus){
+    if(k===cur)return; cur=k;
+    order.forEach(function(o){var e=els[o];e.setAttribute('aria-checked',o===k?'true':'false');e.setAttribute('tabindex',o===k?'0':'-1')});
+    if(focus)els[k].focus();
+    if(reduce){fill(k);return}
+    body.classList.add('out');
+    setTimeout(function(){fill(k);body.classList.remove('out')},220);
+  }
+  order.forEach(function(k){
+    els[k].addEventListener('click',function(){select(k,false)});
+    els[k].addEventListener('keydown',function(e){
+      var i=order.indexOf(k);
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();select(order[(i+1)%4],true)}
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();select(order[(i+3)%4],true)}
+      if(e.key===' '||e.key==='Enter'){e.preventDefault();select(k,true)}
+    });
+  });
+  document.querySelectorAll('[data-go]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});select(a.dataset.go,false)});
+  });
+  // heating season picks the basement, warm months pick the outside unit
+  var m=new Date().getMonth(); var start=(m>=4&&m<=8)?'outside':'basement';
+  var q=new URLSearchParams(location.search).get('zone'); if(Z[q])start=q;
+  // load moment: a quick "system check" lights each zone in turn
+  if(reduce||q){select(start)}else{
+    order.forEach(function(k,i){
+      setTimeout(function(){els[k].classList.add('test')},250+i*260);
+      setTimeout(function(){els[k].classList.remove('test')},250+i*260+380);
+    });
+    setTimeout(function(){select(start)},250+4*260+200);
+  }
+  // work-order stamp
+  var stamp=document.getElementById('stamp');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en,ob){en.forEach(function(x){if(x.isIntersecting){stamp.classList.add('hit');ob.disconnect()}})},{threshold:.35}).observe(document.getElementById('order'));
+  }else stamp.classList.add('hit');
+})();
+</script>
+</body>
+</html>
