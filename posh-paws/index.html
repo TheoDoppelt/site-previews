@@ -1,324 +1,302 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Posh Paws: Website Concept</title>
+<meta name="description" content="Dog and cat grooming at 6411 Roosevelt Way NE, Seattle. Find your breed's price, walk-in nail trims Tuesday to Saturday.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Posh Paws grooming salon, 6411 Roosevelt Way NE, Seattle. Dog and cat grooming, walk-in nail trims, CPR and pet first aid certified staff.">
 <meta property="og:title" content="Posh Paws: Website Concept">
-<meta property="og:description" content="Big or small, short or tall, we groom them all. Dog and cat grooming on Roosevelt Way NE, Seattle.">
+<meta property="og:description" content="A concept redesign for Posh Paws Grooming Salon, Roosevelt, Seattle.">
 <meta property="og:url" content="https://theodoppelt.github.io/site-previews/posh-paws/">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Albert+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* Palette: the Posh Paws logo green, a show-bow pink, bath-day cream.
-   --bg #F6F3EA  --surface #FFFFFF  --ink #1E2620  --muted #56605A
-   --primary #2E5A38 (on #FFFFFF)  --accent #F2B8C6 (on #1E2620) */
+/* Posh Paws palette: oat cream, deep kennel green, sage from the logo, one candy-pink accent */
 :root{
-  --bg:#F6F3EA;--surface:#FFFFFF;--ink:#1E2620;--muted:#56605A;
-  --primary:#2E5A38;--on-primary:#FFFFFF;--accent:#F2B8C6;--on-accent:#1E2620;
-  --line:#1E26201f;--ease:cubic-bezier(.22,.9,.24,1);--dur:.75s;
-  --display:'Young Serif',"Iowan Old Style",Georgia,serif;
-  --body:'Albert Sans',system-ui,-apple-system,sans-serif;
+  --bg:#f6f0e6; --surface:#fffdf8; --ink:#1c2620; --muted:#5c6660;
+  --green:#1f3127; --sage:#6f7b67; --pink:#c93a62;
+  --display:"Instrument Serif",Georgia,serif;
+  --body:"Manrope",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1); --dur:.9s;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);overflow-x:hidden}
-img{max-width:100%;display:block}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;overflow-x:hidden}
 a{color:inherit}
-.preview{background:var(--primary);color:var(--on-primary);font-size:13px;padding:8px 16px;text-align:center}
-.preview a{color:var(--accent)}
-.ph{background:#fff3a6;color:#1E2620;outline:1px dashed #b59400;padding:0 3px;border-radius:2px}
-.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04}
-h2{font-size:clamp(36px,5.8vw,68px)}
-.kick{font:800 12.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:999px;font:800 16px/1 var(--body);text-decoration:none;border:2px solid var(--ink);transition:transform var(--dur) var(--ease)}
-.btn:hover{transform:translateY(-2px)}
-.btn.green{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{width:min(1220px,100% - 2.5rem);margin-inline:auto}
+.preview{background:var(--green);color:#f6f0e6;font-size:.85rem;text-align:center;padding:.5rem 1rem}
+.preview a{font-weight:700}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.92;letter-spacing:-.015em}
+h2{font-size:clamp(3rem,7vw,6rem)}
+h2 i,h1 i{color:var(--pink)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;background:var(--green);color:#fff;border-radius:6px;padding:.4rem .4rem .4rem 1.1rem;text-decoration:none;font-weight:700;font-size:.95rem}
+.btn b{background:var(--pink);color:#fff;border-radius:4px;padding:.55rem .8rem}
+.btn.light{background:#fff;color:var(--green)}
 
-/* paw prints: the thread */
-.paws{position:fixed;left:max(4px,calc(50% - 640px));top:0;width:44px;height:100vh;z-index:1;pointer-events:none}
-.paws i{position:absolute;width:18px;height:18px;opacity:0;transform:scale(.4) rotate(var(--r));transition:opacity .4s,transform .5s var(--ease)}
-.paws i.on{opacity:.85;transform:scale(1) rotate(var(--r))}
-.paws i::before{content:"";position:absolute;left:4px;top:7px;width:10px;height:9px;border-radius:50% 50% 45% 45%;background:var(--primary)}
-.paws i::after{content:"";position:absolute;left:1px;top:0;width:4px;height:5px;border-radius:50%;background:var(--primary);box-shadow:5px -2px 0 var(--primary),10px -2px 0 var(--primary),14px 1px 0 var(--primary)}
-@media(max-width:900px){.paws{display:none}}
+/* nav: logo on the cream page (its own background removed), Fixora-style dark book button */
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:84px;gap:1rem;border-bottom:1px solid #ddd3c3}
+.nav img{height:40px;width:auto}
+.nav nav{display:flex;gap:1.8rem;align-items:center;font-weight:500;font-size:.95rem}
+.nav nav a{text-decoration:none}
+@media (max-width:820px){.nav nav a:not(.btn){display:none}.nav img{height:32px}.nav .btn{padding:.35rem}.nav .btn>span{display:none}}
 
-header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 20px;max-width:1160px;margin:0 auto}
-header.top img{height:46px;width:auto;mix-blend-mode:multiply}
-header.top nav{display:flex;gap:22px;font-weight:600;font-size:15px}
-header.top nav a{text-decoration:none}
-header.top .tel{font-weight:800;text-decoration:none;color:var(--primary)}
-@media(max-width:820px){header.top nav{display:none}}
+/* hero: centered giant headline, two real clients cut out at its feet */
+.hero{position:relative;text-align:center;padding:clamp(3rem,7vw,5.5rem) 0 0;overflow:hidden}
+.hero h1{font-size:clamp(3rem,6.4vw,6rem);max-width:16ch;margin:0 auto;position:relative;z-index:2}
+.hero p{max-width:44ch;margin:1.4rem auto 1.8rem;color:var(--muted);font-size:1.15rem;position:relative;z-index:2}
+.hero .ctas{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.hero .ghost{border:1.5px solid var(--green);border-radius:6px;padding:.85rem 1.2rem;text-decoration:none;font-weight:700;font-size:.95rem}
+.dogs{position:relative;height:clamp(260px,26vw,360px);margin-top:clamp(-11rem,-12vw,-4rem)}
+.dogs img{position:absolute;bottom:0;filter:drop-shadow(0 20px 18px rgba(28,38,32,.22));will-change:transform}
+.dogs .chow{left:6%;width:clamp(200px,24vw,330px)}
+.dogs .pom{right:7%;width:clamp(130px,15vw,200px)}
+.rating{position:absolute;right:24%;top:2rem;text-align:left;font-size:.9rem;color:var(--muted);max-width:160px}
+.rating b{display:block;font-family:var(--display);font-size:3.6rem;line-height:.9;color:var(--ink)}
+.floor{height:56px;background:var(--green);margin-top:-1px}
+@media (max-width:760px){.dogs{height:220px;margin-top:1rem}.dogs .chow{left:0;width:210px}.dogs .pom{right:0;width:130px}.rating{display:none}}
 
-/* hero: find your breed */
-.hero{padding:20px 0 90px;position:relative;z-index:2}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
-.hero h1{font-size:clamp(42px,6.6vw,86px)}
-.hero h1 em{font-style:normal;color:var(--primary)}
-.hero .sub{font-size:19px;color:var(--muted);margin:18px 0 24px;max-width:42ch}
-.finder{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:22px;box-shadow:8px 8px 0 var(--accent)}
-.finder label{display:block;font:800 12.5px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin-bottom:8px}
-.finder input{width:100%;font:600 19px var(--body);padding:13px 16px;border:2px solid var(--ink);border-radius:12px;background:var(--bg);color:var(--ink)}
-.finder input:focus{outline:3px solid var(--accent);outline-offset:2px}
-.sugg{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;min-height:34px}
-.sugg button{font:600 14px var(--body);padding:6px 11px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
-.sugg button:hover,.sugg button:focus-visible{border-color:var(--ink)}
-.quote{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.quote div{background:var(--bg);border-radius:14px;padding:14px}
-.quote small{display:block;font:800 11.5px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.quote b{display:block;font:400 clamp(26px,3vw,34px)/1.1 var(--display);margin-top:4px}
-.finder p.fine{font-size:13.5px;color:var(--muted);margin-top:12px}
-.hero .photo{position:relative}
-.hero .photo img{border-radius:200px 200px 20px 20px;aspect-ratio:4/5;object-fit:cover;width:100%;max-width:440px;margin-left:auto}
-.hero .photo span{position:absolute;left:0;bottom:24px;background:var(--accent);color:var(--on-accent);font:800 14px var(--body);padding:10px 14px;border-radius:999px;transform:rotate(-4deg)}
-@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.hero .photo{order:-1}.hero .photo img{max-width:300px;margin:0 auto}.hero{padding-bottom:110px}}
+/* finder: dark band, the real price list behind a search */
+.find{background:var(--green);color:#f6f0e6;padding:clamp(4rem,8vw,7rem) 0}
+.find .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+.find h2{color:#f6f0e6}
+.find .lead{color:#c9d0c6;margin-top:1.2rem;max-width:40ch}
+.box{background:var(--surface);color:var(--ink);border-radius:18px;padding:clamp(1.4rem,3vw,2.2rem)}
+.box label{display:block;font-weight:700;font-size:.95rem;margin-bottom:.5rem}
+.box input{width:100%;font:inherit;font-size:1.15rem;padding:.9rem 1rem;border:1.5px solid #cfc6b6;border-radius:10px;background:#fff;color:var(--ink)}
+.box input:focus{outline:none;border-color:var(--pink)}
+.out{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.4rem}
+.out div{background:var(--bg);border-radius:12px;padding:1rem 1.2rem}
+.out span{font-size:.88rem;color:var(--muted);display:block}
+.out b{font-family:var(--display);font-weight:400;font-size:2.6rem;line-height:1}
+.box .fine{font-size:.9rem;color:var(--muted);margin-top:1rem}
+.box .fine a{color:var(--ink);font-weight:700}
+.cats{margin-top:2rem;border-top:1px solid rgba(246,240,230,.2);padding-top:1.4rem;color:#c9d0c6;font-size:.98rem}
+.cats b{color:#fff}
+@media (max-width:860px){.find .wrap{grid-template-columns:1fr}}
 
-.mask{display:block;overflow:hidden}
-.mask>span{display:block}
-html.js .mask>span{transform:translateY(110%);transition:transform var(--dur) var(--ease)}
-html.js .in .mask>span{transform:none}
-html.js .in .mask:nth-child(2)>span{transition-delay:.12s}
+/* about: bento of mixed tiles */
+.about{padding:clamp(5rem,9vw,8rem) 0}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:3rem}
+.tile{border-radius:18px;overflow:hidden;background:var(--surface);position:relative}
+.tile img{width:100%;height:100%;object-fit:cover}
+.t-faye{grid-column:span 4;grid-row:span 2}
+.t-text{grid-column:span 5;padding:2rem}
+.t-text h3{font-size:2.3rem;margin-bottom:.8rem}
+.t-text p{color:var(--muted);margin-bottom:.8rem}
+.t-num{grid-column:span 3;background:var(--pink);color:#fff;padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between}
+.t-num b{font-family:var(--display);font-weight:400;font-size:5.4rem;line-height:.8}
+.t-cert{grid-column:span 3;background:var(--green);color:#f6f0e6;padding:1.6rem}
+.t-cert h3{font-size:1.8rem}
+.t-cert p{color:#c9d0c6;font-size:.95rem;margin-top:.6rem}
+.t-yorkie{grid-column:span 5;background:#ebe2d3;display:flex;align-items:flex-end;gap:1rem;padding:1.4rem 1.4rem 0;overflow:visible}
+.t-yorkie img{width:46%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:12px 12px 0 0}
+.t-yorkie p{font-family:var(--display);font-size:1.7rem;line-height:1.05;padding-bottom:1.4rem}
+@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.t-faye,.t-text,.t-num,.t-cert,.t-yorkie{grid-column:span 2;grid-row:auto}.t-num,.t-cert{grid-column:span 1}.t-faye img{aspect-ratio:4/5}}
 
-/* about + Faye */
-.about{padding:100px 0;position:relative;z-index:2}
-.about .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
-.about figure img{border-radius:20px;aspect-ratio:3/4;object-fit:cover;width:100%}
-.about figcaption{font-size:14px;color:var(--muted);margin-top:10px}
-.about p{font-size:18.5px;color:var(--muted);margin-top:16px;max-width:52ch}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.badges span{border:2px solid var(--ink);border-radius:999px;padding:7px 14px;font-weight:800;font-size:14px}
-.badges span.pink{background:var(--accent);border-color:var(--accent)}
-@media(max-width:820px){.about .wrap{grid-template-columns:1fr;gap:30px}.about figure img{max-height:420px}}
+/* spa day: centered heading, four steps across */
+.spa{background:var(--surface);padding:clamp(5rem,9vw,8rem) 0;text-align:center}
+.spa h2{max-width:14ch;margin:0 auto}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5rem;text-align:left;border-top:1px solid #ddd3c3}
+.steps div{padding:1.8rem 1.4rem 0 0;margin-right:1.4rem;border-right:1px solid #ddd3c3}
+.steps div:last-child{border:0;margin:0}
+.steps span{font-family:var(--display);font-size:1.6rem;color:var(--pink)}
+.steps h3{font-size:2rem;margin:.3rem 0 .5rem}
+.steps p{color:var(--muted);font-size:.98rem}
+.quote{font-family:var(--display);font-size:clamp(1.8rem,3.4vw,2.8rem);max-width:26ch;margin:4rem auto 0;line-height:1.1}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr;row-gap:2rem}.steps div{border:0}}
 
-/* pinned: spa day */
-.day{background:var(--primary);color:var(--on-primary);position:relative;z-index:2}
-.day .track{height:330vh}
-.day .pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1160px;margin:0 auto;padding:0 20px 0 70px}
-.day .kick{color:var(--accent)}
-.clock{position:relative;width:min(340px,70vw);aspect-ratio:1;justify-self:center}
-.clock svg{width:100%;height:100%}
-.clock .c{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
-.clock .c b{font:400 clamp(54px,7vw,80px)/1 var(--display)}
-.clock .c small{font:800 12px var(--body);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
-.stages{position:relative;min-height:240px;margin-top:16px}
-.stg{position:absolute;inset:0;opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.stg.on{opacity:1;transform:none}
-.stg h3{font-size:clamp(30px,3.8vw,46px)}
-.stg p{margin-top:10px;max-width:40ch;color:#e3eee5}
-@media(max-width:820px){.day .pin{grid-template-columns:1fr;gap:6px;padding:60px 20px 20px;align-content:center}.clock{width:min(200px,48vw)}.stages{min-height:260px}}
-
-/* walk-in ticket + cats */
-.menu{padding:110px 0;position:relative;z-index:2}
-.menu .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
-.ticket{background:var(--surface);border:2px solid var(--ink);border-radius:10px;overflow:hidden}
-.ticket .hd{background:var(--ink);color:var(--bg);padding:14px 20px;display:flex;justify-content:space-between;font:800 13px var(--body);letter-spacing:.14em;text-transform:uppercase}
-.ticket ul{list-style:none;padding:6px 20px 16px}
-.ticket li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1.5px dashed var(--line);font-size:17px}
-.ticket li b{font:400 22px var(--display);color:var(--primary)}
-.ticket p{padding:0 20px 18px;font-size:14px;color:var(--muted)}
-.menu .catnote{margin-top:14px;color:var(--muted);font-size:15.5px}
-
-/* strip */
-.strip-sec{padding:30px 0 110px;overflow:hidden;position:relative;z-index:2}
-.strip{display:flex;gap:16px;padding:0 20px;margin-top:34px;transform:translateX(calc(var(--p,0) * -26%))}
-.strip figure{flex:0 0 clamp(200px,24vw,290px)}
-.strip img{aspect-ratio:4/5;object-fit:cover;border-radius:18px}
-.strip figcaption{font-weight:600;font-size:14px;color:var(--muted);margin-top:8px}
+/* walk-ins: price rows beside a stacked photo pair */
+.walk{padding:clamp(5rem,9vw,8rem) 0}
+.walk .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+.walk .lead{color:var(--muted);margin-top:1rem;max-width:40ch}
+.rows{margin-top:2rem;border-top:1.5px solid var(--ink)}
+.r{display:flex;justify-content:space-between;align-items:baseline;padding:1rem 0;border-bottom:1px solid #d8cebe;font-size:1.1rem}
+.r b{font-family:var(--display);font-weight:400;font-size:2rem}
+.walk .fine{color:var(--muted);font-size:.92rem;margin-top:1rem}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pair img{border-radius:18px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.pair img:last-child{margin-top:3rem}
+@media (max-width:860px){.walk .wrap{grid-template-columns:1fr}}
 
 /* visit */
-.visit{background:var(--accent);padding:100px 0 120px;position:relative;z-index:2}
-.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
-.sign{background:var(--surface);border:3px solid var(--ink);border-radius:16px;padding:28px;position:relative}
-.sign::before{content:"";position:absolute;left:50%;top:-34px;width:60px;height:34px;border:3px solid var(--ink);border-bottom:0;border-radius:30px 30px 0 0;transform:translateX(-50%)}
-.sign .now{font:400 36px/1 var(--display);display:flex;align-items:center;gap:12px}
-.sign .now i{width:14px;height:14px;border-radius:50%;background:#a3a8a4}
-.sign .now.open i{background:#37b35a}
-.sign p{margin-top:12px;font-size:17px}
-.sign p b{color:var(--primary)}
-.visit .big{display:block;font:400 clamp(32px,4.6vw,52px)/1 var(--display);color:var(--ink);text-decoration:none;margin-top:16px}
-.visit p.m{margin-top:12px}
-@media(max-width:820px){.visit .wrap{grid-template-columns:1fr;gap:60px}.menu .wrap{grid-template-columns:1fr}}
-footer{background:var(--ink);color:#d7ddd8;padding:36px 0 110px;font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
-footer a{color:var(--accent)}
-.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;gap:8px}
-.callbar a{flex:1;text-align:center;padding:15px;border-radius:999px;font:800 16px var(--body);text-decoration:none}
-.callbar .c{background:var(--primary);color:var(--on-primary)}
-.callbar .f{background:var(--accent);color:var(--on-accent)}
-@media(max-width:820px){.callbar{display:flex}}
+.visit{background:var(--green);color:#f6f0e6;padding:clamp(5rem,9vw,8rem) 0 0;overflow:hidden}
+.visit .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,6vw,6rem)}
+.visit h2{color:#f6f0e6}
+.phone{display:block;font-family:var(--display);font-size:clamp(3rem,8vw,6.4rem);line-height:1;text-decoration:none;margin:1.4rem 0}
+.phone:hover{color:var(--pink)}
+.visit address{font-style:normal;color:#c9d0c6}
+.visit address a{color:#fff}
+.hrs{background:rgba(255,255,255,.06);border-radius:18px;padding:2rem;align-self:start}
+.hrs h3{font-size:2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.state{font-family:var(--body);font-size:.8rem;font-weight:700;border-radius:999px;padding:.3rem .7rem;background:rgba(255,255,255,.12)}
+.state.open{background:var(--pink)}
+.hrs p{margin-top:1rem;color:#c9d0c6}
+.hrs p b{color:#fff;font-weight:500}
+.giant{font-family:var(--display);font-size:22vw;line-height:.75;text-align:center;color:rgba(246,240,230,.08);white-space:nowrap;margin-top:3rem}
+footer{background:var(--green);color:#a9b3a6;font-size:.88rem;padding:0 0 2rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(246,240,230,.14);padding-top:1.5rem}
+@media (max-width:860px){.visit .wrap{grid-template-columns:1fr}}
 
-html.js .rv{opacity:0;transform:translateY(18px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
-html.js .rv.in{opacity:1;transform:none}
+.callbar{display:none}
+@media (max-width:720px){
+  .callbar{display:flex;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:50;gap:.5rem}
+  .callbar a{flex:1;text-align:center;padding:.9rem;border-radius:8px;font-weight:700;text-decoration:none;background:var(--pink);color:#fff}
+  .callbar a+a{background:var(--green)}
+  body{padding-bottom:5rem}
+}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.mask{display:block;overflow:hidden;padding-bottom:.1em}
+.mask>span{display:block}
+.js .mask>span{transform:translateY(105%);transition:transform 1.1s var(--ease)}
+.js .mask.in>span{transform:none}
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important;scroll-behavior:auto!important}
-  html.js .rv,html.js .mask>span{opacity:1;transform:none}
-  .day .track{height:auto}
-  .day .pin{position:static;height:auto;padding:80px 20px;grid-template-columns:1fr}
-  .stages{min-height:0}
-  .stg{position:static;opacity:1;transform:none;margin-bottom:26px}
-  .strip{transform:none;flex-wrap:wrap}
-  .paws i{opacity:.85;transform:rotate(var(--r))}
+  .js .rv,.js .mask>span{opacity:1;transform:none;transition:none}
+  .dogs img{transform:none!important}
 }
 </style>
 </head>
 <body>
-<div class="preview">Concept redesign by Theo, not the official Posh Paws site. <a href="https://poshpawsseattle.com/">See their real site</a></div>
-<div class="paws" id="paws" aria-hidden="true"></div>
+<div class="preview">Concept redesign by Theo, not the official Posh Paws site. <a href="https://poshpawsseattle.com/" rel="noopener">See their real site</a></div>
 
-<header class="top">
-  <a href="#top"><img src="img/logo.jpg" alt="Posh Paws" width="200" height="50"></a>
-  <nav><a href="#prices">Prices</a><a href="#about">About</a><a href="#day">Spa day</a><a href="#walkin">Walk-ins</a><a href="#visit">Visit</a></nav>
-  <a class="tel" href="tel:+12062574887">(206) 257-4887</a>
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" aria-label="Posh Paws, home"><img src="img/logo.png" alt="Posh Paws" width="198" height="48"></a>
+    <nav aria-label="Main"><a href="#prices">Prices</a><a href="#about">About</a><a href="#spa">Spa day</a><a href="#walkins">Walk-ins</a><a class="btn" href="tel:+12062574887"><span>Call to book</span> <b>(206) 257-4887</b></a></nav>
+  </div>
 </header>
 
 <main id="top">
-<section class="hero" id="prices">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <h1 id="h1"><span class="mask"><span>Big or small,</span></span><span class="mask"><span>short or tall,</span></span><span class="mask"><span><i>we groom them all!</i></span></span></h1>
+    <p class="rv">Dogs and cats, purebreds and mutts, groomed with love on Roosevelt Way. Look up your breed below, then give us a call.</p>
+    <div class="ctas rv"><a class="btn" href="#prices">Find your breed <b>&#8595;</b></a><a class="ghost" href="tel:+12062574887">(206) 257-4887</a></div>
+  </div>
+  <div class="wrap dogs" aria-hidden="false">
+    <img class="chow" data-depth=".08" src="img/yorkie-cut.webp" alt="A Yorkie in a long, brushed-out show coat" width="376" height="382">
+    <img class="pom" data-depth=".14" src="img/pom-cut.webp" alt="A fluffy Pomeranian after a trim" width="156" height="175">
+  </div>
+  <div class="floor" aria-hidden="true"></div>
+</section>
+
+<section class="find" id="prices" aria-labelledby="pr-h">
   <div class="wrap">
     <div>
-      <h1 style="margin-top:14px">Big or small, short or tall, <em>we groom them all!</em></h1>
-      <p class="sub">Dogs and cats, purebreds and mutts. Find your breed for a quick estimate, then give us a call.</p>
-      <div class="finder">
-        <label for="breed">Find your breed</label>
-        <input id="breed" type="text" autocomplete="off" placeholder="Try Goldendoodle, Shih Tzu, Poodle…" aria-describedby="fine">
-        <div class="sugg" id="sugg" aria-label="Matching breeds"></div>
-        <div class="quote" aria-live="polite"><div><small>Bath &amp; brush</small><b id="qB">—</b></div><div><small>Haircut</small><b id="qH">—</b></div></div>
-        <p class="fine" id="fine"><span id="qN">Pick a breed to see our list price.</span> Prices vary by size and condition; dematting is $20 per half hour when needed. Mixed breed or not sure? Call (206) 257-4887.</p>
+      <h2 id="pr-h"><span class="mask"><span>Find your breed.</span></span></h2>
+      <p class="lead rv">Our full list price for 186 breeds, straight from the salon. Prices vary by size and condition of the coat.</p>
+      <p class="cats rv"><b>We groom cats too!</b> Bath &amp; brush $80–$100 · shave or lion trim $100+ · long hair cut $120+ (bath with a haircut adds $20).</p>
+    </div>
+    <div class="box rv">
+      <label for="breed">Start typing a breed</label>
+      <input id="breed" list="breeds" autocomplete="off" placeholder="e.g. Goldendoodle, Shih Tzu, Pomeranian">
+      <datalist id="breeds"></datalist>
+      <div class="out" aria-live="polite">
+        <div><span>Bath &amp; brush</span><b id="bb">—</b></div>
+        <div><span>Haircut</span><b id="hc">—</b></div>
       </div>
-    </div>
-    <div class="photo">
-      <img src="img/chow.jpg" alt="A fluffy groomed Chow Chow standing on a grooming table" width="450" height="450">
-      <span>We groom cats too!</span>
+      <p class="fine" id="bname">Pick a breed to see our list price. Dematting is $20 per half hour when needed. Mixed breed or not sure? <a href="tel:+12062574887">Call (206) 257-4887</a>.</p>
     </div>
   </div>
 </section>
 
-<section class="about" id="about">
+<section class="about" id="about" aria-labelledby="ab-h">
   <div class="wrap">
-    <figure class="rv"><img src="img/faye.jpg" alt="Faye holding a beagle in the salon" width="1131" height="1600"><figcaption>Faye (Federica Deleo), with a happy client.</figcaption></figure>
-    <div class="rv">
-      <h2 style="margin-top:12px"><span class="mask"><span>Anyone can cut hair.</span></span><span class="mask"><span>We do much more.</span></span></h2>
-      <p>We have dedicated our lives to our pets and the pets of Seattle. Leaving mom or dad can be stressful enough, so we take care of your family members with love and compassion, as if they were our own. With over 25 years of combined experience, we go above and beyond in safety and in the way we groom our friends.</p>
-      <p>Faye has a big spot in her heart for rescue dogs, older dogs, and the nervous ones who need extra patience. But truly, she loves them all.</p>
-      <div class="badges"><span class="pink">CPR &amp; pet first aid certified</span><span>Dogs &amp; cats</span><span>Show grooming</span></div>
+    <h2 id="ab-h"><span class="mask"><span>Anyone can cut hair.</span></span><span class="mask"><span><i>We do much more.</i></span></span></h2>
+    <div class="bento">
+      <div class="tile t-faye rv"><img src="img/faye.jpg" alt="Faye (Federica Deleo) holding a happy beagle client" width="1131" height="1600"></div>
+      <div class="tile t-text rv"><h3>Like they were our own.</h3><p>We have dedicated our lives to our pets and the pets of Seattle. Leaving mom or dad can be stressful enough, so we take care of your family members with love and compassion, as if they were our own.</p><p>Faye has a big spot in her heart for rescue dogs, older dogs, and the nervous ones who need extra patience. But truly, she loves them all.</p></div>
+      <div class="tile t-num rv"><b>25+</b><span>years of combined experience</span></div>
+      <div class="tile t-cert rv"><h3>CPR &amp; pet first aid certified</h3><p>We go above and beyond in safety and in the way we groom our friends.</p></div>
+      <div class="tile t-yorkie rv"><img src="img/chow.jpg" alt="A chow chow after a full show groom" width="450" height="450"><p>Show grooming, teddy-bear cuts and everything between.</p></div>
     </div>
   </div>
 </section>
 
-<section class="day" id="day">
-  <div class="track" id="dayTrack">
-    <div class="pin">
-      <div class="clock" aria-hidden="true">
-        <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="none" stroke="#ffffff33" stroke-width="10"/><circle id="arc" cx="100" cy="100" r="88" fill="none" stroke="#F2B8C6" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 553" transform="rotate(-90 100 100)"/></svg>
-        <div class="c"><b id="hrs">0h</b><small>of about four</small></div>
+<section class="spa" id="spa" aria-labelledby="sp-h">
+  <div class="wrap">
+    <h2 id="sp-h"><span class="mask"><span>A spa day at <i>Posh Paws</i></span></span></h2>
+    <div class="steps">
+      <div class="rv"><span>i.</span><h3>Drop off</h3><p>Plan on leaving your dog for about four hours (cats, about two). We'll give you a pickup time, and you can always call to check in.</p></div>
+      <div class="rv"><span>ii.</span><h3>Comfy kennel</h3><p>A spacious kennel with water at all times, supervised, and kennel time kept as short as possible.</p></div>
+      <div class="rv"><span>iii.</span><h3>Bath, nails, ears</h3><p>Every bath and haircut includes a nail trim, ear cleaning and anal glands. Cats are blow-dried and finish with a cool kennel dryer made for pets.</p></div>
+      <div class="rv"><span>iv.</span><h3>Shiny, fluffy, happy</h3><p>Every six to eight weeks keeps coats healthy.</p></div>
+    </div>
+    <p class="quote rv">“We like to see everyone shiny, fluffy and happy when they leave.”</p>
+  </div>
+</section>
+
+<section class="walk" id="walkins" aria-labelledby="wk-h">
+  <div class="wrap">
+    <div>
+      <h2 id="wk-h"><span class="mask"><span>Walk right in.</span></span></h2>
+      <p class="lead rv">Tuesday to Saturday, no bath necessary.</p>
+      <div class="rows rv">
+        <div class="r"><span>Nail trim</span><b>$10</b></div>
+        <div class="r"><span>Nail grind</span><b>$20</b></div>
+        <div class="r"><span>Ear cleaning</span><b>$10</b></div>
+        <div class="r"><span>Teeth brushing</span><b>$10</b></div>
       </div>
-      <div>
-        <p class="kick">A spa day at Posh Paws</p>
-        <div class="stages">
-          <div class="stg on"><h3>Drop off</h3><p>Plan on leaving your dog for about four hours (cats, about two). We'll give you a pickup time, and you can always call to check in.</p></div>
-          <div class="stg"><h3>Comfy kennel</h3><p>A spacious kennel with water at all times, supervised, and kennel time kept as short as possible.</p></div>
-          <div class="stg"><h3>Bath, nails, ears</h3><p>Every bath and haircut includes a nail trim, ear cleaning and anal glands. Cats are blow-dried and finish with a cool kennel dryer made for pets.</p></div>
-          <div class="stg"><h3>Shiny, fluffy, happy</h3><p>"We like to see everyone shiny, fluffy and happy when they leave." Every six to eight weeks keeps coats healthy.</p></div>
-        </div>
-      </div>
+      <p class="fine rv">Face and sanitary trims vary with the coat. All prices may change with the size of your pet and the condition of the coat.</p>
     </div>
+    <div class="pair rv"><img src="img/cocker.jpg" alt="A cocker spaniel on the grooming table" width="236" height="236"><img src="img/shih.jpg" alt="A shih tzu in a teddy-bear cut" width="1549" height="1549"></div>
   </div>
 </section>
 
-<section class="menu" id="walkin">
+<section class="visit" id="visit" aria-labelledby="vi-h">
   <div class="wrap">
-    <div class="rv">
-      <h2 style="margin-top:12px">Walk-in services</h2>
-      <p class="catnote">No bath necessary. Face and sanitary trims vary with the coat.</p>
-      <p class="catnote"><strong>Cats:</strong> bath &amp; brush $80–$100 · shave or lion trim $100+ · long hair cut $120+ (bath with a haircut adds $20).</p>
+    <div>
+      <h2 id="vi-h"><span class="mask"><span>Come see us on Roosevelt.</span></span></h2>
+      <a class="phone" href="tel:+12062574887">(206) 257-4887</a>
+      <address>6411 Roosevelt Way NE, Seattle, WA 98115 · <a href="https://www.google.com/maps/search/?api=1&amp;query=6411+Roosevelt+Way+NE+Seattle+WA+98115" rel="noopener">Open in Maps</a><br><a href="mailto:federica@poshpawsseattle.com">federica@poshpawsseattle.com</a></address>
     </div>
-    <div class="ticket rv">
-      <div class="hd"><span>Walk-in ticket</span><span>Tue–Sat</span></div>
-      <ul>
-        <li>Nail trim <b>$10</b></li>
-        <li>Nail grind <b>$20</b></li>
-        <li>Ear cleaning <b>$10</b></li>
-        <li>Teeth brushing <b>$10</b></li>
-      </ul>
-      <p>All prices may change with the size of your pet and the condition of the coat.</p>
+    <div class="hrs">
+      <h3>Hours <span class="state" id="state">Hours</span></h3>
+      <p><b>Tuesday – Saturday, 7:30 am – 6:00 pm</b><br>Sunday &amp; Monday: closed</p>
+      <p>Pets must be current on all vaccinations. We also carry accessories and toys for your loved ones.</p>
     </div>
   </div>
-</section>
-
-<section class="strip-sec">
-  <div class="wrap"><h2 class="rv" style="margin-top:12px">Posh, every one.</h2></div>
-  <div class="strip" id="strip">
-    <figure><img src="img/cocker.jpg" alt="A freshly groomed cocker spaniel" width="236" height="236"><figcaption>Cocker Spaniel</figcaption></figure>
-    <figure><img src="img/pom.jpg" alt="A fluffy groomed Pomeranian" width="242" height="242"><figcaption>Pomeranian</figcaption></figure>
-    <figure><img src="img/yorkie.jpg" alt="A Yorkshire Terrier in a full show coat with a red bow" width="449" height="416"><figcaption>Yorkie, show coat</figcaption></figure>
-    <figure><img src="img/shih.jpg" alt="A small dog with a fresh teddy-bear cut" width="1549" height="1549"><figcaption>Teddy-bear cut</figcaption></figure>
-    <figure><img src="img/cats.jpg" alt="Two black and white cats stretched out on a blanket" width="1600" height="575"><figcaption>We groom cats!</figcaption></figure>
-    <figure><img src="img/bed.jpg" alt="A dog and a small terrier napping on a dog bed" width="1011" height="360"><figcaption>Nap after the spa</figcaption></figure>
-  </div>
-</section>
-
-<section class="visit" id="visit">
-  <div class="wrap">
-    <div class="sign rv">
-      <p class="now" id="now"><i></i><span id="nowT">Hours</span></p>
-      <p><b>Tuesday – Saturday</b>, 7:30 am – 6:00 pm</p>
-      <p>Sunday &amp; Monday: closed</p>
-      <a class="big" href="tel:+12062574887">(206) 257-4887</a>
-    </div>
-    <div class="rv">
-      <h2 style="margin-top:12px">6411 Roosevelt Way NE</h2>
-      <p class="m">Seattle, WA 98115 · <a href="https://www.google.com/maps/search/?api=1&query=6411+Roosevelt+Way+NE+Seattle+WA+98115">Open in Maps</a></p>
-      <p class="m">Pets must be current on all vaccinations. We also carry accessories and toys for your loved ones.</p>
-      <p class="m"><a href="mailto:federica@poshpawsseattle.com">federica@poshpawsseattle.com</a></p>
-    </div>
-  </div>
+  <div class="giant" aria-hidden="true">Posh Paws</div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p>© Posh Paws Grooming Salon · 6411 Roosevelt Way NE, Seattle, WA 98115</p>
-    <p>Concept redesign by Theo, not the official Posh Paws site. Logo, photos and prices from <a href="https://poshpawsseattle.com/">poshpawsseattle.com</a>.</p>
+    <span>Posh Paws Grooming Salon · 6411 Roosevelt Way NE, Seattle, WA 98115</span>
+    <span>Concept redesign by Theo, not the official Posh Paws site. Logo, photos and prices from poshpawsseattle.com.</span>
   </div>
 </footer>
-<div class="callbar"><a class="c" href="tel:+12062574887">Call to book</a><a class="f" href="#prices">Prices</a></div>
+
+<div class="callbar"><a href="tel:+12062574887">Call to book</a><a href="#prices">Prices</a></div>
 
 <script>
-(function(){
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,root=document.documentElement;
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.rv, .mask').forEach(el => io.observe(el));
+  const dogs = [...document.querySelectorAll('.dogs img')];
+  if (!reduce) addEventListener('scroll', () => { const y = Math.min(scrollY, 800); dogs.forEach(d => d.style.transform = `translateY(${-y * d.dataset.depth}px)`); }, {passive:true});
 
-  /* breed finder: their published price list */
-  var P=[["Affenpinscher","$55+","$80+"],["Afghan Hound","$85+","$110+"],["Airedale Terrier","$85+","$110+"],["Akita","$80 + up","---"],["Alaskan Malamute","$110+","$120-150+"],["American English Coonhound","$55+","---"],["American Eskimo Dog","$75+","$85-100+"],["American Foxhound","$55+","---"],["American Staffordshire Terrier","$55+","---"],["American Water Spaniel","$75+","$100+"],["Anatolian Shepherd Dog","$80+","---"],["Australian Cattle Dog","$55+","---"],["Australian Shepherd","$75+","$85-100+"],["Australian Terrier","$55+","$80+"],["Basenji","$50+","---"],["Basset Hound","$55-75+","---"],["Beagle","$50+","---"],["Bearded Collie","$75+","$110+"],["Beauceron","$70+","---"],["Bedlington Terrier","$75+","$100+"],["Belgian Malinois","$70+","---"],["Belgian Sheepdog","$55-80+","$100-120+"],["Belgian Tervuren","$80+","$100-120+"],["Bernese Mountain Dog","$100+","$120-150+"],["Bichon Frise","$65+","$80-100+"],["Black Russian Terrier","$85+","$120+"],["Black and Tan Coonhound","$55+","---"],["Bloodhound","$65+","---"],["Bluetick Coonhound","$55+","---"],["Border Collie","$65-75+","$85-100+"],["Border Terrier","$55+","$80+"],["Borzoi","$75+","$90-100+"],["Boston Terrier","$45+","---"],["Bouvier des Flandres","$80+","$120+"],["Boxer","$55+","---"],["Boykin Spaniel","$70+","$85-100"],["Briard","$85+","$120+"],["Brittany","$70+","$85-100+"],["Brussels Griffon","$55+","$80+"],["Bull Terrier","$60+","---"],["Bulldog","$60+","---"],["Bullmastiff","$80+","---"],["Cairn Terrier","$55+","$80+"],["Canaan Dog","$65+","---"],["Cane Corso","$75+","---"],["Cardigan Welsh Corgi","$60+","$70-80+"],["Cavalier King Charles Spaniel","$55+","$70-85+"],["Cavapoo","$55+","$80+"],["Cavashon","$55+","$80+"],["Cesky Terrier","$55+","$80-100+"],["Chesapeake Bay Retriever","$65+","---"],["Chihuahua","$35-50","$65-80"],["Chinese Crested","$55+","$80"],["Chinese Shar-Pei","$65+","---"],["Chow Chow","$85+","$100+"],["Clumber Spaniel","$75+","$85-100+"],["Cocker Spaniel","$65+","$90+"],["Cockapoo","$55+","$80+"],["Collie (Rough)","$100+","$120-150+"],["Collie (Smooth)","$85+","---"],["Curly-Coated Retriever","$75+","---"],["Dachshund","$45-55+","$65-80+"],["Dalmatian","$55+","---"],["Dandie Dinmont Terrier","$65+","$55-60"],["Doberman Pinscher","$65+","---"],["Dogue de Bordeaux","$70+","---"],["English Cocker Spaniel","$65+","$90+"],["English Foxhound","$60+","---"],["English Setter","$80+","$95-120+"],["English Springer Spaniel","$75+","$90-110+"],["English Toy Spaniel","$55+","$80+"],["Field Spaniel","$75+","$90-120+"],["Finnish Lapphund","$70+","$80-100+"],["Finnish Spitz","$70+","$80-120+"],["Flat-Coated Retriever","$75+","$80-100+"],["French Bulldog","$45+","---"],["German Pinscher","$45","---"],["German Shepherd Dog","$70-100","$100-120+"],["German Shorthaired Pointer","$55+","---"],["German Wirehaired Pointer","$70+","$85-100+"],["Giant Schnauzer","$85+","$120+"],["Glen of Imaal Terrier","$60+","$85+"],["Golden Retriever","$75+","$85-100+"],["Goldendoodle","$80-100","$100-200"],["Gordon Setter","$80+","$100+"],["Great Dane","$80+","---"],["Great Pyrenees","$100+","$120-150+"],["Greater Swiss Mountain Dog","$80+","---"],["Greyhound","$75+","---"],["Harrier","$55+","---"],["Havanese","$55+","$80+"],["Havapoo","$55+","$80+"],["Ibizan Hound","$55+","---"],["Icelandic Sheepdog","$75+","$85-100+"],["Irish Red and White Setter","$85+","$100+"],["Irish Setter","$85+","$100+"],["Irish Terrier","$55+","$80+"],["Irish Water Spaniel","$80+","$120+"],["Irish Wolfhound","$90+","$130+"],["Italian Greyhound","$45","---"],["Japanese Chin","$55+","$70-80+"],["Keeshond","$85+","$100-120+"],["Kerry Blue Terrier","$85+","$110+"],["Komondor","$75+","$100+"],["Kuvasz","$80+","$100-150+"],["Labrador Retriever","$65+","$100+"],["Labradoodle (medium)","$75+","$100+"],["Labradoodle (large)","$90+","$120-200"],["Lakeland Terrier","$55+","$80+"],["Leonberger","$100+","$120-200"],["Lhasa Apso","$55+","$80+"],["Lowchen","$55+","$80+"],["Maltese","$55+","$80+"],["Maltipoo","$55+","$80+"],["Manchester Terrier","$45-55+","---"],["Mastiff","$80+","---"],["Miniature Bull Terrier","$50+","---"],["Miniature Pinscher","$40+","---"],["Miniature Schnauzer","$55+","$80+"],["Neapolitan Mastiff","$75+","---"],["Newfoundland","$100+","$120-200+"],["Norfolk Terrier","$55+","$80+"],["Norwegian Buhund","$55+","$75+"],["Norwegian Elkhound","$70+","$80+"],["Norwich Terrier","$55+","$80+"],["Nova Scotia Duck Tolling Retriever","$75+","$85-100+"],["Old English Sheepdog","$75+","$120+"],["Otterhound","$75+","$100+"],["Papillon","$55+","$65-80+"],["Parson Russell Terrier","$55+","$80+"],["Pekingese","$55+","$75-85+"],["Pembroke Welsh Corgi","$65+","$75-100"],["Petit Basset Griffon Vendeen","$55+","$80+"],["Pharaoh Hound","$60+","---"],["Plott","$60+","---"],["Pointer","$60+","---"],["Polish Lowland Sheepdog","$80+","$110+"],["Pomeranian","$55+","$70-80+"],["Poodle (toy)","$55+","$80+"],["Poodle (miniature)","$65+","$90+"],["Poodle (standard)","$85+","$110-200"],["Portuguese Podengo Pequeno","$45-55+","$80+"],["Portuguese Water Dog","$75+","$110+"],["Pug","$45+","$80"],["Puli","$70+","$100+"],["Pyrenean Shepherd","$75+","$100+"],["Redbone Coonhound","$60+","---"],["Rhodesian Ridgeback","$75+","---"],["Rottweiler","$65+","---"],["Russell Terrier","$45-55","$80"],["Saluki","$65+","---"],["Samoyed","$100+","$120-150+"],["Schipperke","$60+","$75-85+"],["Scottish Deerhound","$80+","$110+"],["Scottish Terrier","$60+","$90+"],["Sealyham Terrier","$60+","$90+"],["Shetland Sheepdog","$75+","$85-100+"],["Shiba Inu","$50+","---"],["Shih Tzu","$55+","$80+"],["Siberian Husky","$80-100","---"],["Silky Terrier","$50+","$80+"],["Skye Terrier","$65+","$90+"],["Smooth Fox Terrier","$45+","---"],["Soft Coated Wheaten Terrier","$75+","$100+"],["Spinone Italiano","$75+","$110+"],["St. Bernard","$100+","$120-150+"],["Staffordshire Bull Terrier","$60+","---"],["Standard Schnauzer","$70+","$100+"],["Sussex Spaniel","$75+","$85-100+"],["Swedish Vallhund","$60+","$75+"],["Tibetan Mastiff","$100+","$120-200+"],["Tibetan Spaniel","$55+","$70-80+"],["Tibetan Terrier","$70+","$90+"],["Toy Fox Terrier","$40","---"],["Treeing Walker Coonhound","$60+","---"],["Vizsla","$60+","---"],["Weimaraner","$65+","---"],["Welsh Springer Spaniel","$75","$90-110+"],["Welsh Terrier","$55+","$80+"],["West Highland White Terrier","$55+","$80+"],["Whippet","$50+","---"],["Wire Fox Terrier","$60","$85+"],["Wirehaired Pointing Griffon","$65+","$95+"],["Xoloitzcuintli","$50","---"],["Yorkiepoo","$55+","$80+"],["Yorkshire Terrier","$55+","$80+"]];
-  var inp=document.getElementById('breed'),sg=document.getElementById('sugg'),qB=document.getElementById('qB'),qH=document.getElementById('qH'),qN=document.getElementById('qN');
-  function show(r){qB.textContent=r[1];qH.textContent=r[2]==='---'?'—':r[2];qN.textContent=r[0]+(r[2]==='---'?': bath & brush only on our list.':':');}
-  function list(){var v=inp.value.trim().toLowerCase();sg.innerHTML='';var m=v?P.filter(function(r){return r[0].toLowerCase().indexOf(v)>-1}).slice(0,6):[['Goldendoodle'],['Shih Tzu'],['Poodle (standard)'],['Labrador Retriever']].map(function(x){return P.find(function(r){return r[0]===x[0]})}).filter(Boolean);
-    m.forEach(function(r){var b=document.createElement('button');b.type='button';b.textContent=r[0];b.addEventListener('click',function(){inp.value=r[0];show(r);sg.innerHTML=''});sg.appendChild(b)});
-    var ex=P.find(function(r){return r[0].toLowerCase()===v});if(ex)show(ex);if(v&&!m.length){qN.textContent='Not on our list? Call us for a quote.';qB.textContent='—';qH.textContent='—'}}
-  inp.addEventListener('input',list);inp.addEventListener('keydown',function(e){if(e.key==='Enter'){var b=sg.querySelector('button');if(b)b.click()}});list();
-  var gd=P.find(function(r){return r[0]==='Goldendoodle'});if(gd)show(gd);
+  // breed finder over their published list: [breed, bath & brush, haircut]
+  const P = [["Affenpinscher","$55+","$80+"],["Afghan Hound","$85+","$110+"],["Airedale Terrier","$85+","$110+"],["Akita","$80 + up","---"],["Alaskan Malamute","$110+","$120-150+"],["American English Coonhound","$55+","---"],["American Eskimo Dog","$75+","$85-100+"],["American Foxhound","$55+","---"],["American Staffordshire Terrier","$55+","---"],["American Water Spaniel","$75+","$100+"],["Anatolian Shepherd Dog","$80+","---"],["Australian Cattle Dog","$55+","---"],["Australian Shepherd","$75+","$85-100+"],["Australian Terrier","$55+","$80+"],["Basenji","$50+","---"],["Basset Hound","$55-75+","---"],["Beagle","$50+","---"],["Bearded Collie","$75+","$110+"],["Beauceron","$70+","---"],["Bedlington Terrier","$75+","$100+"],["Belgian Malinois","$70+","---"],["Belgian Sheepdog","$55-80+","$100-120+"],["Belgian Tervuren","$80+","$100-120+"],["Bernese Mountain Dog","$100+","$120-150+"],["Bichon Frise","$65+","$80-100+"],["Black Russian Terrier","$85+","$120+"],["Black and Tan Coonhound","$55+","---"],["Bloodhound","$65+","---"],["Bluetick Coonhound","$55+","---"],["Border Collie","$65-75+","$85-100+"],["Border Terrier","$55+","$80+"],["Borzoi","$75+","$90-100+"],["Boston Terrier","$45+","---"],["Bouvier des Flandres","$80+","$120+"],["Boxer","$55+","---"],["Boykin Spaniel","$70+","$85-100"],["Briard","$85+","$120+"],["Brittany","$70+","$85-100+"],["Brussels Griffon","$55+","$80+"],["Bull Terrier","$60+","---"],["Bulldog","$60+","---"],["Bullmastiff","$80+","---"],["Cairn Terrier","$55+","$80+"],["Canaan Dog","$65+","---"],["Cane Corso","$75+","---"],["Cardigan Welsh Corgi","$60+","$70-80+"],["Cavalier King Charles Spaniel","$55+","$70-85+"],["Cavapoo","$55+","$80+"],["Cavashon","$55+","$80+"],["Cesky Terrier","$55+","$80-100+"],["Chesapeake Bay Retriever","$65+","---"],["Chihuahua","$35-50","$65-80"],["Chinese Crested","$55+","$80"],["Chinese Shar-Pei","$65+","---"],["Chow Chow","$85+","$100+"],["Clumber Spaniel","$75+","$85-100+"],["Cocker Spaniel","$65+","$90+"],["Cockapoo","$55+","$80+"],["Collie (Rough)","$100+","$120-150+"],["Collie (Smooth)","$85+","---"],["Curly-Coated Retriever","$75+","---"],["Dachshund","$45-55+","$65-80+"],["Dalmatian","$55+","---"],["Dandie Dinmont Terrier","$65+","$55-60"],["Doberman Pinscher","$65+","---"],["Dogue de Bordeaux","$70+","---"],["English Cocker Spaniel","$65+","$90+"],["English Foxhound","$60+","---"],["English Setter","$80+","$95-120+"],["English Springer Spaniel","$75+","$90-110+"],["English Toy Spaniel","$55+","$80+"],["Field Spaniel","$75+","$90-120+"],["Finnish Lapphund","$70+","$80-100+"],["Finnish Spitz","$70+","$80-120+"],["Flat-Coated Retriever","$75+","$80-100+"],["French Bulldog","$45+","---"],["German Pinscher","$45","---"],["German Shepherd Dog","$70-100","$100-120+"],["German Shorthaired Pointer","$55+","---"],["German Wirehaired Pointer","$70+","$85-100+"],["Giant Schnauzer","$85+","$120+"],["Glen of Imaal Terrier","$60+","$85+"],["Golden Retriever","$75+","$85-100+"],["Goldendoodle","$80-100","$100-200"],["Gordon Setter","$80+","$100+"],["Great Dane","$80+","---"],["Great Pyrenees","$100+","$120-150+"],["Greater Swiss Mountain Dog","$80+","---"],["Greyhound","$75+","---"],["Harrier","$55+","---"],["Havanese","$55+","$80+"],["Havapoo","$55+","$80+"],["Ibizan Hound","$55+","---"],["Icelandic Sheepdog","$75+","$85-100+"],["Irish Red and White Setter","$85+","$100+"],["Irish Setter","$85+","$100+"],["Irish Terrier","$55+","$80+"],["Irish Water Spaniel","$80+","$120+"],["Irish Wolfhound","$90+","$130+"],["Italian Greyhound","$45","---"],["Japanese Chin","$55+","$70-80+"],["Keeshond","$85+","$100-120+"],["Kerry Blue Terrier","$85+","$110+"],["Komondor","$75+","$100+"],["Kuvasz","$80+","$100-150+"],["Labrador Retriever","$65+","$100+"],["Labradoodle (medium)","$75+","$100+"],["Labradoodle (large)","$90+","$120-200"],["Lakeland Terrier","$55+","$80+"],["Leonberger","$100+","$120-200"],["Lhasa Apso","$55+","$80+"],["Lowchen","$55+","$80+"],["Maltese","$55+","$80+"],["Maltipoo","$55+","$80+"],["Manchester Terrier","$45-55+","---"],["Mastiff","$80+","---"],["Miniature Bull Terrier","$50+","---"],["Miniature Pinscher","$40+","---"],["Miniature Schnauzer","$55+","$80+"],["Neapolitan Mastiff","$75+","---"],["Newfoundland","$100+","$120-200+"],["Norfolk Terrier","$55+","$80+"],["Norwegian Buhund","$55+","$75+"],["Norwegian Elkhound","$70+","$80+"],["Norwich Terrier","$55+","$80+"],["Nova Scotia Duck Tolling Retriever","$75+","$85-100+"],["Old English Sheepdog","$75+","$120+"],["Otterhound","$75+","$100+"],["Papillon","$55+","$65-80+"],["Parson Russell Terrier","$55+","$80+"],["Pekingese","$55+","$75-85+"],["Pembroke Welsh Corgi","$65+","$75-100"],["Petit Basset Griffon Vendeen","$55+","$80+"],["Pharaoh Hound","$60+","---"],["Plott","$60+","---"],["Pointer","$60+","---"],["Polish Lowland Sheepdog","$80+","$110+"],["Pomeranian","$55+","$70-80+"],["Poodle (toy)","$55+","$80+"],["Poodle (miniature)","$65+","$90+"],["Poodle (standard)","$85+","$110-200"],["Portuguese Podengo Pequeno","$45-55+","$80+"],["Portuguese Water Dog","$75+","$110+"],["Pug","$45+","$80"],["Puli","$70+","$100+"],["Pyrenean Shepherd","$75+","$100+"],["Redbone Coonhound","$60+","---"],["Rhodesian Ridgeback","$75+","---"],["Rottweiler","$65+","---"],["Russell Terrier","$45-55","$80"],["Saluki","$65+","---"],["Samoyed","$100+","$120-150+"],["Schipperke","$60+","$75-85+"],["Scottish Deerhound","$80+","$110+"],["Scottish Terrier","$60+","$90+"],["Sealyham Terrier","$60+","$90+"],["Shetland Sheepdog","$75+","$85-100+"],["Shiba Inu","$50+","---"],["Shih Tzu","$55+","$80+"],["Siberian Husky","$80-100","---"],["Silky Terrier","$50+","$80+"],["Skye Terrier","$65+","$90+"],["Smooth Fox Terrier","$45+","---"],["Soft Coated Wheaten Terrier","$75+","$100+"],["Spinone Italiano","$75+","$110+"],["St. Bernard","$100+","$120-150+"],["Staffordshire Bull Terrier","$60+","---"],["Standard Schnauzer","$70+","$100+"],["Sussex Spaniel","$75+","$85-100+"],["Swedish Vallhund","$60+","$75+"],["Tibetan Mastiff","$100+","$120-200+"],["Tibetan Spaniel","$55+","$70-80+"],["Tibetan Terrier","$70+","$90+"],["Toy Fox Terrier","$40","---"],["Treeing Walker Coonhound","$60+","---"],["Vizsla","$60+","---"],["Weimaraner","$65+","---"],["Welsh Springer Spaniel","$75","$90-110+"],["Welsh Terrier","$55+","$80+"],["West Highland White Terrier","$55+","$80+"],["Whippet","$50+","---"],["Wire Fox Terrier","$60","$85+"],["Wirehaired Pointing Griffon","$65+","$95+"],["Xoloitzcuintli","$50","---"],["Yorkiepoo","$55+","$80+"],["Yorkshire Terrier","$55+","$80+"]];
+  const dl = document.getElementById('breeds'); P.forEach(p => { const o = document.createElement('option'); o.value = p[0]; dl.appendChild(o); });
+  const inp = document.getElementById('breed'), bb = document.getElementById('bb'), hc = document.getElementById('hc'), nm = document.getElementById('bname');
+  const fmt = v => (!v || v.trim() === '---') ? 'n/a' : v.replace(' + up', '+');
+  inp.addEventListener('input', () => {
+    const q = inp.value.trim().toLowerCase(), m = P.find(p => p[0].toLowerCase() === q) || (q.length > 2 && P.find(p => p[0].toLowerCase().startsWith(q)));
+    if (m) { bb.textContent = fmt(m[1]); hc.textContent = fmt(m[2]); nm.innerHTML = `<b>${m[0]}</b>: our list price. Prices vary by size and condition; dematting is $20 per half hour when needed.`; }
+    else { bb.textContent = '—'; hc.textContent = '—'; }
+  });
 
-  /* hours: Tue-Sat 7:30-6 */
-  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=now.getDay(),h=now.getHours()+now.getMinutes()/60,open=d>=2&&d<=6&&h>=7.5&&h<18;
-  document.getElementById('nowT').textContent=open?'Open now':'Closed now';if(open)document.getElementById('now').classList.add('open');
-
-  /* paw prints */
-  var pw=document.getElementById('paws'),prints=[];for(var i=0;i<14;i++){var e=document.createElement('i');e.style.top=(3+i*6.8)+'vh';e.style.left=(i%2?22:4)+'px';e.style.setProperty('--r',(i%2?18:-8)+'deg');pw.appendChild(e);prints.push(e)}
-
-  /* scroll loop */
-  var dt=document.getElementById('dayTrack'),stg=document.querySelectorAll('.stg'),arc=document.getElementById('arc'),hrs=document.getElementById('hrs'),strip=document.getElementById('strip'),last=-1,tick=false;
-  function frame(){tick=false;var max=root.scrollHeight-innerHeight,p=max>0?scrollY/max:0,n=Math.round(p*prints.length);prints.forEach(function(e,k){e.classList.toggle('on',k<n)});
-    if(reduce)return;var r=dt.getBoundingClientRect(),q=Math.min(.999,Math.max(0,-r.top/(r.height-innerHeight))),i=Math.floor(q*4);
-    arc.setAttribute('stroke-dasharray',(553*q)+' 553');hrs.textContent=(Math.round(q*8)/2)+'h';
-    if(i!==last){last=i;stg.forEach(function(s,k){s.classList.toggle('on',k===i)})}
-    var s=strip.getBoundingClientRect();strip.style.setProperty('--p',Math.min(1,Math.max(0,(innerHeight-s.top)/(innerHeight+s.height))));}
-  if(reduce){arc.setAttribute('stroke-dasharray','553 553');hrs.textContent='~4h'}
-  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});frame();
+  const now = new Date(new Date().toLocaleString('en-US', {timeZone:'America/Los_Angeles'}));
+  const d = now.getDay(), h = now.getHours() + now.getMinutes()/60, open = d >= 2 && d <= 6 && h >= 7.5 && h < 18;
+  const st = document.getElementById('state'); st.textContent = open ? 'Open now' : 'Closed now'; st.classList.toggle('open', open);
 })();
 </script>
 </body>

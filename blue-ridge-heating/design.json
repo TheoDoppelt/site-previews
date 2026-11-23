@@ -1,1 +1,22 @@
-{"business":"Blue Ridge Heating & Air Conditioning","direction":"Clean repair-shop type piece in the logo's thermometer teal and red; no stock photos, logo only","palette":{"bg":"#EEF4F4","surface":"#FFFFFF","ink":"#0D1B21","muted":"#48585E","primary":"#00788A","accent":"#D92B2B","on_primary":"#FFFFFF","on_accent":"#FFFFFF"},"fonts":"Unbounded, Karla, Space Mono","hero_idea":"The thermometer from their logo as a drag control: slide too cold to too hot and the headline swaps to the matching repair service while the hero tints teal to red","scroll_story":"A sawtooth ridge line (Blue Ridge) draws down the page edge, teal at the top turning red at the bottom; pinned 'What's it doing?' section swaps symptom to service","custom_ui":"Free-consultation text builder (problem + timing chips write an SMS); hanging shop sign with live open/closed","date":"2026-11-22"}
+{
+ "business": "Blue Ridge Heating & Air Conditioning",
+ "direction": "Interbay HVAC template: dark ridge-navy hero with airflow lines, drag-to-set thermostat, duct-fill repair list, recolored to their logo red and cyan",
+ "palette": {
+  "bg": "#f5f7f9",
+  "surface": "#ffffff",
+  "ink": "#121d2b",
+  "muted": "#4f5d6c",
+  "primary": "#101b2b",
+  "accent": "#fc3737",
+  "on_primary": "#ffffff",
+  "on_accent": "#101b2b"
+ },
+ "fonts": [
+  "Bricolage Grotesque",
+  "Instrument Sans"
+ ],
+ "hero_layout": "type-led headline + thermostat dial on dark airflow canvas (interbay template)",
+ "sections": "hero, ticker, duct repair list, 5.0 band, visit tag + map card, giant phone",
+ "interactive": "thermostat dial (too cold / too hot -> heating or AC call)",
+ "date": "2026-11-23"
+}
