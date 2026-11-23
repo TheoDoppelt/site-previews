@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alice's Floral Designs: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Alice's Floral Designs, 617 South King Street, Seattle. Everyday, wedding and sympathy flowers since 1989.">
+<meta property="og:title" content="Alice's Floral Designs: Website Concept">
+<meta property="og:description" content="Custom flowers for every occasion from the Chinatown-International District, serving you since 1989.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/alices-floral-designs/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;600;700&family=Homemade+Apple&display=swap" rel="stylesheet">
+<style>
+/* Palette from the Alice's logo: peony fuchsia, leaf green, blush brushstroke on petal cream.
+   --bg #FBF5F0  --surface #FFFFFF  --ink #2A1B21  --muted #66545B
+   --primary #A8205A (on #FFFFFF)  --accent #3D6A47 (on #FFFFFF) */
+:root{
+  --bg:#FBF5F0;--blush:#F7DCE2;--surface:#FFFFFF;--ink:#2A1B21;--muted:#66545B;
+  --primary:#A8205A;--on-primary:#FFFFFF;--accent:#3D6A47;--on-accent:#FFFFFF;
+  --line:#2A1B211f;--ease:cubic-bezier(.25,.9,.25,1);--dur:.85s;
+  --display:'Gloock',"Iowan Old Style",Georgia,serif;
+  --body:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --hand:'Homemade Apple',"Bradley Hand",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.preview{background:var(--ink);color:#FBF5F0;font-size:13px;padding:8px 16px;text-align:center}
+.preview a{color:#F7DCE2}
+.ph{background:#fff3a6;color:#2A1B21;outline:1px dashed #b59400;padding:0 3px;border-radius:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04}
+h2{font-size:clamp(38px,6.4vw,74px)}
+.kick{font:700 12.5px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:999px;font:700 16px/1 var(--body);text-decoration:none;border:1.5px solid var(--ink);transition:transform var(--dur) var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.pink{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+
+/* the stem: one thread */
+.stem{position:fixed;left:max(4px,calc(50% - 630px));top:0;width:60px;height:100vh;z-index:1;pointer-events:none}
+.stem svg{width:100%;height:100%;overflow:visible}
+.stem .st{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.stem .leaf{fill:var(--accent);transform-box:fill-box;transform-origin:left center;transform:scale(0);transition:transform .7s var(--ease)}
+.stem .leaf.r{transform-origin:right center}
+.stem .leaf.on{transform:scale(1)}
+.stem .bloom{fill:var(--primary);transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .9s var(--ease)}
+.stem .bloom.on{transform:scale(1)}
+@media(max-width:900px){.stem{display:none}}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 20px;max-width:1160px;margin:0 auto;position:relative;z-index:3}
+header.top img{height:66px;width:auto;mix-blend-mode:multiply}
+header.top nav{display:flex;gap:24px;font-weight:600;font-size:15px}
+header.top nav a{text-decoration:none}
+header.top .tel{font-weight:700;text-decoration:none;color:var(--primary)}
+@media(max-width:820px){header.top nav{display:none}header.top img{height:52px}}
+
+/* hero: write the card */
+.hero{position:relative;z-index:2;padding:16px 0 90px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(44px,7vw,92px)}
+.hero h1 span{color:var(--primary)}
+.hero .sub{font-size:19px;color:var(--muted);margin:20px 0 26px;max-width:40ch}
+.hero label{display:block;font:700 12.5px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.hero textarea{width:100%;max-width:440px;font:400 17px/1.5 var(--body);padding:14px 16px;border:1.5px solid var(--ink);border-radius:14px;background:var(--surface);color:var(--ink);resize:none}
+.hero textarea:focus{outline:3px solid var(--blush);outline-offset:2px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.bouquet{position:relative;max-width:500px;justify-self:center;width:100%}
+.bouquet img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:220px 220px 18px 18px}
+.card{position:absolute;right:-6%;bottom:9%;width:58%;background:var(--surface);padding:18px 18px 22px;border-radius:4px;box-shadow:0 16px 40px #2A1B2133;transform:rotate(-5deg);transform-origin:top left}
+.card::before{content:"";position:absolute;left:24px;top:-30px;width:2px;height:34px;background:var(--accent)}
+.card small{display:block;font:700 10.5px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--primary);border-bottom:1px solid var(--blush);padding-bottom:6px;margin-bottom:10px}
+.card p{font:400 clamp(14px,1.6vw,17px)/1.9 var(--hand);color:var(--ink);min-height:3.8em;word-wrap:break-word}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:36px}.bouquet{order:-1;max-width:360px}.card{right:-2%;width:64%}.hero{padding-bottom:110px}}
+
+.mask{display:block;overflow:hidden}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(110%);transition:transform var(--dur) var(--ease)}
+html.js .in .mask>span{transform:none}
+html.js .in .mask:nth-child(2)>span{transition-delay:.12s}
+
+/* since 1989 */
+.since{position:relative;z-index:2;padding:100px 0;background:var(--blush)}
+.since .wrap{display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+.since .yr{font:400 clamp(90px,17vw,220px)/.85 var(--display);color:var(--primary)}
+.since p{font-size:20px;max-width:46ch;margin-top:16px}
+@media(max-width:820px){.since .wrap{grid-template-columns:1fr;gap:16px}}
+
+/* pinned occasions */
+.occ{position:relative;z-index:2}
+.occ .track{height:320vh}
+.occ .pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;max-width:1160px;margin:0 auto;padding:0 20px 0 70px}
+.frames{position:relative;aspect-ratio:4/5;max-height:76vh;width:100%;justify-self:center;border-radius:18px;overflow:hidden;background:var(--blush)}
+.frames img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s var(--ease),transform 1.4s var(--ease)}
+.frames img.on{opacity:1;transform:none}
+.tabs{display:flex;gap:8px;margin:20px 0 26px;flex-wrap:wrap}
+.tabs button{font:700 15px var(--body);padding:9px 16px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+.tabs button:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.panel{display:none}
+.panel.on{display:block}
+.panel h3{font-size:clamp(30px,4vw,48px)}
+.panel p{color:var(--muted);margin:10px 0 18px;max-width:42ch}
+.panel ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.panel li{background:var(--surface);border:1px solid var(--line);padding:7px 13px;border-radius:999px;font-weight:600;font-size:15px}
+@media(max-width:820px){.occ .pin{grid-template-columns:1fr;gap:16px;padding:60px 20px 20px;align-content:start}.frames{aspect-ratio:1;max-height:40vh}.panel p{display:none}}
+
+/* horizontal strip */
+.strip-sec{position:relative;z-index:2;padding:110px 0 60px;overflow:hidden}
+.strip{display:flex;gap:18px;padding:0 20px;margin-top:40px;transform:translateX(calc(var(--p,0) * -30%));will-change:transform}
+.strip figure{flex:0 0 clamp(200px,24vw,300px)}
+.strip img{aspect-ratio:3/4;object-fit:cover;border-radius:12px}
+.strip figcaption{font:400 15px var(--hand);margin-top:8px;color:var(--muted)}
+
+/* visit */
+.visit{position:relative;z-index:2;padding:80px 0 130px}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.door{background:var(--surface);border-radius:200px 200px 16px 16px;padding:70px 30px 30px;text-align:center;border:1.5px solid var(--ink)}
+.door .now{display:inline-flex;align-items:center;gap:10px;font:400 30px var(--display)}
+.door .now i{width:12px;height:12px;border-radius:50%;background:#a09398}
+.door .now.open i{background:#4bb36a}
+.door table{width:100%;border-collapse:collapse;margin-top:18px;text-align:left;font-size:15px}
+.door td{padding:7px 0;border-bottom:1px dashed var(--line)}
+.door td:last-child{text-align:right;font-weight:600}
+.door tr.today td{color:var(--primary)}
+.links{display:grid;gap:4px;margin-top:22px}
+.links a{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1.5px solid var(--ink);text-decoration:none;font-weight:600}
+.links a b{font:400 clamp(20px,2.4vw,26px) var(--display);color:var(--primary);text-align:right;word-break:break-word}
+@media(max-width:820px){.visit .wrap{grid-template-columns:1fr}}
+footer{position:relative;z-index:2;background:var(--ink);color:#e6d9de;padding:36px 0 110px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+footer a{color:#F7DCE2}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;gap:8px}
+.callbar a{flex:1;text-align:center;padding:15px;border-radius:999px;font:700 16px var(--body);text-decoration:none}
+.callbar .c{background:var(--primary);color:var(--on-primary)}
+.callbar .t{background:var(--accent);color:var(--on-accent)}
+@media(max-width:820px){.callbar{display:flex}}
+
+html.js .rv{opacity:0;transform:translateY(18px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+  html.js .rv,html.js .mask>span{opacity:1;transform:none}
+  .occ .track{height:auto}
+  .occ .pin{position:static;height:auto;padding:80px 20px}
+  .strip{transform:none;flex-wrap:wrap}
+  .stem .leaf,.stem .bloom{transform:scale(1)}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Alice's Floral Designs site. <a href="https://www.alicesfloraldesigns.com/">See their real site</a></div>
+
+<div class="stem" aria-hidden="true"><svg viewBox="0 0 60 1000" preserveAspectRatio="none">
+  <path class="st" id="stem" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="M30 0 C18 120 42 220 30 330 S16 560 30 660 S44 860 30 960"/>
+  <path class="leaf" data-at=".18" d="M32 180 q22 -14 26 4 q-14 12 -26 -4z"/>
+  <path class="leaf r" data-at=".36" d="M28 360 q-22 -14 -26 4 q14 12 26 -4z"/>
+  <path class="leaf" data-at=".55" d="M31 550 q22 -14 26 4 q-14 12 -26 -4z"/>
+  <path class="leaf r" data-at=".74" d="M29 740 q-22 -14 -26 4 q14 12 26 -4z"/>
+  <circle class="bloom" data-at=".95" cx="30" cy="968" r="16"/>
+</svg></div>
+
+<header class="top">
+  <a href="#top"><img src="img/logo.jpg" alt="Alice's Floral Designs" width="1500" height="676"></a>
+  <nav><a href="#since">About</a><a href="#occasions">Occasions</a><a href="#gallery">Gallery</a><a href="#visit">Visit</a></nav>
+  <a class="tel" href="tel:+12066211029">(206) 621-1029</a>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kick">617 South King Street · Since 1989</p>
+      <h1 style="margin-top:16px">Flowers for <span>every</span> occasion.</h1>
+      <p class="sub">Custom arrangements for weddings, sympathy, birthdays, events and every day, designed in the Chinatown-International District at an inexpensive price point.</p>
+      <label for="msg">Write the card</label>
+      <textarea id="msg" rows="3" maxlength="140">Happy birthday, Mom! Love you more than all the roses in Seattle.</textarea>
+      <div class="ctas"><a class="btn pink" id="order" href="sms:+12066211029">Text this order</a><a class="btn" href="tel:+12066211029">Call (206) 621-1029</a></div>
+    </div>
+    <div class="bouquet">
+      <img src="img/vase.jpg" alt="Pink lilies, gerbera daisies and purple statice in a white vase from Alice's" width="1000" height="1333">
+      <div class="card" aria-live="polite"><small>Alice's Floral Designs</small><p id="cardText"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="since" id="since">
+  <div class="wrap">
+    <div class="yr" id="yr" aria-label="Since 1989">1989</div>
+    <div class="rv">
+      <h2><span class="mask"><span>Serving you</span></span><span class="mask"><span>since 1989.</span></span></h2>
+      <p>A local florist on South King Street, making custom designs for weddings, funerals, birthdays, events and the everyday, without the big-shop price tag.</p>
+    </div>
+  </div>
+</section>
+
+<section class="occ" id="occasions">
+  <div class="track" id="occTrack">
+    <div class="pin">
+      <div class="frames">
+        <img class="on" src="img/roses.jpg" alt="Pink and red roses wrapped in a basket" width="1000" height="747">
+        <img src="img/bridal.jpg" alt="Cascading white and blush bridal bouquet" width="1000" height="1333">
+        <img src="img/spray.jpg" alt="Bright sympathy standing spray on an easel" width="1000" height="1333">
+      </div>
+      <div>
+        <p class="kick">What's the occasion?</p>
+        <div class="tabs" role="tablist" aria-label="Occasions">
+          <button role="tab" aria-selected="true">Everyday</button><button role="tab" aria-selected="false">Wedding</button><button role="tab" aria-selected="false">Sympathy</button>
+        </div>
+        <div class="panel on" role="tabpanel"><h3>Everyday</h3><p>Birthdays, thank-yous, just because. Pick a style or ask for a custom design.</p><ul><li>Roses</li><li>Bouquets</li><li>Plants</li><li>Baskets</li><li>Sprays</li></ul></div>
+        <div class="panel" role="tabpanel"><h3>Wedding</h3><p>From the bride's bouquet to the last centerpiece. Start with a consultation.</p><ul><li>Bouquets</li><li>Corsages &amp; boutonnières</li><li>Reception &amp; centerpieces</li><li>Ceremony</li><li>Consultation</li></ul></div>
+        <div class="panel" role="tabpanel"><h3>Sympathy</h3><p>Arrangements for funerals and memorials, made with care.</p><ul><li>Baskets</li><li>Sprays</li><li>Wreaths</li><li>Casket sprays</li><li>Spray within a wreath</li><li>Specialty arrangements</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip-sec" id="gallery">
+  <div class="wrap"><p class="kick rv">From the shop</p><h2 class="rv" style="margin-top:12px">Made on King Street</h2></div>
+  <div class="strip" id="strip">
+    <figure><img src="img/orchid.jpg" alt="Purple orchid planter with curly willow" width="1000" height="1333"><figcaption>orchids</figcaption></figure>
+    <figure><img src="img/heart.jpg" alt="Red roses with baby's breath in a heart box" width="1000" height="667"><figcaption>roses</figcaption></figure>
+    <figure><img src="img/succulent.jpg" alt="Succulent and dusty-blue bridal bouquet" width="1000" height="1333"><figcaption>for the bride</figcaption></figure>
+    <figure><img src="img/plant.jpg" alt="Peace lily and anthurium planter" width="1000" height="955"><figcaption>plants</figcaption></figure>
+    <figure><img src="img/centerpiece.jpg" alt="Tall lavender and white centerpiece on a table" width="1000" height="1333"><figcaption>centerpieces</figcaption></figure>
+    <figure><img src="img/whiteorchid.jpg" alt="White orchid planter" width="1000" height="1333"><figcaption>orchids</figcaption></figure>
+    <figure><img src="img/wedding.jpg" alt="Wedding ceremony aisle lined with flowers under a white tent" width="1000" height="790"><figcaption>ceremonies</figcaption></figure>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="door rv">
+      <p class="now" id="now"><i></i><span id="nowT">Shop hours</span></p>
+      <table aria-label="Shop hours (unconfirmed)">
+        <tr data-d="1"><td>Monday</td><td><span class="ph">10:30 am – 7:00 pm</span></td></tr>
+        <tr data-d="2"><td>Tuesday</td><td><span class="ph">10:30 am – 7:00 pm</span></td></tr>
+        <tr data-d="3"><td>Wednesday</td><td><span class="ph">10:30 am – 7:00 pm</span></td></tr>
+        <tr data-d="4"><td>Thursday</td><td><span class="ph">10:30 am – 7:00 pm</span></td></tr>
+        <tr data-d="5"><td>Friday</td><td><span class="ph">10:30 am – 7:00 pm</span></td></tr>
+        <tr data-d="6"><td>Saturday</td><td><span class="ph">10:30 am – 6:00 pm</span></td></tr>
+        <tr data-d="0"><td>Sunday</td><td><span class="ph">Closed</span></td></tr>
+      </table>
+    </div>
+    <div class="rv">
+      <p class="kick">Order or stop by</p>
+      <h2 style="margin-top:12px">617 South King Street</h2>
+      <p style="color:var(--muted);margin-top:12px">Seattle, WA 98104 · <a href="https://www.google.com/maps/search/?api=1&query=617+S+King+St+Seattle+WA+98104">Open in Maps</a></p>
+      <div class="links">
+        <a href="tel:+12066211029">Call <b>(206) 621-1029</b></a>
+        <a href="mailto:alicesfloraldesigns1989@gmail.com">Email <b>alicesfloraldesigns1989@gmail.com</b></a>
+        <a href="http://instagram.com/alicesfloral">Instagram <b>@alicesfloral</b></a>
+        <a href="https://www.facebook.com/Alices-Floral-Designs-733728150013534/">Facebook <b>Alice's Floral Designs</b></a>
+        <a href="http://www.yelp.com/biz/alices-floral-designs-seattle-2">Yelp <b>Read reviews</b></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© Alice's Floral Designs · 617 S King St, Seattle, WA 98104 · Since 1989</p>
+    <p>Concept redesign by Theo, not the official Alice's site. Logo and flower photos from <a href="https://www.alicesfloraldesigns.com/">alicesfloraldesigns.com</a>.</p>
+  </div>
+</footer>
+<div class="callbar"><a class="c" href="tel:+12066211029">Call</a><a class="t" href="sms:+12066211029">Text</a></div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,root=document.documentElement;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  /* enclosure card */
+  var msg=document.getElementById('msg'),card=document.getElementById('cardText'),order=document.getElementById('order');
+  function sync(){var v=msg.value.trim()||'Your message here';card.textContent=v;order.href='sms:+12066211029?&body='+encodeURIComponent('Hi Alice\'s, I\'d like to order flowers. Card message: "'+v+'"')}
+  msg.addEventListener('input',sync);sync();
+
+  /* 1989 count-up */
+  var yr=document.getElementById('yr');
+  if(!reduce){var done=false;new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!done){done=true;o.disconnect();var t0=performance.now();(function f(t){var p=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-p,3);yr.textContent=Math.round(2026-(2026-1989)*e);if(p<1)requestAnimationFrame(f)})(t0)}},{threshold:.5}).observe(yr)}
+
+  /* occasions tabs (also driven by scroll) */
+  var tabs=document.querySelectorAll('[role=tab]'),panels=document.querySelectorAll('.panel'),imgs=document.querySelectorAll('.frames img'),cur=0;
+  function show(i){cur=i;tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i)});panels.forEach(function(p,k){p.classList.toggle('on',k===i)});imgs.forEach(function(m,k){m.classList.toggle('on',k===i)})}
+  tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k);lock=performance.now()})});
+  var lock=0;
+
+  /* hours (unconfirmed, from a directory listing) */
+  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+  var H=d===0?null:[10.5,d===6?18:19],open=H&&h>=H[0]&&h<H[1];var tr=document.querySelector('tr[data-d="'+d+'"]');if(tr)tr.className='today';
+  document.getElementById('nowT').textContent=open?'Open now':'Closed now';if(open)document.getElementById('now').classList.add('open');
+
+  /* scroll loop */
+  var stem=document.getElementById('stem'),leaves=document.querySelectorAll('.stem [data-at]'),ot=document.getElementById('occTrack'),strip=document.getElementById('strip'),tick=false;
+  function frame(){tick=false;var max=root.scrollHeight-innerHeight,p=max>0?scrollY/max:0;stem.style.strokeDashoffset=1000-1000*p;
+    leaves.forEach(function(l){l.classList.toggle('on',p>=+l.dataset.at)});
+    if(reduce)return;
+    var r=ot.getBoundingClientRect(),q=Math.min(.999,Math.max(0,-r.top/(r.height-innerHeight))),i=Math.floor(q*3);if(i!==cur&&performance.now()-lock>900)show(i);
+    var s=strip.getBoundingClientRect();strip.style.setProperty('--p',Math.min(1,Math.max(0,(innerHeight-s.top)/(innerHeight+s.height))));}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});frame();
+})();
+</script>
+</body>
+</html>

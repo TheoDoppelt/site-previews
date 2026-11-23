@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shine in the Market: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Shine in the Market, a boutique hair salon in Pike Place Market's Inn courtyard, 86 Pine Street, Seattle. Cuts, color, foils, extensions, smoothing treatments and perms.">
+<meta property="og:title" content="Shine in the Market: Website Concept">
+<meta property="og:description" content="A boutique hair salon in the heart of Pike Place Market. Let yourself Shine. Come on in.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/shine-in-the-market/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Palette from the Shine logo (sky-blue swirl S, pale-blue type on black) plus the lime of the gummi-bear bowl.
+   --bg #F4F1EA  --surface #FFFFFF  --ink #141617  --muted #55595B
+   --primary #1F6F99 (on #FFFFFF)  --accent #C6E03A (on #141617) */
+:root{
+  --bg:#F4F1EA;--surface:#FFFFFF;--ink:#141617;--muted:#55595B;
+  --primary:#1F6F99;--on-primary:#FFFFFF;--accent:#C6E03A;--on-accent:#141617;
+  --sky:#5EA3C8;--pale:#E3F2FA;--line:#14161720;
+  --ease:cubic-bezier(.2,.85,.2,1);--dur:.8s;
+  --display:'Syne',"Futura","Avenir Next",system-ui,sans-serif;
+  --body:'Hanken Grotesk',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.preview{background:var(--accent);color:var(--on-accent);font-size:13px;padding:8px 16px;text-align:center;font-weight:600}
+.ph{background:#fff3a6;color:#141617;outline:1px dashed #b59400;padding:0 3px;border-radius:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;letter-spacing:-.01em}
+h2{font-size:clamp(36px,6vw,72px)}
+.kick{font:700 12.5px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:999px;font:700 16px/1 var(--body);text-decoration:none;border:2px solid currentColor;transition:transform var(--dur) var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.lime{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+/* string lights: the thread */
+.lights{position:fixed;right:max(6px,calc(50% - 640px));top:0;width:40px;height:100vh;z-index:5;pointer-events:none}
+.lights svg{width:100%;height:100%;overflow:visible}
+.lights .wire{fill:none;stroke:#14161755;stroke-width:1.4}
+.lights circle{fill:#d8d4ca;stroke:#14161755;transition:fill .4s,filter .4s}
+.lights circle.on{fill:#FFD86B;filter:drop-shadow(0 0 6px #FFD86B)}
+@media(max-width:900px){.lights{display:none}}
+
+/* hero: letters cut out of the courtyard */
+.hero{background:var(--ink);color:var(--pale);position:relative;overflow:hidden;padding:0 0 70px}
+.hero header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;max-width:1160px;margin:0 auto}
+.hero header img{height:64px;width:auto}
+.hero header nav{display:flex;gap:24px;font-weight:600;font-size:15px}
+.hero header nav a{text-decoration:none}
+.hero header .tel{font-weight:700;text-decoration:none;color:var(--accent)}
+@media(max-width:820px){.hero header nav{display:none}.hero header img{height:50px}}
+.word{position:relative;margin:24px auto 0;max-width:1160px;padding:0 20px}
+.word h1{font-size:clamp(96px,24vw,330px);line-height:.82;letter-spacing:-.03em;background:url(img/courtyard.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
+.word .glint{position:absolute;inset:0 20px;pointer-events:none;background:radial-gradient(circle at var(--gx,30%) var(--gy,50%),#ffffffb0,transparent 18%);mix-blend-mode:overlay;-webkit-mask:linear-gradient(#000 0 0);font:inherit}
+.word .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.hero .row{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;max-width:1160px;margin:18px auto 0;padding:0 20px}
+.hero .lede{font:600 clamp(24px,3vw,36px)/1.15 var(--display);color:#fff}
+.hero .lede em{font-style:normal;color:var(--accent)}
+.hero .sub{color:#c8d6dd;margin-top:14px;max-width:46ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.hero .ctas .btn:not(.lime){color:var(--pale)}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.word h1{color:var(--sky);background:none}}
+@media(max-width:820px){.hero .row{grid-template-columns:1fr}.hero .ctas{justify-content:flex-start}.hero{padding-bottom:110px}}
+
+.mask{display:block;overflow:hidden}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(110%);transition:transform var(--dur) var(--ease)}
+html.js .in .mask>span{transform:none}
+html.js .in .mask:nth-child(2)>span{transition-delay:.12s}
+
+/* sisters */
+.sisters{padding:110px 0}
+.sisters .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.sisters figure{position:relative}
+.sisters figure img{border-radius:6px;width:100%}
+.sisters figure img.g{position:absolute;right:-6%;bottom:-16%;width:44%;border:6px solid var(--bg);border-radius:6px;transform:rotate(4deg)}
+.sisters figcaption{margin-top:12px;font-size:14px;color:var(--muted)}
+.sisters p{font-size:19px;color:var(--muted);margin-top:18px;max-width:42ch}
+.sisters blockquote{font:600 clamp(22px,2.6vw,30px)/1.25 var(--display);margin-top:24px;border-left:4px solid var(--accent);padding-left:16px}
+@media(max-width:820px){.sisters .wrap{grid-template-columns:1fr;gap:60px}}
+
+/* pinned walk-in */
+.walk{background:var(--ink);color:var(--pale)}
+.walk .track{height:340vh}
+.walk .pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;max-width:1160px;margin:0 auto;padding:0 70px 0 20px}
+.shots{position:relative;aspect-ratio:3/2;border-radius:6px;overflow:hidden;background:#222}
+.shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .7s var(--ease),transform 2s var(--ease)}
+.shots img.on{opacity:1;transform:scale(1)}
+.steps{position:relative;min-height:260px}
+.step{position:absolute;inset:0;opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.step.on{opacity:1;transform:none}
+.step .n{font:700 13px var(--body);letter-spacing:.18em;color:var(--accent)}
+.step h3{font-size:clamp(30px,3.8vw,46px);color:#fff;margin:10px 0 12px}
+.step p{color:#c8d6dd;max-width:36ch}
+@media(max-width:820px){.walk .pin{grid-template-columns:1fr;gap:20px;padding:60px 20px 20px;align-content:center}.steps{min-height:220px}}
+
+/* stylists: chair picker */
+.team{padding:120px 0 100px}
+.team .top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.team .top p{max-width:44ch;color:var(--muted)}
+.chairs{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.chairs button{font:700 16px var(--body);padding:12px 18px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background-color .3s,color .3s}
+.chairs button[aria-selected=true]{background:var(--ink);color:var(--accent)}
+.chairs button:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.bio{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:start;margin-top:30px;background:var(--surface);border-radius:8px;padding:30px;border:2px solid var(--ink)}
+.bio .seat{font:800 clamp(70px,10vw,130px)/.8 var(--display);color:var(--primary)}
+.bio h3{font-size:clamp(28px,3.4vw,40px)}
+.bio .role{font-weight:700;color:var(--muted);margin-top:4px}
+.bio q{display:block;font-size:19px;margin-top:16px;max-width:60ch}
+@media(max-width:820px){.bio{grid-template-columns:1fr;gap:10px}}
+
+/* services as a mirror list over a scroll strip */
+.svc{padding:40px 0 120px;overflow:hidden}
+.svc ul{list-style:none;margin-top:30px;border-top:2px solid var(--ink)}
+.svc li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font:800 clamp(26px,4.4vw,52px)/1.05 var(--display)}
+.svc li span{font:600 14px var(--body);color:var(--muted);text-align:right}
+.svc .note{margin-top:20px;color:var(--muted);max-width:52ch}
+.strip{display:flex;gap:16px;margin-top:60px;padding:0 20px;transform:translateX(calc(var(--p,0) * -28%))}
+.strip img{flex:0 0 clamp(240px,34vw,440px);aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+
+/* visit */
+.visit{background:var(--primary);color:var(--on-primary);padding:100px 0 120px}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.visit .kick{color:var(--pale)}
+.visit h2{color:#fff}
+.visit p{margin-top:14px;color:#e3f0f7}
+.appt{background:var(--surface);color:var(--ink);border-radius:10px;padding:26px;transform:rotate(-1.5deg);box-shadow:12px 12px 0 var(--ink)}
+.appt .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.appt .hd img{height:46px;width:auto;background:var(--ink);padding:4px 8px;border-radius:4px}
+.appt .now{font:800 16px var(--display);display:flex;align-items:center;gap:8px}
+.appt .now i{width:10px;height:10px;border-radius:50%;background:#9aa}
+.appt .now.open i{background:#3fbf66}
+.appt dl{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;margin-top:16px;font-size:16px}
+.appt dt{font-weight:700;color:var(--muted);font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+.appt .big{display:block;font:800 clamp(30px,4vw,44px)/1 var(--display);color:var(--primary);text-decoration:none;margin-top:18px}
+.visit a{color:#fff}
+@media(max-width:820px){.visit .wrap{grid-template-columns:1fr}}
+footer{background:var(--ink);color:#c8d6dd;padding:36px 0 110px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+footer a{color:var(--accent)}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none}
+.callbar a{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-radius:999px;background:var(--accent);color:var(--on-accent);text-decoration:none;font:700 16px var(--body);box-shadow:0 10px 24px #0004}
+@media(max-width:820px){.callbar{display:block}}
+
+html.js .rv{opacity:0;transform:translateY(18px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+  html.js .rv,html.js .mask>span{opacity:1;transform:none}
+  .walk .track{height:auto}
+  .walk .pin{position:static;height:auto;padding:80px 20px;grid-template-columns:1fr}
+  .steps{min-height:0}
+  .step{position:static;opacity:1;transform:none;margin-bottom:26px}
+  .strip{transform:none;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Shine in the Market site. <a href="http://shineinthemarket.com/">See their real site</a></div>
+
+<div class="lights" aria-hidden="true"><svg viewBox="0 0 40 1000" preserveAspectRatio="none" id="lightsSvg"><path class="wire" d="M20 0 Q34 50 20 100 T20 200 T20 300 T20 400 T20 500 T20 600 T20 700 T20 800 T20 900 T20 1000"/></svg></div>
+
+<section class="hero" id="top">
+  <header>
+    <a href="#top"><img src="img/logo.png" alt="Shine in the Market" width="223" height="100"></a>
+    <nav><a href="#about">About</a><a href="#find">Find us</a><a href="#stylists">Stylists</a><a href="#services">Services</a><a href="#visit">Book</a></nav>
+    <a class="tel" href="tel:+12064413000">206.441.3000</a>
+  </header>
+  <div class="word" id="word"><h1 aria-hidden="true">Shine</h1><span class="glint"></span><span class="sr">Shine in the Market</span></div>
+  <div class="row">
+    <div>
+      <p class="lede">A boutique hair salon in the heart of Pike Place Market. <em>Let yourself Shine. Come on in.</em></p>
+      <p class="sub">A collective of stylists with a penchant for the modern and an appreciation for the classics, in the Inn at the Market's courtyard.</p>
+    </div>
+    <div class="ctas"><a class="btn lime" href="tel:+12064413000">Call 206.441.3000</a><a class="btn" href="#stylists">Meet the stylists</a></div>
+  </div>
+</section>
+
+<main>
+<section class="sisters" id="about">
+  <div class="wrap">
+    <figure class="rv">
+      <img src="img/owners.jpg" alt="Emily and her sister Molly sitting in front of the Shine window" width="900" height="401">
+      <img class="g" src="img/gummi.jpg" alt="A bowl of gummi bears on the Shine front desk" width="637" height="285">
+      <figcaption>Emily and Molly. And the gummi bears.</figcaption>
+    </figure>
+    <div class="rv">
+      <p class="kick">We believe…</p>
+      <h2 style="margin-top:14px"><span class="mask"><span>Casual, comfortable,</span></span><span class="mask"><span>hip.</span></span></h2>
+      <blockquote>"…in providing a casual, comfortable, hip environment to get yours hairs did."</blockquote>
+      <p>"That's me and my sister Molly, and some gummi bears that clients like to hoard. But that's ok." — Emily Curran, owner</p>
+    </div>
+  </div>
+</section>
+
+<section class="walk" id="find">
+  <div class="track" id="walkTrack">
+    <div class="pin">
+      <div class="shots">
+        <img class="on" src="img/inn.jpg" alt="The Inn at the Market sign with the Public Market sign and Elliott Bay behind it" width="637" height="284">
+        <img src="img/courtyard.jpg" alt="The leafy Inn courtyard outside Shine" width="900" height="401">
+        <img src="img/door.jpg" alt="Shine's front door under a striped awning" width="637" height="424">
+        <img src="img/chairs.jpg" alt="The row of styling chairs inside Shine" width="950" height="370">
+      </div>
+      <div class="steps">
+        <div class="step on"><p class="n">01 · PIKE PLACE</p><h3>Start at the Market</h3><p>We're at 86 Pine Street, right by the Public Market sign.</p></div>
+        <div class="step"><p class="n">02 · THE COURTYARD</p><h3>Into the Inn's courtyard</h3><p>We share it with some pretty unique neighbors. Enjoy the green.</p></div>
+        <div class="step"><p class="n">03 · THE DOOR</p><h3>Look for the stripes</h3><p>The striped awning, the bench, the big windows. Come on in.</p></div>
+        <div class="step"><p class="n">04 · THE CHAIR</p><h3>Sit down. Shine.</h3><p>You can also get your hair done.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="stylists">
+  <div class="wrap">
+    <div class="top rv">
+      <div><p class="kick">Our stylists</p><h2 style="margin-top:12px">Pick a chair.</h2></div>
+      <p>"We are artists, technicians and inventors who, honestly, have been around the beauty-industry block more than a few times."</p>
+    </div>
+    <div class="chairs" role="tablist" aria-label="Stylists">
+      <button role="tab" aria-selected="true">Emily</button><button role="tab" aria-selected="false">Akiko</button><button role="tab" aria-selected="false">Brooke</button><button role="tab" aria-selected="false">Paige</button><button role="tab" aria-selected="false">Julian</button>
+    </div>
+    <div class="bio" role="tabpanel" aria-live="polite">
+      <div class="seat" id="seat">01</div>
+      <div><h3 id="bName">Emily Curran</h3><p class="role" id="bRole">Owner</p><q id="bQ"></q></div>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="services">
+  <div class="wrap">
+    <p class="kick rv">Our services</p>
+    <h2 class="rv" style="margin-top:12px">Never limited to:</h2>
+    <ul>
+      <li class="rv">Cuts <span>Men, women, and yes, kids</span></li>
+      <li class="rv">Inspired coloring <span>&amp; foils</span></li>
+      <li class="rv">Extensions</li>
+      <li class="rv">Smoothing treatments</li>
+      <li class="rv">Perms</li>
+    </ul>
+    <p class="note rv">Prices vary by stylist: <span class="ph">service menu with prices</span>. Call 206.441.3000 to book.</p>
+  </div>
+  <div class="strip" id="strip" aria-hidden="true">
+    <img src="img/letters.jpg" alt="" width="637" height="426"><img src="img/mirrors.jpg" alt="" width="637" height="318"><img src="img/flowers.jpg" alt="" width="637" height="284"><img src="img/scissors.jpg" alt="" width="950" height="328"><img src="img/lights.jpg" alt="" width="637" height="426">
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kick">To make an appointment</p>
+      <h2 style="margin-top:12px">Give us a call.</h2>
+      <p>86 Pine Street, Seattle, WA 98101, in the Inn at the Market courtyard. <a href="https://www.google.com/maps/search/?api=1&query=86+Pine+St+Seattle+WA+98101">Directions</a></p>
+      <p>Early morning or evening appointments available with individual stylists.</p>
+      <p><a href="http://www.yelp.com/biz/shine-in-the-market-seattle">Shine on Yelp</a> · <a href="http://www.facebook.com/pages/Shine-in-the-Market/205313449502878">Facebook</a></p>
+    </div>
+    <div class="appt rv">
+      <div class="hd"><img src="img/logo.png" alt="" width="223" height="100"><span class="now" id="now"><i></i><span id="nowT">Hours</span></span></div>
+      <dl>
+        <dt>Days</dt><dd>Tuesday – Saturday</dd>
+        <dt>Hours</dt><dd>10:00 a.m. – 6:00 p.m.</dd>
+        <dt>Sun, Mon</dt><dd>Closed</dd>
+        <dt>Where</dt><dd>86 Pine Street</dd>
+      </dl>
+      <a class="big" href="tel:+12064413000">206.441.3000</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© Shine in the Market LLC · 86 Pine Street, Seattle, WA 98101</p>
+    <p>Concept redesign by Theo, not the official Shine site. Logo and photos from <a href="http://shineinthemarket.com/">shineinthemarket.com</a>.</p>
+  </div>
+</footer>
+<div class="callbar"><a href="tel:+12064413000">Book a chair <b>206.441.3000</b></a></div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,root=document.documentElement;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  /* glint follows the pointer across SHINE */
+  var word=document.getElementById('word');
+  word.addEventListener('pointermove',function(e){var r=word.getBoundingClientRect();word.style.setProperty('--gx',((e.clientX-r.left)/r.width*100)+'%');word.style.setProperty('--gy',((e.clientY-r.top)/r.height*100)+'%')});
+  if(!reduce){var t0=performance.now();(function sweep(t){var p=((t-t0)/2600);if(p>1)return;word.style.setProperty('--gx',(-10+p*120)+'%');requestAnimationFrame(sweep)})(t0)}
+
+  /* stylists */
+  var S=[['Emily Curran','Owner','Many years ago, I got in trouble for cutting my little sister\'s hair. Then I got in trouble for dying her hair black. But...'],
+    ['Akiko Biely','Stylist','I am originally from Tokyo but studied at the Vidal Sassoon Academy in London. I have been doing hair since the early \'90s.'],
+    ['Brooke Harrison','Stylist','I started cutting my brother\'s hair on the front porch in high school. … I do both cuts and color, though I particularly enjoy long, layered haircuts.'],
+    ['Paige Billmaier','Stylist · color, blonding, precision cuts, extensions','I look forward to meeting you and creating a look you\'ll love everyday.'],
+    ['Julian Pellicone','Stylist','']];
+  var tabs=document.querySelectorAll('.chairs button');
+  function pick(i){tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1});document.getElementById('seat').textContent='0'+(i+1);document.getElementById('bName').textContent=S[i][0];document.getElementById('bRole').textContent=S[i][1];
+    var q=document.getElementById('bQ');if(S[i][2]){q.textContent=S[i][2];q.style.display=''}else{q.innerHTML='<span class="ph">Julian\'s bio</span>';q.style.display='block'}}
+  tabs.forEach(function(t,k){t.addEventListener('click',function(){pick(k)});t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){var n=(k+d+5)%5;pick(n);tabs[n].focus()}})});pick(0);
+
+  /* hours: Tue-Sat 10-6 */
+  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=now.getDay(),h=now.getHours()+now.getMinutes()/60,open=d>=2&&d<=6&&h>=10&&h<18;
+  document.getElementById('nowT').textContent=open?'Open now':'Closed now';if(open)document.getElementById('now').classList.add('open');
+
+  /* string lights */
+  var svg=document.getElementById('lightsSvg'),bulbs=[];
+  for(var i=0;i<12;i++){var c=document.createElementNS('http://www.w3.org/2000/svg','circle');var y=40+i*82;c.setAttribute('cx',20+(i%2?9:-9));c.setAttribute('cy',y);c.setAttribute('r',5);svg.appendChild(c);bulbs.push(c)}
+
+  /* scroll loop */
+  var wt=document.getElementById('walkTrack'),shots=document.querySelectorAll('.shots img'),steps=document.querySelectorAll('.step'),strip=document.getElementById('strip'),last=-1,tick=false;
+  function frame(){tick=false;var max=root.scrollHeight-innerHeight,p=max>0?scrollY/max:0,n=Math.round(p*bulbs.length);bulbs.forEach(function(b,k){b.classList.toggle('on',k<n)});
+    if(reduce)return;var r=wt.getBoundingClientRect(),q=Math.min(.999,Math.max(0,-r.top/(r.height-innerHeight))),i=Math.floor(q*4);
+    if(i!==last){last=i;shots.forEach(function(s,k){s.classList.toggle('on',k===i)});steps.forEach(function(s,k){s.classList.toggle('on',k===i)})}
+    var s=strip.getBoundingClientRect();strip.style.setProperty('--p',Math.min(1,Math.max(0,(innerHeight-s.top)/(innerHeight+s.height))));}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});frame();
+})();
+</script>
+</body>
+</html>

@@ -32,7 +32,7 @@ img{max-width:100%;display:block}
 a{color:inherit}
 .preview{background:var(--ink);color:#F4EEDF;font-size:13px;padding:8px 16px;text-align:center}
 .preview a{color:var(--accent)}
-.ph{background:#fff3a6;outline:1px dashed #b59400;padding:0 3px;border-radius:2px}
+.ph{background:#fff3a6;outline:1px dashed #b59400;padding:0 3px;border-radius:2px;color:#1A1714}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;letter-spacing:.005em}
 h2{font-size:clamp(34px,6vw,64px)}
@@ -159,7 +159,8 @@ html.js .in .mask:nth-child(3)>span{transition-delay:.24s}
   -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 10px) no-repeat,radial-gradient(circle 6px at 8px 100%,transparent 6px,#000 6.5px) bottom left/16px 10px repeat-x;
   mask:linear-gradient(#000 0 0) top/100% calc(100% - 10px) no-repeat,radial-gradient(circle 6px at 8px 100%,transparent 6px,#000 6.5px) bottom left/16px 10px repeat-x}
 .rcpt:nth-child(1){transform:rotate(-1.4deg)}
-.rcpt:nth-child(2){transform:rotate(1.1deg);margin-top:30px}
+.rcpt:nth-child(even){transform:rotate(1.1deg);margin-top:30px}
+.rcpt:nth-child(3){transform:rotate(.8deg)}
 .rcpt .top{display:flex;justify-content:space-between;border-bottom:1px dashed var(--ink);padding-bottom:10px;font-size:13px;font-weight:700}
 .rcpt q{display:block;font-size:17px;line-height:1.55;margin:16px 0}
 .rcpt .who{font-weight:700}
@@ -336,10 +337,12 @@ html.js .rv.in{opacity:1;transform:none}
     <p class="kick rv">From the customers</p>
     <h2 class="rv">"As always, Max was prompt…"</h2>
     <div class="receipts">
-      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>5/17/2021</span></div><q>As always, Max was prompt, professional, thorough and friendly. Thanks Max for your continued great service over the y…</q><figcaption><span class="who">Eric A</span></figcaption></figure>
-      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>1/29/2021</span></div><q>Very professional. Max arrived on time and was very upfront. I had him clean my duct work, check the furnace, replace t…</q><figcaption><span class="who">Mike E</span></figcaption></figure>
+      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>5/17/2021</span></div><q>As always, Max was prompt, professional, thorough and friendly. Thanks Max for your continued great service over the years. You have a loyal customer in Seward Park! Thanks, Max.</q><figcaption><span class="who">Eric A</span> · <span class="stars" aria-label="5 stars">★★★★★</span></figcaption></figure>
+      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>1/29/2021</span></div><q>Very professional. Max arrived on time and was very upfront. I had him clean my duct work, check the furnace, replace the furnace filter and clean my dryer vent. He did all the vents plus the main exchange. Got done in about 2 1/2 hours. Couldn't be happier. Very fair pricing. No upsell.</q><figcaption><span class="who">Mike E</span> · <span class="stars" aria-label="5 stars">★★★★★</span></figcaption></figure>
+      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>11/4/2019</span></div><q>FANTASTIC WORK! Hadn’t had air ducts tended to for the 28 years we’ve been in this home. Doug (owner) did wonderful work and I would recommend to anyone needing this type of work done in their home. 100% satisfied.</q><figcaption><span class="who">Carole Watson S</span> · <span class="stars" aria-label="5 stars">★★★★★</span></figcaption></figure>
+      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>10/17/2019</span></div><q>They sent a confirmation text two days before the work. Sent an, "On our way" text the day of work. Arrived on time. Absolutely no guessing.</q><figcaption><span class="who">Tim H</span> · <span class="stars" aria-label="5 stars">★★★★★</span></figcaption></figure>
     </div>
-    <p class="note rv">Both reviews are cut off on the current site. In the real build these would show in full, with <span class="ph">your newest Google and Yelp reviews</span> alongside.</p>
+    <p class="note rv">5.0 overall from 7 ratings on vacuman.net. In the real build, <span class="ph">your newest Google and Yelp reviews</span> would sit alongside these.</p>
   </div>
 </section>
 
