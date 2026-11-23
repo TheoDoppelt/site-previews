@@ -555,9 +555,15 @@ footer a{color:var(--ink)}
     tMode.textContent=m==='heat'?'Heating':m==='cool'?'Cooling':'Holding '+set+'°';
     stat.style.setProperty('--mc',m==='cool'?'var(--accent)':m==='heat'?'var(--primary)':'var(--ink)');
   }
-  function fromPointer(e){var r=dial.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
-    var a=Math.atan2(dx,-dy)*180/Math.PI;a=Math.max(-135,Math.min(135,a));set=Math.round(60+(a+135)/270*20);render()}
-  dial.addEventListener('pointerdown',function(e){dial.setPointerCapture(e.pointerId);fromPointer(e)});
+  var box=null,lx=null,ly=null;
+  function fromPointer(e){if(e.clientX===lx&&e.clientY===ly)return;lx=e.clientX;ly=e.clientY;
+    var r=box||dial.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+    if(dx*dx+dy*dy<Math.pow(r.width*.15,2))return;
+    var a=Math.atan2(dx,-dy)*180/Math.PI;
+    if(Math.abs(a)>135){if(Math.abs(a)>157)return;a=a>0?135:-135}
+    var v=Math.round(60+(a+135)/270*20);if(v===set)return;set=v;render()}
+  dial.addEventListener('pointerdown',function(e){box=dial.getBoundingClientRect();lx=ly=null;dial.setPointerCapture(e.pointerId);fromPointer(e)});
+  dial.addEventListener('pointerup',function(){box=null});dial.addEventListener('pointercancel',function(){box=null});
   dial.addEventListener('pointermove',function(e){if(dial.hasPointerCapture(e.pointerId))fromPointer(e)});
   dial.addEventListener('keydown',function(e){var k=e.key;if(k==='ArrowUp'||k==='ArrowRight')set=Math.min(80,set+1);else if(k==='ArrowDown'||k==='ArrowLeft')set=Math.max(60,set-1);else return;e.preventDefault();render()});
   setInterval(function(){if(document.hidden)return;if(Math.abs(set-inside)>.3){inside+=set>inside?.5:-.5;render()}},700);

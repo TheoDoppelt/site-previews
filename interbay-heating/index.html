@@ -344,18 +344,23 @@ footer b{color:#fff;font-weight:600}
     modeEl.textContent=mode; ctaText.textContent=cta; fixWord.textContent=word;
     wrap.setAttribute('aria-valuenow', r); wrap.setAttribute('aria-valuetext', `${r} degrees, ${vt}`);
   }
+  let box=null, lastX=null, lastY=null;
   function fromPointer(e){
-    const b = wrap.getBoundingClientRect();
+    // ignore synthetic moves (same spot) fired when the headline reflows under a still cursor
+    if (e.clientX===lastX && e.clientY===lastY) return; lastX=e.clientX; lastY=e.clientY;
+    const b = box || wrap.getBoundingClientRect();
     const x = (e.clientX-b.left)/b.width*300-CX, y=(e.clientY-b.top)/b.height*300-CY;
+    if (x*x+y*y < 45*45) return; // too close to the middle: angle is unstable there
     let a = Math.atan2(y,x)*180/Math.PI+90; if (a<0) a+=360;
     let rel = a - startA; if (rel<0) rel+=360;
     if (rel>SWEEP){ rel = rel-SWEEP < (360-SWEEP)/2 ? SWEEP : 0; }
     setTemp(MIN + rel/SWEEP*(MAX-MIN));
   }
   let dragging=false;
-  wrap.addEventListener('pointerdown', e=>{dragging=true; wrap.setPointerCapture(e.pointerId); fromPointer(e);});
+  wrap.addEventListener('pointerdown', e=>{dragging=true; box=wrap.getBoundingClientRect(); lastX=lastY=null; wrap.setPointerCapture(e.pointerId); fromPointer(e);});
   wrap.addEventListener('pointermove', e=>{ if(dragging) fromPointer(e); });
-  wrap.addEventListener('pointerup', ()=>{dragging=false; setTemp(Math.round(temp));});
+  const endDrag=()=>{ if(!dragging) return; dragging=false; box=null; setTemp(Math.round(temp)); };
+  wrap.addEventListener('pointerup', endDrag); wrap.addEventListener('pointercancel', endDrag);
   wrap.addEventListener('keydown', e=>{
     const step = {ArrowUp:1,ArrowRight:1,ArrowDown:-1,ArrowLeft:-1,PageUp:5,PageDown:-5}[e.key];
     if (step){ e.preventDefault(); setTemp(Math.round(temp)+step); }
