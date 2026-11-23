@@ -51,14 +51,21 @@ h2 i,h1 i{color:var(--pink)}
 .hero p{max-width:44ch;margin:1.4rem auto 1.8rem;color:var(--muted);font-size:1.15rem;position:relative;z-index:2}
 .hero .ctas{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
 .hero .ghost{border:1.5px solid var(--green);border-radius:6px;padding:.85rem 1.2rem;text-decoration:none;font-weight:700;font-size:.95rem}
-.dogs{position:relative;height:clamp(260px,26vw,360px);margin-top:clamp(-11rem,-12vw,-4rem)}
-.dogs img{position:absolute;bottom:0;filter:drop-shadow(0 20px 18px rgba(28,38,32,.22));will-change:transform}
-.dogs .chow{left:6%;width:clamp(200px,24vw,330px)}
-.dogs .pom{right:7%;width:clamp(130px,15vw,200px)}
-.rating{position:absolute;right:24%;top:2rem;text-align:left;font-size:.9rem;color:var(--muted);max-width:160px}
-.rating b{display:block;font-family:var(--display);font-size:3.6rem;line-height:.9;color:var(--ink)}
+.stars{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.4rem;font-size:.92rem;color:var(--muted);text-decoration:none;position:relative;z-index:2}
+.stars i{font-style:normal;color:#e0a526;letter-spacing:.08em;font-size:1rem}
+.stars b{color:var(--ink)}
+.stars:hover span{text-decoration:underline}
+/* hero photos: their own clients in arched frames standing on the green floor */
+.dogs{position:relative;height:clamp(240px,25vw,340px);margin-top:clamp(-12rem,-13vw,-3rem)}
+.dogs figure{position:absolute;bottom:-28px;will-change:transform}
+.dogs img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 14px 14px;border:6px solid var(--surface);box-shadow:0 22px 40px -18px rgba(28,38,32,.45)}
+.dogs figcaption{position:absolute;left:50%;bottom:-.9rem;transform:translateX(-50%) rotate(-3deg);background:var(--pink);color:#fff;font-size:.78rem;font-weight:700;padding:.3rem .75rem;border-radius:999px;white-space:nowrap}
+.dogs .a{left:5%;width:clamp(170px,19vw,260px)}
+.dogs .b{right:5%;width:clamp(150px,16vw,220px)}
+.dogs .b figcaption{transform:translateX(-50%) rotate(3deg)}
+.dogs .a img{object-position:50% 20%}
 .floor{height:56px;background:var(--green);margin-top:-1px}
-@media (max-width:760px){.dogs{height:220px;margin-top:1rem}.dogs .chow{left:0;width:210px}.dogs .pom{right:0;width:130px}.rating{display:none}}
+@media (max-width:760px){.dogs{height:230px;margin-top:.5rem}.dogs .a{left:4%;width:44%;max-width:190px}.dogs .b{right:4%;width:40%;max-width:170px}}
 
 /* finder: dark band, the real price list behind a search */
 .find{background:var(--green);color:#f6f0e6;padding:clamp(4rem,8vw,7rem) 0}
@@ -123,6 +130,23 @@ h2 i,h1 i{color:var(--pink)}
 .pair img:last-child{margin-top:3rem}
 @media (max-width:860px){.walk .wrap{grid-template-columns:1fr}}
 
+/* reviews: big score on the left, real Google reviews in a staggered stack */
+.reviews{background:var(--surface);padding:clamp(5rem,9vw,8rem) 0}
+.reviews .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+.score{position:sticky;top:2rem}
+.score .big{font-family:var(--display);font-size:clamp(6rem,13vw,10rem);line-height:.8;margin-top:1.4rem}
+.score .big i{font-style:normal;color:#e0a526;font-size:.42em;vertical-align:.55em;margin-left:.15em;letter-spacing:.04em}
+.score p{color:var(--muted);margin-top:.8rem}
+.score a{display:inline-block;margin-top:1.4rem;font-weight:700;color:var(--ink)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.card{background:var(--bg);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column;gap:1rem}
+.half{background:linear-gradient(90deg,#e0a526 90%,#d8cebe 90%);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+.card q{font-family:var(--display);font-size:1.45rem;line-height:1.15;quotes:none}
+.card footer{all:unset;font-size:.88rem;color:var(--muted);display:flex;justify-content:space-between;gap:.5rem;margin-top:auto}
+.card footer b{color:var(--ink)}
+.card .st{color:#e0a526;letter-spacing:.06em}
+@media (max-width:860px){.reviews .wrap{grid-template-columns:1fr}.score{position:static}.cards{grid-template-columns:1fr}}
+
 /* visit */
 .visit{background:var(--green);color:#f6f0e6;padding:clamp(5rem,9vw,8rem) 0 0;overflow:hidden}
 .visit .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,6vw,6rem)}
@@ -158,7 +182,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
 .js .mask.in>span{transform:none}
 @media (prefers-reduced-motion:reduce){
   .js .rv,.js .mask>span{opacity:1;transform:none;transition:none}
-  .dogs img{transform:none!important}
+  .dogs figure{transform:none!important}
 }
 </style>
 </head>
@@ -168,7 +192,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
 <header class="nav">
   <div class="wrap">
     <a href="#top" aria-label="Posh Paws, home"><img src="img/logo.png" alt="Posh Paws" width="198" height="48"></a>
-    <nav aria-label="Main"><a href="#prices">Prices</a><a href="#about">About</a><a href="#spa">Spa day</a><a href="#walkins">Walk-ins</a><a class="btn" href="tel:+12062574887"><span>Call to book</span> <b>(206) 257-4887</b></a></nav>
+    <nav aria-label="Main"><a href="#prices">Prices</a><a href="#about">About</a><a href="#spa">Spa day</a><a href="#walkins">Walk-ins</a><a href="#reviews">Reviews</a><a class="btn" href="tel:+12062574887"><span>Call to book</span> <b>(206) 257-4887</b></a></nav>
   </div>
 </header>
 
@@ -178,10 +202,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
     <h1 id="h1"><span class="mask"><span>Big or small,</span></span><span class="mask"><span>short or tall,</span></span><span class="mask"><span><i>we groom them all!</i></span></span></h1>
     <p class="rv">Dogs and cats, purebreds and mutts, groomed with love on Roosevelt Way. Look up your breed below, then give us a call.</p>
     <div class="ctas rv"><a class="btn" href="#prices">Find your breed <b>&#8595;</b></a><a class="ghost" href="tel:+12062574887">(206) 257-4887</a></div>
+    <a class="stars rv" href="#reviews"><i class="half" aria-hidden="true">★★★★★</i><span><b>4.5</b> from 336 Google reviews</span></a>
   </div>
-  <div class="wrap dogs" aria-hidden="false">
-    <img class="chow" data-depth=".08" src="img/yorkie-cut.webp" alt="A Yorkie in a long, brushed-out show coat" width="376" height="382">
-    <img class="pom" data-depth=".14" src="img/pom-cut.webp" alt="A fluffy Pomeranian after a trim" width="156" height="175">
+  <div class="wrap dogs">
+    <figure class="a" data-depth=".06"><img src="img/yorkie.jpg" alt="A Yorkie in a long, brushed-out show coat with a red bow" width="760" height="1316"><figcaption>Show grooming</figcaption></figure>
+    <figure class="b" data-depth=".12"><img src="img/bastian.jpg" alt="A shih tzu relaxing after a teddy-bear cut" width="760" height="974"><figcaption>Teddy-bear cut</figcaption></figure>
   </div>
   <div class="floor" aria-hidden="true"></div>
 </section>
@@ -245,7 +270,24 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
       </div>
       <p class="fine rv">Face and sanitary trims vary with the coat. All prices may change with the size of your pet and the condition of the coat.</p>
     </div>
-    <div class="pair rv"><img src="img/cocker.jpg" alt="A cocker spaniel on the grooming table" width="236" height="236"><img src="img/shih.jpg" alt="A shih tzu in a teddy-bear cut" width="1549" height="1549"></div>
+    <div class="pair rv"><img src="img/cocker.jpg" alt="A cocker spaniel on the grooming table" width="236" height="236"><img src="img/pom.jpg" alt="A happy Pomeranian on the grooming table" width="900" height="900"></div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews" aria-labelledby="rv-h">
+  <div class="wrap">
+    <div class="score">
+      <h2 id="rv-h"><span class="mask"><span>Ask the <i>regulars.</i></span></span></h2>
+      <div class="big rv">4.5<i class="half" aria-hidden="true">★★★★★</i></div>
+      <p class="rv">From 336 reviews on Google.</p>
+      <a class="rv" href="https://www.google.com/maps/place/Posh+Paws+Grooming+Salon/@47.6753645,-122.3176666,17z" rel="noopener">Read them all on Google &#8599;</a>
+    </div>
+    <div class="cards">
+      <blockquote class="card rv"><q>Our little pup absolutely loves coming here! The staff always treats him with so much care and affection. The pricing is very reasonable too.</q><footer><span><b>Matthew H.</b> · Google</span><span class="st" aria-label="5 stars">★★★★★</span></footer></blockquote>
+      <blockquote class="card rv"><q>I was nervous since she’s been labeled as difficult by the vet, but they handled her like a pro. It put both me and my cat at ease.</q><footer><span><b>Hannah H.</b> · Google</span><span class="st" aria-label="5 stars">★★★★★</span></footer></blockquote>
+      <blockquote class="card rv"><q>Butter absolutely adores Posh Paws! He’s had his hair cut here three times now, and the staff treats him with immense love and compassion.</q><footer><span><b>Sumi L.</b> · Google</span><span class="st" aria-label="5 stars">★★★★★</span></footer></blockquote>
+      <blockquote class="card rv"><q>My cat needed a nail trim since her dewclaw was ingrown. Friendly and efficient. $10 was much better than the quoted $125+ from the vet.</q><footer><span><b>Faelan</b> · Google</span><span class="st" aria-label="5 stars">★★★★★</span></footer></blockquote>
+    </div>
   </div>
 </section>
 
@@ -280,7 +322,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
   document.querySelectorAll('.rv, .mask').forEach(el => io.observe(el));
-  const dogs = [...document.querySelectorAll('.dogs img')];
+  const dogs = [...document.querySelectorAll('.dogs figure')];
   if (!reduce) addEventListener('scroll', () => { const y = Math.min(scrollY, 800); dogs.forEach(d => d.style.transform = `translateY(${-y * d.dataset.depth}px)`); }, {passive:true});
 
   // breed finder over their published list: [breed, bath & brush, haircut]
