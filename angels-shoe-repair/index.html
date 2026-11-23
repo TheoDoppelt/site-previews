@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angel's Shoe Repair: Website Concept</title>
+<meta name="description" content="Angel's Shoe Repair on Capitol Hill: quality shoe repair and boot resoling, key copying and shoes on consignment. A Seattle business for over 100 years.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Angel's Shoe Repair: Website Concept">
+<meta property="og:description" content="A concept redesign for Angel's Shoe Repair, 15th Ave E, Capitol Hill.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/angels-shoe-repair/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Angel's palette: oxblood from their old site header, saddle-leather tan, shoe-wax black, workshop cream, neon-sign red accent */
+:root{
+  --bg:#f4ede2; --surface:#fbf7f0; --ink:#1f1714; --muted:#62554d;
+  --primary:#5c1414; --tan:#b9773f; --accent:#e2402f; --on-primary:#fbf7f0; --on-accent:#fff;
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+.ph{background:#ffe27a;color:var(--ink);padding:0 .25em;border-radius:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1;letter-spacing:-.015em}
+h2{font-size:clamp(2.4rem,5.6vw,4.6rem)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:var(--on-primary);padding:.95rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:800;transition:background .2s}
+.btn:hover{background:#7a1c1c}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+
+.preview{background:var(--ink);color:#e9e0d6;font-size:.85rem;text-align:center;padding:.5rem 1rem}
+.preview a{color:#f6b49b;font-weight:700}
+
+.top{border-bottom:1.5px solid var(--ink)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:78px;gap:1rem}
+.word{font-family:var(--display);font-size:1.6rem;text-decoration:none;line-height:1}
+.word span{color:var(--accent)}
+.top nav{display:flex;gap:1.8rem;font-weight:700;font-size:.95rem}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--accent)}
+.top .tel{font-weight:800;text-decoration:none;border:1.5px solid var(--ink);border-radius:999px;padding:.5rem 1rem}
+@media (max-width:820px){.top nav{display:none}}
+
+/* HERO: type-led, giant 100 with the one real photo tucked into it */
+.hero{padding:clamp(3rem,8vw,6rem) 0 clamp(3.5rem,8vw,6rem);position:relative;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero h1{font-size:clamp(3.1rem,6.4vw,6rem)}
+.hero h1 em{font-style:normal;color:var(--primary)}
+.hero p.lede{margin:1.4rem 0 1.9rem;max-width:42ch;font-size:1.18rem;color:var(--muted)}
+.ctas{display:flex;flex-wrap:wrap;gap:.7rem}
+.status{display:inline-flex;gap:.55rem;align-items:center;font-weight:700;margin-top:1.4rem;font-size:.95rem}
+.status i{width:.62rem;height:.62rem;border-radius:50%;background:#a89a90}
+.status.open i{background:#2f9e55;box-shadow:0 0 0 4px rgba(47,158,85,.2)}
+.century{position:relative;text-align:center}
+.century .num{font-family:var(--display);font-size:clamp(9rem,17vw,16rem);line-height:.8;color:var(--primary);letter-spacing:-.05em;display:block}
+.century .plus{color:var(--accent)}
+.century .cap{display:block;font-weight:800;font-size:1rem;letter-spacing:.02em;margin-top:.6rem}
+.century figure{position:relative;width:46%;margin:1.6rem auto 0;rotate:-3deg;background:#fff;padding:7px 7px 26px;box-shadow:0 24px 40px -20px rgba(31,23,20,.5)}
+.century figure img{width:100%}
+.century figcaption{position:absolute;left:9px;bottom:5px;font-size:.72rem;font-weight:700;color:var(--muted)}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr}.century{margin-top:1rem}.century figure{width:70%}}
+
+.mask{display:block;overflow:hidden;padding-bottom:.06em}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(108%);transition:transform .9s var(--ease)}
+html.js .mask.in>span{transform:none}
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+
+/* SERVICES: numbered rows with a stitched rule */
+.services{background:var(--surface);padding:clamp(4.5rem,10vw,7rem) 0;border-block:1.5px solid var(--ink)}
+.services .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.services .head p{max-width:38ch;color:var(--muted)}
+.rows{list-style:none}
+.rows li{display:grid;grid-template-columns:5rem 1fr 1.1fr;gap:1.5rem;align-items:baseline;padding:1.7rem 0;border-top:2px dashed #cdbba9}
+.rows li:last-child{border-bottom:2px dashed #cdbba9}
+.rows .n{font-family:var(--display);font-size:1.4rem;color:var(--tan)}
+.rows h3{font-size:clamp(1.8rem,3.4vw,2.7rem)}
+.rows p{color:var(--muted)}
+@media (max-width:760px){.rows li{grid-template-columns:3rem 1fr}.rows p{grid-column:2}}
+
+/* CONSIGNMENT: oxblood band, giant statement */
+.consign{background:var(--primary);color:var(--on-primary);padding:clamp(5rem,12vw,8.5rem) 0;text-align:center;position:relative;overflow:hidden}
+.consign h2{font-size:clamp(2.8rem,7vw,6.4rem);max-width:14ch;margin:0 auto}
+.consign h2 em{font-style:normal;color:#f6b49b}
+.consign p{max-width:46ch;margin:1.6rem auto 2.2rem;color:#ecd9cf;font-size:1.12rem}
+.consign .btn{background:#fbf7f0;color:var(--primary)}
+.consign .btn:hover{background:#fff}
+.tag{position:absolute;font-family:var(--display);font-size:clamp(4rem,10vw,9rem);color:rgba(255,255,255,.06);white-space:nowrap;pointer-events:none}
+.tag.l{left:-2%;top:6%}.tag.r{right:-3%;bottom:4%}
+
+/* VISIT: hours board + address */
+.visit{padding:clamp(4.5rem,10vw,7rem) 0}
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.visit address{font-style:normal;font-size:1.25rem;margin:1.4rem 0 1rem}
+.visit .moved{background:var(--surface);border-left:4px solid var(--accent);padding:1rem 1.2rem;border-radius:0 12px 12px 0;color:var(--muted);max-width:44ch}
+.visit .links{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.6rem}
+.board{background:var(--ink);color:#efe6dc;border-radius:22px;padding:1.6rem 1.8rem}
+.board h3{font-size:1.5rem;margin-bottom:.8rem;color:#fff}
+.board ul{list-style:none}
+.board li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem .6rem;border-bottom:1px solid rgba(255,255,255,.12);border-radius:8px}
+.board li:last-child{border-bottom:0}
+.board li.today{background:rgba(226,64,47,.22);color:#fff;font-weight:800}
+.board li.today b::after{content:" · today";color:#f6b49b;font-weight:700}
+.board .src{font-size:.82rem;color:#a99c92;margin-top:.9rem}
+
+.big{border-top:1.5px solid var(--ink);padding:clamp(2.5rem,6vw,4rem) 0 1rem;text-align:center}
+.big a{font-family:var(--display);font-size:clamp(2.8rem,11vw,10rem);line-height:1;text-decoration:none;color:var(--primary);white-space:nowrap}
+.big a:hover{color:var(--accent)}
+footer{padding:1.6rem 0 2rem;font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+.callbar{display:none}
+@media (max-width:720px){
+  body{padding-bottom:72px}
+  .callbar{display:flex;gap:.5rem;position:fixed;left:.6rem;right:.6rem;bottom:.6rem;z-index:50;background:var(--ink);border-radius:999px;padding:.4rem;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+  .callbar a{flex:1;text-align:center;text-decoration:none;font-weight:800;padding:.75rem;border-radius:999px;color:#fff}
+  .callbar a.call{background:var(--accent)}
+  .visit .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html.js .mask>span,html.js .rv{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Angel's Shoe Repair site. <a href="https://angelsshoerepair.com/" rel="noopener">See their real site</a></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="word" href="#top">Angel's<span>.</span></a>
+    <nav aria-label="Main"><a href="#services">Repairs</a><a href="#consign">Consignment</a><a href="#visit">Hours &amp; location</a></nav>
+    <a class="tel" href="tel:+12063282747">(206) 328-2747</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap grid">
+    <div>
+      <h1 id="h1"><span class="mask"><span>Good shoes</span></span><span class="mask"><span>deserve a</span></span><span class="mask"><span><em>second sole.</em></span></span></h1>
+      <p class="lede rv">Quality shoe repair and boot resoling on 15th Ave East. Reasonable rates, great service, locally owned, and a Seattle business for over 100 years.</p>
+      <div class="ctas rv">
+        <a class="btn" href="tel:+12063282747">Call the shop</a>
+        <a class="btn ghost" href="#visit">Hours &amp; directions</a>
+      </div>
+      <div class="status" id="status" aria-live="polite"><i></i><span>Mon–Sat on Capitol Hill</span></div>
+    </div>
+    <div class="century rv" aria-hidden="false">
+      <span class="num">100<span class="plus">+</span></span>
+      <span class="cap">years of Seattle shoe repair</span>
+      <figure><img src="img/owner.jpg" alt="Angel's owner in front of the shop's neon Shoe Repair sign" width="200" height="133"><figcaption>Under the neon</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services" aria-labelledby="sv-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="sv-h"><span class="mask"><span>What we fix.</span></span></h2>
+      <p class="rv">Bring it in and we'll take a look. Most of what walks through the door can walk out again.</p>
+    </div>
+    <ul class="rows">
+      <li class="rv"><span class="n">01</span><h3>Resoling</h3><p>Boots and shoes resoled, our specialty. Worn-through soles and heels brought back.</p></li>
+      <li class="rv"><span class="n">02</span><h3>Shoe repair</h3><p>Quality repair for the pair you love, at fair rates.</p></li>
+      <li class="rv"><span class="n">03</span><h3>Key copying</h3><p>Need a spare? We copy keys while you wait at the counter.</p></li>
+      <li class="rv"><span class="n">04</span><h3>Consignment</h3><p>We sell shoes on consignment from a high-traffic spot on 15th. Come see what's on sale.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="consign" id="consign" aria-labelledby="co-h">
+  <span class="tag l" aria-hidden="true">for sale</span><span class="tag r" aria-hidden="true">resoled</span>
+  <div class="wrap">
+    <h2 id="co-h"><span class="mask"><span>Shoes you're done with,</span></span><span class="mask"><span><em>someone's next pair.</em></span></span></h2>
+    <p class="rv">We offer fair rates and a high traffic display location to get your shoes sold. Bring them by the shop, or come down today to see what's on sale.</p>
+    <a class="btn rv" href="tel:+12063282747">Ask about consigning</a>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="vi-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="vi-h"><span class="mask"><span>Find us on 15th.</span></span></h2>
+      <address>501 15th Ave E, Unit B<br>Seattle, WA 98112</address>
+      <p class="moved rv">We moved from our longtime spot on Republican to a new home in the same neighborhood. Same counter, new door.</p>
+      <div class="links rv">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Angel%27s+Shoe+Repair+501+15th+Ave+E+Seattle+WA+98112" rel="noopener">Open in Maps</a>
+        <a class="btn ghost" href="tel:+12063282747">(206) 328-2747</a>
+      </div>
+    </div>
+    <div class="board rv">
+      <h3>Shop hours</h3>
+      <ul id="hours">
+        <li data-d="1"><b>Monday</b><span>9:30am – 5:30pm</span></li>
+        <li data-d="2"><b>Tuesday</b><span>9:30am – 5:30pm</span></li>
+        <li data-d="3"><b>Wednesday</b><span>9:30am – 5:30pm</span></li>
+        <li data-d="4"><b>Thursday</b><span>9:30am – 5:30pm</span></li>
+        <li data-d="5"><b>Friday</b><span>9:30am – 6:00pm</span></li>
+        <li data-d="6"><b>Saturday</b><span>11:00am – 3:00pm</span></li>
+        <li data-d="0"><b>Sunday</b><span>Closed</span></li>
+      </ul>
+      <p class="src">Hours as posted on angelsshoerepair.com. <span class="ph">confirm still current</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="big"><a href="tel:+12063282747">206·328·2747</a></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Angel's Shoe Repair · 501 15th Ave E, Unit B, Seattle, WA 98112</span>
+    <span>Concept redesign by Theo, not the official Angel's site. Photo from angelsshoerepair.com.</span>
+  </div>
+</footer>
+
+<div class="callbar"><a class="call" href="tel:+12063282747">Call the shop</a><a href="#visit">Hours</a></div>
+
+<script>
+(() => {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+  document.querySelectorAll('.rv, .mask').forEach(el => io.observe(el));
+
+  // live open/closed from posted hours (Seattle time)
+  const H = {0:null,1:[9.5,17.5],2:[9.5,17.5],3:[9.5,17.5],4:[9.5,17.5],5:[9.5,18],6:[11,15]};
+  const now = new Date(new Date().toLocaleString('en-US', {timeZone:'America/Los_Angeles'}));
+  const d = now.getDay(), h = now.getHours() + now.getMinutes() / 60, st = document.getElementById('status');
+  const row = document.querySelector(`#hours li[data-d="${d}"]`); if (row) row.classList.add('today');
+  const fmt = x => { const hr = Math.floor(x), m = x % 1 ? ':30' : ''; return (hr > 12 ? hr - 12 : hr) + m + (hr >= 12 ? 'pm' : 'am'); };
+  if (H[d] && h >= H[d][0] && h < H[d][1]) { st.classList.add('open'); st.querySelector('span').textContent = 'Open now, until ' + fmt(H[d][1]); }
+  else { let n = d, add = 0; do { n = (n + 1) % 7; add++; } while (!H[n]); const today = H[d] && h < H[d][0];
+    st.querySelector('span').textContent = 'Closed now · opens ' + (today ? 'today ' + fmt(H[d][0]) : (add === 1 ? 'tomorrow ' : ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][n] + ' ') + fmt(H[n][0])); }
+})();
+</script>
+</body>
+</html>
