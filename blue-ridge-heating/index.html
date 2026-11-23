@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blue Ridge Heating &amp; Air Conditioning: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Blue Ridge Heating & Air Conditioning, your HVAC repair specialists on 26th Ave NW in Seattle. Heating, AC, indoor air quality and maintenance.">
+<meta property="og:title" content="Blue Ridge Heating &amp; Air Conditioning: Website Concept">
+<meta property="og:description" content="Your HVAC repair specialists, 9649 26th Ave NW, Seattle. Call (206) 460-1668.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/blue-ridge-heating/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Karla:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Palette from the Blue Ridge logo: thermometer teal (#00BDD0) and red (#FC3737), deepened for text.
+   --bg #EEF4F4  --surface #FFFFFF  --ink #0D1B21  --muted #48585E
+   --primary #00788A (on #FFFFFF)  --accent #D92B2B (on #FFFFFF) */
+:root{
+  --bg:#EEF4F4;--surface:#FFFFFF;--ink:#0D1B21;--muted:#48585E;
+  --primary:#00788A;--on-primary:#FFFFFF;--accent:#D92B2B;--on-accent:#FFFFFF;
+  --teal:#00BDD0;--red:#FC3737;--line:#0D1B2120;
+  --ease:cubic-bezier(.22,.8,.2,1);--dur:.75s;--t:.5;
+  --display:'Unbounded',"Arial Black",system-ui,sans-serif;
+  --body:'Karla',system-ui,-apple-system,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:18px/1.55 var(--body);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.preview{background:var(--ink);color:#EEF4F4;font-size:13px;padding:8px 16px;text-align:center}
+.preview a{color:var(--teal)}
+.ph{background:#fff3a6;outline:1px dashed #b59400;padding:0 3px;border-radius:2px;color:#0D1B21}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.02;letter-spacing:-.02em}
+h2{font-size:clamp(30px,5.4vw,60px)}
+.kick{font:700 12.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 22px;border-radius:10px;font:700 17px/1 var(--body);text-decoration:none;border:2px solid var(--ink);transition:transform var(--dur) var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn.go{background:var(--ink);color:#fff}
+
+/* ridge thread: a sawtooth ridge line drawn down the right edge */
+.ridge{position:fixed;right:max(4px,calc(50% - 640px));top:0;width:46px;height:100vh;z-index:1;pointer-events:none}
+.ridge svg{width:100%;height:100%}
+.ridge .ghost{stroke:var(--line);stroke-width:2;fill:none}
+.ridge .live{stroke:url(#rg);stroke-width:3;fill:none;stroke-linejoin:round}
+@media(max-width:900px){.ridge{display:none}}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;max-width:1160px;margin:0 auto}
+header.top img{height:52px;width:auto}
+header.top nav{display:flex;gap:24px;font-weight:700;font-size:15px}
+header.top nav a{text-decoration:none}
+header.top .tel{font:700 15px var(--mono);text-decoration:none;border:2px solid var(--ink);padding:9px 12px;border-radius:8px}
+@media(max-width:820px){header.top nav{display:none}header.top img{height:40px}}
+
+/* hero: the logo's thermometer as a control */
+.hero{position:relative;padding:20px 0 80px;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--teal) calc((1 - var(--t))*22%),color-mix(in srgb,var(--red) calc(var(--t)*20%),transparent)))}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.hero .tag{font:700 14px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.hero .q{font:500 clamp(20px,2.4vw,26px)/1.3 var(--display);color:var(--muted);margin:22px 0 10px;min-height:2.6em}
+.hero h1{font-size:clamp(40px,7.4vw,92px);min-height:2.1em}
+.hero h1 em{font-style:normal;color:var(--sw,var(--primary));transition:color .3s}
+.hero .blurb{font-size:19px;max-width:42ch;margin:18px 0 28px;color:var(--muted)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero .ctas .btn.call{background:var(--sw,var(--primary));color:#fff;border-color:transparent}
+.thermo{display:grid;grid-template-columns:auto auto;justify-content:center;gap:18px;align-items:stretch}
+.tube{position:relative;width:72px;height:min(460px,60vh)}
+.tube svg{width:100%;height:100%;overflow:visible}
+.tube input{position:absolute;left:50%;top:100%;width:min(460px,60vh);height:72px;transform-origin:0 0;transform:rotate(-90deg) translateY(-50%);opacity:0;cursor:ns-resize;margin:0}
+.tube input:focus-visible+.focus{opacity:1}
+.tube .focus{position:absolute;inset:-8px;border:3px solid var(--ink);border-radius:50px;opacity:0;pointer-events:none}
+.scale{display:flex;flex-direction:column;justify-content:space-between;font:700 13px var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:8px 0 96px}
+.scale span:first-child{color:var(--accent)}
+.scale span:last-child{color:var(--primary)}
+.drag{font:400 13px var(--mono);color:var(--muted);text-align:center;margin-top:10px}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.tube{height:300px}.tube input{width:300px}.thermo{order:-1;justify-content:start}.hero{padding-bottom:110px}.hero h1{min-height:0}}
+
+/* masked line reveals */
+.mask{display:block;overflow:hidden;padding-bottom:.06em}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(108%);transition:transform var(--dur) var(--ease)}
+html.js .in .mask>span{transform:none}
+html.js .in .mask:nth-child(2)>span{transition-delay:.1s}
+
+/* about */
+.about{padding:100px 0}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+.about p{font-size:20px;color:var(--muted);max-width:44ch}
+.addr{margin-top:28px;display:inline-flex;flex-direction:column;gap:4px;font:700 15px var(--mono);border-left:4px solid var(--accent);padding-left:14px}
+@media(max-width:820px){.about .wrap{grid-template-columns:1fr;gap:24px}}
+
+/* pinned services */
+.svc{background:var(--ink);color:#EEF4F4}
+.svc .track{height:330vh}
+.svc .stage{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;max-width:1160px;margin:0 auto;padding:0 20px}
+.svc .kick{color:var(--teal)}
+.svc h2{color:#fff;margin-top:14px}
+.svc .list{list-style:none;margin-top:28px;font:700 15px var(--mono)}
+.svc .list li{padding:10px 0;border-bottom:1px solid #ffffff22;opacity:.68;transition:opacity .3s,padding .3s var(--ease)}
+.svc .list li.on{opacity:1;padding-left:14px;color:var(--teal)}
+.panes{position:relative;min-height:340px}
+.pane{position:absolute;inset:0;opacity:0;transform:translateX(30px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.pane.on{opacity:1;transform:none}
+.pane .sym{font:500 clamp(18px,2vw,22px)/1.3 var(--display);color:#ffffffaa}
+.pane h3{font-size:clamp(30px,4.4vw,52px);margin:14px 0 18px;color:#fff}
+.pane h3 .w{color:var(--teal)}
+.pane h3 .h{color:var(--red)}
+.pane p{font-size:18px;color:#d5e1e3;max-width:46ch}
+@media(max-width:820px){.svc .stage{grid-template-columns:1fr;align-content:center;gap:8px}.svc .list{display:none}.panes{min-height:400px}}
+
+/* consultation builder */
+.book{padding:110px 0}
+.book .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:16px;padding:26px;box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--ink)}
+.card h3{font-size:18px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chips button{font:700 15px var(--body);padding:10px 14px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:#fff}
+.chips button:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.msg{font:400 15px/1.5 var(--mono);background:var(--bg);border-radius:10px;padding:16px;min-height:96px;margin-bottom:18px}
+.card .btn{width:100%;justify-content:center;background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.book p.lead{font-size:20px;color:var(--muted);margin-top:18px;max-width:36ch}
+@media(max-width:820px){.book .wrap{grid-template-columns:1fr;gap:28px}}
+
+/* hours sign + contact */
+.visit{padding:20px 0 120px}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.sign{background:var(--ink);color:#fff;border-radius:18px;padding:30px;position:relative}
+.sign::before{content:"";position:absolute;top:-22px;left:50%;width:2px;height:22px;background:var(--ink)}
+.sign .now{display:flex;align-items:center;gap:12px;font:800 clamp(28px,4vw,40px)/1 var(--display)}
+.sign .now i{width:16px;height:16px;border-radius:50%;background:#7a8a90}
+.sign .now.open i{background:#39d98a;box-shadow:0 0 0 6px #39d98a33}
+.sign p{font:400 15px var(--mono);margin-top:14px;color:#c9d6d9}
+.big{display:block;text-decoration:none;margin-top:16px}
+.big b{display:block;font:800 clamp(30px,5vw,54px)/1 var(--display);color:#FF7A6E}
+.big span{font:700 13px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.contact p{margin-top:18px;color:var(--muted)}
+.contact a.map{font-weight:700}
+@media(max-width:820px){.visit .wrap{grid-template-columns:1fr}}
+footer{background:var(--ink);color:#c9d6d9;font-size:14px;padding:36px 0 110px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+footer a{color:var(--teal)}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none}
+.callbar a{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-radius:12px;background:var(--ink);color:#fff;text-decoration:none;font:700 16px var(--body);box-shadow:0 8px 24px #0D1B2140}
+.callbar a b{font-family:var(--mono);color:var(--teal)}
+@media(max-width:820px){.callbar{display:block}}
+
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+  html.js .rv,html.js .mask>span{opacity:1;transform:none}
+  .svc .track{height:auto}
+  .svc .stage{position:static;height:auto;padding:80px 20px;grid-template-columns:1fr}
+  .svc .list{display:none}
+  .panes{min-height:0}
+  .pane{position:static;opacity:1;transform:none;margin-top:40px}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Blue Ridge Heating &amp; Air Conditioning site. <a href="https://blueridgeheatingandairconditioning.com/">See their real site</a></div>
+
+<div class="ridge" aria-hidden="true"><svg viewBox="0 0 46 1000" preserveAspectRatio="none"><defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00BDD0"/><stop offset="1" stop-color="#FC3737"/></linearGradient></defs>
+<path class="ghost" d="M23 0 L8 60 L36 130 L14 210 L40 260 L6 360 L30 420 L12 500 L38 580 L10 650 L34 720 L16 800 L40 870 L20 940 L23 1000"/>
+<path class="live" id="ridge" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="M23 0 L8 60 L36 130 L14 210 L40 260 L6 360 L30 420 L12 500 L38 580 L10 650 L34 720 L16 800 L40 870 L20 940 L23 1000"/></svg></div>
+
+<header class="top">
+  <a href="#top"><img src="img/logo.png" alt="Blue Ridge Heating and Air Conditioning" width="768" height="267"></a>
+  <nav><a href="#about">About</a><a href="#services">Services</a><a href="#book">Free consultation</a><a href="#contact">Contact</a></nav>
+  <a class="tel" href="tel:+12064601668">(206) 460-1668</a>
+</header>
+
+<main id="top">
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div>
+      <p class="tag">Your HVAC Repair Specialists · Seattle</p>
+      <p class="q" id="hq">Just right? Let's keep it that way.</p>
+      <h1 id="hh">Preventative <em>maintenance.</em></h1>
+      <p class="blurb">Heating, cooling and indoor air repairs from certified pros on 26th Ave NW. Tell us what your system is doing and we'll fix it fast.</p>
+      <div class="ctas">
+        <a class="btn call" href="tel:+12064601668">Call (206) 460-1668</a>
+        <a class="btn" href="#book">Free consultation</a>
+      </div>
+    </div>
+    <div>
+      <div class="thermo">
+        <div class="tube">
+          <svg viewBox="0 0 72 460" preserveAspectRatio="none" aria-hidden="true">
+            <rect x="20" y="4" width="32" height="390" rx="16" fill="#fff" stroke="#0D1B21" stroke-width="3"/>
+            <rect id="merc" x="28" y="200" width="16" height="200" rx="8" fill="#00BDD0"/>
+            <circle id="bulb" cx="36" cy="420" r="34" fill="#00BDD0" stroke="#0D1B21" stroke-width="3"/>
+            <g stroke="#0D1B21" stroke-width="2"><path d="M52 60h10M52 120h6M52 180h10M52 240h6M52 300h10M52 360h6"/></g>
+          </svg>
+          <input type="range" id="temp" min="0" max="100" value="50" aria-label="How does your house feel? Slide from too cold to too hot">
+          <span class="focus"></span>
+        </div>
+        <div class="scale"><span>Too hot</span><span>Just right</span><span>Too cold</span></div>
+      </div>
+      <p class="drag">Drag the thermometer: how does your house feel?</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2 class="rv"><span class="mask"><span>Repair is the</span></span><span class="mask"><span>whole job here.</span></span></h2>
+    <div class="rv">
+      <p>Blue Ridge Heating and Air Conditioning focuses on one thing: repairing heating and cooling systems, quickly and efficiently. Years of experience, certified professionals, and a simple goal: a comfortable, healthy home.</p>
+      <div class="addr"><span>9649 26th Ave NW</span><span>Seattle, WA 98117</span><a href="tel:+12064601668">(206) 460-1668</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="services">
+  <div class="track" id="track">
+    <div class="stage">
+      <div>
+        <p class="kick">Our repair services</p>
+        <h2>What's it doing?</h2>
+        <ol class="list"><li class="on">Heating system repair</li><li>Air conditioning repair</li><li>Indoor air quality</li><li>Preventative maintenance</li></ol>
+      </div>
+      <div class="panes">
+        <div class="pane on"><p class="sym">"The furnace is running but the house won't warm up."</p><h3><span class="h">Heating</span> system repair</h3><p>Stay warm and cozy through the winter. Our technicians find what's wrong and fix it, so your heating system runs efficiently and safely.</p></div>
+        <div class="pane"><p class="sym">"It's August and the upstairs is an oven."</p><h3><span class="w">Air conditioning</span> repair</h3><p>Keep your home cool when it's hot out. We diagnose and fix the problem so your AC runs at peak performance and energy efficiency.</p></div>
+        <div class="pane"><p class="sym">"The air feels stuffy, dusty or damp."</p><h3>Indoor <span class="w">air quality</span></h3><p>We troubleshoot and fix air purifiers, humidifiers and dehumidifiers, so your home stays clean and fresh.</p></div>
+        <div class="pane"><p class="sym">"Everything's fine. We'd like to keep it that way."</p><h3>Preventative <span class="w">maintenance</span></h3><p>Protect your investment and extend the life of your system. Regular maintenance helps you avoid unexpected breakdowns and costly repairs.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kick">Free consultation</p>
+      <h2><span class="mask"><span>Don't let HVAC</span></span><span class="mask"><span>issues win.</span></span></h2>
+      <p class="lead">Pick what's going on and when works. We'll write the text for you; you just hit send.</p>
+    </div>
+    <div class="card rv">
+      <h3>What's the problem?</h3>
+      <div class="chips" data-g="p">
+        <button type="button" aria-pressed="true">No heat</button><button type="button" aria-pressed="false">AC not cooling</button><button type="button" aria-pressed="false">Strange noise</button><button type="button" aria-pressed="false">Stuffy air</button><button type="button" aria-pressed="false">Tune-up</button>
+      </div>
+      <h3>When can we come by?</h3>
+      <div class="chips" data-g="w">
+        <button type="button" aria-pressed="true">As soon as possible</button><button type="button" aria-pressed="false">This week</button><button type="button" aria-pressed="false">Next week</button>
+      </div>
+      <p class="msg" id="msg" aria-live="polite"></p>
+      <a class="btn" id="send" href="sms:+12064601668">Text this to Blue Ridge</a>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="contact">
+  <div class="wrap">
+    <div class="sign rv">
+      <div class="now" id="now"><i></i><span id="nowText">Hours</span></div>
+      <p>Daily <span class="ph">8:00 am – 8:00 pm (from Google listing, confirm)</span></p>
+      <a class="big" href="tel:+12064601668"><span>Call the shop</span><b>(206) 460-1668</b></a>
+    </div>
+    <div class="contact rv">
+      <p class="kick">Find us</p>
+      <h2>26th Ave NW, Seattle</h2>
+      <p>9649 26th Ave NW, Seattle, WA 98117 · <a class="map" href="https://www.google.com/maps/search/?api=1&query=9649+26th+Ave+NW+Seattle+WA+98117">Open in Maps</a></p>
+      <p>Rated <span class="ph">5.0 on Google (39 reviews)</span>. In the real build, your best reviews go here, word for word.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2017–2026 Blue Ridge Heating and Air Conditioning · 9649 26th Ave NW, Seattle</p>
+    <p>Concept redesign by Theo, not the official Blue Ridge site. Logo from <a href="https://blueridgeheatingandairconditioning.com/">their website</a>.</p>
+  </div>
+</footer>
+<div class="callbar"><a href="tel:+12064601668">Call Blue Ridge <b>(206) 460-1668</b></a></div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,root=document.documentElement;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  /* thermometer */
+  var t=document.getElementById('temp'),merc=document.getElementById('merc'),bulb=document.getElementById('bulb'),hq=document.getElementById('hq'),hh=document.getElementById('hh'),hero=document.getElementById('hero');
+  var states=[[0,"House won't warm up?","Heating system <em>repair.</em>"],[35,"Air feels stuffy or dusty?","Indoor air <em>quality.</em>"],[50,"Just right? Let's keep it that way.","Preventative <em>maintenance.</em>"],[66,"Upstairs like an oven?","Air conditioning <em>repair.</em>"]];
+  var cur=-1;
+  function mix(a,b,p){return a.map(function(v,i){return Math.round(v+(b[i]-v)*p)})}
+  function setT(){
+    var v=+t.value,p=v/100,h=Math.max(16,390*p);merc.setAttribute('y',394-h);merc.setAttribute('height',h+10);
+    var c=mix([0,120,138],[217,43,43],p),col='rgb('+c+')';merc.setAttribute('fill',col);bulb.setAttribute('fill',col);
+    hero.style.setProperty('--t',p);root.style.setProperty('--sw',col);
+    var i=v<28?0:v<44?1:v<58?2:3;if(i!==cur){cur=i;hq.textContent=states[i][1];hh.innerHTML=states[i][2]}
+  }
+  t.addEventListener('input',setT);setT();
+
+  /* consultation text builder */
+  var msg=document.getElementById('msg'),send=document.getElementById('send');
+  function sel(g){return document.querySelector('[data-g="'+g+'"] [aria-pressed=true]').textContent}
+  function build(){var s='Hi Blue Ridge, I found you online. Problem: '+sel('p').toLowerCase()+'. Could someone come by '+sel('w').toLowerCase()+'? Address: ';msg.textContent=s;send.href='sms:+12064601668?&body='+encodeURIComponent(s)}
+  document.querySelectorAll('.chips').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});build()})});
+  build();
+
+  /* open now (hours unconfirmed: daily 8-8 per Google) */
+  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),hr=now.getHours(),open=hr>=8&&hr<20;
+  document.getElementById('nowText').textContent=open?'Open now':'Closed now';if(open)document.getElementById('now').classList.add('open');
+
+  /* scroll loop */
+  var ridge=document.getElementById('ridge'),track=document.getElementById('track'),panes=document.querySelectorAll('.pane'),items=document.querySelectorAll('.svc .list li'),last=-1,tick=false;
+  function frame(){tick=false;var max=root.scrollHeight-innerHeight,p=max>0?scrollY/max:0;ridge.style.strokeDashoffset=1000-1000*p;
+    if(reduce)return;var r=track.getBoundingClientRect(),tp=Math.min(.999,Math.max(0,-r.top/(r.height-innerHeight))),i=Math.floor(tp*4);
+    if(i!==last){last=i;panes.forEach(function(x,k){x.classList.toggle('on',k===i)});items.forEach(function(x,k){x.classList.toggle('on',k===i)})}}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});frame();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vacu-Man Furnace &amp; Air Duct Cleaning: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Family-owned furnace, air duct and dryer vent cleaning for greater Seattle since 1979. Fixed price full system cleaning.">
+<meta property="og:title" content="Vacu-Man Furnace &amp; Air Duct Cleaning: Website Concept">
+<meta property="og:description" content="Dirty furnace? Dust in your ducts &amp; fan? You've got a job for Vacu-Man. Family-owned since 1979.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/vacu-man/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Atkinson+Hyperlegible:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Palette: Vacu-Man red from the wordmark, black line-art ink, 1979 work-order cream, van-decal mustard.
+   --bg #F4EEDF  --surface #FFFDF6  --ink #1A1714  --muted #5B5247
+   --primary #C21F1D (on #FFFFFF)  --accent #E5AE27 (on #1A1714) */
+:root{
+  --bg:#F4EEDF;--dust:#E3DAC6;--surface:#FFFDF6;--ink:#1A1714;--muted:#5B5247;
+  --primary:#C21F1D;--on-primary:#FFFFFF;--accent:#E5AE27;--on-accent:#1A1714;
+  --line:#1A171422;--ease:cubic-bezier(.2,.7,.1,1);--dur:.8s;
+  --display:'Shrikhand',"Cooper Black",Georgia,serif;
+  --body:'Atkinson Hyperlegible',system-ui,-apple-system,sans-serif;
+  --mono:'Courier Prime',"Courier New",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:17px/1.55 var(--body);overflow-x:hidden;transition:background-color .4s linear}
+img{max-width:100%;display:block}
+a{color:inherit}
+.preview{background:var(--ink);color:#F4EEDF;font-size:13px;padding:8px 16px;text-align:center}
+.preview a{color:var(--accent)}
+.ph{background:#fff3a6;outline:1px dashed #b59400;padding:0 3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;letter-spacing:.005em}
+h2{font-size:clamp(34px,6vw,64px)}
+.kick{font:700 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 17px/1 var(--body);padding:16px 22px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);transition:transform var(--dur) var(--ease),background-color .3s}
+.btn.red{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.btn.line{background:transparent}
+.btn:hover{transform:translateY(-2px)}
+
+/* the duct: one thread down the page */
+.duct{position:fixed;left:max(6px,calc(50% - 600px));top:0;height:100vh;width:34px;z-index:1;pointer-events:none}
+.duct svg{width:100%;height:100%}
+.duct .pipe{stroke:#B8AE9C;stroke-width:18;fill:none}
+.duct .seam{stroke:#9C927F;stroke-width:18;fill:none;stroke-dasharray:2 46}
+.duct .air{stroke:var(--primary);stroke-width:6;fill:none;stroke-linecap:round}
+@media(max-width:820px){.duct{display:none}}
+
+/* header */
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;max-width:1120px;margin:0 auto;position:relative;z-index:3}
+header.top img{height:56px;width:auto;border-radius:4px;mix-blend-mode:multiply}
+header.top nav{display:flex;gap:22px;font-weight:700;font-size:15px}
+header.top nav a{text-decoration:none}
+header.top .phone{font:700 15px var(--mono);text-decoration:none;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:6px}
+@media(max-width:820px){header.top nav{display:none}}
+
+/* hero: the slogan, then the vacuum */
+.hero{position:relative;z-index:2;padding:24px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
+.slogan p{font-family:var(--display);line-height:1.04;font-size:clamp(30px,4.6vw,54px)}
+.slogan p:nth-child(1){color:var(--muted)}
+.slogan p:nth-child(2){color:var(--muted);margin:.12em 0 .3em}
+.slogan .job{font-family:var(--body);font-weight:700;font-size:clamp(20px,2.2vw,26px);color:var(--ink)}
+.slogan .vm{display:block;font-family:var(--display);color:var(--primary);font-size:clamp(64px,10.5vw,132px);line-height:.9;transform:skewX(-8deg);transform-origin:left bottom;margin-top:4px;text-shadow:3px 3px 0 var(--ink)}
+.hero .facts{display:flex;flex-wrap:wrap;gap:8px 18px;margin:22px 0 26px;font:700 14px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.hero .facts span::before{content:"✓ ";color:var(--primary)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.vac{position:relative;border:3px solid var(--ink);border-radius:14px;overflow:hidden;background:#ccc;box-shadow:10px 10px 0 var(--ink);aspect-ratio:1600/731;touch-action:pan-y}
+.vac img{width:100%;height:100%;object-fit:cover}
+.vac canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.vac-ui{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px;font:700 14px var(--mono)}
+.vac-ui button{font:700 14px var(--mono);background:var(--accent);color:var(--on-accent);border:2px solid var(--ink);border-radius:6px;padding:9px 12px;cursor:pointer}
+.vac-ui .meter{display:flex;align-items:center;gap:10px}
+.vac-ui .bar{width:110px;height:12px;border:2px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--surface)}
+.vac-ui .bar i{display:block;height:100%;width:0;background:var(--primary);transition:width .2s}
+.hint{font:400 13px var(--mono);color:var(--muted);margin-top:8px}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr;gap:28px}.hero{padding-bottom:110px}}
+
+/* line-by-line masked headings */
+.mask{display:block;overflow:hidden}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(105%);transition:transform var(--dur) var(--ease)}
+html.js .in .mask>span{transform:none}
+html.js .in .mask:nth-child(2)>span{transition-delay:.12s}
+html.js .in .mask:nth-child(3)>span{transition-delay:.24s}
+
+/* family logbook */
+.family{position:relative;z-index:2;padding:90px 0}
+.family .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
+.family p.lead{font-size:20px;margin-top:20px;max-width:30ch}
+.log{background:var(--surface);border:2px solid var(--ink);border-radius:4px;padding:0;font-family:var(--mono);box-shadow:6px 6px 0 var(--dust)}
+.log header{display:flex;justify-content:space-between;padding:12px 18px;border-bottom:2px solid var(--ink);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.log ol{list-style:none}
+.log li{display:grid;grid-template-columns:76px 1fr;gap:16px;padding:18px;border-bottom:1px dashed var(--line);background:repeating-linear-gradient(transparent 0 27px,#1A17140d 27px 28px)}
+.log li:last-child{border-bottom:0}
+.log b.yr{font-size:22px;color:var(--primary)}
+.log strong{display:block;font-family:var(--body);font-size:18px}
+.log li p{font-size:14.5px;color:var(--muted);margin-top:4px}
+@media(max-width:820px){.family .wrap{grid-template-columns:1fr;gap:30px}}
+
+/* pinned: how a full system cleaning goes */
+.how{position:relative;z-index:2;background:var(--ink);color:var(--bg)}
+.how .track{height:320vh}
+.how .stage{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;max-width:1120px;margin:0 auto;padding:0 20px 0 64px}
+.how h2{color:var(--bg)}
+.how .kick{color:var(--accent)}
+.gauge{width:min(360px,80vw);aspect-ratio:1;position:relative;margin:0 auto}
+.gauge svg{width:100%;height:100%}
+.gauge .num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.gauge .num b{font:400 clamp(56px,9vw,96px)/1 var(--display);color:var(--accent)}
+.gauge .num small{font:700 13px var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.steps{position:relative;min-height:260px}
+.step{position:absolute;inset:0;opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.step.on{opacity:1;transform:none}
+.step .n{font:700 14px var(--mono);color:var(--accent);letter-spacing:.12em}
+.step h3{font-size:clamp(28px,3.6vw,42px);margin:10px 0 14px}
+.step p{font-size:18px;opacity:.88;max-width:40ch}
+.dots{display:flex;gap:8px;margin-top:22px}
+.dots i{width:28px;height:4px;background:#F4EEDF44;border-radius:2px;transition:background .3s}
+.dots i.on{background:var(--accent)}
+@media(max-width:820px){.how .stage{grid-template-columns:1fr;padding:60px 20px;align-content:center;gap:10px}.gauge{width:min(220px,60vw)}.steps{min-height:300px}}
+
+/* work order: services */
+.services{position:relative;z-index:2;padding:100px 0}
+.services .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
+.tabs{display:flex;flex-direction:column;gap:8px;margin-top:28px}
+.tabs button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font:400 clamp(24px,3vw,32px)/1.1 var(--display);padding:12px 0;border-bottom:2px solid var(--line);color:var(--muted)}
+.tabs button[aria-selected=true]{color:var(--primary);border-color:var(--primary)}
+.tabs button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.tabs button span{font:700 13px var(--mono);color:var(--ink)}
+.ticket{background:var(--surface);border:2px solid var(--ink);font-family:var(--mono);position:relative;box-shadow:8px 8px 0 var(--primary)}
+.ticket .head{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:16px 18px;border-bottom:2px solid var(--ink)}
+.ticket .head img{width:92px;mix-blend-mode:multiply}
+.ticket .head p{font-size:12.5px;line-height:1.4}
+.ticket .row{display:grid;grid-template-columns:120px 1fr;border-bottom:1px solid var(--line)}
+.ticket .row>*{padding:10px 18px}
+.ticket .row dt{font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;border-right:1px solid var(--line);color:var(--muted)}
+.ticket .row dd{font-size:15px}
+.ticket .job{font-family:var(--display);font-size:26px;color:var(--primary)}
+.ticket .stamp{position:absolute;right:18px;bottom:18px;transform:rotate(-9deg);border:3px solid var(--primary);color:var(--primary);font:700 13px/1.15 var(--mono);padding:6px 10px;text-transform:uppercase;letter-spacing:.06em;text-align:center;background:#FFFDF6cc}
+.ticket .desc{padding:16px 18px 80px;font-family:var(--body);font-size:16px}
+@media(max-width:820px){.services .wrap{grid-template-columns:1fr;gap:20px}.ticket .row{grid-template-columns:96px 1fr}}
+
+/* photo with depth */
+.vent{position:relative;z-index:2;height:78vh;min-height:420px;overflow:hidden;background:var(--ink)}
+.vent img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;transform:translateY(calc(var(--p,0.5) * -10%));opacity:.82}
+.vent .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 20px;background:linear-gradient(transparent,#1A1714ee)}
+.vent .cap p{max-width:1120px;margin:0 auto;color:var(--bg);font:400 clamp(28px,4.6vw,56px)/1.05 var(--display)}
+.vent .cap span{color:var(--accent)}
+
+/* receipts */
+.said{position:relative;z-index:2;padding:100px 0}
+.receipts{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:40px}
+.rcpt{background:var(--surface);font-family:var(--mono);padding:26px 24px 30px;position:relative;filter:drop-shadow(0 2px 0 var(--dust));
+  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 10px) no-repeat,radial-gradient(circle 6px at 8px 100%,transparent 6px,#000 6.5px) bottom left/16px 10px repeat-x;
+  mask:linear-gradient(#000 0 0) top/100% calc(100% - 10px) no-repeat,radial-gradient(circle 6px at 8px 100%,transparent 6px,#000 6.5px) bottom left/16px 10px repeat-x}
+.rcpt:nth-child(1){transform:rotate(-1.4deg)}
+.rcpt:nth-child(2){transform:rotate(1.1deg);margin-top:30px}
+.rcpt .top{display:flex;justify-content:space-between;border-bottom:1px dashed var(--ink);padding-bottom:10px;font-size:13px;font-weight:700}
+.rcpt q{display:block;font-size:17px;line-height:1.55;margin:16px 0}
+.rcpt .who{font-weight:700}
+.rcpt .stars{color:var(--primary);letter-spacing:2px}
+.said .note{margin-top:30px;font-size:14px;color:var(--muted);max-width:60ch}
+@media(max-width:820px){.receipts{grid-template-columns:1fr}.rcpt:nth-child(2){margin-top:0}}
+
+/* areas: north-south route, horizontal on scroll */
+.areas{position:relative;z-index:2;background:var(--primary);color:var(--on-primary);overflow:hidden;padding:90px 0 100px}
+.areas h2{color:var(--on-primary)}
+.areas .kick{color:var(--on-primary);opacity:.85}
+.route{margin-top:46px;position:relative}
+.route .rail{position:absolute;left:0;right:0;top:19px;height:6px;background:#ffffff40;border-radius:3px}
+.route .rail i{display:block;height:100%;width:calc(var(--p,0)*100%);background:var(--accent);border-radius:3px}
+.route ol{list-style:none;display:flex;justify-content:space-between;gap:10px;position:relative}
+.route li{text-align:center;flex:1;font:700 14px var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.route li::before{content:"";display:block;width:24px;height:24px;margin:8px auto 14px;border-radius:50%;background:var(--primary);border:4px solid var(--on-primary)}
+.route li.hq::before{background:var(--accent);border-color:var(--ink);width:32px;height:32px;margin-top:4px}
+.areas p.sub{margin-top:36px;font-size:19px;max-width:46ch}
+@media(max-width:640px){.route ol{flex-direction:column;gap:18px}.route .rail{left:11px;right:auto;width:6px;top:0;bottom:0;height:auto}.route .rail i{width:100%;height:calc(var(--p,0)*100%)}.route li{display:flex;align-items:center;gap:16px;text-align:left}.route li::before{margin:0}.route li.hq::before{margin:0 0 0 -4px}}
+
+/* hours + contact */
+.visit{position:relative;z-index:2;padding:100px 0 120px}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.door{background:var(--surface);border:3px solid var(--ink);border-radius:12px;padding:26px;box-shadow:8px 8px 0 var(--ink)}
+.door .status{display:inline-flex;align-items:center;gap:10px;font:700 15px var(--mono);text-transform:uppercase;letter-spacing:.08em;padding:8px 14px;border-radius:999px;background:var(--ink);color:var(--bg)}
+.door .status i{width:10px;height:10px;border-radius:50%;background:#888}
+.door .status.open i{background:#4BCB6B}
+.door table{width:100%;border-collapse:collapse;margin-top:20px;font-family:var(--mono)}
+.door td{padding:9px 0;border-bottom:1px dashed var(--line)}
+.door td:last-child{text-align:right;font-weight:700}
+.door tr.today td{color:var(--primary)}
+.lines{display:grid;gap:14px;margin-top:26px}
+.lines a{display:flex;justify-content:space-between;align-items:baseline;gap:10px;text-decoration:none;border-bottom:2px solid var(--ink);padding:10px 0}
+.lines a b{font:400 clamp(24px,3vw,32px) var(--display);color:var(--primary)}
+.lines a span{font:700 13px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.pay{margin-top:22px;font-size:15px;color:var(--muted)}
+footer{position:relative;z-index:2;background:var(--ink);color:#F4EEDFcc;padding:40px 0 110px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+footer a{color:var(--accent)}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;gap:8px}
+.callbar a{flex:1;text-align:center;padding:15px 10px;border-radius:999px;font:700 16px var(--body);text-decoration:none;border:2px solid var(--ink)}
+.callbar a.c{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.callbar a.t{background:var(--accent);color:var(--on-accent)}
+@media(max-width:820px){.callbar{display:flex}.visit .wrap{grid-template-columns:1fr}}
+
+/* reveals */
+html.js .rv{opacity:0;transform:translateY(18px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  html.js .rv,html.js .mask>span{opacity:1;transform:none}
+  .how .track{height:auto}
+  .how .stage{position:static;height:auto;padding:80px 20px}
+  .steps{min-height:0}
+  .step{position:static;opacity:1;transform:none;margin-bottom:34px}
+  .dots{display:none}
+  .vent img{transform:none}
+  .route .rail i{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Vacu-Man site. <a href="https://www.vacuman.net/">See their real site</a></div>
+
+<div class="duct" aria-hidden="true"><svg viewBox="0 0 34 1000" preserveAspectRatio="none"><path class="pipe" d="M17 0V1000"/><path class="seam" d="M17 0V1000"/><path class="air" id="air" d="M17 0V1000" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000"/></svg></div>
+
+<header class="top">
+  <a href="#top" aria-label="Vacu-Man home"><img src="img/logo.jpg" alt="Vacu-Man Furnace &amp; Air Duct Cleaning logo" width="250" height="111"></a>
+  <nav><a href="#family">Family</a><a href="#how">How it works</a><a href="#services">Services</a><a href="#areas">Areas</a><a href="#contact">Contact</a></nav>
+  <a class="phone" href="tel:+12063628858">(206) 362-8858</a>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="slogan">
+      <p>Dirty Furnace?</p>
+      <p>Dust In Your Ducts &amp; Fan?</p>
+      <p class="job">You've got a job for<span class="vm">VACU-MAN</span></p>
+      <div class="facts"><span>Since 1979</span><span>Family-owned</span><span>Fixed price full system cleaning</span></div>
+      <div class="ctas">
+        <a class="btn red" href="tel:+12063628858">Call or text (206) 362-8858</a>
+        <a class="btn line" href="#services">What we clean</a>
+      </div>
+    </div>
+    <div>
+      <div class="vac" id="vac">
+        <img src="img/van.jpg" alt="The white Vacu-Man van with the cartoon Vacu-Man logo and both phone numbers on the side" width="1600" height="731">
+        <canvas id="dust" aria-hidden="true"></canvas>
+      </div>
+      <div class="vac-ui">
+        <div class="meter"><span>DUST</span><span class="bar"><i id="meter"></i></span><span id="pct">0% clean</span></div>
+        <button type="button" id="runvac">Run the vacuum</button>
+      </div>
+      <p class="hint">Drag across the van to vacuum it (or press the button).</p>
+    </div>
+  </div>
+</section>
+
+<section class="family" id="family">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kick">Locally &amp; family-owned</p>
+      <h2><span class="mask"><span>One family,</span></span><span class="mask"><span>one van,</span></span><span class="mask"><span>since 1979.</span></span></h2>
+      <p class="lead">Doug started Vacu-Man with his mom and brother. Today his son Max runs the onsite work, with Doug and Janene behind him.</p>
+    </div>
+    <div class="log rv" aria-label="Vacu-Man family history">
+      <header><span>Service log</span><span>Vacu-Man</span></header>
+      <ol>
+        <li><b class="yr">1979</b><div><strong>Doug Fogard opens Vacu-Man</strong><p>Established with his mom and brother. After they both left the company, Doug ran it as an owner-operator for many years, with many long-time, repeat customers.</p></div></li>
+        <li><b class="yr">2017</b><div><strong>Max joins his dad</strong><p>Doug's son Max worked side by side with Doug for two years to learn the business.</p></div></li>
+        <li><b class="yr">Now</b><div><strong>Max on site, Doug &amp; Janene behind him</strong><p>Customers call Max "professional, dependable, friendly, and thorough."</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="track" id="howTrack">
+    <div class="stage">
+      <div>
+        <p class="kick">How a full system cleaning goes</p>
+        <div class="gauge" aria-hidden="true">
+          <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="84" fill="none" stroke="#F4EEDF22" stroke-width="14" stroke-dasharray="396 528" transform="rotate(135 100 100)"/><circle id="gArc" cx="100" cy="100" r="84" fill="none" stroke="#E5AE27" stroke-width="14" stroke-linecap="round" stroke-dasharray="0 528" transform="rotate(135 100 100)"/></svg>
+          <div class="num"><b id="gNum">0</b><small>pounds of air</small></div>
+        </div>
+      </div>
+      <div>
+        <div class="steps">
+          <div class="step on"><p class="n">01 / HOOK UP</p><h3>High-powered vacuum on your system</h3><p>We connect our high-powered vacuum equipment so every speck of dust we knock loose has somewhere to go.</p></div>
+          <div class="step"><p class="n">02 / SCOUR</p><h3>Air whips &amp; brushes down every trunk line</h3><p>Power air whips and brushes thoroughly scour out all trunk lines, including tricky layouts in older homes.</p></div>
+          <div class="step"><p class="n">03 / FLUSH</p><h3>200 pounds of high-pressure air</h3><p>We send 200 pounds of high-pressure air through your ducts, flushing everything back into the vacuum. No harsh chemical sprays.</p></div>
+          <div class="step"><p class="n">04 / SETTLE UP</p><h3>A fixed price, no hidden fees</h3><p>Your invoice matches your fixed price quote. Cards, checks and cash all welcome. We stand behind our work with a satisfaction guarantee.</p></div>
+        </div>
+        <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kick">Pick a job</p>
+      <h2>What Vacu-Man cleans</h2>
+      <div class="tabs" role="tablist" aria-label="Services">
+        <button role="tab" aria-selected="true" data-i="0">Air ducts <span>01</span></button>
+        <button role="tab" aria-selected="false" data-i="1">Furnaces <span>02</span></button>
+        <button role="tab" aria-selected="false" data-i="2">Dryer vents <span>03</span></button>
+        <button role="tab" aria-selected="false" data-i="3">HVAC units <span>04</span></button>
+      </div>
+    </div>
+    <div class="ticket rv" role="tabpanel" aria-live="polite">
+      <div class="head"><img src="img/logo.jpg" alt="" width="250" height="111"><p><b>WORK ORDER</b><br>Seattle (206) 362-8858<br>Eastside (425) 454-3678</p></div>
+      <dl>
+        <div class="row"><dt>Job</dt><dd class="job" id="tJob">Air Duct Cleaning</dd></div>
+        <div class="row"><dt>Tech</dt><dd>Max Fogard</dd></div>
+        <div class="row"><dt>Pricing</dt><dd>Fixed price, quoted up front</dd></div>
+      </dl>
+      <p class="desc" id="tDesc"></p>
+      <div class="stamp">Satisfaction<br>guaranteed</div>
+    </div>
+  </div>
+</section>
+
+<section class="vent" aria-label="Dryer vent cleaning">
+  <img src="img/vent.jpg" alt="A vacuum hose cleaning out a foil dryer vent duct" width="1600" height="970">
+  <div class="cap"><p>Lint in the vent makes a dryer run hot. <span>We get it out.</span></p></div>
+</section>
+
+<section class="said" id="reviews">
+  <div class="wrap">
+    <p class="kick rv">From the customers</p>
+    <h2 class="rv">"As always, Max was prompt…"</h2>
+    <div class="receipts">
+      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>5/17/2021</span></div><q>As always, Max was prompt, professional, thorough and friendly. Thanks Max for your continued great service over the y…</q><figcaption><span class="who">Eric A</span></figcaption></figure>
+      <figure class="rcpt rv"><div class="top"><span>CUSTOMER COPY</span><span>1/29/2021</span></div><q>Very professional. Max arrived on time and was very upfront. I had him clean my duct work, check the furnace, replace t…</q><figcaption><span class="who">Mike E</span></figcaption></figure>
+    </div>
+    <p class="note rv">Both reviews are cut off on the current site. In the real build these would show in full, with <span class="ph">your newest Google and Yelp reviews</span> alongside.</p>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="wrap">
+    <p class="kick">Service area</p>
+    <h2 class="rv">Everett to Federal Way and the entire Eastside</h2>
+    <div class="route" id="route">
+      <div class="rail"><i></i></div>
+      <ol>
+        <li>Everett</li><li>Bothell</li><li class="hq">Seattle</li><li>Kirkland</li><li>Bellevue</li><li>Federal Way</li>
+      </ol>
+    </div>
+    <p class="sub rv">Two numbers, one family: call Seattle at (206) 362-8858 or the Eastside at (425) 454-3678.</p>
+  </div>
+</section>
+
+<section class="visit" id="contact">
+  <div class="wrap">
+    <div class="door rv">
+      <span class="status" id="status"><i></i><span id="statusText">Office hours</span></span>
+      <table aria-label="Business hours">
+        <tr data-d="1"><td>Monday</td><td>8:00 am – 5:00 pm</td></tr>
+        <tr data-d="2"><td>Tuesday</td><td>8:00 am – 5:00 pm</td></tr>
+        <tr data-d="3"><td>Wednesday</td><td>8:00 am – 5:00 pm</td></tr>
+        <tr data-d="4"><td>Thursday</td><td>8:00 am – 5:00 pm</td></tr>
+        <tr data-d="5"><td>Friday</td><td>8:00 am – 5:00 pm</td></tr>
+        <tr data-d="6"><td>Saturday</td><td>Closed</td></tr>
+        <tr data-d="0"><td>Sunday</td><td>Closed</td></tr>
+      </table>
+      <p class="pay">Appointment required. Online estimates, onsite service. Amex, Discover, MasterCard, Visa, check, cash or invoice.</p>
+    </div>
+    <div class="rv">
+      <p class="kick">Get a free estimate</p>
+      <h2>Call or text. Doug or Max will pick up.</h2>
+      <div class="lines">
+        <a href="tel:+12063628858"><span>Seattle</span><b>(206) 362-8858</b></a>
+        <a href="tel:+14254543678"><span>Eastside</span><b>(425) 454-3678</b></a>
+        <a href="sms:+12063628858"><span>Text us</span><b>(206) 362-8858</b></a>
+        <a href="mailto:doug@vacuman.net"><span>Email</span><b>doug@vacuman.net</b></a>
+      </div>
+      <p class="pay">Find us on <a href="https://yelp.com/biz/vacu-man-furnace-and-air-duct-cleaning-seattle-3">Yelp</a>. Fully insured. BBB member.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© Vacu-Man Furnace &amp; Air Duct Cleaning · Family-owned since 1979 · Greater Seattle &amp; the Eastside</p>
+    <p>Concept redesign by Theo, not the official Vacu-Man site. Logo and photos from <a href="https://www.vacuman.net/">vacuman.net</a>.</p>
+  </div>
+</footer>
+
+<div class="callbar"><a class="c" href="tel:+12063628858">Call</a><a class="t" href="sms:+12063628858">Text</a></div>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* reveals */
+  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  /* dust canvas */
+  var box=document.getElementById('vac'),cv=document.getElementById('dust'),ctx=cv.getContext('2d'),specks=[],total=0,W,H,dpr=Math.min(devicePixelRatio||1,2);
+  var meter=document.getElementById('meter'),pct=document.getElementById('pct');
+  function size(){W=box.clientWidth;H=box.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  function seed(){specks=[];var n=Math.round(W*H/90);for(var i=0;i<n;i++)specks.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.6+.8,a:Math.random()*.5+.35,c:Math.random()<.5?'#6b5f4c':'#8a7d66'});total=specks.length}
+  function draw(){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(120,105,80,.28)';ctx.fillRect(0,0,W,H);specks.forEach(function(s){ctx.globalAlpha=s.a;ctx.fillStyle=s.c;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.3);ctx.fill()});ctx.globalAlpha=1;
+    var p=total?1-specks.length/total:1;var clean=Math.round(p*100);meter.style.width=clean+'%';pct.textContent=clean+'% clean';if(specks.length<total*.04){specks=[];ctx.clearRect(0,0,W,H);meter.style.width='100%';pct.textContent='100% clean'}}
+  var hose=null;
+  function suck(x,y){var R=Math.max(46,W*.09);specks=specks.filter(function(s){var dx=s.x-x,dy=s.y-y;return dx*dx+dy*dy>R*R});
+    ctx.clearRect(0,0,W,H);draw();ctx.strokeStyle='#C21F1D';ctx.lineWidth=3;ctx.beginPath();ctx.arc(x,y,R,0,6.3);ctx.stroke()}
+  function pos(e){var r=cv.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]}
+  cv.addEventListener('pointerdown',function(e){hose=1;var p=pos(e);suck(p[0],p[1])});
+  cv.addEventListener('pointermove',function(e){if(hose||e.pointerType==='mouse'){var p=pos(e);suck(p[0],p[1])}});
+  addEventListener('pointerup',function(){hose=null});
+  cv.addEventListener('pointerleave',function(){draw()});
+  document.getElementById('runvac').addEventListener('click',function(){
+    if(!specks.length){seed();draw();this.textContent='Run the vacuum';return}
+    var b=this;b.textContent='Make it dusty again';
+    if(reduce){specks=[];draw();return}
+    var x=-60;(function sweep(){x+=W/28;for(var y=0;y<H;y+=H/4)suck(x,y+H/8);if(x<W+60)requestAnimationFrame(sweep);else{specks=[];draw()}})();
+  });
+  size();seed();draw();
+  addEventListener('resize',function(){var p=total?specks.length/total:1;size();seed();specks=specks.slice(0,Math.round(specks.length*p));draw()});
+
+  /* services ticket */
+  var jobs=[
+    ['Air Duct Cleaning','We remove dust, allergens and other contaminants from your ductwork. High-powered vacuum equipment, then 200 pounds of high-pressure air through your ducts, flushing everything back into the vacuum. Cleaner air, and an HVAC system that runs more efficiently.'],
+    ['Furnace Cleaning','Every part of your furnace, cleaned. Built-up dirt and debris can cause overheating and cut performance, so we take it all out. We handle older systems and delicate components with care: over 45 years of practice.'],
+    ['Dryer Vent Cleaning','Lint buildup in the vent makes your dryer overheat and run longer. We clear the lint and debris out of the whole vent, which cuts the fire risk and helps the dryer work the way it should.'],
+    ['HVAC Unit Cleaning','Coils, fans and the other parts that collect dust. A clean unit uses less energy, which means lower utility bills and a system that keeps running smoothly.']];
+  var tabs=document.querySelectorAll('[role=tab]'),tJob=document.getElementById('tJob'),tDesc=document.getElementById('tDesc');
+  function pick(i){tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1});tJob.textContent=jobs[i][0];tDesc.textContent=jobs[i][1]}
+  tabs.forEach(function(t,k){t.addEventListener('click',function(){pick(k)});t.addEventListener('keydown',function(e){var d=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();var n=(k+d+4)%4;pick(n);tabs[n].focus()}})});
+  pick(0);
+
+  /* hours */
+  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+  var row=document.querySelector('tr[data-d="'+d+'"]');if(row)row.className='today';
+  var open=d>=1&&d<=5&&h>=8&&h<17,st=document.getElementById('status');
+  document.getElementById('statusText').textContent=open?'Open now':'Closed now · leave a message';if(open)st.classList.add('open');
+
+  /* one scroll loop */
+  var air=document.getElementById('air'),track=document.getElementById('howTrack'),steps=document.querySelectorAll('.step'),dots=document.querySelectorAll('.dots i'),
+      gArc=document.getElementById('gArc'),gNum=document.getElementById('gNum'),vent=document.querySelector('.vent'),route=document.getElementById('route'),ticking=false,last=-1;
+  function prog(el){var r=el.getBoundingClientRect(),vh=innerHeight;return Math.min(1,Math.max(0,(vh-r.top)/(r.height+vh)))}
+  function frame(){
+    ticking=false;var max=document.documentElement.scrollHeight-innerHeight,p=max>0?scrollY/max:0;
+    air.style.strokeDashoffset=1000-1000*p;
+    document.body.style.backgroundColor=p<.5?'':'#F8F4EA';
+    if(!reduce){
+      var r=track.getBoundingClientRect(),tp=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));
+      var i=Math.min(3,Math.floor(tp*4));if(i!==last){steps.forEach(function(s,k){s.classList.toggle('on',k===i)});dots.forEach(function(s,k){s.classList.toggle('on',k<=i)});last=i}
+      var lb=Math.round(Math.min(1,tp*1.6)*200);gNum.textContent=lb;gArc.setAttribute('stroke-dasharray',(396*lb/200)+' 528');
+      vent.style.setProperty('--p',prog(vent));
+      route.style.setProperty('--p',Math.min(1,prog(route)*1.7));
+    }
+  }
+  if(reduce){gNum.textContent='200';gArc.setAttribute('stroke-dasharray','396 528')}
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
+  frame();
+})();
+</script>
+</body>
+</html>
