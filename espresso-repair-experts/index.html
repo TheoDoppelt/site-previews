@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espresso Repair Experts: Website Concept</title>
+<meta name="description" content="Home espresso machine repair in Georgetown, Seattle. Free diagnosis, clear quotes, DeLonghi Authorized Service Center. Walk in or ship your machine from anywhere.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Espresso Repair Experts: Website Concept">
+<meta property="og:description" content="A concept redesign for Espresso Repair Experts, Georgetown, Seattle.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/espresso-repair-experts/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Palette from their portafilter logo: espresso brown #3b2316, crema orange #e07a3c, badge blue #d7e6f2, steamed-milk cream */
+:root{
+  --bg:#f5efe6; --surface:#fffaf3; --ink:#2a1a10; --muted:#6b5849;
+  --primary:#3b2316; --accent:#e07a3c; --blue:#d7e6f2; --on-primary:#fffaf3; --on-accent:#2a1a10;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"Space Grotesk",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.04rem;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+.ph{background:#ffe27a;color:var(--ink);padding:0 .25em;border-radius:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.98;letter-spacing:-.02em}
+h2{font-size:clamp(2.5rem,6vw,5rem)}
+h2 em,h1 em{font-style:italic;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--on-accent);padding:.95rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:700;transition:background .2s,color .2s}
+.btn:hover{background:#ec8f55}
+.btn.dark{background:var(--primary);color:var(--on-primary)}
+.btn.dark:hover{background:#56351f}
+.btn.line{background:transparent;border:1.5px solid currentColor}
+
+.preview{background:var(--primary);color:#eadccd;font-size:.85rem;text-align:center;padding:.5rem 1rem}
+.preview a{color:#f3a874;font-weight:700}
+
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:84px;gap:1rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:700;line-height:1.1}
+.brand img{width:52px;height:auto}
+.nav nav{display:flex;gap:1.8rem;font-weight:500}
+.nav nav a{text-decoration:none}
+.nav nav a:hover{color:var(--accent)}
+.nav .btn{padding:.6rem 1.1rem}
+@media (max-width:860px){.nav nav{display:none}}
+
+/* HERO: their own line, huge; the logo badge spins in slowly from the side like a portafilter locking in */
+.hero{padding:clamp(2.5rem,7vw,5rem) 0 clamp(4rem,9vw,7rem);position:relative;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero h1{font-size:clamp(3.4rem,8.6vw,8rem)}
+.hero p.lede{max-width:46ch;margin:1.5rem 0 2rem;font-size:1.16rem;color:var(--muted)}
+.ctas{display:flex;gap:.7rem;flex-wrap:wrap}
+.badge{position:relative;justify-self:center;width:min(100%,380px)}
+.badge img{width:100%;filter:drop-shadow(0 30px 40px rgba(59,35,22,.25))}
+html.js .badge img{transform:rotate(-28deg) translateX(30px);opacity:0;transition:transform 1.4s var(--ease),opacity 1s var(--ease)}
+html.js .badge.in img{transform:none;opacity:1}
+.auth{display:inline-flex;gap:.6rem;align-items:center;margin-top:1.6rem;font-weight:700;font-size:.92rem;background:var(--blue);padding:.5rem .9rem;border-radius:999px}
+.auth b{color:var(--primary)}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr}.badge{width:62%;order:-1}}
+
+.mask{display:block;overflow:hidden;padding-bottom:.08em}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(108%);transition:transform .9s var(--ease)}
+html.js .mask.in>span{transform:none}
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+
+/* PROCESS: three steps on a single pull line that fills as you scroll */
+.process{background:var(--primary);color:var(--on-primary);padding:clamp(4.5rem,10vw,7.5rem) 0;position:relative;overflow:hidden}
+.process .head{max-width:760px}
+.process .head p{color:#d8c6b5;margin-top:1.2rem;max-width:52ch;font-size:1.1rem}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;position:relative;padding-top:2.6rem}
+.steps::before,.steps .fill{content:"";position:absolute;top:0;left:0;height:4px;border-radius:4px}
+.steps::before{right:0;background:rgba(255,255,255,.14)}
+.steps .fill{background:var(--accent);width:var(--p,0%);transition:width .3s linear}
+.steps li{position:relative}
+.steps li::before{content:"";position:absolute;top:calc(-2.6rem - 8px);left:0;width:20px;height:20px;border-radius:50%;background:var(--primary);border:4px solid var(--accent)}
+.steps .n{font-family:var(--display);font-style:italic;font-size:1.2rem;color:var(--accent)}
+.steps h3{font-size:2.3rem;margin:.2rem 0 .7rem}
+.steps p{color:#d8c6b5}
+.steps .free{display:inline-block;margin-top:.8rem;background:var(--accent);color:var(--on-accent);font-weight:700;font-size:.85rem;padding:.25rem .7rem;border-radius:999px}
+@media (max-width:760px){.steps{grid-template-columns:1fr;padding-top:0;padding-left:2.2rem}.steps::before,.steps .fill{top:0;bottom:0;left:0;width:4px;height:auto}.steps .fill{height:var(--p,0%);width:4px;bottom:auto}.steps li::before{top:.3rem;left:calc(-2.2rem - 8px)}}
+
+/* DELONGHI: split with a photo strip, blue badge surface */
+.dl{padding:clamp(4.5rem,10vw,7.5rem) 0}
+.dl .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.dl .card{background:var(--blue);border-radius:28px;padding:clamp(1.6rem,4vw,2.6rem);position:relative}
+.dl .card img{border-radius:16px;width:100%}
+.dl .card .cap{margin-top:1rem;font-weight:700;color:var(--primary)}
+.dl p{color:var(--muted);margin-top:1.2rem;max-width:50ch;font-size:1.08rem}
+.dl ul{list-style:none;margin-top:1.6rem;display:grid;gap:.6rem}
+.dl li{display:flex;gap:.8rem;align-items:baseline}
+.dl li::before{content:"";flex:none;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent);transform:translateY(-.05rem)}
+@media (max-width:860px){.dl .grid{grid-template-columns:1fr}}
+
+/* REVIEWS: big quote carousel-free, staggered column of real testimonials */
+.reviews{background:var(--surface);padding:clamp(4.5rem,10vw,7.5rem) 0;border-block:1px solid #e9dccb}
+.reviews .top{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.reviews .top p{max-width:36ch;color:var(--muted)}
+.qgrid{columns:3 300px;column-gap:1.2rem}
+.q{break-inside:avoid;margin-bottom:1.2rem;padding:1.6rem;border-radius:22px;background:var(--bg)}
+.q:nth-child(3n+2){background:var(--blue)}
+.q:nth-child(4){background:var(--primary);color:var(--on-primary)}
+.q blockquote{font-family:var(--display);font-size:1.3rem;line-height:1.3}
+.q figcaption{margin-top:1rem;font-weight:700;font-size:.9rem}
+.q figcaption span{font-weight:400;opacity:.75}
+
+/* SHIP IT: checklist band */
+.ship{padding:clamp(4.5rem,10vw,7.5rem) 0}
+.ship .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.ship p.lead{color:var(--muted);margin-top:1.2rem;max-width:44ch;font-size:1.08rem}
+.ship .addr{margin-top:1.6rem;background:var(--primary);color:var(--on-primary);border-radius:20px;padding:1.3rem 1.5rem;font-weight:500;line-height:1.5}
+.ship .addr b{color:#f3a874}
+.box{list-style:none;counter-reset:s}
+.box li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1.5px dashed #d8c7b3}
+.box li:first-child{border-top:1.5px dashed #d8c7b3}
+.box li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-style:italic;font-size:1.5rem;color:var(--accent)}
+@media (max-width:860px){.ship .grid{grid-template-columns:1fr}}
+
+/* VISIT: hours with live status, Georgetown */
+.visit{background:var(--accent);color:var(--on-accent);padding:clamp(4.5rem,10vw,7rem) 0 0;overflow:hidden}
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.visit h2 em{color:var(--primary)}
+.visit address{font-style:normal;font-size:1.2rem;margin:1.4rem 0}
+.visit .row{display:flex;gap:.7rem;flex-wrap:wrap}
+.hours{list-style:none;background:var(--primary);color:#f1e5d8;border-radius:24px;padding:1.4rem 1.6rem}
+.hours li{display:flex;justify-content:space-between;padding:.6rem .5rem;border-bottom:1px solid rgba(255,255,255,.12);border-radius:8px}
+.hours li:last-child{border:0}
+.hours li.today{background:rgba(224,122,60,.3);color:#fff;font-weight:700}
+.status{display:inline-flex;gap:.55rem;align-items:center;font-weight:700;margin-bottom:1rem}
+.status i{width:.62rem;height:.62rem;border-radius:50%;background:#7a5a45}
+.status.open i{background:#1f8a47;box-shadow:0 0 0 4px rgba(31,138,71,.25)}
+.big{display:block;text-align:center;text-decoration:none;font-family:var(--display);font-size:clamp(3rem,12.5vw,11.5rem);line-height:1;color:var(--primary);margin-top:clamp(3rem,7vw,5rem);white-space:nowrap;padding-bottom:.12em}
+@media (max-width:860px){.visit .grid{grid-template-columns:1fr}}
+
+footer{background:var(--primary);color:#d8c6b5;font-size:.88rem;padding:1.6rem 0 2rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:#f3a874}
+
+.callbar{display:none}
+@media (max-width:720px){
+  body{padding-bottom:72px}
+  .callbar{display:flex;gap:.5rem;position:fixed;left:.6rem;right:.6rem;bottom:.6rem;z-index:50;background:var(--primary);border-radius:999px;padding:.4rem;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+  .callbar a{flex:1;text-align:center;text-decoration:none;font-weight:700;padding:.75rem;border-radius:999px;color:#fff}
+  .callbar a.call{background:var(--accent);color:var(--on-accent)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html.js .mask>span,html.js .rv,html.js .badge img{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Espresso Repair Experts site. <a href="https://www.espressorepairexperts.com/" rel="noopener">See their real site</a></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/logo.png" alt="" width="425" height="420"><span>Espresso<br>Repair Experts</span></a>
+    <nav aria-label="Main"><a href="#process">How it works</a><a href="#delonghi">DeLonghi</a><a href="#reviews">Reviews</a><a href="#ship">Ship it</a><a href="#visit">Visit</a></nav>
+    <a class="btn dark" href="tel:+12063970006">(206) 397-0006</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap grid">
+    <div>
+      <h1 id="h1"><span class="mask"><span>Don't pitch</span></span><span class="mask"><span>that machine</span></span><span class="mask"><span><em>just yet.</em></span></span></h1>
+      <p class="lede rv">Home espresso machine repair in Georgetown, done by the people who actually do the work. Free diagnosis, a clear quote before we touch anything, and your morning ritual back in a few days.</p>
+      <div class="ctas rv">
+        <a class="btn" href="tel:+12063970006">Call the shop</a>
+        <a class="btn line" href="#ship">Ship us your machine</a>
+      </div>
+      <div class="auth rv"><span><b>DeLonghi Authorized Service Center</b></span></div>
+    </div>
+    <div class="badge" id="badge"><img src="img/logo.png" alt="Espresso Repair Experts portafilter logo" width="425" height="420"></div>
+  </div>
+</section>
+
+<section class="process" id="process" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="pr-h"><span class="mask"><span>One's morning coffee</span></span><span class="mask"><span><em>shall not be impeded.</em></span></span></h2>
+      <p class="rv">Our repair process is built to take the uncertainty out of what can be a stressful situation. You'll know what's wrong, what it costs, and when it's back.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <span class="fill" aria-hidden="true"></span>
+      <li class="rv"><span class="n">one</span><h3>Diagnosis</h3><p>We bench test your machine exactly the way you use it, then open it up and inspect every internal system.</p><span class="free">Completely free</span></li>
+      <li class="rv"><span class="n">two</span><h3>Quote</h3><p>We call you with a detailed quote before any work starts. It's rare for the repair to cost more than we said.</p></li>
+      <li class="rv"><span class="n">three</span><h3>Repair</h3><p>Once you give the go-ahead, we fix it quickly and right the first time, so it keeps working for years.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="dl" id="delonghi" aria-labelledby="dl-h">
+  <div class="wrap grid">
+    <div class="card rv">
+      <img src="img/delonghi.jpg" alt="A DeLonghi super-automatic espresso machine on the repair bench" width="300" height="119">
+      <img src="img/bench.jpg" alt="Hands working on the inside of an espresso machine" width="300" height="120" style="margin-top:.8rem">
+      <p class="cap">On the bench in Georgetown</p>
+    </div>
+    <div>
+      <h2 id="dl-h"><span class="mask"><span>Got a</span></span><span class="mask"><span><em>DeLonghi?</em></span></span></h2>
+      <p class="rv">They're unique, solid machines. From new they run great for years, then somewhere between four and eight years you may start to notice something's off. As a DeLonghi Authorized Service Center, we've seen that pattern over and over, and we know exactly what to look for.</p>
+      <ul class="rv">
+        <li>Super-automatics diagnosed and repaired correctly</li>
+        <li>No scheduled shop tune-ups needed, just descale at home and rinse the brew unit</li>
+        <li>Plenty more years of faithful service after the fix</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews" aria-labelledby="rv-h">
+  <div class="wrap">
+    <div class="top">
+      <h2 id="rv-h"><span class="mask"><span>Fixed in Seattle,</span></span><span class="mask"><span><em>shipped from everywhere.</em></span></span></h2>
+      <p class="rv">Customers send machines from New York, Texas and California. Here's what they say.</p>
+    </div>
+    <div class="qgrid">
+      <figure class="q rv"><blockquote>"These guys are amazing! Fixed our Delonghi… We originally sent our machine somewhere near us in NYC but they said it was 'un-fixable.' But these guys fixed it very quickly and at a great price."</blockquote><figcaption>Lauren L. <span>Manhattan, NY</span></figcaption></figure>
+      <figure class="q rv"><blockquote>"Honest, straight-forward, and professional. Machine is working perfectly. Highly recommended!"</blockquote><figcaption>Terry B. <span>Hanford, CA</span></figcaption></figure>
+      <figure class="q rv"><blockquote>"I don't ever do reviews but had to make an exception. This shop does excellent work, honest and super fair prices for the work done."</blockquote><figcaption>Mike A. <span>Seattle, WA</span></figcaption></figure>
+      <figure class="q rv"><blockquote>"He helped me determine that repair would most likely be a waste of time and money… so his company didn't make any money from me. This kind of service is becoming more rare every year."</blockquote><figcaption>Steve D. <span>Coupeville, WA</span></figcaption></figure>
+      <figure class="q rv"><blockquote>"They responded to my email quickly, gave a very reasonable estimate for the repair and did a great job with the repair."</blockquote><figcaption>Randall K. <span>San Antonio, TX</span></figcaption></figure>
+      <figure class="q rv"><blockquote>"If you have an espresso machine that needs some help, take it to Espresso Repair Experts. You won't be disappointed."</blockquote><figcaption>Katie J. <span>Seattle, WA</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ship" id="ship" aria-labelledby="sh-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="sh-h"><span class="mask"><span>Not in Seattle?</span></span><span class="mask"><span><em>Box it up.</em></span></span></h2>
+      <p class="lead rv">More often than not it's worth repairing. It's rare for repair plus shipping to come close to replacing your machine, and you probably like the one you've got.</p>
+      <div class="addr rv"><b>Ship to</b><br>Espresso Repair Experts<br>403 S Brandon St, Seattle, WA 98108<br><span style="opacity:.8">Include your name, phone, email, return address and a short note on what's wrong.</span></div>
+    </div>
+    <ol class="box rv">
+      <li><span>Empty out as many beans and as much water as you can, put the machine in a large plastic bag and tape it shut.</span></li>
+      <li><span>Pick a box with room for 3 inches of padding on every side.</span></li>
+      <li><span>Fill it with bubble wrap or peanuts, enough that it's almost hard to close.</span></li>
+      <li><span>Seal it and give it a shake. If nothing shifts, you're set.</span></li>
+      <li><span>Below freezing on the way? Drain the lines first: set it to steam and pull the water tank. Not sure? Call us.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="vi-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="vi-h"><span class="mask"><span>Come talk shop</span></span><span class="mask"><span><em>in Georgetown.</em></span></span></h2>
+      <address>403 S Brandon St<br>Seattle, WA 98108</address>
+      <div class="row">
+        <a class="btn dark" href="https://www.google.com/maps/search/?api=1&amp;query=Espresso+Repair+Experts+403+S+Brandon+St+Seattle+WA+98108" rel="noopener">Open in Maps</a>
+        <a class="btn dark" href="mailto:info@espressorepairexperts.com">Email us</a>
+      </div>
+    </div>
+    <div>
+      <div class="status" id="status" aria-live="polite"><i></i><span>Open Mon, Tue, Thu, Fri</span></div>
+      <ul class="hours" id="hours">
+        <li data-d="1"><b>Monday</b><span>10am – 3pm</span></li>
+        <li data-d="2"><b>Tuesday</b><span>10am – 3pm</span></li>
+        <li data-d="3"><b>Wednesday</b><span>Closed</span></li>
+        <li data-d="4"><b>Thursday</b><span>10am – 3pm</span></li>
+        <li data-d="5"><b>Friday</b><span>10am – 3pm</span></li>
+        <li data-d="6"><b>Saturday</b><span>Closed</span></li>
+        <li data-d="0"><b>Sunday</b><span>Closed</span></li>
+      </ul>
+    </div>
+  </div>
+  <a class="big" href="tel:+12063970006">206·397·0006</a>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Espresso Repair Experts · 403 S Brandon St, Seattle, WA 98108</span>
+    <span>Concept redesign by Theo, not the official site. Logo, photos and reviews from <a href="https://www.espressorepairexperts.com/" rel="noopener">espressorepairexperts.com</a>.</span>
+  </div>
+</footer>
+
+<div class="callbar"><a class="call" href="tel:+12063970006">Call the shop</a><a href="#ship">Ship it</a></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+  document.querySelectorAll('.rv, .mask, .badge').forEach(el => io.observe(el));
+
+  // hours: live status + today's row (Seattle time)
+  const H = {0:null,1:[10,15],2:[10,15],3:null,4:[10,15],5:[10,15],6:null};
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const now = new Date(new Date().toLocaleString('en-US', {timeZone:'America/Los_Angeles'}));
+  const d = now.getDay(), h = now.getHours() + now.getMinutes() / 60, st = document.getElementById('status');
+  document.querySelector(`#hours li[data-d="${d}"]`).classList.add('today');
+  if (H[d] && h >= H[d][0] && h < H[d][1]) { st.classList.add('open'); st.querySelector('span').textContent = 'Open now, until 3pm'; }
+  else if (H[d] && h < H[d][0]) st.querySelector('span').textContent = 'Closed now · opens today at 10am';
+  else { let n = d, k = 0; do { n = (n + 1) % 7; k++; } while (!H[n]); st.querySelector('span').textContent = 'Closed now · opens ' + (k === 1 ? 'tomorrow' : days[n]) + ' at 10am'; }
+
+  // process line fills as the section scrolls through
+  const steps = document.getElementById('steps');
+  const upd = () => { const r = steps.getBoundingClientRect(), vh = innerHeight; const p = Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .35))); steps.style.setProperty('--p', (p * 100).toFixed(1) + '%'); };
+  if (reduce) steps.style.setProperty('--p', '100%'); else { addEventListener('scroll', upd, {passive:true}); upd(); }
+})();
+</script>
+</body>
+</html>

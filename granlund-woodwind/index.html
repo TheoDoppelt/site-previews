@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Granlund Woodwind Repair: Website Concept</title>
+<meta name="description" content="Saxophone and clarinet repair and overhauls by Scott Granlund in Seattle. Rentals, lessons, mouthpieces and horns for sale. By appointment.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Granlund Woodwind Repair: Website Concept">
+<meta property="og:description" content="A concept redesign for Granlund Woodwind Repair, Seattle.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/granlund-woodwind/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Palette: purple case velvet, lacquered brass, aged nickel, kangaroo-pad white */
+:root{
+  --bg:#f3eee6; --surface:#fbf8f3; --ink:#1d1520; --muted:#625867;
+  --primary:#2e1834; --velvet:#3f2148; --accent:#c99a3c; --brass:#e2bd6a; --on-primary:#f6efe4; --on-accent:#1d1520;
+  --display:"Cormorant",Garamond,"Times New Roman",serif;
+  --body:"Karla",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.06rem;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+.ph{background:#ffe27a;color:var(--ink);padding:0 .25em;border-radius:3px}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:.95;letter-spacing:-.01em}
+h2{font-size:clamp(2.8rem,6.6vw,5.8rem)}
+h2 em,h1 em{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--brass);color:var(--on-accent);padding:.95rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:800;transition:background .2s}
+.btn:hover{background:#efcd85}
+.btn.line{background:transparent;color:inherit;border:1.5px solid currentColor}
+.btn.dark{background:var(--primary);color:var(--on-primary)}
+
+.preview{background:#140c17;color:#d9cfdd;font-size:.85rem;text-align:center;padding:.5rem 1rem}
+.preview a{color:var(--brass);font-weight:700}
+
+/* HERO: the engraved bell fills the screen, headline on the photo, pill nav floats */
+.hero{position:relative;min-height:min(94vh,900px);display:flex;flex-direction:column;color:#fff;overflow:hidden;background:var(--primary)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:112%;object-fit:cover;object-position:50% 30%;will-change:transform}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,12,32,.92) 0%,rgba(29,12,32,.6) 45%,rgba(29,12,32,.1) 100%),linear-gradient(0deg,rgba(29,12,32,.7),transparent 40%)}
+.pill{position:relative;z-index:3;margin:1.1rem auto 0;width:min(1200px,100% - 2rem);display:flex;justify-content:space-between;align-items:center;gap:1rem;background:rgba(29,12,32,.7);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:.45rem .5rem .45rem 1.2rem}
+.pill .name{font-family:var(--display);font-size:1.45rem;text-decoration:none;font-weight:600}
+.pill nav{display:flex;gap:1.6rem;font-weight:700;font-size:.95rem}
+.pill nav a{text-decoration:none;color:#eadfee}
+.pill nav a:hover{color:var(--brass)}
+.pill .btn{padding:.6rem 1.1rem;font-size:.95rem}
+@media (max-width:860px){.pill nav{display:none}}
+.hero .copy{position:relative;z-index:2;margin-top:auto;padding-bottom:clamp(3rem,8vh,5.5rem)}
+.hero h1{font-size:clamp(3.6rem,10vw,9rem);max-width:9ch}
+.hero p.lede{max-width:42ch;margin:1.3rem 0 1.8rem;font-size:1.15rem;color:#e7dceb}
+.ctas{display:flex;gap:.7rem;flex-wrap:wrap}
+.appt{margin-top:1.4rem;font-weight:700;color:#e7dceb;font-size:.95rem}
+@media (max-width:720px){.hero::after{background:linear-gradient(0deg,rgba(29,12,32,.95) 0%,rgba(29,12,32,.7) 50%,rgba(29,12,32,.25) 100%)}}
+
+.mask{display:block;overflow:hidden;padding-bottom:.08em}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(108%);transition:transform .9s var(--ease)}
+html.js .mask.in>span{transform:none}
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+
+/* MARQUEE: makes he works on */
+.makes{background:var(--brass);color:var(--on-accent);overflow:hidden;white-space:nowrap;border-bottom:1.5px solid var(--ink)}
+.makes .track{display:inline-flex;gap:2.6rem;padding:.8rem 0;font-family:var(--display);font-size:1.6rem;font-weight:600;animation:mq 55s linear infinite}
+.makes .track span::after{content:"·";margin-left:2.6rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* SCOTT: centered statement */
+.scott{padding:clamp(5rem,12vw,8.5rem) 0;text-align:center}
+.scott h2{max-width:16ch;margin:0 auto}
+.scott p{max-width:58ch;margin:1.6rem auto 0;color:var(--muted);font-size:1.12rem}
+.creds{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:2rem}
+.creds span{border:1.5px solid #d6cbd9;border-radius:999px;padding:.4rem .9rem;font-weight:700;font-size:.9rem;background:var(--surface)}
+
+/* SERVICES: rows with a sticky photo on the left */
+.svc{background:var(--primary);color:var(--on-primary);padding:clamp(4.5rem,10vw,7.5rem) 0}
+.svc .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.svc .stick{position:sticky;top:1.5rem}
+.svc .stick img{border-radius:22px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.svc .stick p{color:#cbbfd0;font-size:.9rem;margin-top:.8rem}
+.svc ul{list-style:none;margin-top:2.4rem}
+.svc li{padding:1.4rem 0;border-top:1px solid rgba(255,255,255,.16)}
+.svc li:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.svc h3{font-size:2.1rem;display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.svc h3 small{font-family:var(--body);font-size:.8rem;font-weight:800;color:var(--brass);letter-spacing:.04em}
+.svc li p{color:#d6cbd9;margin-top:.4rem}
+@media (max-width:860px){.svc .grid{grid-template-columns:1fr}.svc .stick{position:static}.svc .stick img{aspect-ratio:16/10}}
+
+/* PADS: their real choice, as a two-way toggle */
+.pads{padding:clamp(4.5rem,10vw,7.5rem) 0}
+.pads .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.pads p.lead{color:var(--muted);margin-top:1.2rem;max-width:44ch}
+.toggle{display:inline-flex;background:#e6ddd2;border-radius:999px;padding:.3rem;margin:1.8rem 0 1.2rem}
+.toggle button{font:inherit;font-weight:800;border:0;background:transparent;padding:.65rem 1.2rem;border-radius:999px;cursor:pointer;color:var(--ink)}
+.toggle button[aria-pressed="true"]{background:var(--primary);color:#fff}
+.padcard{background:var(--surface);border:1.5px solid #e1d6c8;border-radius:24px;padding:1.6rem 1.8rem;min-height:15rem}
+.padcard[hidden]{display:none}
+.padcard h3{font-size:2.2rem;margin-bottom:.6rem}
+.padcard .cost{display:inline-block;margin-top:1rem;font-weight:800;background:var(--brass);padding:.3rem .8rem;border-radius:999px}
+.pads figure img{border-radius:24px;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pads figcaption{font-size:.9rem;color:var(--muted);margin-top:.7rem}
+@media (max-width:860px){.pads .grid{grid-template-columns:1fr}}
+
+/* BACK TO LIFE: scattered gallery around a centered line */
+.life{background:var(--velvet);color:var(--on-primary);padding:clamp(4.5rem,10vw,7.5rem) 0;overflow:hidden}
+.life .head{text-align:center;max-width:720px;margin:0 auto 3rem}
+.life .head p{color:#d6cbd9;margin-top:1.2rem}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;align-items:start}
+.gal figure{position:relative;border-radius:18px;overflow:hidden}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{position:absolute;left:.8rem;bottom:.7rem;right:.8rem;font-weight:700;font-size:.85rem;background:rgba(20,10,24,.75);padding:.35rem .6rem;border-radius:8px;width:fit-content}
+.g1{grid-column:1/6;aspect-ratio:4/3}
+.g2{grid-column:6/9;aspect-ratio:3/4;margin-top:3rem}
+.g3{grid-column:9/13;aspect-ratio:4/3}
+.g4{grid-column:2/7;aspect-ratio:16/10;margin-top:-2rem}
+.g5{grid-column:7/12;aspect-ratio:16/10;margin-top:1rem}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr}.gal figure{grid-column:auto!important;margin:0!important;aspect-ratio:1!important}.g1{grid-column:1/-1!important;aspect-ratio:16/10!important}}
+
+/* NOTES FROM CUSTOMERS: handwritten-card wall in a single scroll row */
+.notes{padding:clamp(4.5rem,10vw,7.5rem) 0}
+.notes .top{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.notes .top p{color:var(--muted);max-width:34ch}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--surface);border:1.5px solid #e1d6c8;border-radius:20px;padding:1.5rem}
+.card:nth-child(2){background:var(--brass);border-color:var(--brass)}
+.card:nth-child(4){background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.card blockquote{font-family:var(--display);font-size:1.45rem;line-height:1.2;font-weight:500}
+.card figcaption{margin-top:.9rem;font-weight:800;font-size:.92rem}
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+
+/* VISIT */
+.visit{background:var(--primary);color:var(--on-primary);padding:clamp(4.5rem,10vw,7rem) 0 0;overflow:hidden}
+.visit .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+.visit address{font-style:normal;font-size:1.25rem;margin:1.4rem 0}
+.visit .row{display:flex;gap:.7rem;flex-wrap:wrap}
+.box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:1.5rem 1.7rem}
+.box h3{font-size:1.7rem;margin-bottom:.6rem;color:var(--brass)}
+.box p{color:#ddd2e1}
+.box a{color:var(--brass);font-weight:700}
+.big{display:block;text-align:center;text-decoration:none;font-family:var(--display);font-weight:600;font-size:clamp(3rem,12.5vw,11.5rem);line-height:1;color:var(--brass);margin-top:clamp(3rem,7vw,5rem);white-space:nowrap;padding-bottom:.1em}
+@media (max-width:860px){.visit .grid{grid-template-columns:1fr}}
+footer{background:#140c17;color:#bfb2c4;font-size:.88rem;padding:1.6rem 0 2rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:var(--brass)}
+
+.callbar{display:none}
+@media (max-width:720px){
+  body{padding-bottom:72px}
+  .callbar{display:flex;gap:.5rem;position:fixed;left:.6rem;right:.6rem;bottom:.6rem;z-index:50;background:#140c17;border-radius:999px;padding:.4rem;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+  .callbar a{flex:1;text-align:center;text-decoration:none;font-weight:800;padding:.75rem;border-radius:999px;color:#fff}
+  .callbar a.call{background:var(--brass);color:var(--on-accent)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html.js .mask>span,html.js .rv{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Granlund Woodwind Repair site. <a href="https://granlundwoodwind.com/" rel="noopener">See their real site</a></div>
+
+<header class="hero">
+  <div class="bg"><img src="img/bell.jpg" alt="Engraved saxophone bell on the Granlund workbench" width="900" height="1200"></div>
+  <div class="pill">
+    <a class="name" href="#top">Granlund Woodwind</a>
+    <nav aria-label="Main"><a href="#services">Repairs</a><a href="#pads">Overhauls</a><a href="#life">Gallery</a><a href="#visit">Visit</a></nav>
+    <a class="btn" href="tel:+12064489627">(206) 448-9627</a>
+  </div>
+  <div class="copy wrap" id="top">
+    <h1><span class="mask"><span>Horns,</span></span><span class="mask"><span><em>brought back.</em></span></span></h1>
+    <p class="lede">Saxophone and clarinet repair, adjustments and full overhauls from Scott Granlund, a working Seattle saxophonist who keeps the city's horns tight.</p>
+    <div class="ctas">
+      <a class="btn" href="tel:+12064489627">Call to book</a>
+      <a class="btn line" href="mailto:scott@granlundwoodwind.com">Email Scott</a>
+    </div>
+    <p class="appt">Mon–Fri, 10am–6pm, by appointment</p>
+  </div>
+</header>
+
+<div class="makes" aria-hidden="true"><div class="track">
+  <span>Selmer</span><span>Buffet Crampon</span><span>Conn</span><span>Buescher</span><span>King</span><span>Yamaha</span><span>Yanagisawa</span><span>Keilwerth</span><span>Leblanc</span><span>Amati</span><span>Bundy</span>
+  <span>Selmer</span><span>Buffet Crampon</span><span>Conn</span><span>Buescher</span><span>King</span><span>Yamaha</span><span>Yanagisawa</span><span>Keilwerth</span><span>Leblanc</span><span>Amati</span><span>Bundy</span>
+</div></div>
+
+<main>
+<section class="scott" aria-labelledby="sc-h">
+  <div class="wrap">
+    <h2 id="sc-h"><span class="mask"><span>Repaired by someone</span></span><span class="mask"><span><em>who plays.</em></span></span></h2>
+    <p class="rv">Scott Granlund was born in Port Angeles in 1959. He performs regularly with La Banda Gozona, the Northstar Saxophone Quartet and orchestras and chamber ensembles around Seattle, and has played most sizes of saxophone, from the tiny sopranino to the mighty basso.</p>
+    <div class="creds rv"><span>Recorded with David Byrne</span><span>Soundgarden</span><span>Black Cat Orchestra</span><span>Sigurd Raschèr workshop alum</span></div>
+  </div>
+</section>
+
+<section class="svc" id="services" aria-labelledby="sv-h">
+  <div class="wrap grid">
+    <div class="stick rv">
+      <img src="img/body.jpg" alt="A silver saxophone body with pads removed during an overhaul" width="1200" height="797">
+      <p>A family's 1913 C melody, mid-overhaul.</p>
+    </div>
+    <div>
+      <h2 id="sv-h"><span class="mask"><span>What comes</span></span><span class="mask"><span><em>through the door.</em></span></span></h2>
+      <ul>
+        <li class="rv"><h3>Repairs &amp; adjustments <small>SAX · CLARINET</small></h3><p>Leaks, sticky pads, bent keys, cracks pinned so well you can't find them.</p></li>
+        <li class="rv"><h3>Overhauls <small>YOUR CHOICE OF PADS</small></h3><p>Full re-pads with brown goat skin or white kangaroo, and a few other choices along the way.</p></li>
+        <li class="rv"><h3>Mouthpiece extensions <small>CUSTOM</small></h3><p>Newer mouthpiece on an older sax and it goes sharp halfway on the neck? An extension fixes that.</p></li>
+        <li class="rv"><h3>Rentals &amp; lessons <small>CLARINET · SAX</small></h3><p>Clarinets for rent, plus lessons on clarinet and saxophone.</p></li>
+        <li class="rv"><h3>Horns &amp; mouthpieces for sale <small>UPDATED LIST</small></h3><p>Saxophones, clarinets and mouthpieces Scott has gone through himself. <span class="ph">link live sale list</span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="pads" id="pads" aria-labelledby="pa-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="pa-h"><span class="mask"><span>Pick your</span></span><span class="mask"><span><em>pads.</em></span></span></h2>
+      <p class="lead rv">Every sax overhaul starts with a choice. Here are the two Scott keeps in stock.</p>
+      <div class="toggle rv" role="group" aria-label="Pad type">
+        <button aria-pressed="true" data-p="goat">Brown goat skin</button>
+        <button aria-pressed="false" data-p="roo">White kangaroo</button>
+      </div>
+      <div class="padcard" id="goat">
+        <h3>Brown goat skin</h3>
+        <p>The industry standard saxophone pad. The one in stock has a medium-firm felt and a natural brown leather skin that isn't as sticky as the "beauty" Italian shoe-leather pads horn makers use.</p>
+      </div>
+      <div class="padcard" id="roo" hidden>
+        <h3>White kangaroo</h3>
+        <p>Thin and quite firm, so they respond quickly and crisply, and they're the least likely to stick to the tone hole. Kangaroo leather's durability can't be matched: these pads don't tear and last a very long time.</p>
+        <span class="cost">About 1/3 more than brown</span>
+      </div>
+    </div>
+    <figure class="rv"><img src="img/pads.jpg" alt="New saxophone pads laid out by size on the bench" width="1200" height="900"><figcaption>Pads sized out for a low-A Selmer baritone.</figcaption></figure>
+  </div>
+</section>
+
+<section class="life" id="life" aria-labelledby="li-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="li-h"><span class="mask"><span>Back in service.</span></span></h2>
+      <p class="rv">A rare low-A Selmer baritone, a family's 1913 C melody, a Pan American soprano that came back to life. A few from the bench.</p>
+    </div>
+    <div class="gal">
+      <figure class="g1 rv"><img src="img/gold.jpg" alt="Restored gold lacquer saxophone resting on a red chair" width="1200" height="900"><figcaption>Selmer low-A bari</figcaption></figure>
+      <figure class="g2 rv"><img src="img/rods.jpg" alt="Key rods lined up on a board labeled Conn C melody" width="800" height="1200"><figcaption>C melody keywork</figcaption></figure>
+      <figure class="g3 rv"><img src="img/cased.jpg" alt="Soprano saxophone in a purple velvet case with keys and pads" width="1200" height="900"><figcaption>Pan American soprano</figcaption></figure>
+      <figure class="g4 rv"><img src="img/cup.jpg" alt="Close-up of a key cup during repair" width="1200" height="900"><figcaption>Key cup, before</figcaption></figure>
+      <figure class="g5 rv"><img src="img/bench.jpg" alt="Baritone saxophone body on the cluttered repair bench" width="1200" height="900"><figcaption>On the bench</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="notes" aria-labelledby="no-h">
+  <div class="wrap">
+    <div class="top">
+      <h2 id="no-h"><span class="mask"><span>A few comments</span></span><span class="mask"><span><em>from customers.</em></span></span></h2>
+      <p class="rv">Straight from the notes and cards people send back with their horns.</p>
+    </div>
+    <div class="cards">
+      <figure class="card rv"><blockquote>"I can find no evidence of a crack or of nine pins. You are definitely skilled my friend."</blockquote><figcaption>John</figcaption></figure>
+      <figure class="card rv"><blockquote>"Thanks for keeping my horns tight!"</blockquote><figcaption>Steve Berlin</figcaption></figure>
+      <figure class="card rv"><blockquote>"Thing sounds like a young stallion instead of old mare."</blockquote><figcaption>Wally Shoup</figcaption></figure>
+      <figure class="card rv"><blockquote>"Thanks for all the great repairs and adjustments over the years. You've been patient and creative when dealing with my fussiness! Bravo!"</blockquote><figcaption>Sean Osborn</figcaption></figure>
+      <figure class="card rv"><blockquote>"Thank you! It is (bass clarinet) wonderful!"</blockquote><figcaption>Larey McDaniel</figcaption></figure>
+      <figure class="card rv"><blockquote>"Your improvements were great! My thumb is much happier!!"</blockquote><figcaption>Bill Smith</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="vi-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="vi-h"><span class="mask"><span>Bring it by</span></span><span class="mask"><span><em>the shop.</em></span></span></h2>
+      <address>8612 Wabash Avenue South<br>Seattle, WA 98118</address>
+      <div class="row">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=8612+Wabash+Ave+S+Seattle+WA+98118" rel="noopener">Open in Maps</a>
+        <a class="btn line" href="https://www.facebook.com/pages/Granlund-Woodwind-Repair/101542073297" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="box rv">
+      <h3>By appointment</h3>
+      <p>Monday to Friday, 10am to 6pm. Call or email first so Scott's at the bench when you arrive.</p>
+      <p style="margin-top:.8rem"><a href="mailto:scott@granlundwoodwind.com">scott@granlundwoodwind.com</a></p>
+    </div>
+  </div>
+  <a class="big" href="tel:+12064489627">206·448·9627</a>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Granlund Woodwind Repair · 8612 Wabash Ave S, Seattle, WA 98118</span>
+    <span>Concept redesign by Theo, not the official site. Photos and notes from <a href="https://granlundwoodwind.com/" rel="noopener">granlundwoodwind.com</a>.</span>
+  </div>
+</footer>
+
+<div class="callbar"><a class="call" href="tel:+12064489627">Call Scott</a><a href="#visit">Visit</a></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+  document.querySelectorAll('.rv, .mask').forEach(el => io.observe(el));
+  const btns = document.querySelectorAll('.toggle button');
+  btns.forEach(b => b.addEventListener('click', () => btns.forEach(x => { const on = x === b; x.setAttribute('aria-pressed', on); document.getElementById(x.dataset.p).hidden = !on; })));
+  const bg = document.querySelector('.hero .bg img');
+  if (!reduce) addEventListener('scroll', () => { if (scrollY < 1000) bg.style.transform = `translateY(${scrollY * .2}px)`; }, {passive:true});
+})();
+</script>
+</body>
+</html>
