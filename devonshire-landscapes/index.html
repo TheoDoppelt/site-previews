@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devonshire Landscapes: Website Concept</title>
+<meta name="description" content="West Seattle's favorite landscapers since 1999. Design, installation, maintenance and irrigation for West Seattle, Burien, Normandy Park and Des Moines.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Devonshire Landscapes: Website Concept">
+<meta property="og:description" content="A concept redesign for Devonshire Landscapes, West Seattle.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/devonshire-landscapes/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Palette from their shield logo: deep fir green, fresh lawn green, paver stone, warm cream, porch-light amber */
+:root{
+  --bg:#f4f1e9; --surface:#fbf9f4; --ink:#17231a; --muted:#56625a;
+  --primary:#1f4a2c; --leaf:#5c9a3a; --stone:#cfc6b4; --accent:#e9b04a; --on-primary:#f4f1e9; --on-accent:#17231a;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Outfit",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.05rem;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+.ph{background:#ffe27a;color:var(--ink);padding:0 .25em;border-radius:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.98;letter-spacing:-.02em}
+h2{font-size:clamp(2.6rem,6vw,5.2rem)}
+h1 em,h2 em{color:var(--leaf)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--on-accent);padding:.95rem 1.5rem;border-radius:999px;text-decoration:none;font-weight:700;transition:background .2s}
+.btn:hover{background:#f2c36c}
+.btn.green{background:var(--primary);color:var(--on-primary)}
+.btn.line{background:transparent;color:inherit;border:1.5px solid currentColor}
+
+.preview{position:relative;z-index:5;background:var(--primary);color:#dfe8de;font-size:.85rem;text-align:center;padding:.5rem 1rem}
+.preview a{color:var(--accent);font-weight:700}
+
+/* HERO stays pinned; every section after it slides over the night-lit garden */
+.hero{position:sticky;top:0;height:100vh;min-height:620px;color:#fff;overflow:hidden;z-index:0}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,12,.55) 0%,rgba(10,20,12,.1) 35%,rgba(10,20,12,.85) 100%)}
+.pill{position:absolute;z-index:3;top:1.1rem;left:50%;transform:translateX(-50%);width:min(1200px,100% - 2rem);display:flex;justify-content:space-between;align-items:center;gap:1rem;background:rgba(251,249,244,.94);color:var(--ink);border-radius:999px;padding:.4rem .45rem .4rem 1rem}
+.pill img{height:40px;width:auto}
+.pill nav{display:flex;gap:1.6rem;font-weight:500}
+.pill nav a{text-decoration:none}
+.pill nav a:hover{color:var(--leaf)}
+.pill .btn{padding:.6rem 1.1rem}
+@media (max-width:860px){.pill nav{display:none}}
+.hero .copy{position:absolute;z-index:2;left:0;right:0;bottom:clamp(2.5rem,8vh,5rem)}
+.hero h1{font-size:clamp(3.4rem,9vw,8.6rem);max-width:11ch}
+.hero h1 em{color:#bfe39b;font-style:italic}
+.hero p.lede{max-width:44ch;margin:1.2rem 0 1.6rem;font-size:1.15rem;color:#e7eee4}
+.ctas{display:flex;gap:.7rem;flex-wrap:wrap}
+.area{margin-top:1.2rem;font-weight:500;color:#dfe8de;font-size:.95rem}
+
+.over{position:relative;z-index:1}
+.mask{display:block;overflow:hidden;padding-bottom:.08em}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(108%);transition:transform .9s var(--ease)}
+html.js .mask.in>span{transform:none}
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+
+/* STORY: cream sheet slides up with rounded top */
+.story{background:var(--bg);border-radius:32px 32px 0 0;padding:clamp(4.5rem,10vw,7.5rem) 0;box-shadow:0 -30px 60px -30px rgba(0,0,0,.5)}
+.story .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.story p{color:var(--muted);margin-top:1.2rem;max-width:46ch;font-size:1.1rem}
+.story figure img{border-radius:24px;width:100%;aspect-ratio:4/3;object-fit:cover}
+.story figcaption{font-size:.9rem;color:var(--muted);margin-top:.7rem}
+.stats{display:flex;gap:2.4rem;margin-top:2rem;flex-wrap:wrap}
+.stats b{display:block;font-family:var(--display);font-size:clamp(2.6rem,5vw,3.6rem);line-height:1;color:var(--primary)}
+.stats span{font-size:.9rem;color:var(--muted)}
+@media (max-width:860px){.story .grid{grid-template-columns:1fr}}
+
+/* SERVICES: four stacked rows, each with its own photo */
+.svc{background:var(--primary);color:var(--on-primary);padding:clamp(4.5rem,10vw,7.5rem) 0}
+.svc .head{max-width:760px;margin-bottom:3rem}
+.svc .head p{color:#cddccd;margin-top:1.2rem;max-width:52ch}
+.svc h2 em{color:#bfe39b}
+.row{display:grid;grid-template-columns:5rem 1fr 1fr;gap:clamp(1rem,3vw,2.5rem);align-items:center;padding:2rem 0;border-top:1px solid rgba(255,255,255,.16)}
+.row:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.row .n{font-family:var(--display);font-style:italic;font-size:1.6rem;color:var(--accent)}
+.row h3{font-size:clamp(2rem,4vw,3rem)}
+.row p{color:#cddccd;margin-top:.6rem}
+.row img{border-radius:18px;aspect-ratio:16/9;object-fit:cover;width:100%}
+.row .who{display:inline-block;margin-top:.9rem;font-weight:700;color:var(--accent)}
+@media (max-width:860px){.row{grid-template-columns:1fr}.row .n{display:none}}
+
+/* AREA CHECK: their real service ZIPs */
+.check{background:var(--bg);padding:clamp(4.5rem,10vw,7.5rem) 0}
+.check .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.check p.lead{color:var(--muted);margin-top:1.2rem;max-width:42ch}
+.zipbox{background:var(--surface);border:1.5px solid #ddd6c6;border-radius:24px;padding:clamp(1.4rem,3vw,2rem)}
+.zipbox label{font-weight:700;display:block;margin-bottom:.6rem}
+.zipin{display:flex;gap:.6rem}
+.zipin input{flex:1;min-width:0;font:inherit;font-size:1.5rem;font-family:var(--display);padding:.6rem 1rem;border:1.5px solid var(--ink);border-radius:14px;background:#fff;letter-spacing:.08em}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.chips button{font:inherit;font-size:.85rem;font-weight:500;border:1px solid #cfc6b4;background:transparent;border-radius:999px;padding:.3rem .7rem;cursor:pointer}
+.result{margin-top:1.4rem;border-radius:16px;padding:1.2rem 1.3rem;background:#ece7da;min-height:6.5rem}
+.result.yes{background:#e3efd9}
+.result.no{background:#f4e3d6}
+.result b{display:block;font-family:var(--display);font-size:1.6rem;font-weight:600;margin-bottom:.3rem}
+.result a{color:var(--primary);font-weight:700}
+@media (max-width:860px){.check .grid{grid-template-columns:minmax(0,1fr)}.check h2{font-size:clamp(2.2rem,10vw,3rem)}}
+
+/* WORK: mixed bento */
+.work{background:var(--surface);padding:clamp(4.5rem,10vw,7.5rem) 0;border-top:1.5px solid #e2dccd}
+.work .top{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.work .top p{max-width:36ch;color:var(--muted)}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:1rem}
+.bento figure{border-radius:20px;overflow:hidden;position:relative}
+.bento img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.bento figure:hover img{transform:scale(1.04)}
+.b1{grid-column:span 2;grid-row:span 2}.b2{grid-column:span 2}.b3{grid-column:span 1}.b4{grid-column:span 1}
+.quote{background:var(--primary);color:#fff;border-radius:20px;padding:1.6rem;grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between}
+.quote blockquote{font-family:var(--display);font-size:1.45rem;line-height:1.25}
+.quote cite{font-style:normal;font-weight:700;color:var(--accent);margin-top:1rem}
+@media (max-width:860px){.bento{grid-template-columns:1fr 1fr;grid-auto-rows:180px}.b1,.b2,.quote{grid-column:span 2}}
+
+/* CREDENTIALS strip + CONTACT */
+.creds{background:var(--bg);padding:2.4rem 0;border-block:1.5px solid #e2dccd}
+.creds .wrap{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.creds span{border:1.5px solid var(--primary);color:var(--primary);border-radius:999px;padding:.45rem .95rem;font-weight:700;font-size:.92rem}
+.contact{background:var(--primary);color:var(--on-primary);padding:clamp(4.5rem,10vw,7rem) 0 0;overflow:hidden}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.contact h2 em{color:#bfe39b}
+.contact p{color:#cddccd;margin-top:1.2rem;max-width:42ch}
+.people{display:grid;gap:.8rem}
+.person{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:1.1rem 1.3rem;display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}
+.person b{display:block;font-family:var(--display);font-size:1.35rem;font-weight:600}
+.person span{color:#cddccd;font-size:.92rem}
+.person a{color:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+@media (max-width:860px){.contact .grid{grid-template-columns:1fr}}
+.giant{font-family:var(--display);font-style:italic;font-size:clamp(4rem,15vw,14rem);line-height:.85;text-align:center;color:rgba(191,227,155,.9);margin-top:clamp(3rem,7vw,5rem);white-space:nowrap}
+footer{background:#132e1b;color:#b5c6b6;font-size:.86rem;padding:1.6rem 0 2rem;position:relative;z-index:1}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:var(--accent)}
+
+.callbar{display:none}
+@media (max-width:720px){
+  body{padding-bottom:72px}
+  .callbar{display:flex;gap:.5rem;position:fixed;left:.6rem;right:.6rem;bottom:.6rem;z-index:50;background:var(--primary);border-radius:999px;padding:.4rem;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+  .callbar a{flex:1;text-align:center;text-decoration:none;font-weight:700;padding:.75rem;border-radius:999px;color:#fff}
+  .callbar a.call{background:var(--accent);color:var(--on-accent)}
+  .hero{height:92vh}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html.js .mask>span,html.js .rv{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Devonshire Landscapes site. <a href="https://devonshirelandscapes.com/" rel="noopener">See their real site</a></div>
+
+<header class="hero">
+  <img class="bg" src="img/night.jpg" alt="A West Seattle backyard with low-voltage path lighting and grasses at night" width="1200" height="675">
+  <div class="pill">
+    <a href="#top" aria-label="Devonshire Landscapes home"><img src="img/logo.png" alt="Devonshire Landscapes" width="500" height="185"></a>
+    <nav aria-label="Main"><a href="#services">Services</a><a href="#check">Service area</a><a href="#work">Our work</a><a href="#contact">Contact</a></nav>
+    <a class="btn green" href="#check">Get a quote</a>
+  </div>
+  <div class="copy wrap" id="top">
+    <h1>West Seattle's <em>favorite</em> landscapers.</h1>
+    <p class="lede">Design, installation, maintenance and irrigation from a full-time crew that takes pride in the neighborhoods it works in. Since 1999.</p>
+    <div class="ctas"><a class="btn" href="#check">Check your ZIP</a><a class="btn line" href="#work">See our work</a></div>
+    <p class="area">Exclusively serving West Seattle, Burien, Normandy Park &amp; Des Moines</p>
+  </div>
+</header>
+
+<main class="over">
+<section class="story" aria-labelledby="st-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="st-h"><span class="mask"><span>A pick-up truck and</span></span><span class="mask"><span><em>a donated mower.</em></span></span></h2>
+      <p class="rv">That's how Will Anstey started Devonshire in 1999, after landscaping around Seattle since 1993. He's lived in the Puget Ridge neighborhood since 2001. Today he's certified in landscape installation, paving, permeable paving, retaining walls and Eco-Pro, and he credits the company's success to customer service and the people on his crews.</p>
+      <div class="stats rv">
+        <div><b>1999</b><span>founded in West Seattle</span></div>
+        <div><b>275+</b><span>maintenance clients</span></div>
+        <div><b>134</b><span>Google reviews</span></div>
+      </div>
+    </div>
+    <figure class="rv"><img src="img/crew.jpg" alt="The Devonshire Landscapes crew in green uniforms in front of their trucks" width="1200" height="900"><figcaption>"We are our employees!" Every crew has an English-speaking lead who talks with you directly.</figcaption></figure>
+  </div>
+</section>
+
+<section class="svc" id="services" aria-labelledby="sv-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="sv-h"><span class="mask"><span>From the first sketch</span></span><span class="mask"><span>to <em>every visit after.</em></span></span></h2>
+      <p class="rv">Retaining walls and decks to capture unused space, fences and hedges for privacy, lawns and patios to play on, and low-maintenance plantings to enjoy all year.</p>
+    </div>
+    <div class="row rv"><span class="n">01</span><div><h3>Design</h3><p>From a low-cost simple sketch to a detailed set of drawings and elevations. We advise on the right materials for your site and taste.</p></div><img src="img/plan.jpg" alt="A Devonshire landscape design plan with planting palette" width="1200" height="900"></div>
+    <div class="row rv"><span class="n">02</span><div><h3>Installation</h3><p>Stone and woodwork by full-time craftsmen, built to keep its value for decades. They respect your property and leave it cleaner than they found it.</p><span class="who">Rick Fox manages your project start to finish</span></div><img src="img/patio.jpg" alt="New paver patio and steps up to a deck" width="1200" height="675"></div>
+    <div class="row rv"><span class="n">03</span><div><h3>Maintenance</h3><p>Reliable, environmentally friendly maintenance for over 275 mostly residential clients.</p><span class="who">Dan Vittetoe, Maintenance Manager</span></div><img src="img/garden.jpg" alt="A planted bed in bloom along a West Seattle home" width="1200" height="675"></div>
+    <div class="row rv"><span class="n">04</span><div><h3>Irrigation, drainage &amp; lighting</h3><p>Irrigation, drainage and low-voltage lighting, like the yard at the top of this page.</p></div><img src="img/irrigation.jpg" alt="Crew installing irrigation and drainage pipe" width="1200" height="675"></div>
+  </div>
+</section>
+
+<section class="check" id="check" aria-labelledby="ck-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="ck-h"><span class="mask"><span>Are you in</span></span><span class="mask"><span><em>our neighborhood?</em></span></span></h2>
+      <p class="lead rv">We stay close to home so our crews can take care of you. Type your ZIP and we'll point you to the right person.</p>
+    </div>
+    <div class="zipbox rv">
+      <label for="zip">Your ZIP code</label>
+      <div class="zipin"><input id="zip" inputmode="numeric" maxlength="5" placeholder="98116" autocomplete="postal-code"><button class="btn green" id="go">Check</button></div>
+      <div class="chips" aria-label="ZIPs we serve">
+        <button>98106</button><button>98116</button><button>98126</button><button>98136</button><button>98146</button><button>98148</button><button>98166</button><button>98168</button><button>98198</button>
+      </div>
+      <div class="result" id="res" aria-live="polite">We serve West Seattle, Burien, Normandy Park and Des Moines.</div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work" aria-labelledby="wk-h">
+  <div class="wrap">
+    <div class="top">
+      <h2 id="wk-h"><span class="mask"><span>Our work.</span></span></h2>
+      <p class="rv">A few recent yards from around the peninsula.</p>
+    </div>
+    <div class="bento">
+      <figure class="b1 rv"><img src="img/terrace.jpg" alt="Terraced block retaining walls and new lawn below a house" width="1200" height="675"></figure>
+      <figure class="b2 rv"><img src="img/patio.jpg" alt="Paver patio with steps and railing" width="1200" height="675"></figure>
+      <figure class="b3 rv"><img src="img/garden.jpg" alt="Flower bed" width="1200" height="675"></figure>
+      <figure class="b4 rv"><img src="img/night.jpg" alt="Garden lighting at night" width="1200" height="675"></figure>
+      <div class="quote rv"><blockquote>"This is an honest group that is enjoyable to work with. They clearly take pride in their work and the neighborhoods they work in."</blockquote><cite>Derek, Endolyne</cite></div>
+    </div>
+  </div>
+</section>
+
+<div class="creds over"><div class="wrap">
+  <span>Landscape Industry Certified</span><span>EcoPro Certified Sustainable</span><span>WALP member</span><span>Master Builders Association</span><span>Yelp 5 stars</span><span>Google 5 stars</span>
+</div></div>
+
+<section class="contact" id="contact" aria-labelledby="co-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="co-h"><span class="mask"><span>Talk to the</span></span><span class="mask"><span><em>right person.</em></span></span></h2>
+      <p class="rv">Each part of the business has its own manager, so your question goes straight to someone who can answer it. Online requests get a reply within about two business days.</p>
+      <div class="ctas rv" style="margin-top:1.6rem"><a class="btn" href="https://devonshirelandscapes.com/contact/" rel="noopener">Request a quote</a><a class="btn line" href="https://www.instagram.com/devonshirelandscapes/" rel="noopener">Instagram</a></div>
+    </div>
+    <div class="people rv">
+      <div class="person"><div><b>Dan Vittetoe</b><span>Maintenance</span></div><a href="tel:+12068513885">206.851.3885</a></div>
+      <div class="person"><div><b>Rick Fox</b><span>Installation</span></div><a href="tel:+12069495491">206.949.5491</a></div>
+      <div class="person"><div><b>Will Anstey</b><span>Owner · administration &amp; billing</span></div><a href="tel:+12068563360">206.856.3360</a></div>
+    </div>
+  </div>
+  <div class="giant" aria-hidden="true">Devonshire</div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Devonshire Landscapes Inc · West Seattle, Burien, Normandy Park &amp; Des Moines</span>
+    <span>Concept redesign by Theo, not the official site. Logo, photos and text from <a href="https://devonshirelandscapes.com/" rel="noopener">devonshirelandscapes.com</a>.</span>
+  </div>
+</footer>
+
+<div class="callbar"><a class="call" href="#check">Get a quote</a><a href="tel:+12068513885">Call</a></div>
+
+<script>
+(() => {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.rv, .mask').forEach(el => io.observe(el));
+
+  // service-area ZIP check (ZIPs from their own contact form)
+  const Z = {'98106':'West Seattle','98116':'West Seattle','98126':'West Seattle','98136':'West Seattle','98146':'White Center / Burien','98148':'Burien','98166':'Burien / Normandy Park','98168':'Burien','98198':'Des Moines'};
+  const zip = document.getElementById('zip'), res = document.getElementById('res');
+  const check = () => {
+    const v = zip.value.trim();
+    if (!/^\d{5}$/.test(v)) { res.className = 'result'; res.textContent = 'Enter a 5-digit ZIP.'; return; }
+    if (Z[v]) { res.className = 'result yes'; res.innerHTML = `<b>Yes, we serve ${Z[v]}.</b>Maintenance: <a href="tel:+12068513885">call Dan</a>. Design or a new install: <a href="tel:+12069495491">call Rick</a>.`; }
+    else { res.className = 'result no'; res.innerHTML = `<b>Sorry, ${v} is outside our area.</b>We only serve West Seattle, Burien, Des Moines and Normandy Park so our crews stay close to home.`; }
+  };
+  document.getElementById('go').addEventListener('click', check);
+  zip.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+  document.querySelectorAll('.chips button').forEach(b => b.addEventListener('click', () => { zip.value = b.textContent; check(); }));
+})();
+</script>
+</body>
+</html>
