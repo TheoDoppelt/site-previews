@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Condor Electronics: Website Concept</title>
+<meta name="description" content="Pro audio repair on Aurora Ave N, Seattle: guitar amps, synths, mixers, DJ gear, tape machines and hi-fi. Factory authorized warranty service for Marshall, Roland, KORG, Nord, Yamaha and more.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Condor Electronics: Website Concept">
+<meta property="og:description" content="A concept redesign for Condor Electronics, Seattle.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/condor-electronics/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* Condor palette: amp tolex black, logo white, VU-meter amber, signal-light red */
+:root{
+  --bg:#0f0f10; --surface:#1a1a1c; --ink:#f2efe8; --muted:#a5a19a;
+  --primary:#f2efe8; --accent:#ffb21a; --red:#ff4d3a; --on-primary:#0f0f10; --on-accent:#0f0f10;
+  --paper:#f2efe8; --paper-ink:#121213; --paper-muted:#5b5853;
+  --display:"Anton",Impact,"Arial Narrow",sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.04rem;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:min(1220px,100% - 2.5rem);margin-inline:auto}
+.ph{background:#ffe27a;color:#111;padding:0 .25em;border-radius:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.92;text-transform:uppercase;letter-spacing:.005em}
+h2{font-size:clamp(3rem,8vw,7rem)}
+h2 em,h1 em{font-style:normal;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--on-accent);padding:.95rem 1.5rem;border-radius:6px;text-decoration:none;font-weight:700;transition:background .2s}
+.btn:hover{background:#ffc34f}
+.btn.line{background:transparent;color:inherit;border:1.5px solid currentColor}
+
+.preview{background:var(--accent);color:#111;font-size:.85rem;text-align:center;padding:.5rem 1rem}
+.preview a{font-weight:700}
+
+.nav{border-bottom:1px solid #2a2a2d}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:78px;gap:1rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;font-family:var(--display);font-size:1.4rem;letter-spacing:.04em}
+.brand img{height:46px;width:auto}
+.nav nav{display:flex;gap:1.8rem;font-weight:500}
+.nav nav a{text-decoration:none;color:#d8d4cc}
+.nav nav a:hover{color:var(--accent)}
+@media (max-width:860px){.nav nav{display:none}}
+
+/* HERO: giant condensed type, VU meter needle reacts to scroll */
+.hero{padding:clamp(3rem,8vw,6rem) 0 clamp(3.5rem,8vw,6rem);position:relative;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:clamp(2rem,5vw,4rem);align-items:end}
+.hero h1{font-size:clamp(3.6rem,8.6vw,8.6rem)}
+.hero p.lede{max-width:44ch;margin:1.6rem 0 1.8rem;color:#cfcac2;font-size:1.15rem}
+.ctas{display:flex;gap:.7rem;flex-wrap:wrap}
+.vu{width:100%;min-width:280px;max-width:440px;justify-self:end;background:#e9e1cc;border-radius:14px;padding:1.2rem 1.2rem .9rem;color:#2a2620;box-shadow:inset 0 0 0 6px #1d1d1f,0 30px 60px -30px rgba(0,0,0,.8)}
+.vu svg{width:100%;height:auto;display:block}
+.vu .lbl{display:flex;justify-content:space-between;font-weight:700;font-size:.8rem;margin-top:.4rem}
+.vu .lbl b{color:var(--red)}
+@media (max-width:860px){.hero .grid{grid-template-columns:1fr}.vu{max-width:340px;justify-self:start}}
+
+.mask{display:block;overflow:hidden;padding-bottom:.04em}
+.mask>span{display:block}
+html.js .mask>span{transform:translateY(108%);transition:transform .9s var(--ease)}
+html.js .mask.in>span{transform:none}
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+
+/* BRANDS marquee */
+.brands{border-block:1px solid #2a2a2d;overflow:hidden;white-space:nowrap;background:var(--surface)}
+.brands .track{display:inline-flex;gap:2.8rem;padding:1rem 0;font-family:var(--display);font-size:1.7rem;text-transform:uppercase;color:#d8d4cc;animation:mq 70s linear infinite}
+.brands .track span:nth-child(5n+1){color:var(--accent)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* WHAT WE SERVICE: light paper band, gear list as big wrapping words */
+.gear{background:var(--paper);color:var(--paper-ink);padding:clamp(4.5rem,10vw,7.5rem) 0}
+.gear .head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:2.6rem}
+.gear .head p{color:var(--paper-muted);max-width:44ch}
+.gear h2 em{color:#c8810a}
+.words{display:flex;flex-wrap:wrap;gap:.2rem 1.4rem;font-family:var(--display);text-transform:uppercase;font-size:clamp(2rem,4.6vw,3.8rem);line-height:1.05}
+.words span{transition:color .2s}
+.words span:hover{color:#c8810a}
+.words span::after{content:" /";color:#bdb6aa}
+.words span:last-child::after{content:""}
+@media (max-width:760px){.gear .head{grid-template-columns:1fr}}
+
+/* DROP-OFF CALCULATOR: their real deposit policy */
+.calc{padding:clamp(4.5rem,10vw,7.5rem) 0}
+.calc .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.calc p.lead{color:var(--muted);margin-top:1.2rem;max-width:44ch}
+.panel{background:var(--surface);border:1px solid #2c2c30;border-radius:18px;padding:clamp(1.4rem,3vw,2rem)}
+.panel fieldset{border:0;margin-bottom:1.4rem}
+.panel legend{font-weight:700;margin-bottom:.7rem}
+.opts{display:grid;gap:.5rem}
+.opt{display:flex;gap:.8rem;align-items:center;background:#232326;border:1.5px solid #333338;border-radius:10px;padding:.8rem 1rem;cursor:pointer}
+.opt:has(input:checked){border-color:var(--accent);background:#2b2618}
+.opt input{accent-color:var(--accent);width:1.1rem;height:1.1rem}
+.opt small{display:block;color:var(--muted);font-size:.85rem}
+.total{display:flex;justify-content:space-between;align-items:end;border-top:1px solid #333338;padding-top:1.2rem;gap:1rem}
+.total b{font-family:var(--display);font-size:clamp(3.2rem,7vw,5rem);color:var(--accent);line-height:.9}
+.total span{color:var(--muted);font-size:.92rem;max-width:26ch}
+.rules{list-style:none;margin-top:2rem;display:grid;gap:1rem}
+.rules li{border-left:3px solid var(--accent);padding-left:1rem;color:#d8d4cc}
+.rules b{color:#fff}
+@media (max-width:860px){.calc .grid{grid-template-columns:1fr}}
+
+/* WARRANTY: red band with brands wall */
+.warranty{background:var(--red);color:#120806;padding:clamp(4.5rem,10vw,7rem) 0}
+.warranty .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.warranty p{margin-top:1.2rem;max-width:40ch;font-size:1.1rem}
+.wall{display:flex;flex-wrap:wrap;gap:.45rem}
+.wall span{background:#120806;color:#fff;border-radius:6px;padding:.4rem .75rem;font-weight:700;font-size:.92rem}
+@media (max-width:860px){.warranty .grid{grid-template-columns:1fr}}
+
+/* VISIT */
+.visit{padding:clamp(4.5rem,10vw,7rem) 0 0}
+.visit .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem)}
+.visit address{font-style:normal;font-size:1.3rem;margin:1.4rem 0}
+.visit .tip{background:var(--surface);border:1px solid #2c2c30;border-radius:16px;padding:1.2rem 1.4rem;color:#d8d4cc}
+.visit .tip b{color:var(--accent)}
+.hrs{list-style:none;border-top:1px solid #2c2c30}
+.hrs li{display:flex;justify-content:space-between;padding:.9rem 0;border-bottom:1px solid #2c2c30}
+.status{display:inline-flex;gap:.55rem;align-items:center;font-weight:700;margin-bottom:1rem}
+.status i{width:.62rem;height:.62rem;border-radius:50%;background:#55555a}
+.status.open i{background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.25)}
+.row{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.4rem}
+@media (max-width:860px){.visit .grid{grid-template-columns:1fr}}
+.big{display:block;text-align:center;text-decoration:none;font-family:var(--display);font-size:clamp(4rem,17vw,16rem);line-height:1;color:var(--accent);margin-top:clamp(3rem,7vw,5rem);white-space:nowrap;letter-spacing:.01em}
+footer{border-top:1px solid #2a2a2d;color:#8d8982;font-size:.86rem;padding:1.6rem 0 2rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:var(--accent)}
+
+.callbar{display:none}
+@media (max-width:720px){
+  body{padding-bottom:72px}
+  .callbar{display:flex;gap:.5rem;position:fixed;left:.6rem;right:.6rem;bottom:.6rem;z-index:50;background:#1d1d1f;border:1px solid #333;border-radius:10px;padding:.4rem}
+  .callbar a{flex:1;text-align:center;text-decoration:none;font-weight:700;padding:.75rem;border-radius:7px;color:#fff}
+  .callbar a.call{background:var(--accent);color:#111}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html.js .mask>span,html.js .rv{transform:none;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Condor Electronics site. <a href="https://www.condor-electronics.com/" rel="noopener">See their real site</a></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/logo-white.png" alt="" width="195" height="138">Condor</a>
+    <nav aria-label="Main"><a href="#gear">What we fix</a><a href="#calc">Drop-off</a><a href="#warranty">Warranty</a><a href="#visit">Visit</a></nav>
+    <a class="btn" href="tel:+12066335190">206-633-5190</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap grid">
+    <div>
+      <h1 id="h1"><span class="mask"><span>Audio repair</span></span><span class="mask"><span><em>excellence</em></span></span><span class="mask"><span>defined.</span></span></h1>
+      <p class="lede rv">Specialized repair for professional audio electronics, from guitar amps and synths to tape machines and home hi-fi, on Aurora Ave N.</p>
+      <div class="ctas rv"><a class="btn" href="#calc">What drop-off costs</a><a class="btn line" href="tel:+12066335190">Call the bench</a></div>
+    </div>
+    <div class="vu rv" aria-hidden="true">
+      <svg viewBox="0 0 300 160">
+        <path d="M30 140 A120 120 0 0 1 270 140" fill="none" stroke="#2a2620" stroke-width="2"/>
+        <path d="M210 52 A120 120 0 0 1 270 140" fill="none" stroke="#ff4d3a" stroke-width="7"/>
+        <g font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="#2a2620" text-anchor="middle">
+          <text x="42" y="112">-20</text><text x="80" y="62">-10</text><text x="150" y="36">-3</text><text x="208" y="44">0</text><text x="258" y="100" fill="#ff4d3a">+3</text>
+        </g>
+        <text x="150" y="118" font-family="Anton,sans-serif" font-size="22" text-anchor="middle" fill="#2a2620">VU</text>
+        <line id="needle" x1="150" y1="150" x2="150" y2="34" stroke="#121213" stroke-width="3" stroke-linecap="round" style="transform-origin:150px 150px;transform:rotate(-50deg);transition:transform .25s var(--ease)"/>
+        <circle cx="150" cy="150" r="9" fill="#121213"/>
+      </svg>
+      <div class="lbl"><span>CONDOR</span><b>PEAK</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="brands" aria-hidden="true"><div class="track">
+  <span>Marshall</span><span>Roland</span><span>KORG</span><span>Nord</span><span>Yamaha</span><span>Mackie</span><span>Allen &amp; Heath</span><span>Pioneer DJ</span><span>Ampeg</span><span>Vox</span><span>Line 6</span><span>Focusrite</span><span>Tascam</span><span>Soldano</span><span>Friedman</span>
+  <span>Marshall</span><span>Roland</span><span>KORG</span><span>Nord</span><span>Yamaha</span><span>Mackie</span><span>Allen &amp; Heath</span><span>Pioneer DJ</span><span>Ampeg</span><span>Vox</span><span>Line 6</span><span>Focusrite</span><span>Tascam</span><span>Soldano</span><span>Friedman</span>
+</div></div>
+
+<section class="gear" id="gear" aria-labelledby="ge-h">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="ge-h"><span class="mask"><span>If it makes</span></span><span class="mask"><span><em>sound,</em> bring it.</span></span></h2>
+      <p class="rv">Our team is skilled in high-quality diagnostics, so we can service a wide range of gear efficiently.</p>
+    </div>
+    <p class="words rv"><span>Guitar amplifiers</span><span>Powered speakers</span><span>DJ controllers</span><span>Keyboards</span><span>Synthesizers</span><span>Studio effects</span><span>Tape machines</span><span>Mixers</span><span>Stereo amplifiers</span><span>Home hi-fi</span><span>And much more</span></p>
+  </div>
+</section>
+
+<section class="calc" id="calc" aria-labelledby="ca-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="ca-h"><span class="mask"><span>Know what</span></span><span class="mask"><span>to bring <em>in.</em></span></span></h2>
+      <p class="lead rv">Every item needs a deposit at drop-off, and it covers the first block of bench time. If it's a simple fix, that's all you pay.</p>
+      <ul class="rules rv">
+        <li><b>Simple repairs:</b> fixed within the first service time, with parts under $25 pre-approved, so no delay.</li>
+        <li><b>Bigger jobs:</b> parts over $25 or more time, we send a detailed estimate first. Approve or decline.</li>
+        <li><b>Additional labor:</b> $120/hr, billed in 15-minute increments.</li>
+      </ul>
+    </div>
+    <form class="panel rv" id="calcf" onsubmit="return false">
+      <fieldset>
+        <legend>What are you dropping off?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="kind" value="120" checked><span>Amp, mixer, pedal, DJ gear, hi-fi<small>$120 deposit · first 30 minutes</small></span></label>
+          <label class="opt"><input type="radio" name="kind" value="180"><span>Keyboard or synth over 36 keys<small>$180 deposit · first hour</small></span></label>
+          <label class="opt"><input type="radio" name="kind" value="120" data-pair><span>Studio monitors or passive speakers<small>Treated as a pair · $120 deposit</small></span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>How many?</legend>
+        <div class="opts" style="grid-template-columns:repeat(4,1fr)">
+          <label class="opt"><input type="radio" name="qty" value="1" checked>1</label>
+          <label class="opt"><input type="radio" name="qty" value="2">2</label>
+          <label class="opt"><input type="radio" name="qty" value="3">3</label>
+          <label class="opt"><input type="radio" name="qty" value="4">4</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <label class="opt"><input type="checkbox" name="rush"><span>Add Rush Service<small>+$100 · a tech evaluates it within 24 hours</small></span></label>
+      </fieldset>
+      <div class="total"><span id="tnote">Due at drop-off. Parts availability and shipping can affect total repair time.</span><b id="tot">$120</b></div>
+    </form>
+  </div>
+</section>
+
+<section class="warranty" id="warranty" aria-labelledby="wa-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="wa-h"><span class="mask"><span>Under</span></span><span class="mask"><span>warranty?</span></span></h2>
+      <p class="rv">We're a factory authorized service center. Valid warranty claims are repaired at no cost (shipping may be excluded). Bring your proof of purchase, and check with the manufacturer first.</p>
+    </div>
+    <div class="wall rv">
+      <span>ADAM Audio</span><span>Aguilar</span><span>Allen &amp; Heath</span><span>AlphaTheta</span><span>Ampeg</span><span>Bogner Pedals</span><span>Casio</span><span>Diezel</span><span>Digitech</span><span>DOD</span><span>Egnater</span><span>Focusrite</span><span>Friedman</span><span>KORG</span><span>Kurzweil</span><span>Line 6</span><span>Mackie</span><span>Marshall</span><span>Morgan</span><span>Nord</span><span>Novation</span><span>Pioneer DJ</span><span>QSC</span><span>Randall</span><span>Revv</span><span>Roland</span><span>Schertler</span><span>Soldano</span><span>Soundcraft</span><span>Studer</span><span>Studiologic</span><span>Supro</span><span>Synergy</span><span>Tascam</span><span>Tone King</span><span>Vox</span><span>Wampler</span><span>Yamaha</span>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit" aria-labelledby="vi-h">
+  <div class="wrap grid">
+    <div>
+      <h2 id="vi-h"><span class="mask"><span>Find the</span></span><span class="mask"><span><em>white ramp.</em></span></span></h2>
+      <address>10007 Aurora Ave N<br>Seattle, WA 98133</address>
+      <p class="tip rv"><b>Parking</b> is in the lot behind the building. Enter through the door at the top of the white ramp and head to the front desk.</p>
+      <div class="row">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Condor+Electronics+10007+Aurora+Ave+N+Seattle+WA+98133" rel="noopener">Open in Maps</a>
+        <a class="btn line" href="mailto:info@condor-electronics.com">Email</a>
+        <a class="btn line" href="https://www.instagram.com/condor_electronics/" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="status" id="status"><i></i><span>Mon–Fri, 10 to 6</span></div>
+      <ul class="hrs">
+        <li><span>Monday – Friday</span><span>10am – 6pm</span></li>
+        <li><span>Saturday</span><span>Closed</span></li>
+        <li><span>Sunday</span><span>Closed</span></li>
+      </ul>
+    </div>
+  </div>
+  <a class="big" href="tel:+12066335190">206·633·5190</a>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Condor Electronics · 10007 Aurora Ave N, Seattle, WA 98133</span>
+    <span>Concept redesign by Theo, not the official site. Logo, policies and brand list from <a href="https://www.condor-electronics.com/" rel="noopener">condor-electronics.com</a>.</span>
+  </div>
+</footer>
+
+<div class="callbar"><a class="call" href="tel:+12066335190">Call Condor</a><a href="#calc">Drop-off</a></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+  document.querySelectorAll('.rv, .mask').forEach(el => io.observe(el));
+
+  // VU needle follows scroll speed, settles back
+  const needle = document.getElementById('needle'); let last = scrollY, lvl = 0, raf;
+  const decay = () => { lvl *= .9; needle.style.transform = `rotate(${-50 + lvl}deg)`; if (lvl > .5) raf = requestAnimationFrame(decay); };
+  if (!reduce) addEventListener('scroll', () => { lvl = Math.min(95, lvl + Math.abs(scrollY - last) * .35); last = scrollY; cancelAnimationFrame(raf); raf = requestAnimationFrame(decay); }, {passive:true});
+  else needle.style.transform = 'rotate(0deg)';
+
+  // deposit calculator (their published policy)
+  const f = document.getElementById('calcf'), tot = document.getElementById('tot'), note = document.getElementById('tnote');
+  const calc = () => {
+    const k = f.querySelector('[name=kind]:checked'), q = +f.querySelector('[name=qty]:checked').value, pair = k.hasAttribute('data-pair');
+    const units = pair ? Math.ceil(q / 2) : q;
+    const sum = units * +k.value + (f.rush.checked ? 100 : 0);
+    tot.textContent = '$' + sum;
+    note.textContent = (pair ? `${q} speaker${q > 1 ? 's' : ''} = ${units} pair${units > 1 ? 's' : ''}. ` : '') + 'Due at drop-off.' + (f.rush.checked ? ' Rush covers evaluation within 24 hours.' : '');
+  };
+  f.addEventListener('change', calc); calc();
+
+  // live status
+  const now = new Date(new Date().toLocaleString('en-US', {timeZone:'America/Los_Angeles'}));
+  const d = now.getDay(), h = now.getHours() + now.getMinutes() / 60, st = document.getElementById('status');
+  if (d >= 1 && d <= 5 && h >= 10 && h < 18) { st.classList.add('open'); st.querySelector('span').textContent = 'Open now, until 6pm'; }
+  else st.querySelector('span').textContent = 'Closed now · opens ' + ((d >= 1 && d <= 5 && h < 10) ? 'today' : (d === 5 || d === 6) ? 'Monday' : 'tomorrow') + ' at 10am';
+})();
+</script>
+</body>
+</html>
