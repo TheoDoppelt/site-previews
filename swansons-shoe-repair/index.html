@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swanson's Shoe Repair: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Swanson's Shoe Repair, family owned since 1928. Resoles, heels, zippers, stretching and Birkenstock rebuilds at 2305 N. 45th Street in Wallingford, Seattle.">
+<meta property="og:title" content="Swanson's Shoe Repair: Website Concept">
+<meta property="og:description" content="Family owned since 1928. Wallingford's cobbler, with real prices, hours and the shop's own photos.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/swansons-shoe-repair/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Palette: shop-bench green (their workbenches and cubbies), cream, leather brown accent */
+:root{
+  --bg:#f3ede2; --surface:#e7decd; --ink:#1d1a16; --muted:#5c5348;
+  --primary:#24402f; --accent:#9a4a22; --on-primary:#f3ede2; --on-accent:#fff;
+  --serif:'DM Serif Display', 'Iowan Old Style', Georgia, serif;
+  --sans:'Karla', 'Helvetica Neue', Arial, sans-serif;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:72px}
+img{display:block;max-width:100%}
+a{color:inherit}
+.preview{background:var(--ink);color:#e9e1d2;font-size:13px;text-align:center;padding:8px 14px}
+.preview a{color:#fff}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(40px,6.4vw,84px)}
+em{font-style:italic}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:16px;transition:background .2s,color .2s}
+.btn-light{background:var(--bg);color:var(--ink)}
+.btn-light:hover{background:#fff}
+.btn-line{border:1.5px solid currentColor}
+.btn-line:hover{background:rgba(255,255,255,.12)}
+.btn-acc{background:var(--accent);color:var(--on-accent)}
+.btn-acc:hover{background:#7f3b19}
+
+/* HERO: full-bleed shop photo, headline on it */
+.hero{padding:14px 14px 0}
+.hero-frame{position:relative;border-radius:var(--r);overflow:hidden;min-height:min(88vh,860px);display:flex;align-items:flex-end;color:#fff}
+.hero-frame img{position:absolute;inset:-6% 0 0 0;width:100%;height:112%;object-fit:cover;object-position:50% 40%;will-change:transform}
+.hero-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,14,.45) 0%,rgba(15,20,14,0) 28%,rgba(15,20,14,.1) 50%,rgba(15,20,14,.82) 100%)}
+.nav{position:absolute;top:18px;left:22px;right:22px;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.word{font-family:var(--serif);font-size:24px;line-height:1;color:#fff;text-decoration:none}
+.word small{display:block;font:500 12px/1.4 var(--sans);opacity:.85;letter-spacing:.02em}
+.pill{display:flex;gap:4px;background:rgba(243,237,226,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:6px}
+.pill a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;padding:8px 14px;border-radius:999px}
+.pill a:hover{background:#fff}
+.hero-copy{position:relative;z-index:2;padding:0 clamp(22px,5vw,64px) clamp(30px,5vw,60px);max-width:900px}
+.hero h1{font-size:clamp(58px,10.5vw,156px);line-height:.92}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:inline-block}
+.hero p{max-width:520px;margin:18px 0 26px;font-size:18px;color:#f1ece2}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.marquee{overflow:hidden;background:var(--primary);color:var(--on-primary);border-radius:0 0 var(--r) var(--r);margin-top:-1px}
+.marquee div{display:flex;width:max-content;gap:38px;padding:13px 0;font-family:var(--serif);font-size:22px;animation:mq 40s linear infinite}
+.marquee span:nth-child(even){color:#c98c5d}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* STATEMENT + cut-out shoe */
+.statement{text-align:center;padding:clamp(80px,12vw,150px) 0 0;position:relative}
+.statement h2{max-width:900px;margin:0 auto}
+.statement p{max-width:600px;margin:22px auto 0;color:var(--muted);font-size:18px}
+.shoe{width:min(720px,94vw);margin:40px auto -120px;position:relative;z-index:2;filter:drop-shadow(0 30px 30px rgba(40,25,10,.28))}
+.shoe img{width:100%;will-change:transform}
+.shoe figcaption{text-align:center;font-size:14px;color:#e3d9c6;margin-top:4px}
+
+/* HISTORY dark band, scattered machine photos */
+.history{background:var(--primary);color:var(--on-primary);padding:clamp(170px,20vw,220px) 0 clamp(80px,10vw,120px)}
+.hist{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:clamp(20px,3vw,44px);align-items:center}
+.hist h2{text-align:center}
+.hist .mid p{margin-top:22px;color:#d9d6c9;text-align:center}
+.hist figure{border-radius:var(--r);overflow:hidden;position:relative}
+.hist figure img{width:100%;aspect-ratio:2/3;object-fit:cover}
+.hist figure figcaption{position:absolute;left:12px;bottom:12px;background:rgba(243,237,226,.92);color:var(--ink);font-size:13px;padding:5px 12px;border-radius:999px}
+.hist .f2{margin-top:120px}
+.years{display:flex;justify-content:center;gap:clamp(20px,5vw,70px);margin-top:70px;padding-top:36px;border-top:1px solid rgba(243,237,226,.2);text-align:center;flex-wrap:wrap}
+.years b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,6vw,72px);line-height:1;color:#e3b48c}
+.years span{font-size:14px;color:#cfcbbd}
+
+/* PRICES: real price list finder */
+.prices{padding:clamp(80px,11vw,140px) 0}
+.ph-head{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end;margin-bottom:38px}
+.ph-head p{color:var(--muted)}
+.finder{background:#fbf8f2;border-radius:var(--r);padding:clamp(18px,3vw,34px);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:18px}
+.tab{font:500 15px var(--sans);border:1.5px solid #d5cab6;background:transparent;color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer}
+.tab[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.tab:focus-visible,.search:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.search{flex:1 1 220px;font:16px var(--sans);padding:10px 16px;border:1.5px solid #d5cab6;border-radius:999px;background:#fff;color:var(--ink)}
+.rows{list-style:none}
+.rows li{display:flex;justify-content:space-between;gap:18px;padding:15px 4px;border-bottom:1px solid #e6dccb;align-items:baseline}
+.rows li[hidden]{display:none}
+.rows .n{font-size:17px}
+.rows .n small{display:block;color:var(--muted);font-size:14px}
+.rows .p{font-family:var(--serif);font-size:24px;white-space:nowrap;color:var(--accent)}
+.empty{padding:20px 4px;color:var(--muted)}
+.note{margin-top:18px;font-size:14px;color:var(--muted)}
+.dont{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.dont span{font-size:14px;background:var(--surface);padding:7px 14px;border-radius:999px}
+
+/* WORK bento */
+.work{background:var(--surface);padding:clamp(80px,11vw,130px) 0}
+.work h2{margin-bottom:40px;max-width:760px}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
+.bento figure{position:relative;border-radius:var(--r);overflow:hidden;background:#d9cfbc}
+.bento img{width:100%;height:100%;object-fit:cover}
+.bento figcaption{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(29,26,22,.78);color:#f3ede2;font-size:13.5px;line-height:1.35;padding:8px 12px;border-radius:14px}
+.b1{grid-column:span 2;grid-row:span 2}
+.b2{grid-column:span 2}
+.btext{background:var(--ink)!important;color:var(--bg);padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+.btext p{font-family:var(--serif);font-size:28px;line-height:1.1}
+.btext a{color:#e3b48c;font-weight:700;text-decoration:none}
+
+/* VISIT split */
+.visit{padding:clamp(80px,11vw,140px) 0}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.vphoto{border-radius:var(--r);overflow:hidden}
+.vphoto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.status{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;background:var(--surface);padding:8px 16px;border-radius:999px;margin:22px 0 10px}
+.dot{width:10px;height:10px;border-radius:50%;background:#9a9283}
+.status.open .dot{background:#2f8a4f}
+.hours{list-style:none;margin:10px 0 26px;max-width:420px}
+.hours li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ddd2bf}
+.hours li.today{font-weight:700}
+.addr{font-size:19px;margin-bottom:8px}
+.muted{color:var(--muted)}
+.carry{margin-top:26px;font-size:15px;color:var(--muted)}
+
+/* FOOTER giant phone */
+footer{background:var(--ink);color:#e9e1d2;padding:clamp(70px,10vw,110px) 0 40px;overflow:hidden}
+.big{font-family:var(--serif);font-size:clamp(50px,11vw,170px);line-height:.95;color:#f3ede2;text-decoration:none;display:block}
+.big:hover{color:#e3b48c}
+.fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(233,225,210,.2);font-size:15px}
+.ghost{font-family:var(--serif);font-size:clamp(70px,19vw,290px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(233,225,210,.22);white-space:nowrap;margin-top:50px;text-align:center}
+.fnote{font-size:13px;color:#b9b0a1;margin-top:20px}
+
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;background:var(--accent);color:#fff;border-radius:999px;text-align:center;padding:15px;font-weight:700;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+
+/* motion */
+html.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+html.js .rv.in{opacity:1;transform:none}
+html.js .hero h1 .ln>span{transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+html.js .hero.go h1 .ln>span{transform:none}
+html.js .hero h1 .ln:nth-child(2)>span{transition-delay:.12s}
+@media (prefers-reduced-motion:reduce){
+  html.js .rv,html.js .hero h1 .ln>span{opacity:1!important;transform:none!important;transition:none!important}
+  .marquee div{animation:none}
+  .hero-frame img,.shoe img{transform:none!important}
+}
+
+@media (max-width:860px){
+  .pill{display:none}
+  .hist{grid-template-columns:1fr 1fr}
+  .hist .mid{grid-column:1/-1;order:-1;margin-bottom:10px}
+  .hist .f2{margin-top:60px}
+  .ph-head,.vgrid{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .b1{grid-column:span 2}
+  .callbar{display:block}
+}
+@media (max-width:480px){
+  .hero-frame{min-height:84vh}
+  .bento{grid-auto-rows:150px}
+  .btext p{font-size:22px}
+  .rows .p{font-size:20px}
+  .shoe{margin-bottom:-70px}
+  .history{padding-top:120px}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Swanson's Shoe Repair site. <a href="https://swansonsshoerepair.com/">See their real site</a>.</div>
+
+<header class="hero" id="top">
+  <div class="hero-frame">
+    <img src="img/hero.jpg" alt="Boots waiting on the shelf above the finishing machine at Swanson's" id="heroImg">
+    <nav class="nav" aria-label="Main">
+      <a class="word" href="#top">Swanson's<small>Shoe Repair · Wallingford</small></a>
+      <div class="pill"><a href="#prices">Prices</a><a href="#work">Our work</a><a href="#story">History</a><a href="#visit">Hours</a></div>
+    </nav>
+    <div class="hero-copy">
+      <h1><span class="ln"><span>Family owned</span></span><span class="ln"><span><em>since 1928.</em></span></span></h1>
+      <p>Resoles, heels, zippers, stretching, Birkenstock rebuilds, bags and belts. Done by hand on N. 45th Street in Wallingford.</p>
+      <div class="cta">
+        <a class="btn btn-light" href="tel:+12066333434">Call (206) 633-3434</a>
+        <a class="btn btn-line" href="#prices">See repair prices</a>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div>
+    <span>Full soles</span><span>Heels</span><span>Zippers</span><span>Stretching</span><span>Birkenstock rebuilds</span><span>Bags &amp; belts</span><span>Shoe shine</span><span>Orthopedic lifts</span>
+    <span>Full soles</span><span>Heels</span><span>Zippers</span><span>Stretching</span><span>Birkenstock rebuilds</span><span>Bags &amp; belts</span><span>Shoe shine</span><span>Orthopedic lifts</span>
+  </div></div>
+</header>
+
+<main>
+<section class="statement">
+  <div class="wrap">
+    <h2 class="rv">No appointments. <em>Bring it in</em> and we'll look at it in the shop.</h2>
+    <p class="rv">Most work takes around three weeks from drop-off. We often finish ahead of schedule, but plan to leave your shoes with us until the due date we give you.</p>
+  </div>
+  <figure class="shoe rv"><img src="img/church-cut.webp" alt="Church's dress shoe with a new JR leather full sole and combination heel" id="shoe"><figcaption>Church's with JR full sole and combination heel</figcaption></figure>
+</section>
+
+<section class="history" id="story">
+  <div class="wrap">
+    <div class="hist">
+      <figure class="f1 rv"><img src="img/landis.jpg" alt="The shop's Landis outsole stitcher"><figcaption>Landis stitcher</figcaption></figure>
+      <div class="mid rv">
+        <h2>From one <em>clog-maker</em> to a shop of seven.</h2>
+        <p>Swedish immigrant Bjorn "George" Swanson repaired boots for the U.S. Army in World War I, then opened Progressive Shoe Repair downtown in 1928. In 1947 the shop moved to Wallingford as Swanson's Shoe Repair, where it still stands. Three more generations of Swansons have trained and worked here since.</p>
+      </div>
+      <figure class="f2 rv"><img src="img/mckay.jpg" alt="The shop's McKay stitcher for Blake stitching"><figcaption>McKay stitcher</figcaption></figure>
+    </div>
+    <div class="years rv">
+      <div><b>1928</b><span>Progressive Shoe Repair opens downtown</span></div>
+      <div><b>1947</b><span>Moves to Wallingford as Swanson's</span></div>
+      <div><b>4</b><span>generations of Swansons at the bench</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="prices" id="prices">
+  <div class="wrap">
+    <div class="ph-head">
+      <h2 class="rv">What will it <em>cost?</em></h2>
+      <p class="rv">Our most common repairs. Prices are approximate and change with the condition of the shoe and the material it needs. We carry Vibram composite soles, JR leather soles and all original Birkenstock material.</p>
+    </div>
+    <div class="finder rv">
+      <div class="tools" role="group" aria-label="Filter repairs">
+        <button class="tab" aria-pressed="true" data-c="all">All</button>
+        <button class="tab" aria-pressed="false" data-c="sole">Soles &amp; heels</button>
+        <button class="tab" aria-pressed="false" data-c="zip">Zippers &amp; straps</button>
+        <button class="tab" aria-pressed="false" data-c="fit">Stretching</button>
+        <button class="tab" aria-pressed="false" data-c="birk">Birkenstock</button>
+        <button class="tab" aria-pressed="false" data-c="bag">Bags &amp; belts</button>
+        <button class="tab" aria-pressed="false" data-c="care">Care</button>
+        <input class="search" type="search" placeholder="Search a repair, e.g. zipper" aria-label="Search repairs">
+      </div>
+      <ul class="rows" id="rows">
+        <li data-c="sole"><span class="n">Standard walking heels</span><span class="p">$40+</span></li>
+        <li data-c="sole"><span class="n">Stiletto-type heels</span><span class="p">$25+</span></li>
+        <li data-c="sole"><span class="n">New half-soles<small>The portion under the ball of the foot</small></span><span class="p">$65</span></li>
+        <li data-c="sole"><span class="n">Protective zip sole</span><span class="p">$40–$50</span></li>
+        <li data-c="sole"><span class="n">Mirrored protective soles</span><span class="p">$65</span></li>
+        <li data-c="sole"><span class="n">Full soles, dress shoes</span><span class="p">$130+</span></li>
+        <li data-c="sole"><span class="n">Full soles with JR leather</span><span class="p">$220</span></li>
+        <li data-c="sole"><span class="n">Full soles, work boots</span><span class="p">$130+</span></li>
+        <li data-c="sole"><span class="n">Full soles, Red Wing style wedge sole</span><span class="p">$135+</span></li>
+        <li data-c="sole"><span class="n">Orthopedic adjustments<small>Prescription from a medical professional required</small></span><span class="p">Varies</span></li>
+        <li data-c="zip"><span class="n">New zipper, standard coil</span><span class="p">$50</span></li>
+        <li data-c="zip"><span class="n">New zipper, metal teeth</span><span class="p">$75</span></li>
+        <li data-c="zip"><span class="n">Equestrian boot zipper<small>Must be completely clean, or a $75 cleaning fee applies</small></span><span class="p">$95+</span></li>
+        <li data-c="zip"><span class="n">New Velcro, 2 straps</span><span class="p">$36</span></li>
+        <li data-c="zip"><span class="n">New Velcro, 4 straps</span><span class="p">$45</span></li>
+        <li data-c="zip"><span class="n">New elastic, 2 straps</span><span class="p">$30</span></li>
+        <li data-c="zip"><span class="n">New elastic, 4 straps</span><span class="p">$45+</span></li>
+        <li data-c="fit"><span class="n">Stretching, width</span><span class="p">$30</span></li>
+        <li data-c="fit"><span class="n">Stretching, length</span><span class="p">$30</span></li>
+        <li data-c="fit"><span class="n">Stretching, width &amp; length</span><span class="p">$40</span></li>
+        <li data-c="fit"><span class="n">Stretching, instep</span><span class="p">$40</span></li>
+        <li data-c="fit"><span class="n">Stretching, calf</span><span class="p">$50</span></li>
+        <li data-c="birk"><span class="n">Birkenstock new soles<small>Depends on size and condition of the cork</small></span><span class="p">$65+</span></li>
+        <li data-c="birk"><span class="n">New cork footbed and new soles</span><span class="p">$100 / $110 soft</span></li>
+        <li data-c="bag"><span class="n">Bag or purse rips</span><span class="p">$20+</span></li>
+        <li data-c="bag"><span class="n">Bag zipper</span><span class="p">$110+</span></li>
+        <li data-c="bag"><span class="n">New straps</span><span class="p">$60+</span></li>
+        <li data-c="bag"><span class="n">Shortening a belt</span><span class="p">$30+</span></li>
+        <li data-c="care"><span class="n">Shoe shine</span><span class="p">$15+</span></li>
+        <li data-c="care"><span class="n">Water-protection</span><span class="p">$25–$50</span></li>
+        <li data-c="care"><span class="n">Cleaning, shoes and boots</span><span class="p">$55–$100</span></li>
+        <li data-c="care"><span class="n">Cleaning, purse</span><span class="p">$110+</span></li>
+      </ul>
+      <p class="empty" id="empty" hidden>Not on the list? Bring it in and we'll take a look.</p>
+      <p class="note">We also stock shoe care from Obenauf's, Gear Aid and Cadence Insoles.</p>
+      <div class="dont"><span>We do not repair luggage (we recommend T. W. Carrol)</span><span>No custom dyeing or spraying</span><span>No hiking or climbing boot resoles</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <h2 class="rv">Recent work off <em>the bench.</em></h2>
+    <div class="bento">
+      <figure class="b1 rv"><img src="img/wolverine.jpg" alt="Wolverine 1000 Mile boot with a new Vibram Fineline sole"><figcaption>Wolverine 1000 Mile boot with Vibram Fineline full sole and heel</figcaption></figure>
+      <figure class="rv"><img src="img/birk.jpg" alt="Rebuilt Birkenstock sandal"><figcaption>Birkenstock rebuild</figcaption></figure>
+      <figure class="rv"><img src="img/bag.jpg" alt="Leather bag with a new zipper"><figcaption>Bag with new zipper</figcaption></figure>
+      <figure class="rv"><img src="img/vibram.jpg" alt="Clarks with a Vibram Gumlite full sole"><figcaption>Clarke's with Vibram Gumlite full sole conversion</figcaption></figure>
+      <div class="btext rv"><p>Soles, heels and stitching, done on machines older than most of our customers.</p><a href="#prices">See prices →</a></div>
+      <figure class="b2 rv"><img src="img/heels.jpg" alt="Cubbies of heel blocks and sole material"><figcaption>Soles and other materials</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap vgrid">
+    <div class="vphoto rv"><img src="img/bench.jpg" alt="A shoe on the last at the work bench"></div>
+    <div class="rv">
+      <h2>Come by <em>the shop.</em></h2>
+      <div class="status" id="status" aria-live="polite"><span class="dot"></span><span id="statusText">Hours</span></div>
+      <ul class="hours" id="hours">
+        <li data-d="3"><span>Wednesday</span><span>10am – 6pm</span></li>
+        <li data-d="4"><span>Thursday</span><span>10am – 6pm</span></li>
+        <li data-d="5"><span>Friday</span><span>10am – 6pm</span></li>
+        <li data-d="6"><span>Saturday</span><span>8am – 4pm</span></li>
+        <li data-d="0,1,2"><span>Sunday – Tuesday</span><span>Closed to the public</span></li>
+      </ul>
+      <p class="addr">2305 N. 45th Street, Seattle, WA 98103</p>
+      <p class="muted">In Wallingford, west of I-5 between the University District and Fremont.</p>
+      <div class="cta" style="margin-top:22px">
+        <a class="btn btn-acc" href="tel:+12066333434">Call (206) 633-3434</a>
+        <a class="btn btn-line" href="https://maps.google.com/?q=Swanson%27s+Shoe+Repair+2305+N+45th+St+Seattle+WA+98103">Get directions</a>
+      </div>
+      <p class="carry">Social links: <span class="ph">Instagram / Facebook to confirm</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Questions about a repair? Call the shop.</p>
+    <a class="big" href="tel:+12066333434">(206) 633-3434</a>
+    <div class="fgrid">
+      <div>Swanson's Shoe Repair<br>2305 N. 45th Street, Seattle, WA 98103</div>
+      <div>Wed – Fri 10am – 6pm<br>Sat 8am – 4pm</div>
+      <div><a href="#prices">Prices</a> · <a href="#work">Our work</a> · <a href="#story">History</a></div>
+    </div>
+    <p class="fnote">Concept redesign by Theo, not the official Swanson's Shoe Repair site. Photos and history from <a href="https://swansonsshoerepair.com/">swansonsshoerepair.com</a>.</p>
+  </div>
+  <div class="ghost" aria-hidden="true">Swanson's</div>
+</footer>
+<a class="callbar" href="tel:+12066333434">Call Swanson's · (206) 633-3434</a>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero=document.querySelector('.hero');
+  requestAnimationFrame(function(){hero.classList.add('go')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  if(!reduce){
+    var hi=document.getElementById('heroImg'),sh=document.getElementById('shoe'),tick=false;
+    addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){
+      var y=scrollY;if(y<1200)hi.style.transform='translateY('+(y*0.18)+'px)';
+      var r=sh.getBoundingClientRect(),c=(r.top+r.height/2-innerHeight/2)/innerHeight;
+      sh.style.transform='translateY('+(c*-50)+'px) rotate('+(c*-4)+'deg)';tick=false;})},{passive:true});
+  }
+  // price finder
+  var tabs=[].slice.call(document.querySelectorAll('.tab')),rows=[].slice.call(document.querySelectorAll('#rows li')),q=document.querySelector('.search'),cat='all';
+  function apply(){var s=q.value.trim().toLowerCase(),n=0;rows.forEach(function(r){var ok=(cat==='all'||r.dataset.c===cat)&&(!s||r.textContent.toLowerCase().indexOf(s)>-1);r.hidden=!ok;if(ok)n++});document.getElementById('empty').hidden=n>0}
+  tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t)});cat=t.dataset.c;apply()})});
+  q.addEventListener('input',apply);
+  // open now, from their posted hours (Seattle time)
+  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+  var open={3:[10,18],4:[10,18],5:[10,18],6:[8,16]}[d],st=document.getElementById('status'),tx=document.getElementById('statusText');
+  if(open&&h>=open[0]&&h<open[1]){st.classList.add('open');tx.textContent='Open now'}else{tx.textContent='Closed right now'}
+  document.querySelectorAll('#hours li').forEach(function(li){if(li.dataset.d.split(',').indexOf(String(d))>-1)li.classList.add('today')});
+})();
+</script>
+</body>
+</html>

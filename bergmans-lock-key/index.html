@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bergman's Lock and Key: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Bergman's Lock and Key, a family owned Seattle locksmith since 1958. Rekeying, digital deadbolts, door closers, safes and commercial hardware.">
+<meta property="og:title" content="Bergman's Lock and Key: Website Concept">
+<meta property="og:description" content="Family owned and operated since 1958. Securing Seattle and the Pacific Northwest.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/bergmans-lock-key/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Albert+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Palette: key-blue navy (mascot outline), toolbox red, paper cream */
+:root{
+  --bg:#f5f1e8; --surface:#e3ebf1; --ink:#14212e; --muted:#566370;
+  --primary:#14304b; --accent:#d23a3a; --sky:#5fb7e5;
+  --on-primary:#f5f1e8; --on-accent:#fff;
+  --serif:'Young Serif','Iowan Old Style',Georgia,serif;
+  --sans:'Albert Sans','Helvetica Neue',Arial,sans-serif;
+  --r:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:76px}
+img{display:block;max-width:100%}
+a{color:inherit}
+.preview{background:var(--ink);color:#e8eef3;font-size:13px;text-align:center;padding:8px 14px}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:-.015em}
+h2{font-size:clamp(40px,6vw,80px)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:16px;transition:background .2s}
+.btn-acc{background:var(--accent);color:var(--on-accent)}
+.btn-acc:hover{background:#b52c2c}
+.btn-line{border:1.5px solid currentColor}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+
+/* HERO: mascot center, staggered serif words */
+.hero{background:var(--primary);color:var(--on-primary);position:relative;overflow:visible}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:16px}
+.mark{font-family:var(--serif);font-size:24px;text-decoration:none}
+.nav .links{display:flex;gap:24px;font-weight:500;font-size:15px}
+.nav .links a{text-decoration:none;opacity:.85}
+.nav .links a:hover{opacity:1}
+.stage{position:relative;height:clamp(520px,68vw,760px);margin-top:10px}
+.w{position:absolute;font-family:var(--serif);line-height:.9;white-space:nowrap;font-size:clamp(64px,12vw,184px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.w1{left:0;top:4%}
+.w2{right:0;top:30%;text-align:right}
+.w3{left:8%;top:56%;color:var(--sky)}
+.w2 em{font-style:normal;color:var(--sky)}
+.mascot{position:absolute;left:50%;top:50%;width:clamp(160px,19vw,250px);transform:translate(-50%,-46%);z-index:2;filter:drop-shadow(0 24px 30px rgba(0,0,0,.35))}
+.mascot img{width:100%;image-rendering:auto}
+.blurb{position:absolute;right:0;bottom:6%;max-width:330px;font-size:16px;color:#d6e1ea;z-index:3}
+.blurb .btn{margin-top:16px}
+.seal{position:absolute;left:0;bottom:4%;width:120px;height:120px;z-index:3}
+.seal svg{width:100%;height:100%;animation:spin 30s linear infinite}
+.seal b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-size:28px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* STATEMENT with scattered photos */
+.scatter{padding:clamp(90px,12vw,160px) 0;position:relative}
+.scatter .center{max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.scatter p{color:var(--muted);margin-top:22px;font-size:18px}
+.ph1,.ph2,.ph3{border-radius:var(--r);overflow:hidden;box-shadow:0 18px 40px rgba(20,33,46,.18)}
+.ph1 img,.ph2 img,.ph3 img{width:100%;height:100%;object-fit:cover}
+.photos{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:20px;align-items:start;margin:60px auto 0;max-width:960px}
+.ph1{aspect-ratio:4/5;transform:rotate(-2deg)}
+.ph2{aspect-ratio:4/3;margin-top:60px}
+.ph3{aspect-ratio:4/5;transform:rotate(2deg)}
+.photos figcaption{font-size:14px;color:var(--muted);margin-top:10px;text-align:center}
+
+/* WHAT WE DO: two-column rows on surface */
+.do{background:var(--surface);padding:clamp(80px,11vw,140px) 0}
+.dogrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px)}
+.do h2{margin-bottom:26px}
+.rows{list-style:none}
+.rows li{font-family:var(--serif);font-size:clamp(24px,2.6vw,34px);padding:14px 0;border-bottom:1px solid #c9d5df;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.rows li span{font:500 14px var(--sans);color:var(--muted);text-align:right}
+.do .who{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px}
+.do .who span{background:var(--bg);border-radius:999px;padding:7px 15px;font-size:14px;font-weight:500}
+.do p.lead{color:var(--muted);margin-bottom:10px}
+
+/* BRANDS dark band */
+.brands{background:var(--ink);color:var(--on-primary);padding:clamp(70px,9vw,110px) 0;overflow:hidden}
+.brands h2{text-align:center;font-size:clamp(34px,4.6vw,60px);max-width:820px;margin:0 auto 46px}
+.bl{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;font-family:var(--serif);font-size:clamp(30px,4.4vw,58px);line-height:1.1}
+.bl span:nth-child(3n+2){color:var(--sky)}
+.bl span:nth-child(3n){color:#f0b2a8}
+.warn{max-width:640px;margin:56px auto 0;text-align:center;color:#b9c6d2;font-size:16px;border-top:1px solid rgba(245,241,232,.18);padding-top:28px}
+
+/* VISIT */
+.visit{padding:clamp(80px,11vw,140px) 0}
+.vgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start}
+.status{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;background:var(--surface);padding:8px 16px;border-radius:999px;margin:24px 0 8px}
+.dot{width:10px;height:10px;border-radius:50%;background:#8b96a0}
+.status.open .dot{background:#22894a}
+.status.lunch .dot{background:#e0a21b}
+.hours{list-style:none;margin:10px 0 24px}
+.hours li{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid #ddd5c6}
+.card{background:var(--primary);color:var(--on-primary);border-radius:var(--r);padding:clamp(26px,3vw,40px)}
+.card h3{font-size:34px;margin-bottom:16px}
+.card p{color:#d6e1ea;margin-bottom:8px}
+.card a.plain{color:#fff}
+.card .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+footer{background:var(--primary);color:var(--on-primary);padding:clamp(70px,9vw,110px) 0 40px;overflow:hidden;border-top:1px solid rgba(245,241,232,.1)}
+.bigtel{font-family:var(--serif);font-size:clamp(54px,12vw,190px);line-height:.95;text-decoration:none;display:block}
+.bigtel:hover{color:var(--sky)}
+.fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(245,241,232,.2);font-size:15px;color:#d6e1ea}
+.fnote{font-size:13px;color:#a8b6c3;margin-top:22px}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;background:var(--accent);color:#fff;border-radius:999px;text-align:center;padding:15px;font-weight:700;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+/* motion */
+html.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+html.js .rv.in{opacity:1;transform:none}
+html.js .w{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.2,.7,.2,1)}
+html.js .go .w{clip-path:inset(0 0 -10% 0)}
+html.js .go .w2{transition-delay:.12s} html.js .go .w3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){
+  html.js .rv{opacity:1!important;transform:none!important;transition:none!important}
+  html.js .w{clip-path:none!important;transition:none!important}
+  .seal svg{animation:none}
+  .mascot{transform:translate(-50%,-46%)!important}
+}
+@media (max-width:860px){
+  .nav .links{display:none}
+  .stage{height:auto;display:flex;flex-direction:column;padding-bottom:40px}
+  .w{position:static;font-size:clamp(52px,15vw,100px);white-space:normal}
+  .nav .btn{display:none}
+  .w2{text-align:right}
+  .mascot{position:relative;left:auto;top:auto;transform:none!important;margin:-10px auto -6px;width:150px}
+  .blurb{position:static;max-width:none;margin-top:24px}
+  .seal{display:none}
+  .photos{grid-template-columns:1fr 1fr}
+  .ph2{grid-column:1/-1;order:-1;margin-top:0}
+  .dogrid,.vgrid{grid-template-columns:1fr}
+  .callbar{display:block}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Bergman's Lock and Key site. <a href="https://www.bergmanslockandkey.com/">See their real site</a>.</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="mark" href="#top">Bergman's Lock and Key</a>
+      <div class="links"><a href="#do">What we do</a><a href="#brands">Brands</a><a href="#visit">Hours</a></div>
+      <a class="btn btn-acc" href="tel:+12063235300">(206) 323-5300</a>
+    </nav>
+    <div class="stage">
+      <h1 class="sr">Bergman's Lock and Key: securing Seattle since 1958, family run</h1>
+      <div class="w w1" aria-hidden="true">Securing</div>
+      <div class="mascot" id="mascot"><img src="img/logo.png" alt="Bergman's key mascot carrying a red toolbox" width="173" height="216"></div>
+      <div class="w w2" aria-hidden="true">Seattle <em>since</em></div>
+      <div class="w w3" aria-hidden="true">1958</div>
+      <div class="blurb">Family owned and operated, proudly securing Seattle and the Pacific Northwest for over 60 years.<br><a class="btn btn-acc" href="tel:+12063235300">Call (206) 323-5300</a></div>
+      <div class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text fill="#f5f1e8" font-family="Albert Sans,Arial" font-size="11.5" letter-spacing="3.2"><textPath href="#c">FAMILY OWNED · SEATTLE · SINCE 1958 ·</textPath></text></svg><b>60+</b></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="scatter">
+  <div class="wrap">
+    <div class="center">
+      <h2 class="rv">From the Canadian border down to Centralia.</h2>
+      <p class="rv">And as far east as the Cascade Mountains. Bring a key, a lock or a question to the shop, or call and we'll talk through your options for your home or commercial space.</p>
+    </div>
+    <div class="photos">
+      <figure class="rv"><div class="ph1"><img src="img/keys.jpg" alt="A pile of vintage brass keys and old locks on the workbench"></div><figcaption>Old locks, older keys</figcaption></figure>
+      <figure class="rv"><div class="ph2"><img src="img/shop.jpg" alt="The front of the Bergman's Lock and Key shop"></div><figcaption>The shop <span class="ph">confirm current address</span></figcaption></figure>
+      <figure class="rv"><div class="ph3"><img src="img/wall.jpg" alt="A wall of key blanks"></div><figcaption>Our expansive key selection</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="do" id="do">
+  <div class="wrap dogrid">
+    <div>
+      <h2 class="rv">What we do.</h2>
+      <p class="lead rv">From rekeying your house, apartment doors or mailboxes to installing digital deadbolts and new hardware for higher security.</p>
+      <ul class="rows">
+        <li class="rv">Rekeying<span>Houses, apartments, mailboxes</span></li>
+        <li class="rv">Digital deadbolts<span>Supplied and installed</span></li>
+        <li class="rv">Safes<span>Service and advice</span></li>
+        <li class="rv">Mortise locks<span>Old and new</span></li>
+      </ul>
+      <div class="who rv"><span>Residential</span><span>Commercial</span><span>Bank</span><span>Government</span><span>Safes</span></div>
+    </div>
+    <div>
+      <h2 class="rv">In the shop.</h2>
+      <p class="lead rv">Over a hundred years of combined locksmith knowledge behind the counter. Come in and we'll advise you on the options.</p>
+      <ul class="rows">
+        <li class="rv">Digital door locks</li>
+        <li class="rv">Door closers</li>
+        <li class="rv">Latch guards</li>
+        <li class="rv">Emergency exit devices</li>
+        <li class="rv">Commercial &amp; residential hardware</li>
+        <li class="rv">Key accessories</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="brands" id="brands">
+  <div class="wrap">
+    <h2 class="rv">The hardware we support.</h2>
+    <div class="bl rv"><span>Medeco</span><span>Best</span><span>Corbin</span><span>Russwin</span><span>Schlage</span><span>Kwikset</span><span>Weiser</span><span>Trilogy</span><span>Alarm Lock</span></div>
+    <p class="warn rv">When shopping for locksmiths, beware of scams. Ask for the price up front: many companies use bait-and-switch tactics to overcharge their customers.</p>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap vgrid">
+    <div class="rv">
+      <h2>Shop hours.</h2>
+      <div class="status" id="status"><span class="dot"></span><span id="st">Hours</span></div>
+      <ul class="hours">
+        <li><span>Monday – Thursday</span><b>7:00 am – 5:29 pm</b></li>
+        <li><span>Closed for lunch</span><b>11:30 am – 12:30 pm</b></li>
+        <li><span>Friday – Sunday</span><b><span class="ph">confirm</span></b></li>
+      </ul>
+    </div>
+    <div class="card rv">
+      <h3>Get in touch</h3>
+      <p><span class="ph">1712 S Jackson St, Seattle, WA 98144 (confirm: a recent review says the shop moved)</span></p>
+      <p><a class="plain" href="tel:+12063235300">(206) 323-5300</a></p>
+      <p><a class="plain" href="mailto:TheShop@BergmansLockandKey.com">TheShop@BergmansLockandKey.com</a></p>
+      <div class="cta"><a class="btn btn-acc" href="tel:+12063235300">Call the shop</a><a class="btn btn-line" href="mailto:TheShop@BergmansLockandKey.com">Email us</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Call or come in to talk about your security needs.</p>
+    <a class="bigtel" href="tel:+12063235300">(206) 323-5300</a>
+    <div class="fgrid">
+      <div>Bergman's Lock and Key<br>Family owned since 1958</div>
+      <div>Mon – Thu 7:00 am – 5:29 pm<br>Lunch 11:30 – 12:30</div>
+      <div><a href="mailto:TheShop@BergmansLockandKey.com">TheShop@BergmansLockandKey.com</a></div>
+    </div>
+    <p class="fnote">Concept redesign by Theo, not the official Bergman's Lock and Key site. Logo and photos from <a href="https://www.bergmanslockandkey.com/">bergmanslockandkey.com</a>.</p>
+  </div>
+</footer>
+<a class="callbar" href="tel:+12063235300">Call Bergman's · (206) 323-5300</a>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(function(){document.querySelector('.hero').classList.add('go')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var m=document.getElementById('mascot'),t=false;
+  if(!reduce&&innerWidth>860){addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){var y=Math.min(scrollY,700);m.style.transform='translate(-50%,calc(-46% + '+(y*0.35)+'px)) rotate('+(y*0.02)+'deg)';t=false})},{passive:true})}
+  var n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=n.getDay(),h=n.getHours()+n.getMinutes()/60,s=document.getElementById('status'),x=document.getElementById('st');
+  if(d>=1&&d<=4&&h>=7&&h<17.49){if(h>=11.5&&h<12.5){s.classList.add('lunch');x.textContent='Out to lunch, back at 12:30'}else{s.classList.add('open');x.textContent='Open now'}}else{x.textContent='Closed right now'}
+})();
+</script>
+</body>
+</html>

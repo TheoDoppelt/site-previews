@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ballard Lock &amp; Key: Website Concept</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Ballard Lock & Key, Seattle's mobile locksmith since 1963. Lockouts, re-keying, deadbolts and master key systems, 7 days a week from 7 AM to 11 PM. Shop at 2232 NW Market St.">
+<meta property="og:title" content="Ballard Lock &amp; Key: Website Concept">
+<meta property="og:description" content="Seattle's mobile locksmith since 1963. In most cases at your door within 30 minutes.">
+<meta property="og:url" content="https://theodoppelt.github.io/site-previews/ballard-lock-key/">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap" rel="stylesheet">
+<style>
+/* Palette: night-shift charcoal, brass key yellow (from their logo's yellow), Ballard sail-white, logo green as a small accent */
+:root{
+  --bg:#f3f1ea; --surface:#e6e2d5; --ink:#121518; --muted:#565b60;
+  --primary:#121518; --accent:#e3ad2b; --green:#1f7a4a;
+  --on-primary:#f3f1ea; --on-accent:#121518;
+  --cond:'Barlow Condensed','Arial Narrow','Roboto Condensed',sans-serif;
+  --sans:'Nunito Sans','Helvetica Neue',Arial,sans-serif;
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:76px}
+img{display:block;max-width:100%}
+a{color:inherit}
+.preview{background:var(--accent);color:var(--ink);font-size:13px;text-align:center;padding:8px 14px}
+.wrap{width:min(1200px,92vw);margin:0 auto}
+h1,h2,h3{font-family:var(--cond);font-weight:700;line-height:.92;letter-spacing:-.005em;text-transform:none}
+h2{font-size:clamp(46px,7.5vw,104px)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 26px;font-weight:800;text-decoration:none;font-size:16px;transition:background .2s,color .2s}
+.btn-acc{background:var(--accent);color:var(--on-accent)}
+.btn-acc:hover{background:#f2c24c}
+.btn-line{border:1.5px solid currentColor}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+.btn-ink{background:var(--ink);color:var(--bg)}
+
+/* HERO type-led, dark */
+.hero{background:var(--primary);color:var(--on-primary);position:relative;overflow:hidden}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:20px}
+.mark{font-family:var(--cond);font-weight:700;font-size:28px;line-height:1;text-decoration:none;letter-spacing:.01em}
+.mark span{color:var(--accent)}
+.links{display:flex;gap:26px;font-weight:600;font-size:15px}
+.links a{text-decoration:none;opacity:.85}
+.links a:hover{opacity:1;color:var(--accent)}
+.hgrid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,60px);align-items:end;padding:clamp(40px,7vw,90px) 0 clamp(50px,7vw,90px)}
+.hero h1{font-size:clamp(64px,9.4vw,150px);line-height:.86}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ln>span{display:inline-block}
+.hero h1 .y{color:var(--accent)}
+.hero p.lede{font-size:clamp(18px,1.6vw,21px);max-width:540px;margin:28px 0 30px;color:#d6d4cc}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.side{display:flex;flex-direction:column;gap:18px}
+.big30{border-top:1px solid rgba(243,241,234,.2);padding-top:18px}
+.big30 b{font-family:var(--cond);font-size:clamp(90px,11vw,170px);line-height:.8;color:var(--accent);display:block}
+.big30 span{font-size:15px;color:#c9c7bf}
+.side figure{border-radius:var(--r);overflow:hidden}
+.side img{width:100%;aspect-ratio:4/3;object-fit:cover;will-change:transform}
+.side figcaption{font-size:13px;color:#a9a79f;margin-top:8px}
+
+/* STRIP: two kinds of hours, live */
+.strip{background:var(--accent);color:var(--ink)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr)}
+.sgrid>div{padding:22px 24px;border-right:1px solid rgba(18,21,24,.18)}
+.sgrid>div:last-child{border-right:0}
+.sgrid b{font-family:var(--cond);font-size:30px;line-height:1;display:block}
+.sgrid small{font-size:14px;font-weight:600}
+.live{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;margin-top:6px}
+.dot{width:10px;height:10px;border-radius:50%;background:#6a6a6a;box-shadow:0 0 0 3px rgba(18,21,24,.12)}
+.on .dot{background:var(--green)}
+
+/* SERVICES: rows with sticky heading */
+.services{padding:clamp(80px,11vw,140px) 0}
+.svgrid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(30px,5vw,80px)}
+.svhead{position:sticky;top:30px;align-self:start}
+.svhead p{color:var(--muted);margin-top:20px;max-width:420px}
+.svhead .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.svhead .tags span{font-size:14px;font-weight:600;background:var(--surface);padding:7px 14px;border-radius:999px}
+.list{list-style:none;counter-reset:s}
+.list li{display:grid;grid-template-columns:56px 1fr;align-items:baseline;padding:20px 0;border-bottom:1px solid #d6d1c2;counter-increment:s}
+.list li:before{content:counter(s,decimal-leading-zero);font-family:var(--cond);font-weight:600;color:#8b8a82;font-size:20px}
+.list b{font-family:var(--cond);font-size:clamp(28px,3vw,38px);font-weight:600;line-height:1}
+.list small{display:block;color:var(--muted);font-size:15px;margin-top:4px}
+
+/* REVIEWS dark, offset quotes */
+.reviews{background:var(--primary);color:var(--on-primary);padding:clamp(80px,11vw,140px) 0}
+.rhead{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+.rating b{font-family:var(--cond);font-size:clamp(80px,10vw,140px);line-height:.8;color:var(--accent)}
+.rating span{display:block;color:#c9c7bf;font-size:15px}
+.quotes{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.q{background:#1c2024;border-radius:var(--r);padding:30px;font-size:17px;color:#e5e3dc}
+.q cite{display:block;margin-top:16px;font-style:normal;font-weight:800;color:var(--accent)}
+.q1{grid-column:1/8}.q2{grid-column:8/13;background:var(--accent);color:var(--ink)}.q2 cite{color:var(--ink)}
+.q3{grid-column:1/6}.q4{grid-column:6/13}
+.q.lg{font-family:var(--cond);font-size:clamp(28px,2.8vw,38px);line-height:1.08;font-weight:600}
+
+/* SCAM CHECK centered + 3 numbered */
+.scam{padding:clamp(80px,11vw,140px) 0;text-align:center}
+.scam h2{max-width:900px;margin:0 auto}
+.scam>.wrap>p{max-width:640px;margin:22px auto 0;color:var(--muted)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;text-align:left;border-top:2px solid var(--ink)}
+.three div{padding:26px 26px 0 0}
+.three b{font-family:var(--cond);font-size:64px;line-height:1;color:var(--accent);-webkit-text-stroke:1px var(--ink)}
+.three h3{font-size:32px;margin:6px 0 8px}
+.three p{color:var(--muted);font-size:16px}
+
+/* AREAS + VISIT split on surface */
+.visit{background:var(--surface);padding:clamp(80px,11vw,130px) 0}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px)}
+.areas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.areas span{font-family:var(--cond);font-size:26px;font-weight:600;background:var(--bg);padding:6px 18px;border-radius:999px}
+.card{background:var(--bg);border-radius:var(--r);padding:clamp(24px,3vw,40px)}
+.card h3{font-size:40px;margin-bottom:12px}
+.hrow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #d6d1c2;gap:14px}
+.card .small{font-size:14px;color:var(--muted);margin-top:14px}
+
+/* FOOTER */
+footer{background:var(--primary);color:var(--on-primary);padding:clamp(70px,9vw,110px) 0 40px;overflow:hidden}
+.bigtel{font-family:var(--cond);font-weight:700;font-size:clamp(64px,15vw,240px);line-height:.85;color:var(--accent);text-decoration:none;display:block}
+.bigtel:hover{color:#f2c24c}
+.fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(243,241,234,.2);font-size:15px;color:#d6d4cc}
+.fnote{font-size:13px;color:#a9a79f;margin-top:22px}
+.callbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none;background:var(--accent);color:var(--ink);border-radius:999px;text-align:center;padding:15px;font-weight:800;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+/* motion */
+html.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+html.js .rv.in{opacity:1;transform:none}
+html.js .hero h1 .ln>span{transform:translateY(102%);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+html.js .go h1 .ln>span{transform:none}
+html.js .hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
+html.js .hero h1 .ln:nth-child(3)>span{transition-delay:.2s}
+@media (prefers-reduced-motion:reduce){
+  html.js .rv,html.js .hero h1 .ln>span{opacity:1!important;transform:none!important;transition:none!important}
+  .side img{transform:none!important}
+}
+@media (max-width:900px){
+  .links{display:none}
+  .nav .btn{display:none}
+  .hgrid,.svgrid,.vgrid{grid-template-columns:1fr}
+  .svhead{position:static}
+  .sgrid{grid-template-columns:1fr}
+  .sgrid>div{border-right:0;border-bottom:1px solid rgba(18,21,24,.18);padding:16px 4vw}
+  .q1,.q2,.q3,.q4{grid-column:1/-1}
+  .three{grid-template-columns:1fr}
+  .callbar{display:block}
+}
+</style>
+</head>
+<body>
+<div class="preview">Concept redesign by Theo, not the official Ballard Lock &amp; Key site. <a href="https://ballardlockandkey.com/">See their real site</a>.</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="mark" href="#top">Ballard Lock <span>&amp;</span> Key</a>
+      <div class="links"><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#scams">Avoid scams</a><a href="#visit">Hours &amp; shop</a></div>
+      <a class="btn btn-acc" href="tel:+12067836360">(206) 783-6360</a>
+    </nav>
+    <div class="hgrid">
+      <div>
+        <h1><span class="ln"><span>Locked out?</span></span><span class="ln"><span class="y">Seattle's</span></span><span class="ln"><span>locksmith since 1963.</span></span></h1>
+        <p class="lede">Mobile locksmiths for homes, cars and businesses from South Seattle to Lynnwood, 7 days a week from 7 AM to 11 PM. Licensed, bonded and insured.</p>
+        <div class="cta">
+          <a class="btn btn-acc" href="tel:+12067836360">Call (206) 783-6360</a>
+          <a class="btn btn-line" href="#visit">Visit the shop on Market St</a>
+        </div>
+      </div>
+      <div class="side">
+        <div class="big30 rv"><b>30 min</b><span>In most cases, one of our mobile locksmiths is at your door within 30 minutes of your call.</span></div>
+        <figure class="rv"><img id="cyl" src="img/cyl.jpg" alt="A Ballard Lock & Key locksmith re-pinning a lock cylinder at the bench"><figcaption>Re-keying a cylinder in the shop</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="sgrid">
+    <div><b>Mobile service</b><small>Every day, 7:00 AM – 11:00 PM</small><div class="live" id="mob"><span class="dot"></span><span>Checking…</span></div></div>
+    <div><b>In-shop</b><small>Mon – Fri, 10:00 AM – 5:00 PM</small><div class="live" id="shop"><span class="dot"></span><span>Checking…</span></div></div>
+    <div><b>2232 NW Market St</b><small>In the heart of Ballard, Seattle 98117</small><div class="live"><a href="https://maps.google.com/?q=Ballard+Lock+%26+Key+2232+NW+Market+St+Seattle+WA+98117">Get directions →</a></div></div>
+  </div>
+</div>
+
+<main>
+<section class="services" id="services">
+  <div class="wrap svgrid">
+    <div class="svhead">
+      <h2 class="rv">Homes, cars, storefronts.</h2>
+      <p class="rv">Our vans are stocked with locks and hardware for most jobs, so the locksmith who shows up can usually finish it on the spot. Bring smaller jobs to the shop on Market Street.</p>
+      <div class="tags rv"><span>Residential</span><span>Commercial</span><span>Automotive</span><span>Emergency lockouts</span></div>
+    </div>
+    <ol class="list">
+      <li class="rv"><div><b>Emergency service</b><small>Locked out of your car, home or business.</small></div></li>
+      <li class="rv"><div><b>Lost keys replaced</b></div></li>
+      <li class="rv"><div><b>Home locks re-keyed</b><small>New keys for the locks you already have.</small></div></li>
+      <li class="rv"><div><b>Businesses re-keyed</b></div></li>
+      <li class="rv"><div><b>Deadbolt installation</b></div></li>
+      <li class="rv"><div><b>Master key systems</b></div></li>
+      <li class="rv"><div><b>Security upgrades</b></div></li>
+      <li class="rv"><div><b>Vandalism repair</b></div></li>
+      <li class="rv"><div><b>Custom latch guards</b></div></li>
+      <li class="rv"><div><b>Door closer repair</b></div></li>
+      <li class="rv"><div><b>Door re-alignment</b></div></li>
+      <li class="rv"><div><b>Lock repair</b></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="rhead">
+      <h2 class="rv">In their words.</h2>
+      <div class="rating rv"><b>4.9</b><span>Google rating, as posted on our reviews page <span class="ph">confirm current count</span></span></div>
+    </div>
+    <div class="quotes">
+      <blockquote class="q q1 lg rv">"Oh man, these guys really saved my bacon. My keys were locked in my car, and I had a can't miss appointment. Within 12 minutes, there were there, popped the door open, and even charged a reasonable fee."<cite>Mary L.</cite></blockquote>
+      <blockquote class="q q2 rv">"If you want super knowledgeable folks and friendly service, this is the place! As the owner of an old house here in Ballard (1926), my doors are weird, nonstandard (tough to find) dimensions. The people at Ballard Lock and Key sent me home with new hardware that fit great. Also, since I was planning to install the items, they gave me pointers that really helped!"<cite>Cindy R</cite></blockquote>
+      <blockquote class="q q3 rv">"Professional in every way! Punctual in arriving. Expert knowledge and great analytical skills. Very precise in his problem solving – no wasted time. All needed tools and parts were either in his bag or in his truck!"<cite>John B.</cite></blockquote>
+      <blockquote class="q q4 rv">"The locksmith arrived within 20 minutes of the call, picked my lock without damage, allowing entry almost immediately and came in $15 less than the estimate quoted. … I'm very thankful, and satisfied – it was a positive experience considering it was a Seattle snow day."<cite>Sandra K.</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="scam" id="scams">
+  <div class="wrap">
+    <h2 class="rv">Ask any locksmith three questions.</h2>
+    <p class="rv">Lots of "$15 locksmith" listings use local numbers and fake addresses, then send you to a distant call center. An honest shop answers these without hesitating.</p>
+    <div class="three">
+      <div class="rv"><b>1</b><h3>What's the exact price?</h3><p>An honest locksmith gives you an exact quote for the service you're asking for.</p></div>
+      <div class="rv"><b>2</b><h3>Where are you located?</h3><p>We're at 2232 NW Market St in Ballard, and have been part of the neighborhood for decades.</p></div>
+      <div class="rv"><b>3</b><h3>What's your legal name?</h3><p>Ballard Lock &amp; Key. Companies that won't say who they are tend to hang up here.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap vgrid">
+    <div>
+      <h2 class="rv">All of Seattle, up to Lynnwood.</h2>
+      <div class="areas rv"><span>Ballard</span><span>Magnolia</span><span>West Seattle</span><span>University District</span><span>Lake Forest Park</span><span>Mountlake Terrace</span><span>Shoreline</span><span>Edmonds</span><span>Lynnwood</span></div>
+    </div>
+    <div class="card rv">
+      <h3>Hours</h3>
+      <div class="hrow"><span>Mobile locksmiths</span><b>Daily 7 AM – 11 PM</b></div>
+      <div class="hrow"><span>Shop, 2232 NW Market St</span><b>Mon – Fri 10 AM – 5 PM</b></div>
+      <p class="small">Shop and mobile hours are different. In the shop, please use cash for purchases of $5 and under. Closed major holidays.</p>
+      <div class="cta" style="margin-top:22px"><a class="btn btn-ink" href="tel:+12067836360">Call (206) 783-6360</a><a class="btn btn-line" href="https://www.yelp.com/biz/ballard-lock-and-key-seattle">Yelp reviews</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Locked out right now? Call.</p>
+    <a class="bigtel" href="tel:+12067836360">206-783-6360</a>
+    <div class="fgrid">
+      <div>Ballard Lock &amp; Key<br>2232 NW Market St, Seattle, WA 98117</div>
+      <div>Mobile: daily 7 AM – 11 PM<br>Shop: Mon – Fri 10 AM – 5 PM</div>
+      <div>Licensed, bonded &amp; insured<br>Serving Seattle since 1963</div>
+    </div>
+    <p class="fnote">Concept redesign by Theo, not the official Ballard Lock &amp; Key site. Photo, reviews and details from <a href="https://ballardlockandkey.com/">ballardlockandkey.com</a>.</p>
+  </div>
+</footer>
+<a class="callbar" href="tel:+12067836360">Locked out? Call (206) 783-6360</a>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(function(){document.querySelector('.hero').classList.add('go')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  if(!reduce){var c=document.getElementById('cyl'),t=false;addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){var y=scrollY;if(y<1000)c.style.transform='scale(1.08) translateY('+(y*0.05)+'px)';t=false})},{passive:true})}
+  var n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Los_Angeles'})),d=n.getDay(),h=n.getHours()+n.getMinutes()/60;
+  function set(id,on,yes,no){var el=document.getElementById(id);if(on)el.classList.add('on');el.lastChild.textContent=on?yes:no}
+  set('mob',h>=7&&h<23,'Locksmiths on the road now','Back on the road at 7 AM');
+  set('shop',d>=1&&d<=5&&h>=10&&h<17,'Shop open now','Shop closed right now');
+})();
+</script>
+</body>
+</html>
